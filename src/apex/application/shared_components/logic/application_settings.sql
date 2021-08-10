@@ -8,17 +8,17 @@ wwv_flow_api.component_begin (
 ,p_release=>'21.1.0'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>34214513418261287
+,p_default_id_offset=>68429026836522574
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_app_setting(
- p_id=>wwv_flow_api.id(23983621060910221)
+ p_id=>wwv_flow_api.id(10230892357351066)
 ,p_name=>'FEEDBACK_ATTACHMENTS_YN'
 ,p_value=>'Y'
 ,p_is_required=>'N'
 ,p_valid_values=>'Y, N'
 ,p_on_upgrade_keep_value=>true
-,p_required_patch=>wwv_flow_api.id(23983305720910217)
+,p_required_patch=>wwv_flow_api.id(10231207697351070)
 );
 wwv_flow_api.component_end;
 end;

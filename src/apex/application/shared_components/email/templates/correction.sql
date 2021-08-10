@@ -8,11 +8,11 @@ wwv_flow_api.component_begin (
 ,p_release=>'21.1.0'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>34214513418261287
+,p_default_id_offset=>68429026836522574
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_email_template(
- p_id=>wwv_flow_api.id(15763455729311690)
+ p_id=>wwv_flow_api.id(18451057688949597)
 ,p_name=>'CORRECTION'
 ,p_static_id=>'CORRECTION'
 ,p_subject=>'Correction Survey'

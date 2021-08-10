@@ -8,11 +8,11 @@ wwv_flow_api.component_begin (
 ,p_release=>'21.1.0'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>34214513418261287
+,p_default_id_offset=>68429026836522574
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_template(
- p_id=>wwv_flow_api.id(15422319178972539)
+ p_id=>wwv_flow_api.id(18792194239288748)
 ,p_theme_id=>42
 ,p_name=>'Marquee'
 ,p_internal_name=>'MASTER_DETAIL'
@@ -198,8 +198,8 @@ wwv_flow_api.create_template(
 ,p_reference_id=>1996914646461572319
 );
 wwv_flow_api.create_page_tmpl_display_point(
- p_id=>wwv_flow_api.id(9978057038508363)
-,p_page_template_id=>wwv_flow_api.id(15422319178972539)
+ p_id=>wwv_flow_api.id(24236456379752924)
+,p_page_template_id=>wwv_flow_api.id(18792194239288748)
 ,p_name=>'Content Body'
 ,p_placeholder=>'BODY'
 ,p_has_grid_support=>true
@@ -207,16 +207,16 @@ wwv_flow_api.create_page_tmpl_display_point(
 ,p_max_fixed_grid_columns=>8
 );
 wwv_flow_api.create_page_tmpl_display_point(
- p_id=>wwv_flow_api.id(9978576819508363)
-,p_page_template_id=>wwv_flow_api.id(15422319178972539)
+ p_id=>wwv_flow_api.id(24235936598752924)
+,p_page_template_id=>wwv_flow_api.id(18792194239288748)
 ,p_name=>'Breadcrumb Bar'
 ,p_placeholder=>'REGION_POSITION_01'
 ,p_has_grid_support=>false
 ,p_glv_new_row=>true
 );
 wwv_flow_api.create_page_tmpl_display_point(
- p_id=>wwv_flow_api.id(9979011347508363)
-,p_page_template_id=>wwv_flow_api.id(15422319178972539)
+ p_id=>wwv_flow_api.id(24235502070752924)
+,p_page_template_id=>wwv_flow_api.id(18792194239288748)
 ,p_name=>'Master Detail'
 ,p_placeholder=>'REGION_POSITION_02'
 ,p_has_grid_support=>true
@@ -224,8 +224,8 @@ wwv_flow_api.create_page_tmpl_display_point(
 ,p_max_fixed_grid_columns=>8
 );
 wwv_flow_api.create_page_tmpl_display_point(
- p_id=>wwv_flow_api.id(9979509977508363)
-,p_page_template_id=>wwv_flow_api.id(15422319178972539)
+ p_id=>wwv_flow_api.id(24235003440752924)
+,p_page_template_id=>wwv_flow_api.id(18792194239288748)
 ,p_name=>'Right Side Column'
 ,p_placeholder=>'REGION_POSITION_03'
 ,p_has_grid_support=>false
@@ -233,8 +233,8 @@ wwv_flow_api.create_page_tmpl_display_point(
 ,p_max_fixed_grid_columns=>4
 );
 wwv_flow_api.create_page_tmpl_display_point(
- p_id=>wwv_flow_api.id(9980096409508364)
-,p_page_template_id=>wwv_flow_api.id(15422319178972539)
+ p_id=>wwv_flow_api.id(24234417008752923)
+,p_page_template_id=>wwv_flow_api.id(18792194239288748)
 ,p_name=>'Inline Dialogs'
 ,p_placeholder=>'REGION_POSITION_04'
 ,p_has_grid_support=>true
@@ -242,8 +242,8 @@ wwv_flow_api.create_page_tmpl_display_point(
 ,p_max_fixed_grid_columns=>12
 );
 wwv_flow_api.create_page_tmpl_display_point(
- p_id=>wwv_flow_api.id(9980568233508364)
-,p_page_template_id=>wwv_flow_api.id(15422319178972539)
+ p_id=>wwv_flow_api.id(24233945184752923)
+,p_page_template_id=>wwv_flow_api.id(18792194239288748)
 ,p_name=>'Footer'
 ,p_placeholder=>'REGION_POSITION_05'
 ,p_has_grid_support=>true
@@ -251,24 +251,24 @@ wwv_flow_api.create_page_tmpl_display_point(
 ,p_max_fixed_grid_columns=>8
 );
 wwv_flow_api.create_page_tmpl_display_point(
- p_id=>wwv_flow_api.id(9981012886508364)
-,p_page_template_id=>wwv_flow_api.id(15422319178972539)
+ p_id=>wwv_flow_api.id(24233500531752923)
+,p_page_template_id=>wwv_flow_api.id(18792194239288748)
 ,p_name=>'Page Navigation'
 ,p_placeholder=>'REGION_POSITION_06'
 ,p_has_grid_support=>false
 ,p_glv_new_row=>true
 );
 wwv_flow_api.create_page_tmpl_display_point(
- p_id=>wwv_flow_api.id(9981562418508364)
-,p_page_template_id=>wwv_flow_api.id(15422319178972539)
+ p_id=>wwv_flow_api.id(24232950999752923)
+,p_page_template_id=>wwv_flow_api.id(18792194239288748)
 ,p_name=>'Page Header'
 ,p_placeholder=>'REGION_POSITION_07'
 ,p_has_grid_support=>false
 ,p_glv_new_row=>true
 );
 wwv_flow_api.create_page_tmpl_display_point(
- p_id=>wwv_flow_api.id(9982089572508365)
-,p_page_template_id=>wwv_flow_api.id(15422319178972539)
+ p_id=>wwv_flow_api.id(24232423845752922)
+,p_page_template_id=>wwv_flow_api.id(18792194239288748)
 ,p_name=>'Before Content Body'
 ,p_placeholder=>'REGION_POSITION_08'
 ,p_has_grid_support=>true

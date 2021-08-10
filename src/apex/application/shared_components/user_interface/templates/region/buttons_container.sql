@@ -8,11 +8,11 @@ wwv_flow_api.component_begin (
 ,p_release=>'21.1.0'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>34214513418261287
+,p_default_id_offset=>68429026836522574
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_plug_template(
- p_id=>wwv_flow_api.id(15440983131972553)
+ p_id=>wwv_flow_api.id(18773530286288734)
 ,p_layout=>'TABLE'
 ,p_template=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '<div class="t-ButtonRegion t-Form--floatLeft #REGION_CSS_CLASSES#" id="#REGION_STATIC_ID#" #REGION_ATTRIBUTES#>',
@@ -40,8 +40,8 @@ wwv_flow_api.create_plug_template(
 ,p_template_comment=>'Red Theme'
 );
 wwv_flow_api.create_plug_tmpl_display_point(
- p_id=>wwv_flow_api.id(10023378754508400)
-,p_plug_template_id=>wwv_flow_api.id(15440983131972553)
+ p_id=>wwv_flow_api.id(24191134663752887)
+,p_plug_template_id=>wwv_flow_api.id(18773530286288734)
 ,p_name=>'Region Body'
 ,p_placeholder=>'BODY'
 ,p_has_grid_support=>true
@@ -49,8 +49,8 @@ wwv_flow_api.create_plug_tmpl_display_point(
 ,p_max_fixed_grid_columns=>12
 );
 wwv_flow_api.create_plug_tmpl_display_point(
- p_id=>wwv_flow_api.id(10023865361508401)
-,p_plug_template_id=>wwv_flow_api.id(15440983131972553)
+ p_id=>wwv_flow_api.id(24190648056752886)
+,p_plug_template_id=>wwv_flow_api.id(18773530286288734)
 ,p_name=>'Sub Regions'
 ,p_placeholder=>'SUB_REGIONS'
 ,p_has_grid_support=>true

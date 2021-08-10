@@ -5,11 +5,11 @@ wwv_flow_api.component_begin (
 ,p_release=>'21.1.0'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>34214513418261287
+,p_default_id_offset=>68429026836522574
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_plugin_setting(
- p_id=>wwv_flow_api.id(283929015734)
+ p_id=>wwv_flow_api.id(34214229489245553)
 ,p_plugin_type=>'ITEM TYPE'
 ,p_plugin=>'NATIVE_DATE_PICKER_JET'
 ,p_attribute_01=>'MONTH-PICKER:YEAR-PICKER'
@@ -17,33 +17,33 @@ wwv_flow_api.create_plugin_setting(
 ,p_attribute_03=>'15'
 );
 wwv_flow_api.create_plugin_setting(
- p_id=>wwv_flow_api.id(1183878661331815)
+ p_id=>wwv_flow_api.id(33030634756929472)
 ,p_plugin_type=>'ITEM TYPE'
 ,p_plugin=>'NATIVE_SINGLE_CHECKBOX'
 ,p_attribute_01=>'Y'
 ,p_attribute_02=>'N'
 );
 wwv_flow_api.create_plugin_setting(
- p_id=>wwv_flow_api.id(15411039720972506)
+ p_id=>wwv_flow_api.id(18803473697288781)
 ,p_plugin_type=>'REGION TYPE'
 ,p_plugin=>'NATIVE_CSS_CALENDAR'
 );
 wwv_flow_api.create_plugin_setting(
- p_id=>wwv_flow_api.id(15411237508972508)
+ p_id=>wwv_flow_api.id(18803275909288779)
 ,p_plugin_type=>'ITEM TYPE'
 ,p_plugin=>'NATIVE_COLOR_PICKER'
 ,p_attribute_01=>'FULL'
 ,p_attribute_02=>'POPUP'
 );
 wwv_flow_api.create_plugin_setting(
- p_id=>wwv_flow_api.id(15411584168972508)
+ p_id=>wwv_flow_api.id(18802929249288779)
 ,p_plugin_type=>'ITEM TYPE'
 ,p_plugin=>'NATIVE_STAR_RATING'
 ,p_attribute_01=>'fa-star'
 ,p_attribute_04=>'#VALUE#'
 );
 wwv_flow_api.create_plugin_setting(
- p_id=>wwv_flow_api.id(15411857638972508)
+ p_id=>wwv_flow_api.id(18802655779288779)
 ,p_plugin_type=>'ITEM TYPE'
 ,p_plugin=>'NATIVE_YES_NO'
 ,p_attribute_01=>'Y'
@@ -51,25 +51,25 @@ wwv_flow_api.create_plugin_setting(
 ,p_attribute_05=>'SWITCH_CB'
 );
 wwv_flow_api.create_plugin_setting(
- p_id=>wwv_flow_api.id(15412189511972509)
+ p_id=>wwv_flow_api.id(18802323906288778)
 ,p_plugin_type=>'REGION TYPE'
 ,p_plugin=>'NATIVE_DISPLAY_SELECTOR'
 ,p_attribute_01=>'Y'
 );
 wwv_flow_api.create_plugin_setting(
- p_id=>wwv_flow_api.id(15412435304972509)
+ p_id=>wwv_flow_api.id(18802078113288778)
 ,p_plugin_type=>'ITEM TYPE'
 ,p_plugin=>'NATIVE_RICH_TEXT_EDITOR'
 ,p_attribute_01=>'Y'
 );
 wwv_flow_api.create_plugin_setting(
- p_id=>wwv_flow_api.id(15412785897972509)
+ p_id=>wwv_flow_api.id(18801727520288778)
 ,p_plugin_type=>'REGION TYPE'
 ,p_plugin=>'NATIVE_IR'
 ,p_attribute_01=>'IG'
 );
 wwv_flow_api.create_plugin_setting(
- p_id=>wwv_flow_api.id(16112761702153948)
+ p_id=>wwv_flow_api.id(18101751716107339)
 ,p_plugin_type=>'REGION TYPE'
 ,p_plugin=>'PLUGIN_DE.DANIELH.DROPZONE2'
 ,p_attribute_01=>'Drop files here or click to upload.'

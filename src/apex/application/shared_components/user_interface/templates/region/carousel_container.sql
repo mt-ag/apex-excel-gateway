@@ -8,11 +8,11 @@ wwv_flow_api.component_begin (
 ,p_release=>'21.1.0'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>34214513418261287
+,p_default_id_offset=>68429026836522574
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_plug_template(
- p_id=>wwv_flow_api.id(15443110296972555)
+ p_id=>wwv_flow_api.id(18771403121288732)
 ,p_layout=>'TABLE'
 ,p_template=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '<div class="t-Region t-Region--carousel #REGION_CSS_CLASSES#" id="#REGION_STATIC_ID#" #REGION_ATTRIBUTES#>',
@@ -62,8 +62,8 @@ wwv_flow_api.create_plug_template(
 ,p_translate_this_template=>'N'
 );
 wwv_flow_api.create_plug_tmpl_display_point(
- p_id=>wwv_flow_api.id(10028156067508405)
-,p_plug_template_id=>wwv_flow_api.id(15443110296972555)
+ p_id=>wwv_flow_api.id(24186357350752882)
+,p_plug_template_id=>wwv_flow_api.id(18771403121288732)
 ,p_name=>'Region Body'
 ,p_placeholder=>'BODY'
 ,p_has_grid_support=>true
@@ -71,8 +71,8 @@ wwv_flow_api.create_plug_tmpl_display_point(
 ,p_max_fixed_grid_columns=>12
 );
 wwv_flow_api.create_plug_tmpl_display_point(
- p_id=>wwv_flow_api.id(10028681782508405)
-,p_plug_template_id=>wwv_flow_api.id(15443110296972555)
+ p_id=>wwv_flow_api.id(24185831635752882)
+,p_plug_template_id=>wwv_flow_api.id(18771403121288732)
 ,p_name=>'Slides'
 ,p_placeholder=>'SUB_REGIONS'
 ,p_has_grid_support=>true

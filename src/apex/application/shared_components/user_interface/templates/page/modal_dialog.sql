@@ -8,11 +8,11 @@ wwv_flow_api.component_begin (
 ,p_release=>'21.1.0'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>34214513418261287
+,p_default_id_offset=>68429026836522574
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_template(
- p_id=>wwv_flow_api.id(15425482401972542)
+ p_id=>wwv_flow_api.id(18789031016288745)
 ,p_theme_id=>42
 ,p_name=>'Modal Dialog'
 ,p_internal_name=>'MODAL_DIALOG'
@@ -143,8 +143,8 @@ wwv_flow_api.create_template(
 ,p_reference_id=>2098960803539086924
 );
 wwv_flow_api.create_page_tmpl_display_point(
- p_id=>wwv_flow_api.id(9991385717508371)
-,p_page_template_id=>wwv_flow_api.id(15425482401972542)
+ p_id=>wwv_flow_api.id(24223127700752916)
+,p_page_template_id=>wwv_flow_api.id(18789031016288745)
 ,p_name=>'Content Body'
 ,p_placeholder=>'BODY'
 ,p_has_grid_support=>true
@@ -152,16 +152,16 @@ wwv_flow_api.create_page_tmpl_display_point(
 ,p_max_fixed_grid_columns=>12
 );
 wwv_flow_api.create_page_tmpl_display_point(
- p_id=>wwv_flow_api.id(9991867013508372)
-,p_page_template_id=>wwv_flow_api.id(15425482401972542)
+ p_id=>wwv_flow_api.id(24222646404752915)
+,p_page_template_id=>wwv_flow_api.id(18789031016288745)
 ,p_name=>'Dialog Header'
 ,p_placeholder=>'REGION_POSITION_01'
 ,p_has_grid_support=>false
 ,p_glv_new_row=>true
 );
 wwv_flow_api.create_page_tmpl_display_point(
- p_id=>wwv_flow_api.id(9992390651508372)
-,p_page_template_id=>wwv_flow_api.id(15425482401972542)
+ p_id=>wwv_flow_api.id(24222122766752915)
+,p_page_template_id=>wwv_flow_api.id(18789031016288745)
 ,p_name=>'Dialog Footer'
 ,p_placeholder=>'REGION_POSITION_03'
 ,p_has_grid_support=>false

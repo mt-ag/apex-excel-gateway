@@ -1,7 +1,7 @@
-prompt --application/shared_components/globalization/translations
+prompt --application/shared_components/security/app_access_control/administrator
 begin
 --   Manifest
---     TRANSLATIONS: 445
+--     ACL ROLE: ADMINISTRATOR
 --   Manifest End
 wwv_flow_api.component_begin (
  p_version_yyyy_mm_dd=>'2021.04.15'
@@ -11,7 +11,11 @@ wwv_flow_api.component_begin (
 ,p_default_id_offset=>68429026836522574
 ,p_default_owner=>'SURVEY_TOOL'
 );
-null;
+wwv_flow_api.create_acl_role(
+ p_id=>wwv_flow_api.id(34186845121775599)
+,p_static_id=>'ADMINISTRATOR'
+,p_name=>'ADMINISTRATOR'
+);
 wwv_flow_api.component_end;
 end;
 /

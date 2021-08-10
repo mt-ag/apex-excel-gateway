@@ -8,11 +8,11 @@ wwv_flow_api.component_begin (
 ,p_release=>'21.1.0'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>34214513418261287
+,p_default_id_offset=>68429026836522574
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_list_of_values(
- p_id=>wwv_flow_api.id(15572508689002499)
+ p_id=>wwv_flow_api.id(18642004729258788)
 ,p_lov_name=>'R_TEMPLATES'
 ,p_source_type=>'TABLE'
 ,p_location=>'LOCAL'
