@@ -22,7 +22,7 @@ wwv_flow_api.create_security_scheme(
 '    l_is_admin := APEX_ACL.HAS_USER_ROLE (',
 '                    p_application_id  => :APP_ID,',
 '                    p_user_name       => :APP_USER,',
-'                    p_role_static_id  => ''ADMINISTRATOR'' );',
+'                    p_role_static_id  => ''ADMINISTRATOR'');',
 '',
 '    return l_is_admin;',
 'end;',
