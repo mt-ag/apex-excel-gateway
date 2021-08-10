@@ -4,11 +4,11 @@ begin
 --     PAGE: 00028
 --   Manifest End
 wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2020.10.01'
-,p_release=>'20.2.0.00.20'
+ p_version_yyyy_mm_dd=>'2021.04.15'
+,p_release=>'21.1.0'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>0
+,p_default_id_offset=>34214513418261287
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_page(
@@ -130,6 +130,7 @@ wwv_flow_api.create_page_item(
 ,p_field_template=>wwv_flow_api.id(15528397114972615)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
+,p_attribute_01=>'Y'
 );
 wwv_flow_api.create_page_item(
  p_id=>wwv_flow_api.id(29558427646351533)
@@ -148,6 +149,7 @@ wwv_flow_api.create_page_item(
 ,p_field_template=>wwv_flow_api.id(15528397114972615)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
+,p_attribute_01=>'Y'
 );
 wwv_flow_api.create_page_da_event(
  p_id=>wwv_flow_api.id(29561991106351566)

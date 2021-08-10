@@ -4,11 +4,11 @@ begin
 --     PAGE: 00021
 --   Manifest End
 wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2020.10.01'
-,p_release=>'20.2.0.00.20'
+ p_version_yyyy_mm_dd=>'2021.04.15'
+,p_release=>'21.1.0'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>0
+,p_default_id_offset=>34214513418261287
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_page(
@@ -106,6 +106,7 @@ wwv_flow_api.create_report_region(
 ' where HEA_ID not in (9997,9998,9999) ',
 'order by HEA_text'))
 ,p_ajax_enabled=>'Y'
+,p_lazy_loading=>false
 ,p_query_row_template=>wwv_flow_api.id(16654338246449647)
 ,p_query_num_rows=>15
 ,p_query_options=>'DERIVED_REPORT_COLUMNS'
@@ -154,6 +155,7 @@ wwv_flow_api.create_report_region(
 'select seq_id, c003 as hea_text from apex_collections where collection_name = ''CREATE_TEMPLATE''',
 'order by seq_id'))
 ,p_ajax_enabled=>'Y'
+,p_lazy_loading=>false
 ,p_query_row_template=>wwv_flow_api.id(16653578665442017)
 ,p_query_num_rows=>15
 ,p_query_options=>'DERIVED_REPORT_COLUMNS'

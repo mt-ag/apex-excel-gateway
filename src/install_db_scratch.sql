@@ -31,7 +31,6 @@ PROMPT >> Installing Views
 @views/p00042_vw.sql
 @views/p00051_vw.sql
 @views/p00060_vw.sql
-@views/p01001_vw.sql
 @views/p01002_vw.sql
 @views/p01003_vw.sql
 @views/p01004_vw.sql

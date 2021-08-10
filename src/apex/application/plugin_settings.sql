@@ -1,12 +1,20 @@
 prompt --application/plugin_settings
 begin
 wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2020.10.01'
-,p_release=>'20.2.0.00.20'
+ p_version_yyyy_mm_dd=>'2021.04.15'
+,p_release=>'21.1.0'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>0
+,p_default_id_offset=>34214513418261287
 ,p_default_owner=>'SURVEY_TOOL'
+);
+wwv_flow_api.create_plugin_setting(
+ p_id=>wwv_flow_api.id(283929015734)
+,p_plugin_type=>'ITEM TYPE'
+,p_plugin=>'NATIVE_DATE_PICKER_JET'
+,p_attribute_01=>'MONTH-PICKER:YEAR-PICKER'
+,p_attribute_02=>'VISIBLE'
+,p_attribute_03=>'15'
 );
 wwv_flow_api.create_plugin_setting(
  p_id=>wwv_flow_api.id(1183878661331815)
@@ -24,7 +32,8 @@ wwv_flow_api.create_plugin_setting(
  p_id=>wwv_flow_api.id(15411237508972508)
 ,p_plugin_type=>'ITEM TYPE'
 ,p_plugin=>'NATIVE_COLOR_PICKER'
-,p_attribute_01=>'modern'
+,p_attribute_01=>'FULL'
+,p_attribute_02=>'POPUP'
 );
 wwv_flow_api.create_plugin_setting(
  p_id=>wwv_flow_api.id(15411584168972508)

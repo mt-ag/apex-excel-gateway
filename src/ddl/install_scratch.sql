@@ -33,36 +33,7 @@ CREATE SEQUENCE tph_seq INCREMENT BY 1 MAXVALUE 9999999999999999999999999999 MIN
 
 CREATE SEQUENCE tpl_seq INCREMENT BY 1 MAXVALUE 9999999999999999999999999999 MINVALUE 1 NOCACHE;
 
-CREATE SEQUENCE usr_seq INCREMENT BY 1 MAXVALUE 9999999999999999999999999999 MINVALUE 1 NOCACHE;
-
 CREATE SEQUENCE val_seq INCREMENT BY 1 MAXVALUE 9999999999999999999999999999 MINVALUE 1 NOCACHE;
-
-CREATE TABLE app_user (
-    usr_id           NUMBER DEFAULT ON NULL "USR_SEQ"."NEXTVAL" NOT NULL,
-    usr_name         VARCHAR2(200 CHAR) NOT NULL,
-    usr_created_on   DATE,
-    usr_created_by   VARCHAR2(200 CHAR),
-    usr_modified_on  DATE,
-    usr_modified_by  VARCHAR2(200 CHAR)
-)
-;
-
-CREATE UNIQUE INDEX usr_pk ON
-    app_user (
-        usr_id
-    ASC );
-
-CREATE UNIQUE INDEX usr_uk ON
-    app_user (
-        usr_name
-    ASC );
-
-ALTER TABLE app_user
-    ADD CONSTRAINT usr_pk PRIMARY KEY ( usr_id )
-        USING INDEX usr_pk;
-
-ALTER TABLE app_user ADD CONSTRAINT usr_uk UNIQUE ( usr_name )
-    USING INDEX usr_uk;
 
 CREATE TABLE files (
     fil_id                NUMBER DEFAULT ON NULL "FIL_SEQ"."NEXTVAL" NOT NULL,
@@ -807,26 +778,6 @@ begin
 end tpl_biu_trg; 
 /
 
-CREATE OR REPLACE TRIGGER USR_BIU_TRG 
-    BEFORE INSERT OR UPDATE ON APP_USER 
-    FOR EACH ROW 
-begin
-  if :new.usr_id is null
-  then
-    :new.usr_id := usr_seq.nextval;
-  end if;
-
-  if inserting
-  then
-    :new.usr_created_on  := sysdate;
-    :new.usr_created_by := coalesce(sys_context('APEX$SESSION','APP_USER'), user);
-  end if;
-
-  :new.usr_modified_on  := sysdate;
-  :new.usr_modified_by := coalesce(sys_context('APEX$SESSION','APP_USER'), user);
-end usr_biu_trg; 
-/
-
 CREATE OR REPLACE TRIGGER VAL_BIU_TRG 
     BEFORE INSERT OR UPDATE ON R_VALIDATION 
     FOR EACH ROW 
@@ -851,7 +802,7 @@ end val_biu_trg;
 
 -- Zusammenfassungsbericht für Oracle SQL Developer Data Modeler: 
 -- 
--- CREATE TABLE                            16
+-- CREATE TABLE                            15
 -- CREATE INDEX                            29
 -- ALTER TABLE                             40
 -- CREATE VIEW                              0
@@ -860,7 +811,7 @@ end val_biu_trg;
 -- CREATE PACKAGE BODY                      0
 -- CREATE PROCEDURE                         0
 -- CREATE FUNCTION                          0
--- CREATE TRIGGER                          15
+-- CREATE TRIGGER                          14
 -- ALTER TRIGGER                            0
 -- CREATE COLLECTION TYPE                   0
 -- CREATE STRUCTURED TYPE                   0
@@ -873,7 +824,7 @@ end val_biu_trg;
 -- CREATE DISK GROUP                        0
 -- CREATE ROLE                              0
 -- CREATE ROLLBACK SEGMENT                  0
--- CREATE SEQUENCE                          17
+-- CREATE SEQUENCE                          16
 -- CREATE MATERIALIZED VIEW                 0
 -- CREATE MATERIALIZED VIEW LOG             0
 -- CREATE SYNONYM                           0
@@ -892,10 +843,6 @@ end val_biu_trg;
 -- ERRORS                                   0
 -- WARNINGS                                 0
 
-
-REM INSERTING into APP_USER
-Insert into APP_USER (USR_NAME) values ('ADMIN');
-commit;
 
 REM INSERTING into R_SHIPPINGSTATUS
 Insert into R_SHIPPINGSTATUS (SPS_NAME) values ('Survey not sent');

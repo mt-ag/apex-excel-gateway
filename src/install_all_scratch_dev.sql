@@ -7,8 +7,8 @@ PROMPT >> =======================
 PROMPT >> Please enter needed Variables
 
 ACCEPT ws_name char default 'MT_EXCEL_GATEWAY' PROMPT 'Enter Workspace Name: [MT_EXCEL_GATEWAY]'
-ACCEPT parsing_schema char default 'mt_excel_gateway' PROMPT 'Enter Parsing Schema: [mt_excel_gateway]'
-ACCEPT app_alias char default 'mt_excel_gateway' PROMPT 'Enter Application Alias: [mt_excel_gateway]'
+ACCEPT parsing_schema char default 'MT_EXCEL_GATEWAY' PROMPT 'Enter Parsing Schema: [MT_EXCEL_GATEWAY]'
+ACCEPT app_alias char default 'MT_EXCEL_GATEWAY' PROMPT 'Enter Application Alias: [MT_EXCEL_GATEWAY]'
 ACCEPT app_name char default 'Excel Gateway for Oracle APEX' PROMPT 'Enter Application Name: [Excel Gateway for Oracle APEX]'
 
 

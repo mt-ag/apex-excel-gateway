@@ -4,11 +4,11 @@ begin
 --     LIST: Desktop Navigation Menu
 --   Manifest End
 wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2020.10.01'
-,p_release=>'20.2.0.00.20'
+ p_version_yyyy_mm_dd=>'2021.04.15'
+,p_release=>'21.1.0'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>0
+,p_default_id_offset=>34214513418261287
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_list(
@@ -70,6 +70,7 @@ wwv_flow_api.create_list_item(
 ,p_list_item_display_sequence=>1000
 ,p_list_item_link_text=>'Administration'
 ,p_list_item_icon=>'fa-database-edit'
+,p_security_scheme=>wwv_flow_api.id(15554575136972691)
 ,p_list_item_current_type=>'TARGET_PAGE'
 );
 wwv_flow_api.create_list_item(
@@ -183,14 +184,6 @@ wwv_flow_api.create_list_item(
 ,p_list_item_display_sequence=>1130
 ,p_list_item_link_text=>'Template-Import-Status'
 ,p_list_item_link_target=>'f?p=&APP_ID.:1004:&SESSION.::&DEBUG.::::'
-,p_parent_list_item_id=>wwv_flow_api.id(24020559271922312)
-,p_list_item_current_type=>'TARGET_PAGE'
-);
-wwv_flow_api.create_list_item(
- p_id=>wwv_flow_api.id(15659204971097246)
-,p_list_item_display_sequence=>1140
-,p_list_item_link_text=>'User'
-,p_list_item_link_target=>'f?p=&APP_ID.:1001:&SESSION.::&DEBUG.::::'
 ,p_parent_list_item_id=>wwv_flow_api.id(24020559271922312)
 ,p_list_item_current_type=>'TARGET_PAGE'
 );

@@ -24,7 +24,6 @@ drop view p00030_vw;
 drop view p00042_vw;
 drop view p00051_vw;
 drop view p00060_vw;
-drop view p01001_vw;
 drop view p01002_vw;
 drop view p01003_vw;
 drop view p01004_vw;
@@ -54,7 +53,6 @@ drop table r_status;
 drop table r_validation;
 drop table files;
 drop table import_errors;
-drop table app_user;
 
 PROMPT >> SEQUENCES
 DROP SEQUENCE dds_seq;
@@ -72,7 +70,6 @@ DROP SEQUENCE tis_seq;
 DROP SEQUENCE tpa_seq;
 DROP SEQUENCE tph_seq;
 DROP SEQUENCE tpl_seq;
-DROP SEQUENCE usr_seq;
 DROP SEQUENCE val_seq;
 
 PROMPT >> LOGGER
