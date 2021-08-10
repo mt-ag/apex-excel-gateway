@@ -1,0 +1,11 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableSpaceOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TableSpaceOraclev10g" name="DATA" directorySegmentName="seg_0" id="69CB9773-B617-5748-A0A3-0048DB93E350">
+<sourceConnName>ATP - SURVEY TOOL</sourceConnName>
+<sourceObjSchema>SURVEY_TOOL</sourceObjSchema>
+<sourceObjName>DATA</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:17 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<emUniformSize>0</emUniformSize>
+<extentManagement>LOCAL</extentManagement>
+</TableSpaceOraclev10g>

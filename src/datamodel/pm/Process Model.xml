@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<ProcessModel class="oracle.dbtools.crest.model.design.process.ProcessModel" name="Process Model" id="868DACEF-965A-8431-DFFD-0E9D9039D77E">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:13:16 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</ProcessModel>

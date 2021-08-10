@@ -1,0 +1,29 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TriggerOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TriggerOraclev10g" name="SPS_BIU_TRG" directorySegmentName="seg_0" id="3C127637-10AB-F336-26D2-419745F89D43">
+<sourceConnName>ATP - SURVEY TOOL</sourceConnName>
+<sourceObjSchema>SURVEY_TOOL</sourceObjSchema>
+<sourceObjName>SPS_BIU_TRG</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:40 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<actions>INSERT, UPDATE</actions>
+<body><![CDATA[begin
+  if :new.sps_id is null
+  then
+    :new.sps_id := sps_seq.nextval;
+  end if;
+
+  if inserting
+  then
+    :new.sps_created_on  := sysdate;
+    :new.sps_created_by := coalesce(sys_context('apex$session','app_user'), user);
+  end if;
+
+  :new.sps_modified_on  := sysdate;
+  :new.sps_modified_by := coalesce(sys_context('apex$session','app_user'), user);
+end sps_biu_trg;
+]]></body>
+<triggerTime>BEFORE</triggerTime>
+<owner>6D96194D-184B-30BE-74BF-59D97801C65F</owner>
+<table>79FC3A7F-D1F6-341D-D08E-3EB16094DFE1</table>
+</TriggerOraclev10g>

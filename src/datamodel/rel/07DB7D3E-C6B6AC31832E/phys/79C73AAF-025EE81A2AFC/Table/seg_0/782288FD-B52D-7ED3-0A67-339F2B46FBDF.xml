@@ -1,0 +1,102 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="R_TEMPLATES" directorySegmentName="seg_0" id="782288FD-B52D-7ED3-0A67-339F2B46FBDF">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:20 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<schemaObject>E9380AD7-7416-3F20-40BA-F48221C52445</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>6D2202E2-B1BB-EAC5-8141-B1445817C8FC</segment>
+<tableSpace>69CB9773-B617-5748-A0A3-0048DB93E350</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="TPL_NAME" id="02505CC3-17FD-3AE4-8DCD-FAAA9457722D">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:24 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="TPL_CREATED_BY" id="036CF60F-06E3-C511-E66C-E3E093630D23">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:24 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="TPL_DEADLINE" id="4154681D-C522-DF27-D6DB-02D111057DA3">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:24 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="TPL_ID" id="72041B13-FEBC-7CC0-85FF-6D83FF5365D4">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:24 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<defaultValue>&quot;SURVEY_TOOL&quot;.&quot;TPL_SEQ&quot;.&quot;NEXTVAL&quot;</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="TPL_MODIFIED_BY" id="77822EB5-0828-9315-611A-A6D44C3FE1EB">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:24 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="TPL_MODIFIED_ON" id="83667D30-4814-F052-A2B7-95B603435172">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:24 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="TPL_CREATED_ON" id="C9F188CD-3A15-EB55-29B2-986CDA1708EA">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:24 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="TPL_NUMBER_OF_ROWS" id="E9943B0A-8DD6-1B65-00FB-956D9A1E6344">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:24 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="TPL_PK" id="01E8A232-F8DB-4038-333B-DA7AA302CE0B">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:29 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<schemaObject>E9380AD7-7416-3F20-40BA-F48221C52445</schemaObject>
+<segment>168D4A77-ADE5-19F6-801C-7BF5ECCD79B2</segment>
+<tableSpace>69CB9773-B617-5748-A0A3-0048DB93E350</tableSpace>
+</IndexProxy>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="TPL_UK" id="5776EC7E-1B9C-A6C0-EA9B-8D663DAC21B3">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:29 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<schemaObject>E9380AD7-7416-3F20-40BA-F48221C52445</schemaObject>
+<segment>168D4A77-ADE5-19F6-801C-7BF5ECCD79B2</segment>
+<tableSpace>69CB9773-B617-5748-A0A3-0048DB93E350</tableSpace>
+</IndexProxy>
+</indexProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="TPL_PK" id="21A65006-357A-0F10-CF13-BCFA739244F5">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:35 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<segment>168D4A77-ADE5-19F6-801C-7BF5ECCD79B2</segment>
+<tableSpace>69CB9773-B617-5748-A0A3-0048DB93E350</tableSpace>
+<existingIndex>01E8A232-F8DB-4038-333B-DA7AA302CE0B</existingIndex>
+<indexSegment>168D4A77-ADE5-19F6-801C-7BF5ECCD79B2</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+<uniqueKeys>
+<UniqueKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UniqueOraclev10g" name="TPL_UK" id="06034FAF-DA46-2BEC-2F2C-76ECE5AB3186">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:35 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<segment>168D4A77-ADE5-19F6-801C-7BF5ECCD79B2</segment>
+<tableSpace>69CB9773-B617-5748-A0A3-0048DB93E350</tableSpace>
+<existingIndex>5776EC7E-1B9C-A6C0-EA9B-8D663DAC21B3</existingIndex>
+<indexSegment>168D4A77-ADE5-19F6-801C-7BF5ECCD79B2</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</UniqueKey>
+</uniqueKeys>
+</TableProxyOraclev12c>

@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="95F58CAA-4C2D-4A1E-6F35-F42506AAC9DA" mainViewID="2C20954D-2C60-A5FE-9FD7-D943E12E11FD">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:13:16 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</LogicalDesign>

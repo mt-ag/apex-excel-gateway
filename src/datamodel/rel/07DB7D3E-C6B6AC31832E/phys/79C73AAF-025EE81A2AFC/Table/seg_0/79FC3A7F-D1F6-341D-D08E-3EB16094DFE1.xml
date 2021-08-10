@@ -1,0 +1,92 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="R_SHIPPINGSTATUS" directorySegmentName="seg_0" id="79FC3A7F-D1F6-341D-D08E-3EB16094DFE1">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:19 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<schemaObject>E9380AD7-7416-3F20-40BA-F48221C52445</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>6D2202E2-B1BB-EAC5-8141-B1445817C8FC</segment>
+<tableSpace>69CB9773-B617-5748-A0A3-0048DB93E350</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="SPS_MODIFIED_BY" id="543CF3B0-B59E-556C-37CF-8BF6C0E2A5EC">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:23 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="SPS_ID" id="69B1B7BD-2C18-95D8-63E7-E0E9F3678978">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:23 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<defaultValue>&quot;SURVEY_TOOL&quot;.&quot;SPS_SEQ&quot;.&quot;NEXTVAL&quot;</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="SPS_CREATED_BY" id="9A83B904-D42B-6BB0-7FC5-92A02ADF56B4">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:23 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="SPS_MODIFIED_ON" id="B5EA6F35-8143-34DA-6318-15DEAF2D8C35">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:23 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="SPS_CREATED_ON" id="B8908F78-F85B-8F6F-09CF-8A0FBEED977E">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:23 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="SPS_NAME" id="F0972BEC-2ED0-20D8-9345-1E8E77FC0A84">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:23 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="SPS_PK" id="185AD4B8-389E-308D-F9DA-5AA6A892CFED">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:29 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<schemaObject>E9380AD7-7416-3F20-40BA-F48221C52445</schemaObject>
+<segment>168D4A77-ADE5-19F6-801C-7BF5ECCD79B2</segment>
+<tableSpace>69CB9773-B617-5748-A0A3-0048DB93E350</tableSpace>
+</IndexProxy>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="SPS_UK" id="CB8F9D8C-09E2-0BA5-78BD-E7C7CB1EBB6C">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:29 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<schemaObject>E9380AD7-7416-3F20-40BA-F48221C52445</schemaObject>
+<segment>168D4A77-ADE5-19F6-801C-7BF5ECCD79B2</segment>
+<tableSpace>69CB9773-B617-5748-A0A3-0048DB93E350</tableSpace>
+</IndexProxy>
+</indexProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="SPS_PK" id="6F1DB112-2235-ADC9-9425-81CD5D15CF80">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:34 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<segment>168D4A77-ADE5-19F6-801C-7BF5ECCD79B2</segment>
+<tableSpace>69CB9773-B617-5748-A0A3-0048DB93E350</tableSpace>
+<existingIndex>185AD4B8-389E-308D-F9DA-5AA6A892CFED</existingIndex>
+<indexSegment>168D4A77-ADE5-19F6-801C-7BF5ECCD79B2</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+<uniqueKeys>
+<UniqueKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UniqueOraclev10g" name="SPS_UK" id="0FF7135A-F46B-E80B-69CA-4135A5E6490C">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:34 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<segment>168D4A77-ADE5-19F6-801C-7BF5ECCD79B2</segment>
+<tableSpace>69CB9773-B617-5748-A0A3-0048DB93E350</tableSpace>
+<existingIndex>CB8F9D8C-09E2-0BA5-78BD-E7C7CB1EBB6C</existingIndex>
+<indexSegment>168D4A77-ADE5-19F6-801C-7BF5ECCD79B2</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</UniqueKey>
+</uniqueKeys>
+</TableProxyOraclev12c>

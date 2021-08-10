@@ -1,0 +1,162 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="2A4DB935-DE4B-4AC9-7A40-A590D61DE154" schemaObject="E9380AD7-7416-3F20-40BA-F48221C52445" name="R_PERSON">
+<sourceConnName>ATP - SURVEY TOOL</sourceConnName>
+<sourceObjSchema>SURVEY_TOOL</sourceObjSchema>
+<sourceObjName>R_PERSON</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:19 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="PER_ID" id="57AB92B2-EB1C-A1E7-4222-E770D2701A43">
+<sourceConnName>ATP - SURVEY TOOL</sourceConnName>
+<sourceObjSchema>R_PERSON</sourceObjSchema>
+<sourceObjName>PER_ID</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:23 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<defaultValue>&quot;SURVEY_TOOL&quot;.&quot;PER_SEQ&quot;.&quot;NEXTVAL&quot;</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<defaultOntNull>true</defaultOntNull>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PER_EMAIL" id="DD16DC5C-F75B-2427-042D-A7F2950ACF7F">
+<sourceConnName>ATP - SURVEY TOOL</sourceConnName>
+<sourceObjSchema>R_PERSON</sourceObjSchema>
+<sourceObjName>PER_EMAIL</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:23 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 CHAR</dataTypeSize>
+<ownDataTypeParameters>200 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PER_FIRSTNAME" id="4933FF94-081A-7790-2385-952473B2A1EE">
+<sourceConnName>ATP - SURVEY TOOL</sourceConnName>
+<sourceObjSchema>R_PERSON</sourceObjSchema>
+<sourceObjName>PER_FIRSTNAME</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:23 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 CHAR</dataTypeSize>
+<ownDataTypeParameters>200 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PER_LASTNAME" id="D5AED167-4455-2ED8-49CA-85D3C3568A09">
+<sourceConnName>ATP - SURVEY TOOL</sourceConnName>
+<sourceObjSchema>R_PERSON</sourceObjSchema>
+<sourceObjName>PER_LASTNAME</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:23 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 CHAR</dataTypeSize>
+<ownDataTypeParameters>200 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PER_CREATED_ON" id="FCC83D2B-A2A9-7495-0B90-159C033748A9">
+<sourceConnName>ATP - SURVEY TOOL</sourceConnName>
+<sourceObjSchema>R_PERSON</sourceObjSchema>
+<sourceObjName>PER_CREATED_ON</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:23 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PER_CREATED_BY" id="FBF5476E-CB8F-007C-8ABB-5C6CBDB84330">
+<sourceConnName>ATP - SURVEY TOOL</sourceConnName>
+<sourceObjSchema>R_PERSON</sourceObjSchema>
+<sourceObjName>PER_CREATED_BY</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:23 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 CHAR</dataTypeSize>
+<ownDataTypeParameters>200 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PER_MODIFIED_ON" id="86A4704E-E07E-3F34-DBD1-299D1B976D13">
+<sourceConnName>ATP - SURVEY TOOL</sourceConnName>
+<sourceObjSchema>R_PERSON</sourceObjSchema>
+<sourceObjName>PER_MODIFIED_ON</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:23 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PER_MODIFIED_BY" id="FA5693E0-8614-EAF8-43FB-4B96B773EA96">
+<sourceConnName>ATP - SURVEY TOOL</sourceConnName>
+<sourceObjSchema>R_PERSON</sourceObjSchema>
+<sourceObjName>PER_MODIFIED_BY</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:23 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 CHAR</dataTypeSize>
+<ownDataTypeParameters>200 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="2626F8AD-33FC-AE87-D1FC-7436EED60A6A" name="PER_PK">
+<sourceConnName>ATP - SURVEY TOOL</sourceConnName>
+<sourceObjSchema>SURVEY_TOOL</sourceObjSchema>
+<sourceObjName>PER_PK</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:34 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="57AB92B2-EB1C-A1E7-4222-E770D2701A43"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="04E05FA4-8339-FC61-6DB3-58154733AC8C" schemaObject="E9380AD7-7416-3F20-40BA-F48221C52445" name="PER_PK">
+<sourceConnName>ATP - SURVEY TOOL</sourceConnName>
+<sourceObjSchema>SURVEY_TOOL</sourceObjSchema>
+<sourceObjName>PER_PK</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:29 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="57AB92B2-EB1C-A1E7-4222-E770D2701A43"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

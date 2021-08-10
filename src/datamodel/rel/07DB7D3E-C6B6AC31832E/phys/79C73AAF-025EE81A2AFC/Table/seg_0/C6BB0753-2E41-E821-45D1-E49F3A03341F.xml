@@ -1,0 +1,104 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="R_DROPDOWNS" directorySegmentName="seg_0" id="C6BB0753-2E41-E821-45D1-E49F3A03341F">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:18 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<schemaObject>E9380AD7-7416-3F20-40BA-F48221C52445</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>6D2202E2-B1BB-EAC5-8141-B1445817C8FC</segment>
+<tableSpace>69CB9773-B617-5748-A0A3-0048DB93E350</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="DDS_HEA_ID" id="0FA7C812-91B6-8165-4FAE-B381458CBA8A">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:22 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DDS_TEXT" id="10FB6587-6F0D-4D48-A42A-0D036FC1F8D1">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:22 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DDS_CREATED_ON" id="34C39A65-ED4E-788F-77DF-0EF5A36C0FF1">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:23 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DDS_ID" id="477D6429-969C-D9D5-B72A-0E8ADCA8B5CD">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:22 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<defaultValue>&quot;SURVEY_TOOL&quot;.&quot;DDS_SEQ&quot;.&quot;NEXTVAL&quot;</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="DDS_MODIFIED_BY" id="8D7A4A00-D8BA-D879-F9B9-118FAE657F4F">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:23 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DDS_MODIFIED_ON" id="A9B9EC77-7F5F-F6A5-77EA-C139C4761DEE">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:23 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DDS_CREATED_BY" id="D4A07F42-C07F-DF58-27B2-A6C918AA6B1E">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:23 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="DDS_PK" id="85A4CAEE-4877-F6AB-39F4-34AB9E742C33">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:29 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<schemaObject>E9380AD7-7416-3F20-40BA-F48221C52445</schemaObject>
+<segment>168D4A77-ADE5-19F6-801C-7BF5ECCD79B2</segment>
+<tableSpace>69CB9773-B617-5748-A0A3-0048DB93E350</tableSpace>
+</IndexProxy>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="DDS_UK" id="F9EE47FA-655F-E3F1-61F0-607A4DA24203">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:29 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<schemaObject>E9380AD7-7416-3F20-40BA-F48221C52445</schemaObject>
+<segment>2D2D230F-6C7C-9377-8CC4-A90BBBAF1EB4</segment>
+<tableSpace>69CB9773-B617-5748-A0A3-0048DB93E350</tableSpace>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="DDS_HEA_FK" id="13A059F9-AFDF-3ABE-9975-DA62535E6F6B">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:42 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="DDS_PK" id="964F6A80-991F-A966-0AEB-C0723F6ADD70">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:33 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<segment>168D4A77-ADE5-19F6-801C-7BF5ECCD79B2</segment>
+<tableSpace>69CB9773-B617-5748-A0A3-0048DB93E350</tableSpace>
+<existingIndex>85A4CAEE-4877-F6AB-39F4-34AB9E742C33</existingIndex>
+<indexSegment>168D4A77-ADE5-19F6-801C-7BF5ECCD79B2</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+<uniqueKeys>
+<UniqueKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UniqueOraclev10g" name="DDS_UK" id="30DE34AE-E1CF-DE9C-D103-BC9E4DCF8CCF">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:33 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<segment>2D2D230F-6C7C-9377-8CC4-A90BBBAF1EB4</segment>
+<tableSpace>69CB9773-B617-5748-A0A3-0048DB93E350</tableSpace>
+<existingIndex>F9EE47FA-655F-E3F1-61F0-607A4DA24203</existingIndex>
+<indexSegment>2D2D230F-6C7C-9377-8CC4-A90BBBAF1EB4</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</UniqueKey>
+</uniqueKeys>
+</TableProxyOraclev12c>

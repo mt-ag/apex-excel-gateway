@@ -1,0 +1,110 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="R_HEADER" directorySegmentName="seg_0" id="207D7456-7AE0-5D45-1EBF-1FDFC7D755D8">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:18 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<schemaObject>E9380AD7-7416-3F20-40BA-F48221C52445</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>6D2202E2-B1BB-EAC5-8141-B1445817C8FC</segment>
+<tableSpace>69CB9773-B617-5748-A0A3-0048DB93E350</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="HEA_MODIFIED_ON" id="07D0820E-351B-01BE-C311-37C8825BB317">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:23 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="HEA_CREATED_BY" id="498DD580-CEA9-F388-0FA6-49F82D704112">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:23 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="HEA_XLSX_WIDTH" id="5F7323E5-3153-6A78-F999-7EBE837E4FBC">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:23 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<defaultValue>12</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="HEA_ID" id="6689F303-A226-F512-9D84-31EDE6609C43">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:23 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<defaultValue>&quot;SURVEY_TOOL&quot;.&quot;HEA_SEQ&quot;.&quot;NEXTVAL&quot;</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="HEA_MODIFIED_BY" id="7569F0CA-B8B8-EAD5-83CD-9579EB0BAFAB">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:23 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="HEA_VAL_ID" id="7D6E7C08-DDBF-DC84-C76D-FE59CB0F3FCF">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:23 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="HEA_CREATED_ON" id="D52B1739-3EE0-985D-9AEB-F9C2ED06AAC2">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:23 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="HEA_TEXT" id="FBA094EE-C63A-8CB5-C6A5-6D4C2B20D717">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:23 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="HEA_UK" id="6899FF69-5107-1CDB-9956-65021BB41E90">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:29 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<schemaObject>E9380AD7-7416-3F20-40BA-F48221C52445</schemaObject>
+<segment>2D2D230F-6C7C-9377-8CC4-A90BBBAF1EB4</segment>
+<tableSpace>69CB9773-B617-5748-A0A3-0048DB93E350</tableSpace>
+</IndexProxy>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="HEA_PK" id="ADD05F3C-297A-D8A4-A46A-64D0A164B60C">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:29 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<schemaObject>E9380AD7-7416-3F20-40BA-F48221C52445</schemaObject>
+<segment>168D4A77-ADE5-19F6-801C-7BF5ECCD79B2</segment>
+<tableSpace>69CB9773-B617-5748-A0A3-0048DB93E350</tableSpace>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="HEA_VAL_FK" id="767DECA7-C31F-6C79-C72B-EEC5DFB2B803">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:42 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="HEA_PK" id="284F0CB9-9D6F-DCA3-C892-6904D6391CAE">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:33 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<segment>168D4A77-ADE5-19F6-801C-7BF5ECCD79B2</segment>
+<tableSpace>69CB9773-B617-5748-A0A3-0048DB93E350</tableSpace>
+<existingIndex>ADD05F3C-297A-D8A4-A46A-64D0A164B60C</existingIndex>
+<indexSegment>168D4A77-ADE5-19F6-801C-7BF5ECCD79B2</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+<uniqueKeys>
+<UniqueKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UniqueOraclev10g" name="HEA_UK" id="90BBC676-82BF-5551-6044-5DAD3A68929B">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:34 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<segment>2D2D230F-6C7C-9377-8CC4-A90BBBAF1EB4</segment>
+<tableSpace>69CB9773-B617-5748-A0A3-0048DB93E350</tableSpace>
+<existingIndex>6899FF69-5107-1CDB-9956-65021BB41E90</existingIndex>
+<indexSegment>2D2D230F-6C7C-9377-8CC4-A90BBBAF1EB4</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</UniqueKey>
+</uniqueKeys>
+</TableProxyOraclev12c>

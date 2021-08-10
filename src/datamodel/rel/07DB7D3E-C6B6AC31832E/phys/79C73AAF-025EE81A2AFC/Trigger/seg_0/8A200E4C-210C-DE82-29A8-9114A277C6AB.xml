@@ -1,0 +1,29 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TriggerOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TriggerOraclev10g" name="DDS_BIU_TRG" directorySegmentName="seg_0" id="8A200E4C-210C-DE82-29A8-9114A277C6AB">
+<sourceConnName>ATP - SURVEY TOOL</sourceConnName>
+<sourceObjSchema>SURVEY_TOOL</sourceObjSchema>
+<sourceObjName>DDS_BIU_TRG</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:40 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<actions>INSERT, UPDATE</actions>
+<body><![CDATA[begin
+  if :new.dds_id is null
+  then
+    :new.dds_id := dds_seq.nextval;
+  end if;
+
+  if inserting
+  then
+    :new.dds_created_on  := sysdate;
+    :new.dds_created_by := coalesce(sys_context('APEX$SESSION','APP_USER'), user);
+  end if;
+
+  :new.dds_modified_on  := sysdate;
+  :new.dds_modified_by := coalesce(sys_context('APEX$SESSION','APP_USER'), user);
+end dds_biu_trg;
+]]></body>
+<triggerTime>BEFORE</triggerTime>
+<owner>6D96194D-184B-30BE-74BF-59D97801C65F</owner>
+<table>C6BB0753-2E41-E821-45D1-E49F3A03341F</table>
+</TriggerOraclev10g>

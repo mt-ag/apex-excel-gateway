@@ -1,0 +1,29 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TriggerOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TriggerOraclev10g" name="TPH_BIU_TRG" directorySegmentName="seg_0" id="14D1F763-D73D-EAB2-8D2C-C5FF7539125A">
+<sourceConnName>ATP - SURVEY TOOL</sourceConnName>
+<sourceObjSchema>SURVEY_TOOL</sourceObjSchema>
+<sourceObjName>TPH_BIU_TRG</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:40 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<actions>INSERT, UPDATE</actions>
+<body><![CDATA[begin
+  if :new.tph_id is null
+  then
+    :new.tph_id := tph_seq.nextval;
+  end if;
+
+  if inserting
+  then
+    :new.tph_created_on  := sysdate;
+    :new.tph_created_by := coalesce(sys_context('APEX$SESSION','APP_USER'), user);
+  end if;
+
+  :new.tph_modified_on  := sysdate;
+  :new.tph_modified_by := coalesce(sys_context('APEX$SESSION','APP_USER'), user);
+end tph_biu_trg;
+]]></body>
+<triggerTime>BEFORE</triggerTime>
+<owner>6D96194D-184B-30BE-74BF-59D97801C65F</owner>
+<table>3E383D27-E7DE-D441-C683-72DCFF3C468D</table>
+</TriggerOraclev10g>

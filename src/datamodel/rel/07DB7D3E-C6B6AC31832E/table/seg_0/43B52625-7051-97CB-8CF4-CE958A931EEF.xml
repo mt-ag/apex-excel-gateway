@@ -1,0 +1,158 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="43B52625-7051-97CB-8CF4-CE958A931EEF" schemaObject="E9380AD7-7416-3F20-40BA-F48221C52445" name="APP_USER">
+<sourceConnName>ATP - SURVEY TOOL</sourceConnName>
+<sourceObjSchema>SURVEY_TOOL</sourceObjSchema>
+<sourceObjName>APP_USER</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:17 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="USR_ID" id="508CAB23-481A-5BBB-2C24-A0367CF7937C">
+<sourceConnName>ATP - SURVEY TOOL</sourceConnName>
+<sourceObjSchema>APP_USER</sourceObjSchema>
+<sourceObjName>USR_ID</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:21 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<defaultValue>&quot;SURVEY_TOOL&quot;.&quot;USR_SEQ&quot;.&quot;NEXTVAL&quot;</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<defaultOntNull>true</defaultOntNull>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="USR_NAME" id="78A9B4F6-4694-22DD-3E7D-9BB09A24AD8D">
+<sourceConnName>ATP - SURVEY TOOL</sourceConnName>
+<sourceObjSchema>APP_USER</sourceObjSchema>
+<sourceObjName>USR_NAME</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:21 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 CHAR</dataTypeSize>
+<ownDataTypeParameters>200 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="USR_CREATED_ON" id="54DE9BA9-9939-36AE-2BE4-DFD2F785D79C">
+<sourceConnName>ATP - SURVEY TOOL</sourceConnName>
+<sourceObjSchema>APP_USER</sourceObjSchema>
+<sourceObjName>USR_CREATED_ON</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:21 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="USR_CREATED_BY" id="ABC1095B-1293-5DD3-C880-24539608D6F3">
+<sourceConnName>ATP - SURVEY TOOL</sourceConnName>
+<sourceObjSchema>APP_USER</sourceObjSchema>
+<sourceObjName>USR_CREATED_BY</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:21 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 CHAR</dataTypeSize>
+<ownDataTypeParameters>200 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="USR_MODIFIED_ON" id="932FB9B3-E7D0-BB12-D1E8-E020862A43D7">
+<sourceConnName>ATP - SURVEY TOOL</sourceConnName>
+<sourceObjSchema>APP_USER</sourceObjSchema>
+<sourceObjName>USR_MODIFIED_ON</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:21 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="USR_MODIFIED_BY" id="14CB4C13-4EBA-DAA4-AEFB-D8331B9E592C">
+<sourceConnName>ATP - SURVEY TOOL</sourceConnName>
+<sourceObjSchema>APP_USER</sourceObjSchema>
+<sourceObjName>USR_MODIFIED_BY</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:21 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 CHAR</dataTypeSize>
+<ownDataTypeParameters>200 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="767ED3D4-A581-F56D-7CE5-0B877CE5BD9D" name="USR_PK">
+<sourceConnName>ATP - SURVEY TOOL</sourceConnName>
+<sourceObjSchema>SURVEY_TOOL</sourceObjSchema>
+<sourceObjName>USR_PK</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:32 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="508CAB23-481A-5BBB-2C24-A0367CF7937C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="02D17C39-AD47-BD92-383C-ADF54560279C" name="USR_UK">
+<sourceConnName>ATP - SURVEY TOOL</sourceConnName>
+<sourceObjSchema>SURVEY_TOOL</sourceObjSchema>
+<sourceObjName>USR_UK</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:32 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="78A9B4F6-4694-22DD-3E7D-9BB09A24AD8D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="75CC7AA7-810B-76C1-BF1F-476801B58271" schemaObject="E9380AD7-7416-3F20-40BA-F48221C52445" name="USR_PK">
+<sourceConnName>ATP - SURVEY TOOL</sourceConnName>
+<sourceObjSchema>SURVEY_TOOL</sourceObjSchema>
+<sourceObjName>USR_PK</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:28 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="508CAB23-481A-5BBB-2C24-A0367CF7937C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3686675F-7180-B1AB-1F46-5917889256BA" schemaObject="E9380AD7-7416-3F20-40BA-F48221C52445" name="USR_UK">
+<sourceConnName>ATP - SURVEY TOOL</sourceConnName>
+<sourceObjSchema>SURVEY_TOOL</sourceObjSchema>
+<sourceObjName>USR_UK</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:28 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="78A9B4F6-4694-22DD-3E7D-9BB09A24AD8D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

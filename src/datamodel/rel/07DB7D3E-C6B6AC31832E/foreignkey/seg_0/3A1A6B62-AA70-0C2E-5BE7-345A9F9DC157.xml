@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="3A1A6B62-AA70-0C2E-5BE7-345A9F9DC157" containerWithKeyObject="207D7456-7AE0-5D45-1EBF-1FDFC7D755D8" localFKIndex="767DECA7-C31F-6C79-C72B-EEC5DFB2B803" name="HEA_VAL_FK">
+<sourceConnName>ATP - SURVEY TOOL</sourceConnName>
+<sourceObjSchema>SURVEY_TOOL</sourceObjSchema>
+<sourceObjName>HEA_VAL_FK</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:42 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<referredTableLongName>SURVEY_TOOL.R_VALIDATION</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>E020A69D-5DA8-5BAE-D3DE-C8156F3E7D12</referredTableID>
+<keyObject>76B617D3-01BC-AB66-4B92-E3719AB9B2FA</keyObject>
+<referredKeyID>76B617D3-01BC-AB66-4B92-E3719AB9B2FA</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>VAL_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

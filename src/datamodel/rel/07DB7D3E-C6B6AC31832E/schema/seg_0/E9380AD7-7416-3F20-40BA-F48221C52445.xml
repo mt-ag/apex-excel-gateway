@@ -1,0 +1,6 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SchemaObject class="oracle.dbtools.crest.model.design.relational.SchemaObject" name="SURVEY_TOOL" directorySegmentName="seg_0" id="E9380AD7-7416-3F20-40BA-F48221C52445">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:17 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+</SchemaObject>

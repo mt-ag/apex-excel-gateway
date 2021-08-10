@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="8B343861-C705-4C2C-DDBB-663019B9D330" containerWithKeyObject="D8AB79A8-58AC-F52B-32A6-440E43F480A4" localFKIndex="020006D4-AD50-D83F-B717-DB0F61D3E4B0" name="TPA_TPL_FK">
+<sourceConnName>ATP - SURVEY TOOL</sourceConnName>
+<sourceObjSchema>SURVEY_TOOL</sourceObjSchema>
+<sourceObjName>TPA_TPL_FK</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:42 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<referredTableLongName>SURVEY_TOOL.R_TEMPLATES</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>782288FD-B52D-7ED3-0A67-339F2B46FBDF</referredTableID>
+<keyObject>21A65006-357A-0F10-CF13-BCFA739244F5</keyObject>
+<referredKeyID>21A65006-357A-0F10-CF13-BCFA739244F5</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>TPL_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

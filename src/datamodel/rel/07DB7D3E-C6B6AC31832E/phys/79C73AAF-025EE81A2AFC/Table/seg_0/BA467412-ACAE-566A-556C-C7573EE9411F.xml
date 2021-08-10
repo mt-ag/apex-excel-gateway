@@ -1,0 +1,77 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="IMPORT_ERRORS" directorySegmentName="seg_0" id="BA467412-ACAE-566A-556C-C7573EE9411F">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:18 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<schemaObject>E9380AD7-7416-3F20-40BA-F48221C52445</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>6D2202E2-B1BB-EAC5-8141-B1445817C8FC</segment>
+<tableSpace>69CB9773-B617-5748-A0A3-0048DB93E350</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="IER_ID" id="02CAF59E-D5CD-A7CE-9C95-49E3E5C7C283">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:22 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<defaultValue>&quot;SURVEY_TOOL&quot;.&quot;IER_SEQ&quot;.&quot;NEXTVAL&quot;</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="IER_FILENAME" id="281001BF-D2AB-5F63-6569-C0010BB98593">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:22 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="IER_SESSION" id="92D6214A-6F41-CEA8-9144-7181F5D67118">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:22 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="IER_MESSAGE" id="A0E384FE-DE9B-44F9-E51F-3CA2520B2D9B">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:22 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="IER_ROW_ID" id="AEDDC93D-A958-71E9-D9CF-134EB083A603">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:22 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="IER_TIMESTAMP" id="CF8FD2C1-B7B3-908D-CC93-0496EB96D0ED">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:22 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<defaultValue>systimestamp</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="IER_HEADER" id="EEDEC800-811A-902A-75A9-BB09FB9BB8F4">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:22 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="IER_PK" id="98902DA2-49C6-8B31-7B9A-7EBD220D2AB4">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:29 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<schemaObject>E9380AD7-7416-3F20-40BA-F48221C52445</schemaObject>
+<segment>168D4A77-ADE5-19F6-801C-7BF5ECCD79B2</segment>
+<tableSpace>69CB9773-B617-5748-A0A3-0048DB93E350</tableSpace>
+</IndexProxy>
+</indexProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="IER_PK" id="D58A6A59-FC26-E12C-F626-A25E00469AFB">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:33 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<segment>168D4A77-ADE5-19F6-801C-7BF5ECCD79B2</segment>
+<tableSpace>69CB9773-B617-5748-A0A3-0048DB93E350</tableSpace>
+<existingIndex>98902DA2-49C6-8B31-7B9A-7EBD220D2AB4</existingIndex>
+<indexSegment>168D4A77-ADE5-19F6-801C-7BF5ECCD79B2</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

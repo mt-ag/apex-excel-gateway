@@ -1,0 +1,81 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="R_PERSON" directorySegmentName="seg_0" id="2A4DB935-DE4B-4AC9-7A40-A590D61DE154">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:19 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<schemaObject>E9380AD7-7416-3F20-40BA-F48221C52445</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>6D2202E2-B1BB-EAC5-8141-B1445817C8FC</segment>
+<tableSpace>69CB9773-B617-5748-A0A3-0048DB93E350</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="PER_FIRSTNAME" id="4933FF94-081A-7790-2385-952473B2A1EE">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:23 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PER_ID" id="57AB92B2-EB1C-A1E7-4222-E770D2701A43">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:23 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<defaultValue>&quot;SURVEY_TOOL&quot;.&quot;PER_SEQ&quot;.&quot;NEXTVAL&quot;</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="PER_MODIFIED_ON" id="86A4704E-E07E-3F34-DBD1-299D1B976D13">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:23 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PER_LASTNAME" id="D5AED167-4455-2ED8-49CA-85D3C3568A09">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:23 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PER_EMAIL" id="DD16DC5C-F75B-2427-042D-A7F2950ACF7F">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:23 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PER_MODIFIED_BY" id="FA5693E0-8614-EAF8-43FB-4B96B773EA96">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:23 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PER_CREATED_BY" id="FBF5476E-CB8F-007C-8ABB-5C6CBDB84330">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:23 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PER_CREATED_ON" id="FCC83D2B-A2A9-7495-0B90-159C033748A9">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:23 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="PER_PK" id="04E05FA4-8339-FC61-6DB3-58154733AC8C">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:29 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<schemaObject>E9380AD7-7416-3F20-40BA-F48221C52445</schemaObject>
+<segment>168D4A77-ADE5-19F6-801C-7BF5ECCD79B2</segment>
+<tableSpace>69CB9773-B617-5748-A0A3-0048DB93E350</tableSpace>
+</IndexProxy>
+</indexProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PER_PK" id="2626F8AD-33FC-AE87-D1FC-7436EED60A6A">
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:34 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<segment>168D4A77-ADE5-19F6-801C-7BF5ECCD79B2</segment>
+<tableSpace>69CB9773-B617-5748-A0A3-0048DB93E350</tableSpace>
+<existingIndex>04E05FA4-8339-FC61-6DB3-58154733AC8C</existingIndex>
+<indexSegment>168D4A77-ADE5-19F6-801C-7BF5ECCD79B2</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

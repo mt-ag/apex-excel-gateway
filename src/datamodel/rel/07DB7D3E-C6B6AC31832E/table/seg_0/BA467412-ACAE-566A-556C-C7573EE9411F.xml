@@ -1,0 +1,144 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="BA467412-ACAE-566A-556C-C7573EE9411F" schemaObject="E9380AD7-7416-3F20-40BA-F48221C52445" name="IMPORT_ERRORS">
+<sourceConnName>ATP - SURVEY TOOL</sourceConnName>
+<sourceObjSchema>SURVEY_TOOL</sourceObjSchema>
+<sourceObjName>IMPORT_ERRORS</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:18 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IER_ID" id="02CAF59E-D5CD-A7CE-9C95-49E3E5C7C283">
+<sourceConnName>ATP - SURVEY TOOL</sourceConnName>
+<sourceObjSchema>IMPORT_ERRORS</sourceObjSchema>
+<sourceObjName>IER_ID</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:22 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<defaultValue>&quot;SURVEY_TOOL&quot;.&quot;IER_SEQ&quot;.&quot;NEXTVAL&quot;</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<defaultOntNull>true</defaultOntNull>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IER_SESSION" id="92D6214A-6F41-CEA8-9144-7181F5D67118">
+<sourceConnName>ATP - SURVEY TOOL</sourceConnName>
+<sourceObjSchema>IMPORT_ERRORS</sourceObjSchema>
+<sourceObjName>IER_SESSION</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:22 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IER_MESSAGE" id="A0E384FE-DE9B-44F9-E51F-3CA2520B2D9B">
+<sourceConnName>ATP - SURVEY TOOL</sourceConnName>
+<sourceObjSchema>IMPORT_ERRORS</sourceObjSchema>
+<sourceObjName>IER_MESSAGE</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:22 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1000 CHAR</dataTypeSize>
+<ownDataTypeParameters>1000 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IER_FILENAME" id="281001BF-D2AB-5F63-6569-C0010BB98593">
+<sourceConnName>ATP - SURVEY TOOL</sourceConnName>
+<sourceObjSchema>IMPORT_ERRORS</sourceObjSchema>
+<sourceObjName>IER_FILENAME</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:22 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 CHAR</dataTypeSize>
+<ownDataTypeParameters>200 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IER_ROW_ID" id="AEDDC93D-A958-71E9-D9CF-134EB083A603">
+<sourceConnName>ATP - SURVEY TOOL</sourceConnName>
+<sourceObjSchema>IMPORT_ERRORS</sourceObjSchema>
+<sourceObjName>IER_ROW_ID</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:22 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IER_HEADER" id="EEDEC800-811A-902A-75A9-BB09FB9BB8F4">
+<sourceConnName>ATP - SURVEY TOOL</sourceConnName>
+<sourceObjSchema>IMPORT_ERRORS</sourceObjSchema>
+<sourceObjName>IER_HEADER</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:22 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2000 CHAR</dataTypeSize>
+<ownDataTypeParameters>2000 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IER_TIMESTAMP" id="CF8FD2C1-B7B3-908D-CC93-0496EB96D0ED">
+<sourceConnName>ATP - SURVEY TOOL</sourceConnName>
+<sourceObjSchema>IMPORT_ERRORS</sourceObjSchema>
+<sourceObjName>IER_TIMESTAMP</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:22 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<defaultValue>systimestamp</defaultValue>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="D58A6A59-FC26-E12C-F626-A25E00469AFB" name="IER_PK">
+<sourceConnName>ATP - SURVEY TOOL</sourceConnName>
+<sourceObjSchema>SURVEY_TOOL</sourceObjSchema>
+<sourceObjName>IER_PK</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:33 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="02CAF59E-D5CD-A7CE-9C95-49E3E5C7C283"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="98902DA2-49C6-8B31-7B9A-7EBD220D2AB4" schemaObject="E9380AD7-7416-3F20-40BA-F48221C52445" name="IER_PK">
+<sourceConnName>ATP - SURVEY TOOL</sourceConnName>
+<sourceObjSchema>SURVEY_TOOL</sourceObjSchema>
+<sourceObjName>IER_PK</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 10:20:29 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="02CAF59E-D5CD-A7CE-9C95-49E3E5C7C283"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
