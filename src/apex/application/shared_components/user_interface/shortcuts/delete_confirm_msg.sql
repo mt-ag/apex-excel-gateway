@@ -8,11 +8,11 @@ wwv_flow_api.component_begin (
 ,p_release=>'21.1.0'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>68429026836522574
+,p_default_id_offset=>171169157754824360
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_shortcut(
- p_id=>wwv_flow_api.id(18659564220288594)
+ p_id=>wwv_flow_api.id(84027449118228123)
 ,p_shortcut_name=>'DELETE_CONFIRM_MSG'
 ,p_shortcut_type=>'TEXT_ESCAPE_JS'
 ,p_shortcut=>'Would you like to perform this delete action?'

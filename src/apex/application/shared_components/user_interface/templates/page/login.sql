@@ -8,11 +8,11 @@ wwv_flow_api.component_begin (
 ,p_release=>'21.1.0'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>68429026836522574
+,p_default_id_offset=>171169157754824360
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_template(
- p_id=>wwv_flow_api.id(18794446933288751)
+ p_id=>wwv_flow_api.id(83892566405227966)
 ,p_theme_id=>42
 ,p_name=>'Login'
 ,p_internal_name=>'LOGIN'
@@ -137,16 +137,16 @@ wwv_flow_api.create_template(
 ,p_reference_id=>2099711150063350616
 );
 wwv_flow_api.create_page_tmpl_display_point(
- p_id=>wwv_flow_api.id(24244290075752931)
-,p_page_template_id=>wwv_flow_api.id(18794446933288751)
-,p_name=>'Body Footer'
-,p_placeholder=>'REGION_POSITION_02'
+ p_id=>wwv_flow_api.id(78443700259763787)
+,p_page_template_id=>wwv_flow_api.id(83892566405227966)
+,p_name=>'Body Header'
+,p_placeholder=>'REGION_POSITION_01'
 ,p_has_grid_support=>false
 ,p_glv_new_row=>true
 );
 wwv_flow_api.create_page_tmpl_display_point(
- p_id=>wwv_flow_api.id(24243742299752931)
-,p_page_template_id=>wwv_flow_api.id(18794446933288751)
+ p_id=>wwv_flow_api.id(78443271038763786)
+,p_page_template_id=>wwv_flow_api.id(83892566405227966)
 ,p_name=>'Content Body'
 ,p_placeholder=>'BODY'
 ,p_has_grid_support=>true
@@ -154,10 +154,10 @@ wwv_flow_api.create_page_tmpl_display_point(
 ,p_max_fixed_grid_columns=>12
 );
 wwv_flow_api.create_page_tmpl_display_point(
- p_id=>wwv_flow_api.id(24243313078752930)
-,p_page_template_id=>wwv_flow_api.id(18794446933288751)
-,p_name=>'Body Header'
-,p_placeholder=>'REGION_POSITION_01'
+ p_id=>wwv_flow_api.id(78442723262763786)
+,p_page_template_id=>wwv_flow_api.id(83892566405227966)
+,p_name=>'Body Footer'
+,p_placeholder=>'REGION_POSITION_02'
 ,p_has_grid_support=>false
 ,p_glv_new_row=>true
 );

@@ -8,14 +8,14 @@ wwv_flow_api.component_begin (
 ,p_release=>'21.1.0'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>68429026836522574
+,p_default_id_offset=>171169157754824360
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_flow(
  p_id=>wwv_flow.g_flow_id
 ,p_owner=>nvl(wwv_flow_application_install.get_schema,'SURVEY_TOOL')
 ,p_name=>nvl(wwv_flow_application_install.get_application_name,'Excel Gateway for Oracle APEX')
-,p_alias=>nvl(wwv_flow_application_install.get_application_alias,'EXCELGATEWAY')
+,p_alias=>nvl(wwv_flow_application_install.get_application_alias,'MT_EXCEL_GATEWAY')
 ,p_page_view_logging=>'YES'
 ,p_page_protection_enabled_y_n=>'Y'
 ,p_checksum_salt=>'3477EB18E5B4B85689399A2723173787F41FBBD6107CBD75226060640862F54B'
@@ -32,8 +32,8 @@ wwv_flow_api.create_flow(
 ,p_flow_image_prefix => nvl(wwv_flow_application_install.get_image_prefix,'')
 ,p_documentation_banner=>'Application created from create application wizard 2020.08.05.'
 ,p_authentication=>'PLUGIN'
-,p_authentication_id=>wwv_flow_api.id(18801454126288775)
-,p_application_tab_set=>1
+,p_authentication_id=>wwv_flow_api.id(83885559212227942)
+,p_application_tab_set=>0
 ,p_logo_type=>'T'
 ,p_logo_text=>'Excel Gateway for Oracle APEX'
 ,p_app_builder_icon_name=>'app-icon.svg'
@@ -53,7 +53,7 @@ wwv_flow_api.create_flow(
 ,p_substitution_string_01=>'APP_NAME'
 ,p_substitution_value_01=>'Excel Gateway for Oracle APEX'
 ,p_last_updated_by=>'THERWIX'
-,p_last_upd_yyyymmddhh24miss=>'20210810135752'
+,p_last_upd_yyyymmddhh24miss=>'20210810144414'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>8
 ,p_ui_type_name => null

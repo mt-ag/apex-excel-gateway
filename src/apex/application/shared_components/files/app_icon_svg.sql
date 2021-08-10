@@ -8,7 +8,7 @@ wwv_flow_api.component_begin (
 ,p_release=>'21.1.0'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>68429026836522574
+,p_default_id_offset=>171169157754824360
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.g_varchar2_table := wwv_flow_api.empty_varchar2_table;
@@ -34,7 +34,7 @@ wwv_flow_api.g_varchar2_table(19) := '35682E38323461312E30313420312E303134203020
 wwv_flow_api.g_varchar2_table(20) := '302031203120322E352D322E3541322E35303320322E3530332030203020312033322033317A222066696C6C3D222366666622206F7061636974793D222E3935222F3E3C7061746820643D224D333220333061312E3520312E3520302031203120312E35';
 wwv_flow_api.g_varchar2_table(21) := '2D312E3541312E35303220312E3530322030203020312033322033307A222066696C6C3D222366636662666122206F7061636974793D222E36222F3E3C2F7376673E';
 wwv_flow_api.create_app_static_file(
- p_id=>wwv_flow_api.id(18661549597288600)
+ p_id=>wwv_flow_api.id(84025463741228117)
 ,p_file_name=>'app-icon.svg'
 ,p_mime_type=>'image/svg+xml'
 ,p_file_charset=>'utf-8'

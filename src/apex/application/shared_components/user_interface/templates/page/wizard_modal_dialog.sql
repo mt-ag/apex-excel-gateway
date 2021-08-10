@@ -8,11 +8,11 @@ wwv_flow_api.component_begin (
 ,p_release=>'21.1.0'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>68429026836522574
+,p_default_id_offset=>171169157754824360
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_template(
- p_id=>wwv_flow_api.id(18784719479288743)
+ p_id=>wwv_flow_api.id(83902293859227974)
 ,p_theme_id=>42
 ,p_name=>'Wizard Modal Dialog'
 ,p_internal_name=>'WIZARD_MODAL_DIALOG'
@@ -142,29 +142,29 @@ wwv_flow_api.create_template(
 ,p_reference_id=>2120348229686426515
 );
 wwv_flow_api.create_page_tmpl_display_point(
- p_id=>wwv_flow_api.id(24204858371752903)
-,p_page_template_id=>wwv_flow_api.id(18784719479288743)
-,p_name=>'Wizard Body'
-,p_placeholder=>'BODY'
-,p_has_grid_support=>true
+ p_id=>wwv_flow_api.id(78483117555763815)
+,p_page_template_id=>wwv_flow_api.id(83902293859227974)
+,p_name=>'Wizard Buttons'
+,p_placeholder=>'REGION_POSITION_03'
+,p_has_grid_support=>false
 ,p_glv_new_row=>true
-,p_max_fixed_grid_columns=>12
 );
 wwv_flow_api.create_page_tmpl_display_point(
- p_id=>wwv_flow_api.id(24204334328752903)
-,p_page_template_id=>wwv_flow_api.id(18784719479288743)
+ p_id=>wwv_flow_api.id(78482679009763814)
+,p_page_template_id=>wwv_flow_api.id(83902293859227974)
 ,p_name=>'Wizard Progress Bar'
 ,p_placeholder=>'REGION_POSITION_01'
 ,p_has_grid_support=>false
 ,p_glv_new_row=>true
 );
 wwv_flow_api.create_page_tmpl_display_point(
- p_id=>wwv_flow_api.id(24203895782752902)
-,p_page_template_id=>wwv_flow_api.id(18784719479288743)
-,p_name=>'Wizard Buttons'
-,p_placeholder=>'REGION_POSITION_03'
-,p_has_grid_support=>false
+ p_id=>wwv_flow_api.id(78482154966763814)
+,p_page_template_id=>wwv_flow_api.id(83902293859227974)
+,p_name=>'Wizard Body'
+,p_placeholder=>'BODY'
+,p_has_grid_support=>true
 ,p_glv_new_row=>true
+,p_max_fixed_grid_columns=>12
 );
 wwv_flow_api.component_end;
 end;

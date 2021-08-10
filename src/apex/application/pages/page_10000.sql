@@ -8,12 +8,12 @@ wwv_flow_api.component_begin (
 ,p_release=>'21.1.0'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>68429026836522574
+,p_default_id_offset=>171169157754824360
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_page(
  p_id=>10000
-,p_user_interface_id=>wwv_flow_api.id(18662539674288619)
+,p_user_interface_id=>wwv_flow_api.id(84024473664228098)
 ,p_name=>'Feedback'
 ,p_alias=>'ADMIN'
 ,p_step_title=>'Feedback'
@@ -28,36 +28,39 @@ wwv_flow_api.create_page(
 ,p_last_upd_yyyymmddhh24miss=>'20201102083554'
 );
 wwv_flow_api.create_page_plug(
- p_id=>wwv_flow_api.id(10199827983350990)
-,p_plug_name=>'Breadcrumb'
-,p_region_template_options=>'#DEFAULT#:t-BreadcrumbRegion--useBreadcrumbTitle'
-,p_component_template_options=>'#DEFAULT#'
-,p_plug_template=>wwv_flow_api.id(18737751392288711)
-,p_plug_display_sequence=>10
-,p_plug_display_point=>'REGION_POSITION_01'
-,p_menu_id=>wwv_flow_api.id(18801176628288773)
-,p_plug_source_type=>'NATIVE_BREADCRUMB'
-,p_menu_template_id=>wwv_flow_api.id(18683704751288668)
-);
-wwv_flow_api.create_page_plug(
- p_id=>wwv_flow_api.id(10198597499350987)
+ p_id=>wwv_flow_api.id(92488415839165730)
 ,p_plug_name=>'Feedback'
 ,p_region_template_options=>'#DEFAULT#:t-Region--noPadding:t-Region--scrollBody'
 ,p_escape_on_http_output=>'Y'
-,p_plug_template=>wwv_flow_api.id(18747158823288716)
+,p_plug_template=>wwv_flow_api.id(83939854515228001)
 ,p_plug_display_sequence=>20
 ,p_plug_display_point=>'BODY'
 ,p_plug_query_num_rows=>15
-,p_required_patch=>wwv_flow_api.id(10231207697351070)
+,p_required_patch=>wwv_flow_api.id(92455805641165647)
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'HTML'
 ,p_attribute_03=>'Y'
 );
+wwv_flow_api.create_page_plug(
+ p_id=>wwv_flow_api.id(92491883027165747)
+,p_plug_name=>'Feedback'
+,p_parent_plug_id=>wwv_flow_api.id(92488415839165730)
+,p_region_template_options=>'#DEFAULT#'
+,p_component_template_options=>'#DEFAULT#:u-colors'
+,p_escape_on_http_output=>'Y'
+,p_plug_template=>wwv_flow_api.id(83912436510227983)
+,p_plug_display_sequence=>30
+,p_plug_display_point=>'BODY'
+,p_list_id=>wwv_flow_api.id(92487776196165729)
+,p_plug_source_type=>'NATIVE_LIST'
+,p_list_template_id=>wwv_flow_api.id(83986752249228034)
+,p_plug_query_num_rows=>15
+);
 wwv_flow_api.create_report_region(
- p_id=>wwv_flow_api.id(10198200696350986)
+ p_id=>wwv_flow_api.id(92488812642165731)
 ,p_name=>'Report'
-,p_parent_plug_id=>wwv_flow_api.id(10198597499350987)
-,p_template=>wwv_flow_api.id(18747158823288716)
+,p_parent_plug_id=>wwv_flow_api.id(92488415839165730)
+,p_template=>wwv_flow_api.id(83939854515228001)
 ,p_display_sequence=>10
 ,p_region_template_options=>'#DEFAULT#:t-Region--removeHeader:t-Region--stacked:t-Region--scrollBody:t-Region--noPadding'
 ,p_component_template_options=>'#DEFAULT#:t-AVPList--rightAligned'
@@ -73,13 +76,13 @@ wwv_flow_api.create_report_region(
 'order by 2 desc, 1'))
 ,p_ajax_enabled=>'Y'
 ,p_lazy_loading=>false
-,p_query_row_template=>wwv_flow_api.id(18713281568288694)
+,p_query_row_template=>wwv_flow_api.id(83973731770228023)
 ,p_query_options=>'DERIVED_REPORT_COLUMNS'
 ,p_query_no_data_found=>'no data found'
 ,p_query_row_count_max=>500
 );
 wwv_flow_api.create_report_columns(
- p_id=>wwv_flow_api.id(10197479108350976)
+ p_id=>wwv_flow_api.id(92489534230165741)
 ,p_query_column_id=>1
 ,p_column_alias=>'FEEDBACK_STATUS'
 ,p_column_display_sequence=>1
@@ -87,7 +90,7 @@ wwv_flow_api.create_report_columns(
 ,p_heading_alignment=>'LEFT'
 );
 wwv_flow_api.create_report_columns(
- p_id=>wwv_flow_api.id(10197112976350976)
+ p_id=>wwv_flow_api.id(92489900362165741)
 ,p_query_column_id=>2
 ,p_column_alias=>'FEEDBACK_COUNT'
 ,p_column_display_sequence=>2
@@ -96,19 +99,16 @@ wwv_flow_api.create_report_columns(
 ,p_heading_alignment=>'LEFT'
 );
 wwv_flow_api.create_page_plug(
- p_id=>wwv_flow_api.id(10195130311350970)
-,p_plug_name=>'Feedback'
-,p_parent_plug_id=>wwv_flow_api.id(10198597499350987)
-,p_region_template_options=>'#DEFAULT#'
-,p_component_template_options=>'#DEFAULT#:u-colors'
-,p_escape_on_http_output=>'Y'
-,p_plug_template=>wwv_flow_api.id(18774576828288734)
-,p_plug_display_sequence=>30
-,p_plug_display_point=>'BODY'
-,p_list_id=>wwv_flow_api.id(10199237142350988)
-,p_plug_source_type=>'NATIVE_LIST'
-,p_list_template_id=>wwv_flow_api.id(18700261089288683)
-,p_plug_query_num_rows=>15
+ p_id=>wwv_flow_api.id(92487185355165727)
+,p_plug_name=>'Breadcrumb'
+,p_region_template_options=>'#DEFAULT#:t-BreadcrumbRegion--useBreadcrumbTitle'
+,p_component_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_api.id(83949261946228006)
+,p_plug_display_sequence=>10
+,p_plug_display_point=>'REGION_POSITION_01'
+,p_menu_id=>wwv_flow_api.id(83885836710227944)
+,p_plug_source_type=>'NATIVE_BREADCRUMB'
+,p_menu_template_id=>wwv_flow_api.id(84003308587228049)
 );
 wwv_flow_api.component_end;
 end;

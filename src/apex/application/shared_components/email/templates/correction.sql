@@ -8,18 +8,18 @@ wwv_flow_api.component_begin (
 ,p_release=>'21.1.0'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>68429026836522574
+,p_default_id_offset=>171169157754824360
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_email_template(
- p_id=>wwv_flow_api.id(18451057688949597)
+ p_id=>wwv_flow_api.id(84235955649567120)
 ,p_name=>'CORRECTION'
 ,p_static_id=>'CORRECTION'
-,p_subject=>'Correction Survey'
+,p_subject=>'Correction Template'
 ,p_html_body=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '<b>Dear #CONTACT_PERSON#,</b><br>',
 '<br>',
-'This is a survey to collect data.<br> ',
+'This is a template to collect data.<br> ',
 '<br> ',
 'We have found some incorrect data. Please have a look in the attached list and fill out again.<br>',
 '<br>',
@@ -37,11 +37,11 @@ wwv_flow_api.create_email_template(
 '    <td>#NOTES#</td>',
 '  </tr>',
 '</table>'))
-,p_html_header=>'<b style="font-size: 24px;">Correction Survey</b>'
+,p_html_header=>'<b style="font-size: 24px;">Correction Template</b>'
 ,p_text_template=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'Dear #CONTACT_PERSON#,',
 '',
-'This is a survey to collect data. ',
+'This is a template to collect data. ',
 'We have found some incorrect data. Please have a look in the attached list and fill out again.',
 '',
 'Thank you in advance for your cooperation.',

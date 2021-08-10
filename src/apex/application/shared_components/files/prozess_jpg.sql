@@ -8,7 +8,7 @@ wwv_flow_api.component_begin (
 ,p_release=>'21.1.0'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>68429026836522574
+,p_default_id_offset=>171169157754824360
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.g_varchar2_table := wwv_flow_api.empty_varchar2_table;
@@ -890,11 +890,11 @@ wwv_flow_api.component_begin (
 ,p_release=>'21.1.0'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>68429026836522574
+,p_default_id_offset=>171169157754824360
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_app_static_file(
- p_id=>wwv_flow_api.id(18513106881771442)
+ p_id=>wwv_flow_api.id(84173906456745275)
 ,p_file_name=>'prozess.jpg'
 ,p_mime_type=>'image/jpeg'
 ,p_file_charset=>'utf-8'

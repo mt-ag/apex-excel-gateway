@@ -8,14 +8,14 @@ wwv_flow_api.component_begin (
 ,p_release=>'21.1.0'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>68429026836522574
+,p_default_id_offset=>171169157754824360
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_email_template(
- p_id=>wwv_flow_api.id(18450895077944441)
+ p_id=>wwv_flow_api.id(84236118260572276)
 ,p_name=>'REMINDER'
 ,p_static_id=>'REMINDER'
-,p_subject=>'Reminder Survey'
+,p_subject=>'Reminder Template'
 ,p_html_body=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '<b>Dear #CONTACT_PERSON#,</b><br>',
 '<br>',
@@ -37,7 +37,7 @@ wwv_flow_api.create_email_template(
 '    <td>#NOTES#</td>',
 '  </tr>',
 '</table>'))
-,p_html_header=>'<b style="font-size: 24px;">Reminder Survey</b>'
+,p_html_header=>'<b style="font-size: 24px;">Reminder Template</b>'
 ,p_text_template=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'Dear #CONTACT_PERSON#,',
 '',

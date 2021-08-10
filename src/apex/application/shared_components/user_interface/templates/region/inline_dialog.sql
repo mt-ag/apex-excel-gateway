@@ -8,11 +8,11 @@ wwv_flow_api.component_begin (
 ,p_release=>'21.1.0'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>68429026836522574
+,p_default_id_offset=>171169157754824360
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_plug_template(
- p_id=>wwv_flow_api.id(18754681593288720)
+ p_id=>wwv_flow_api.id(83932331745227997)
 ,p_layout=>'TABLE'
 ,p_template=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '<div id="#REGION_STATIC_ID#_parent">',
@@ -42,8 +42,8 @@ wwv_flow_api.create_plug_template(
 ,p_translate_this_template=>'N'
 );
 wwv_flow_api.create_plug_tmpl_display_point(
- p_id=>wwv_flow_api.id(24148633358752853)
-,p_plug_template_id=>wwv_flow_api.id(18754681593288720)
+ p_id=>wwv_flow_api.id(78538379979763864)
+,p_plug_template_id=>wwv_flow_api.id(83932331745227997)
 ,p_name=>'Region Body'
 ,p_placeholder=>'BODY'
 ,p_has_grid_support=>true
