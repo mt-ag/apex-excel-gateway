@@ -12,6 +12,7 @@ PROMPT >> Installing Package Specifications
 @plsql/email_pkg.pks
 @plsql/excel_gen.pks
 @plsql/file_import.pks
+@plsql/master_api.pks
 @plsql/p00025_api.pks
 @plsql/p00027_api.pks
 @plsql/p00028_api.pks
@@ -48,6 +49,7 @@ PROMPT >> Installing Package Bodies
 @plsql/email_pkg.pkb
 @plsql/excel_gen.pkb
 @plsql/file_import.pkb
+@plsql/master_api.pkb
 @plsql/p00025_api.pkb
 @plsql/p00027_api.pkb
 @plsql/p00028_api.pkb
