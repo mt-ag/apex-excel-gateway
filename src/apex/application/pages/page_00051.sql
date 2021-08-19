@@ -18,43 +18,9 @@ wwv_flow_api.create_page(
 ,p_alias=>'CHECK-DATA-DETAILS'
 ,p_step_title=>'Check Data Details'
 ,p_autocomplete_on_off=>'OFF'
-,p_javascript_code=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'function highlight_cells() {',
-'    // for each cell in marked column',
-'    $(''.grid td.VALIDATION'').each(function() {',
-'        // get cell text',
-'        cellData = $(this).text();',
-'        // rules for coloring',
-'        if (cellData == '''')',
-'            this.style.backgroundColor = ''limegreen'';',
-'        else if (cellData != '''')',
-'            this.style.backgroundColor = ''tomato'';   ',
-'            this.style.color = ''white'';',
-'    })',
-'};',
-'',
-'function regenerate_button() {    ',
-'    if ($v("P51_FAULTY") == 1) {',
-'        $("#regenerate").attr("disabled", false); ',
-'    } else {',
-'        $("#regenerate").attr("disabled", true);    ',
-'    }    ',
-'};'))
-,p_inline_css=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'.grid .a-GV-headerLabel {',
-'  	white-space: pre-line;',
-'}',
-'',
-'.grid .a-GV-w-hdr{',
-'    overflow-x: auto !important;',
-'}',
-'',
-'.regenerate {',
-'    margin-left: -33%;',
-'}'))
 ,p_page_template_options=>'#DEFAULT#'
 ,p_last_updated_by=>'THERWIX'
-,p_last_upd_yyyymmddhh24miss=>'20210819111823'
+,p_last_upd_yyyymmddhh24miss=>'20210819145416'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(86559851329885920)
@@ -1168,18 +1134,6 @@ wwv_flow_api.create_region_column(
 ,p_display_condition=>':p51_col_count >= 30'
 ,p_display_condition2=>'PLSQL'
 );
-wwv_flow_api.component_end;
-end;
-/
-begin
-wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.0'
-,p_default_workspace_id=>9510583246779566
-,p_default_application_id=>111
-,p_default_id_offset=>205442218172938197
-,p_default_owner=>'SURVEY_TOOL'
-);
 wwv_flow_api.create_region_column(
  p_id=>wwv_flow_api.id(86556531009885887)
 ,p_name=>'COL31'
@@ -1212,6 +1166,18 @@ wwv_flow_api.create_region_column(
 ,p_display_condition_type=>'EXPRESSION'
 ,p_display_condition=>':p51_col_count >= 31'
 ,p_display_condition2=>'PLSQL'
+);
+wwv_flow_api.component_end;
+end;
+/
+begin
+wwv_flow_api.component_begin (
+ p_version_yyyy_mm_dd=>'2021.04.15'
+,p_release=>'21.1.0'
+,p_default_workspace_id=>9510583246779566
+,p_default_application_id=>111
+,p_default_id_offset=>205442218172938197
+,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_region_column(
  p_id=>wwv_flow_api.id(86556410953885886)
@@ -2292,18 +2258,6 @@ wwv_flow_api.create_page_item(
 ,p_is_persistent=>'N'
 ,p_attribute_01=>'N'
 );
-wwv_flow_api.component_end;
-end;
-/
-begin
-wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.0'
-,p_default_workspace_id=>9510583246779566
-,p_default_application_id=>111
-,p_default_id_offset=>205442218172938197
-,p_default_owner=>'SURVEY_TOOL'
-);
 wwv_flow_api.create_page_item(
  p_id=>wwv_flow_api.id(86542581381675913)
 ,p_name=>'P51_FAULTY'
@@ -2335,6 +2289,18 @@ wwv_flow_api.create_page_item(
 ,p_item_plug_id=>wwv_flow_api.id(86559851329885920)
 ,p_display_as=>'NATIVE_HIDDEN'
 ,p_attribute_01=>'N'
+);
+wwv_flow_api.component_end;
+end;
+/
+begin
+wwv_flow_api.component_begin (
+ p_version_yyyy_mm_dd=>'2021.04.15'
+,p_release=>'21.1.0'
+,p_default_workspace_id=>9510583246779566
+,p_default_application_id=>111
+,p_default_id_offset=>205442218172938197
+,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_page_item(
  p_id=>wwv_flow_api.id(86541964158675907)

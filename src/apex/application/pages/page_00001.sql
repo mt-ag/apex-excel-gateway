@@ -19,17 +19,8 @@ wwv_flow_api.create_page(
 ,p_step_title=>'Excel Gateway for Oracle APEX'
 ,p_autocomplete_on_off=>'OFF'
 ,p_page_template_options=>'#DEFAULT#'
-,p_page_comment=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'.t-Body-content {   ',
-'background-image:url(#APP_IMAGES#prozess.jpg);',
-'background-repeat: no-repeat;',
-'background-size : 92% 92%;  ',
-'display: flex; ',
-'justify-content: center; ',
-'align-items: center;',
-'}'))
 ,p_last_updated_by=>'THERWIX'
-,p_last_upd_yyyymmddhh24miss=>'20210819120622'
+,p_last_upd_yyyymmddhh24miss=>'20210819142246'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(87131029095592923)

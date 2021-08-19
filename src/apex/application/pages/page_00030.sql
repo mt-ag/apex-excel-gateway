@@ -20,7 +20,7 @@ wwv_flow_api.create_page(
 ,p_autocomplete_on_off=>'OFF'
 ,p_page_template_options=>'#DEFAULT#'
 ,p_last_updated_by=>'THERWIX'
-,p_last_upd_yyyymmddhh24miss=>'20210819122259'
+,p_last_upd_yyyymmddhh24miss=>'20210819143545'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(87130659253592920)
@@ -708,7 +708,6 @@ wwv_flow_api.create_page_button(
 ,p_button_is_hot=>'Y'
 ,p_button_image_alt=>'Send Mail'
 ,p_button_position=>'BODY'
-,p_button_css_classes=>'MAIL_SENDEN'
 ,p_icon_css_classes=>'fa-envelope-o'
 ,p_grid_new_row=>'N'
 ,p_grid_new_column=>'Y'

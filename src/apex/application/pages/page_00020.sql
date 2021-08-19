@@ -18,18 +18,10 @@ wwv_flow_api.create_page(
 ,p_alias=>'CREATE-TEMPLATE'
 ,p_step_title=>'Create Template'
 ,p_autocomplete_on_off=>'OFF'
-,p_javascript_code_onload=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'$(".only-numeric").bind("keypress", function (e) {',
-'    var keyCode = e.which ? e.which : e.keyCode               ',
-'    if (!(keyCode >= 48 && keyCode <= 57)) {',
-'      return false;',
-'    }else{',
-'      return true;',
-'    }',
-'});'))
+,p_javascript_code_onload=>'only_numeric()'
 ,p_page_template_options=>'#DEFAULT#'
 ,p_last_updated_by=>'THERWIX'
-,p_last_upd_yyyymmddhh24miss=>'20210819115907'
+,p_last_upd_yyyymmddhh24miss=>'20210819145905'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(86063027937222029)

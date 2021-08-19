@@ -6,6 +6,12 @@ prompt --install
 @@application/shared_components/navigation/lists/desktop_navigation_bar.sql
 @@application/shared_components/navigation/lists/feedback.sql
 @@application/shared_components/navigation/lists/create_new_template.sql
+@@application/shared_components/files/main_css.sql
+@@application/shared_components/files/main_min_css.sql
+@@application/shared_components/files/main_css_map.sql
+@@application/shared_components/files/main_js.sql
+@@application/shared_components/files/main_min_js.sql
+@@application/shared_components/files/main_js_map.sql
 @@application/shared_components/files/app_icon_svg.sql
 @@application/shared_components/files/app_icon_css.sql
 @@application/shared_components/files/prozess_png.sql

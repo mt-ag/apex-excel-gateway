@@ -30,7 +30,7 @@ wwv_flow_api.create_theme_style(
  p_id=>wwv_flow_api.id(168084586330303443)
 ,p_theme_id=>42
 ,p_name=>'Vita'
-,p_is_current=>false
+,p_is_current=>true
 ,p_is_public=>true
 ,p_is_accessible=>true
 ,p_theme_roller_input_file_urls=>'#THEME_IMAGES#less/theme/Vita.less'
@@ -73,21 +73,6 @@ wwv_flow_api.create_theme_style(
 ,p_theme_roller_output_file_url=>'#THEME_IMAGES#css/Vita-Slate#MIN#.css?v=#APEX_VERSION#'
 ,p_theme_roller_read_only=>true
 ,p_reference_id=>3291983347983194966
-);
-wwv_flow_api.create_theme_style(
- p_id=>wwv_flow_api.id(86985154419976731)
-,p_theme_id=>42
-,p_name=>'Vita (Copy)'
-,p_is_current=>true
-,p_is_public=>true
-,p_is_accessible=>true
-,p_theme_roller_input_file_urls=>'#THEME_IMAGES#less/theme/Vita.less'
-,p_theme_roller_config=>'{"classes":[],"vars":{},"customCSS":"#P0_TEMPLATE {\n    background-color: #0077df !important;\n    color: white !important;\n    font-weight: bold;    \n    margin-left: 5px;\n}\n\n#P0_TEMPLATE_CONTAINER {\n\tmargin-top: 5px;\n    margin-bottom: 5px'
-||';\n}\n\n#P0_TEMPLATE_CONTAINER .t-Form-itemWrapper:after{\n    width: 0;\n    height: 0;\n    border-left: 6px solid transparent;\n    border-right: 6px solid transparent;\n    border-top: 6px solid white;\n    position: absolute;  \n    top: 39%; \n'
-||'    right: 19px;\n    content: \"\";\n    z-index: 9999;\n}\n\n#P0_TEMPLATE_LABEL {\n    color: black !important;\n    font-weight: bold;\n    white-space: nowrap;\n}\n\n#P30_MAILTYPE {\n    border-color: dimgrey !important;\n    background-color: #0'
-||'077df !important;\n    color: white !important;\n    font-weight: bold !important;      \n}\n\n#P30_MAILTYPE_LABEL {\n    color: white !important;\n}\n\n.MAIL_SENDEN {\n    height: 48px;\n    text-align: left;\n}\n","useCustomLess":"N"}'
-,p_theme_roller_output_file_url=>'#THEME_DB_IMAGES#118457063752961466.css'
-,p_theme_roller_read_only=>false
 );
 wwv_flow_api.component_end;
 end;

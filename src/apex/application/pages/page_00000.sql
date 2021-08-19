@@ -20,12 +20,12 @@ wwv_flow_api.create_page(
 ,p_page_template_options=>'#DEFAULT#'
 ,p_protection_level=>'D'
 ,p_last_updated_by=>'THERWIX'
-,p_last_upd_yyyymmddhh24miss=>'20210819120432'
+,p_last_upd_yyyymmddhh24miss=>'20210819140725'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(87131389636592927)
 ,p_plug_name=>'Filter'
-,p_region_template_options=>'#DEFAULT#:t-ButtonRegion--slimPadding:t-Form--stretchInputs:margin-bottom-none'
+,p_region_template_options=>'#DEFAULT#:t-ButtonRegion--slimPadding:t-Form--stretchInputs:t-Form--leftLabels:margin-bottom-none'
 ,p_plug_template=>wwv_flow_api.id(87255674702596377)
 ,p_plug_display_sequence=>10
 ,p_include_in_reg_disp_sel_yn=>'Y'

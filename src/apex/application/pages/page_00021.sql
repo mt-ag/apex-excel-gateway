@@ -18,62 +18,9 @@ wwv_flow_api.create_page(
 ,p_alias=>'CREATE-TEMPLATE-HEADER'
 ,p_step_title=>'Create Template - Header'
 ,p_autocomplete_on_off=>'OFF'
-,p_javascript_code=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'function handleDrag(event) {',
-'      var data = {hea_id: event.target.dataset.hea_id, hea_text: event.target.dataset.hea_text};',
-'      var json_data = JSON.stringify(data);',
-'      event.dataTransfer.setData(''data'', json_data);',
-'}',
-'',
-'function handleDragover(event){',
-'      event.preventDefault();',
-'}',
-'',
-'',
-'function handleDrop(event){',
-'      var hea_id = JSON.parse(event.dataTransfer.getData(''data'')).hea_id;',
-'      var hea_text = JSON.parse(event.dataTransfer.getData(''data'')).hea_text;',
-'',
-'      apex.server.process(',
-'            ''Update Collection'',',
-'            {',
-'               x01: hea_id,',
-'               x02: hea_text ',
-'            },',
-'            {',
-'               success: function(){',
-'                     apex.event.trigger(''#target'', ''apexrefresh'')',
-'               },',
-'               dataType: ''text''',
-'            });',
-'',
-'}'))
-,p_inline_css=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'.draglist{',
-'      list-style-type: none;',
-'}',
-'',
-'.droplist{',
-'      list-style-type: decimal-leading-zero;',
-'}',
-'',
-'.draglist-el {',
-'      padding-top: 5px;',
-'      	padding-bottom: 5px;',
-'}',
-'',
-'.droplist-el {',
-'      padding-top: 5px;',
-'      	padding-bottom: 5px;',
-'}',
-'',
-'hr {  ',
-'  margin-top: 5px; ',
-'  margin-bottom: 0px; ',
-'}'))
 ,p_page_template_options=>'#DEFAULT#'
 ,p_last_updated_by=>'THERWIX'
-,p_last_upd_yyyymmddhh24miss=>'20210819125131'
+,p_last_upd_yyyymmddhh24miss=>'20210819144738'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(84790963693150224)
