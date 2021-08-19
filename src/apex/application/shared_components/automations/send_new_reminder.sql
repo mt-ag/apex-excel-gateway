@@ -8,11 +8,11 @@ wwv_flow_api.component_begin (
 ,p_release=>'21.1.0'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>171169157754824360
+,p_default_id_offset=>205442218172938197
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_automation(
- p_id=>wwv_flow_api.id(99729775167082876)
+ p_id=>wwv_flow_api.id(71439382587741484)
 ,p_name=>'Send New Reminder'
 ,p_static_id=>'send-new-reminder'
 ,p_trigger_type=>'POLLING'
@@ -50,8 +50,8 @@ wwv_flow_api.create_automation(
 ,p_error_handling_type=>'IGNORE'
 );
 wwv_flow_api.create_automation_action(
- p_id=>wwv_flow_api.id(99729964158082876)
-,p_automation_id=>wwv_flow_api.id(99729775167082876)
+ p_id=>wwv_flow_api.id(71439193596741484)
+,p_automation_id=>wwv_flow_api.id(71439382587741484)
 ,p_name=>'New Action'
 ,p_execution_sequence=>10
 ,p_action_type=>'NATIVE_PLSQL'

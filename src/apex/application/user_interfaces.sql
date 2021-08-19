@@ -8,11 +8,11 @@ wwv_flow_api.component_begin (
 ,p_release=>'21.1.0'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>171169157754824360
+,p_default_id_offset=>205442218172938197
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_user_interface(
- p_id=>wwv_flow_api.id(84024473664228098)
+ p_id=>wwv_flow_api.id(87144684090596262)
 ,p_ui_type_name=>'DESKTOP'
 ,p_display_name=>'Desktop'
 ,p_display_seq=>10
@@ -23,14 +23,14 @@ wwv_flow_api.create_user_interface(
 ,p_login_url=>'f?p=&APP_ID.:LOGIN:&APP_SESSION.::&DEBUG.:::'
 ,p_theme_style_by_user_pref=>false
 ,p_global_page_id=>0
-,p_navigation_list_id=>wwv_flow_api.id(83886311955227947)
+,p_navigation_list_id=>wwv_flow_api.id(87282845799596413)
 ,p_navigation_list_position=>'SIDE'
-,p_navigation_list_template_id=>wwv_flow_api.id(83991584789228038)
+,p_navigation_list_template_id=>wwv_flow_api.id(87177572965596322)
 ,p_nav_list_template_options=>'js-navCollapsed--default:t-TreeNav--styleB'
 ,p_css_file_urls=>'#APP_IMAGES#app-icon.css?version=#APP_VERSION#'
 ,p_nav_bar_type=>'LIST'
-,p_nav_bar_list_id=>wwv_flow_api.id(84024129943228096)
-,p_nav_bar_list_template_id=>wwv_flow_api.id(83991112618228037)
+,p_nav_bar_list_id=>wwv_flow_api.id(87145027811596264)
+,p_nav_bar_list_template_id=>wwv_flow_api.id(87178045136596323)
 ,p_nav_bar_template_options=>'js-menu-callout'
 );
 wwv_flow_api.component_end;

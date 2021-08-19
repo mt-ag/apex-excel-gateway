@@ -115,7 +115,7 @@ CREATE TABLE r_header (
     hea_id           NUMBER DEFAULT ON NULL "HEA_SEQ"."NEXTVAL" NOT NULL,
     hea_text         VARCHAR2(2000 CHAR) NOT NULL,
     hea_xlsx_width   NUMBER(12, 2) DEFAULT ON NULL 12 NOT NULL,
-    hea_val_id       NUMBER NOT NULL,
+    hea_val_id       NUMBER,
     hea_created_on   DATE,
     hea_created_by   VARCHAR2(200 CHAR),
     hea_modified_on  DATE,
@@ -433,7 +433,7 @@ CREATE TABLE template_import_status (
     tis_tpl_id           NUMBER NOT NULL,
     tis_per_id           NUMBER NOT NULL,
     tis_sts_id           NUMBER NOT NULL,
-    tis_fil_id           NUMBER NOT NULL,
+    tis_fil_id           NUMBER,
     tis_annotation       VARCHAR2(2000 CHAR),
     tis_deadline         DATE,
     tis_shipping_status  NUMBER DEFAULT 0,
@@ -859,7 +859,15 @@ commit;
 
 REM INSERTING into R_VALIDATION
 Insert into R_VALIDATION (VAL_TEXT,VAL_MESSAGE) values ('email','Invalid email address');
+Insert into R_VALIDATION (VAL_TEXT,VAL_MESSAGE) values ('email','Invalid email address');
 Insert into R_VALIDATION (VAL_TEXT,VAL_MESSAGE) values ('number','Invalid number');
 Insert into R_VALIDATION (VAL_TEXT,VAL_MESSAGE) values ('date','Invalid date');
 Insert into R_VALIDATION (VAL_TEXT,VAL_MESSAGE) values ('formula','formula');
+commit;
+
+REM INSERTING into R_HEADER
+insert into r_header (hea_id, hea_text, hea_xlsx_width) values (9999, 'Faulty',30);
+insert into r_header (hea_id, hea_text, hea_xlsx_width) values (9998, 'Annotation',30);
+insert into r_header (hea_id, hea_text, hea_xlsx_width) values (9997, 'Feedback',30);
+insert into r_header (hea_id, hea_text, hea_xlsx_width) values (9996, 'Validation',30);
 commit;

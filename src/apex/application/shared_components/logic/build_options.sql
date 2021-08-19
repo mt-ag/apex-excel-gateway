@@ -8,22 +8,22 @@ wwv_flow_api.component_begin (
 ,p_release=>'21.1.0'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>171169157754824360
+,p_default_id_offset=>205442218172938197
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_build_option(
- p_id=>wwv_flow_api.id(92502689339572400)
-,p_build_option_name=>'Feature: About Page'
-,p_build_option_status=>'INCLUDE'
-,p_feature_identifier=>'APPLICATION_ABOUT_PAGE'
-,p_build_option_comment=>'About this application page.'
-);
-wwv_flow_api.create_build_option(
- p_id=>wwv_flow_api.id(92455805641165647)
+ p_id=>wwv_flow_api.id(78713352113658713)
 ,p_build_option_name=>'Feature: Feedback'
 ,p_build_option_status=>'INCLUDE'
 ,p_feature_identifier=>'APPLICATION_FEEDBACK'
 ,p_build_option_comment=>'Provide a mechanism for end users to post general comments back to the application administrators and developers.'
+);
+wwv_flow_api.create_build_option(
+ p_id=>wwv_flow_api.id(78666468415251960)
+,p_build_option_name=>'Feature: About Page'
+,p_build_option_status=>'INCLUDE'
+,p_feature_identifier=>'APPLICATION_ABOUT_PAGE'
+,p_build_option_comment=>'About this application page.'
 );
 wwv_flow_api.component_end;
 end;

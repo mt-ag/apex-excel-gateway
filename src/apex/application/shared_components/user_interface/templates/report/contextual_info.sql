@@ -1,7 +1,7 @@
-prompt --application/shared_components/user_interface/templates/report/alerts
+prompt --application/shared_components/user_interface/templates/report/contextual_info
 begin
 --   Manifest
---     ROW TEMPLATE: ALERTS
+--     ROW TEMPLATE: CONTEXTUAL_INFO
 --   Manifest End
 wwv_flow_api.component_begin (
  p_version_yyyy_mm_dd=>'2021.04.15'
@@ -12,33 +12,19 @@ wwv_flow_api.component_begin (
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_row_template(
- p_id=>wwv_flow_api.id(87217590799596352)
-,p_row_template_name=>'Alerts'
-,p_internal_name=>'ALERTS'
+ p_id=>wwv_flow_api.id(167541936830302516)
+,p_row_template_name=>'Contextual Info'
+,p_internal_name=>'CONTEXTUAL_INFO'
 ,p_row_template1=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'<div class="t-Alert t-Alert--horizontal t-Alert--colorBG t-Alert--defaultIcons t-Alert--#ALERT_TYPE#" role="alert">',
-'  <div class="t-Alert-wrap">',
-'    <div class="t-Alert-icon">',
-'      <span class="t-Icon"></span>',
-'    </div>',
-'    <div class="t-Alert-content">',
-'      <div class="t-Alert-header">',
-'        <h2 class="t-Alert-title">#ALERT_TITLE#</h2>',
-'      </div>',
-'      <div class="t-Alert-body">',
-'        #ALERT_DESC#',
-'      </div>',
-'    </div>',
-'    <div class="t-Alert-buttons">',
-'      #ALERT_ACTION#',
-'    </div>',
-'  </div>',
+'<div class="t-ContextualInfo-item">',
+'  <span class="t-ContextualInfo-label">#COLUMN_HEADER#</span>',
+'  <span class="t-ContextualInfo-value">#COLUMN_VALUE#</span>',
 '</div>'))
-,p_row_template_before_rows=>'<div class="t-Alerts #COMPONENT_CSS_CLASSES#" #REPORT_ATTRIBUTES# id="#REGION_STATIC_ID#_alerts" data-region-id="#REGION_STATIC_ID#">'
+,p_row_template_before_rows=>' <div class="t-ContextualInfo #COMPONENT_CSS_CLASSES#" id="report_#REGION_STATIC_ID#" #REPORT_ATTRIBUTES# data-region-id="#REGION_STATIC_ID#">'
 ,p_row_template_after_rows=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '</div>',
 '<table class="t-Report-pagination" role="presentation">#PAGINATION#</table>'))
-,p_row_template_type=>'NAMED_COLUMNS'
+,p_row_template_type=>'GENERIC_COLUMNS'
 ,p_row_template_display_cond1=>'0'
 ,p_row_template_display_cond2=>'0'
 ,p_row_template_display_cond3=>'0'
@@ -61,8 +47,8 @@ wwv_flow_api.create_row_template(
 '  <span class="a-Icon icon-left-arrow"></span>#PAGINATION_PREVIOUS_SET#',
 '</a>'))
 ,p_theme_id=>42
-,p_theme_class_id=>14
-,p_reference_id=>2881456138952347027
+,p_theme_class_id=>6
+,p_reference_id=>2114325881116323585
 ,p_translate_this_template=>'N'
 );
 wwv_flow_api.component_end;
