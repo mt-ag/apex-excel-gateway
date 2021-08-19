@@ -58,9 +58,9 @@ as
         l_validate_data          boolean;
         l_tis_tpl_id             template_import_status.tis_tpl_id%type;
 
-        l_annotation_id          r_header.hea_id%type := 9998;
-        l_faulty_id              r_header.hea_id%type := 9999;
-        l_validation_id          r_header.hea_id%type := 9996;
+        l_annotation_id          r_header.hea_id%type := master_api.get_annotation_id;
+        l_faulty_id              r_header.hea_id%type := master_api.get_faulty_id;
+        l_validation_id          r_header.hea_id%type := master_api.get_validation_id;
 
         l_annotation_tph_id      template_header.tph_id%type;
         l_faulty_tph_id          template_header.tph_id%type;
@@ -302,7 +302,7 @@ as
 
                   end if;
 
-              -- Step 1.2.2 Retoure & Anmerkung Antwort aktualisieren
+              -- Step 1.2.2 Retoure und Anmerkung Antwort aktualisieren
               else 
                for rec2 in (
                  select tid_tph_id 

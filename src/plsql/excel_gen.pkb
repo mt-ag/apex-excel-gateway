@@ -58,9 +58,9 @@ as
     l_scope  logger_logs.scope%type := gc_scope_prefix || 'generate_abfragen';
     l_params logger.tab_param;
 
-    l_annotation_id     r_header.hea_id%type := 9998;
-    l_error_id          r_header.hea_id%type := 9999;
-    l_validation_id     r_header.hea_id%type := 9996;
+    l_annotation_id     r_header.hea_id%type := master_api.get_annotation_id;
+    l_error_id          r_header.hea_id%type := master_api.get_faulty_id;
+    l_validation_id     r_header.hea_id%type := master_api.get_validation_id;
 
     l_max_sort_order pls_integer;
 
@@ -317,9 +317,9 @@ as
     l_scope  logger_logs.scope%type := gc_scope_prefix || 'generate_answers';
     l_params logger.tab_param;
 
-    l_annotation_id      r_header.hea_id%type := 9998;
-    l_faulty_id          r_header.hea_id%type := 9999;
-    l_validation_id      r_header.hea_id%type := 9996;
+    l_annotation_id      r_header.hea_id%type := master_api.get_annotation_id;
+    l_faulty_id          r_header.hea_id%type := master_api.get_faulty_id;
+    l_validation_id      r_header.hea_id%type := master_api.get_validation_id;
 
     l_max_sort_order  template_header.tph_sort_order%type;
     l_annotation      template_import_data.tid_text%type;
@@ -510,9 +510,9 @@ as
     l_scope  logger_logs.scope%type := gc_scope_prefix || 'generate_validation';
     l_params logger.tab_param;
 
-    l_annotation_id     r_header.hea_id%type := 9998;
-    l_error_id          r_header.hea_id%type := 9999;
-    l_validation_id     r_header.hea_id%type := 9996;
+    l_annotation_id     r_header.hea_id%type := master_api.get_annotation_id;
+    l_error_id          r_header.hea_id%type := master_api.get_faulty_id;
+    l_validation_id     r_header.hea_id%type := master_api.get_validation_id;
 
     l_max_sort_order pls_integer;
     l_columnName varchar2(5 char);

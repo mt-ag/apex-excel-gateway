@@ -228,7 +228,7 @@ as
         from (
         select tid_text
              , tid_row_id 
-             , case when tph_hea_id not in (9998,9999,9996)  then
+             , case when tph_hea_id not in (master_api.get_annotation_id,master_api.get_faulty_id,master_api.get_validation_id)  then
                 tph_hea_id || ROW_NUMBER() OVER (PARTITION BY tid_row_id ORDER BY tid_id)
                 else
                 tph_hea_id || ROW_NUMBER() OVER (PARTITION BY tid_row_id ORDER BY tph_sort_order, tid_id) || 00
@@ -298,9 +298,9 @@ as
     l_tpl_id r_templates.tpl_id%type;
 
     l_count             pls_integer;
-    l_annotation_id     r_header.hea_id%type := 9998;
-    l_faulty_id         r_header.hea_id%type := 9999;
-    l_validation_id     r_header.hea_id%type := 9996;
+    l_annotation_id     r_header.hea_id%type := master_api.get_annotation_id;
+    l_faulty_id         r_header.hea_id%type := master_api.get_faulty_id;
+    l_validation_id     r_header.hea_id%type := master_api.get_validation_id;
 
     l_annotation_tph_id  template_header.tph_id%type;
     l_faulty_tph_id      template_header.tph_id%type;
@@ -490,7 +490,7 @@ as
       from r_header
       where hea_text = l_hea_text_array(counter);
 
-      if l_hea_id not in (9999, 9998, 9996)
+      if l_hea_id not in (master_api.get_faulty_id, master_api.get_annotation_id, master_api.get_validation_id)
       then
           -- get umfrage_abfrage
           select tph_id
@@ -564,7 +564,7 @@ as
       from r_header
       where hea_text = l_hea_text_array(counter);
 
-      if l_hea_id not in (9999,9998,9996)
+      if l_hea_id not in (master_api.get_faulty_id,master_api.get_annotation_id,master_api.get_validation_id)
       then
         -- get umfrage_abfrage
         select tph_id
@@ -580,7 +580,7 @@ as
       end if;
 
       -- insert annotation column
-      if l_hea_id = 9998 and pi_annotation is not null
+      if l_hea_id = master_api.get_annotation_id and pi_annotation is not null
       then
           -- get umfrage_abfrage
           select tph_id
@@ -595,7 +595,7 @@ as
       end if;
 
       -- insert faulty column
-      if l_hea_id = 9999 and pi_faulty is not null
+      if l_hea_id = master_api.get_faulty_id and pi_faulty is not null
       then
         -- get umfrage_abfrage
         select tph_id
@@ -655,9 +655,9 @@ as
     l_tph_tpl_id template_header.tph_tpl_id%type;
     l_count number;
 
-    l_annotation_id  r_header.hea_id%type := 9998;
-    l_faulty_id r_header.hea_id%type := 9999;
-    l_validation_id r_header.hea_id%type := 9996;
+    l_annotation_id  r_header.hea_id%type := master_api.get_annotation_id;
+    l_faulty_id r_header.hea_id%type := master_api.get_faulty_id;
+    l_validation_id r_header.hea_id%type := master_api.get_validation_id;
   begin
     logger.append_param(l_params, 'pi_tis_id', pi_tis_id);
     logger.log('START', l_scope, null, l_params);

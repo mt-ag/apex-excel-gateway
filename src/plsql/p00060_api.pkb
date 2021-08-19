@@ -259,9 +259,9 @@ as
     l_tph_tpl_id template_header.tph_tpl_id%type;
     l_count number;
 
-    l_annotation_id  r_header.hea_id%type := 9998;
-    l_faulty_id r_header.hea_id%type := 9999;
-    l_validation_id r_header.hea_id%type := 9996;
+    l_annotation_id  r_header.hea_id%type := master_api.get_annotation_id;
+    l_faulty_id r_header.hea_id%type := master_api.get_faulty_id;
+    l_validation_id r_header.hea_id%type := master_api.get_validation_id;
   begin
     logger.append_param(l_params, 'pi_tis_tpl_id', pi_tis_tpl_id);
     logger.log('START', l_scope, null, l_params);

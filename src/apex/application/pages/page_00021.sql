@@ -73,7 +73,7 @@ wwv_flow_api.create_page(
 '}'))
 ,p_page_template_options=>'#DEFAULT#'
 ,p_last_updated_by=>'THERWIX'
-,p_last_upd_yyyymmddhh24miss=>'20210819113107'
+,p_last_upd_yyyymmddhh24miss=>'20210819125131'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(84790963693150224)
@@ -179,7 +179,7 @@ wwv_flow_api.create_report_region(
 ,p_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'select HEA_ID, HEA_TEXT ',
 '  from R_HEADER',
-' where HEA_ID not in (9996,9997,9998,9999) ',
+' where HEA_ID not in (master_api.get_validation_id,master_api.get_feedback_id,master_api.get_annotation_id,master_api.get_faulty_id) ',
 'order by HEA_text'))
 ,p_ajax_enabled=>'Y'
 ,p_lazy_loading=>false
