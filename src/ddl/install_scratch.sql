@@ -859,7 +859,6 @@ commit;
 
 REM INSERTING into R_VALIDATION
 Insert into R_VALIDATION (VAL_TEXT,VAL_MESSAGE) values ('email','Invalid email address');
-Insert into R_VALIDATION (VAL_TEXT,VAL_MESSAGE) values ('email','Invalid email address');
 Insert into R_VALIDATION (VAL_TEXT,VAL_MESSAGE) values ('number','Invalid number');
 Insert into R_VALIDATION (VAL_TEXT,VAL_MESSAGE) values ('date','Invalid date');
 Insert into R_VALIDATION (VAL_TEXT,VAL_MESSAGE) values ('formula','formula');
