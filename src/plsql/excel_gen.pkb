@@ -287,18 +287,6 @@ as
         , p_sheet  => pi_sheet_num
         );
 
-/*
-        -- generiere Pseudospalte fuer Zeilenumbrueche
-        xlsx_builder_pkg.cell (
-          p_col       => 300
-        , p_row       => gc_headergroup_row
-        , p_value     => '-' || Chr(13) || '-' || Chr(13) || '-'
-        , p_fontid    => xlsx_builder_pkg.get_font(p_name => 'Arial', p_rgb => 'FFFFFFFF')
-        , p_alignment => c_alignment
-        , p_sheet     => pi_sheet_num
-        );
-*/
-
       end if;
     end loop;
 

@@ -437,15 +437,7 @@ as
     , pi_row_id          => rec.line_number 
     , pio_error_occurred => l_error_occurred 
     ); 
-/*
-    get_tis_id ( 
-      pi_tpl_id          => pi_tpl_id 
-    , pi_per_id          => l_per_id 
-    , pi_filename        => pi_filename 
-    , po_tis_id          => l_tis_id 
-    , pio_error_occurred => l_error_occurred 
-    ); 
-*/
+
   update (
    select tis_deadline from template_import_status
        join r_person on tis_per_id = per_id
