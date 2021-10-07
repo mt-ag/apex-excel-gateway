@@ -20,7 +20,7 @@ wwv_flow_api.create_page(
 ,p_autocomplete_on_off=>'OFF'
 ,p_page_template_options=>'#DEFAULT#'
 ,p_last_updated_by=>'THERWIX'
-,p_last_upd_yyyymmddhh24miss=>'20210819143545'
+,p_last_upd_yyyymmddhh24miss=>'20211007130247'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(87130659253592920)
@@ -974,6 +974,68 @@ wwv_flow_api.create_page_da_event(
 ,p_triggering_button_id=>wwv_flow_api.id(71438018702676329)
 ,p_bind_type=>'bind'
 ,p_bind_event_type=>'click'
+);
+wwv_flow_api.create_page_da_event(
+ p_id=>wwv_flow_api.id(136417322004597061)
+,p_name=>'Enable/Disable Add Person'
+,p_event_sequence=>50
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P0_TEMPLATE'
+,p_condition_element=>'P0_TEMPLATE'
+,p_triggering_condition_type=>'NOT_NULL'
+,p_bind_type=>'bind'
+,p_bind_event_type=>'change'
+);
+wwv_flow_api.create_page_da_action(
+ p_id=>wwv_flow_api.id(136417246712597060)
+,p_event_id=>wwv_flow_api.id(136417322004597061)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_ENABLE'
+,p_affected_elements_type=>'BUTTON'
+,p_affected_button_id=>wwv_flow_api.id(86076024252595129)
+);
+wwv_flow_api.create_page_da_action(
+ p_id=>wwv_flow_api.id(136417170295597059)
+,p_event_id=>wwv_flow_api.id(136417322004597061)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_DISABLE'
+,p_affected_elements_type=>'BUTTON'
+,p_affected_button_id=>wwv_flow_api.id(86076024252595129)
+);
+wwv_flow_api.create_page_da_event(
+ p_id=>wwv_flow_api.id(136417079496597058)
+,p_name=>'Enable/Disable Automations'
+,p_event_sequence=>60
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P0_TEMPLATE'
+,p_condition_element=>'P0_TEMPLATE'
+,p_triggering_condition_type=>'NOT_NULL'
+,p_bind_type=>'bind'
+,p_bind_event_type=>'change'
+);
+wwv_flow_api.create_page_da_action(
+ p_id=>wwv_flow_api.id(136416972338597057)
+,p_event_id=>wwv_flow_api.id(136417079496597058)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_ENABLE'
+,p_affected_elements_type=>'BUTTON'
+,p_affected_button_id=>wwv_flow_api.id(71438018702676329)
+);
+wwv_flow_api.create_page_da_action(
+ p_id=>wwv_flow_api.id(136416849895597056)
+,p_event_id=>wwv_flow_api.id(136417079496597058)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_DISABLE'
+,p_affected_elements_type=>'BUTTON'
+,p_affected_button_id=>wwv_flow_api.id(71438018702676329)
 );
 wwv_flow_api.create_page_process(
  p_id=>wwv_flow_api.id(87127097721592884)
