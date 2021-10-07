@@ -290,6 +290,7 @@ as
       end if;
     end loop;
 
+
     logger.log('END', l_scope);
   exception
     when others then
