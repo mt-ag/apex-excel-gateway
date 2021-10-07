@@ -2,7 +2,7 @@ create or replace package body email_pkg
 as
 
  gc_scope_prefix constant varchar2(31) := lower($$plsql_unit) || '.';
-
+ 
   procedure new_template(
     p_App_ID    pls_integer, 
     p_Page_ID   pls_integer, 
@@ -65,11 +65,11 @@ as
             into l_deadline
             from r_templates 
            where tpl_id = apex_exec.get_number( l_context, l_tpl_ids );
-          
+         
           -- prepare Email
           l_id := apex_mail.send (
           p_to                 => apex_exec.get_varchar2( l_context, l_emails_idx ),
-          p_from               => 'timo.herwix@mt-ag.com',
+          p_from               => APEX_UTIL.GET_EMAIL(v('APP_USER')),
           p_template_static_id => 'NEWTEMPLATE',
           p_placeholders       => '{' ||
           '    "CONTACT_PERSON":'      || apex_json.stringify( apex_exec.get_varchar2( l_context, l_names_ids )) ||
@@ -192,7 +192,7 @@ as
       -- prepare Email
       l_id := apex_mail.send (
       p_to                 => p_per_email,
-      p_from               => 'timo.herwix@mt-ag.com',
+      p_from               => APEX_UTIL.GET_EMAIL(v('APP_USER')),
       p_template_static_id => 'NEWTEMPLATE',
       p_placeholders       => '{' ||
       '    "CONTACT_PERSON":'      || apex_json.stringify( p_per_name ) ||
@@ -325,7 +325,7 @@ as
           -- Mail vorbereiten
           l_id := apex_mail.send (
           p_to                 => apex_exec.get_varchar2( l_context, l_emails_idx ),
-          p_from               => 'timo.herwix@mt-ag.com',
+          p_from               => APEX_UTIL.GET_EMAIL(v('APP_USER')),
           p_template_static_id => 'CORRECTION',
           p_placeholders       => '{' ||
           '    "CONTACT_PERSON":'      || apex_json.stringify( apex_exec.get_varchar2( l_context, l_names_ids )) ||
@@ -444,7 +444,7 @@ as
       -- prepare Email
       l_id := apex_mail.send (
       p_to                 => p_per_email,
-      p_from               => 'timo.herwix@mt-ag.com',
+      p_from               => APEX_UTIL.GET_EMAIL(v('APP_USER')),
       p_template_static_id => 'CORRECTION',
       p_placeholders       => '{' ||
       '    "CONTACT_PERSON":'      || apex_json.stringify( p_per_name ) ||
@@ -581,7 +581,7 @@ procedure reminder(
           -- Mail vorbereiten
           l_id := apex_mail.send (
           p_to                 => apex_exec.get_varchar2( l_context, l_emails_idx ),
-          p_from               => 'timo.herwix@mt-ag.com',
+          p_from               => APEX_UTIL.GET_EMAIL(v('APP_USER')),
           p_template_static_id => 'REMINDER',
           p_placeholders       => '{' ||
           '    "CONTACT_PERSON":'      || apex_json.stringify( apex_exec.get_varchar2( l_context, l_names_ids )) ||
@@ -706,7 +706,7 @@ procedure reminder(
       -- prepare Email
       l_id := apex_mail.send (
       p_to                 => p_per_email,
-      p_from               => 'timo.herwix@mt-ag.com',
+      p_from               => APEX_UTIL.GET_EMAIL(v('APP_USER')),
       p_template_static_id => 'REMINDER',
       p_placeholders       => '{' ||
       '    "CONTACT_PERSON":'      || apex_json.stringify( p_per_name ) ||

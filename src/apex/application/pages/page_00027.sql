@@ -20,10 +20,15 @@ wwv_flow_api.create_page(
 ,p_step_title=>'Add Header'
 ,p_autocomplete_on_off=>'OFF'
 ,p_javascript_code=>'var htmldb_delete_message=''"DELETE_CONFIRM_MSG"'';'
+,p_inline_css=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'.my_multirow {',
+'	top: 50px;',
+'    bottom: 50px;',
+'}'))
 ,p_page_template_options=>'#DEFAULT#'
 ,p_protection_level=>'C'
 ,p_last_updated_by=>'THERWIX'
-,p_last_upd_yyyymmddhh24miss=>'20210520115735'
+,p_last_upd_yyyymmddhh24miss=>'20211006163517'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(74752383290920774)
@@ -169,7 +174,7 @@ wwv_flow_api.create_page_item(
 ,p_item_plug_id=>wwv_flow_api.id(74749609659919421)
 ,p_prompt=>'Add Dropdown Values (Optioal)'
 ,p_display_as=>'PLUGIN_MESQUITAROD.MULTIROW.ITEM'
-,p_cSize=>97
+,p_cSize=>90
 ,p_field_template=>wwv_flow_api.id(87168454831596315)
 ,p_item_template_options=>'#DEFAULT#:t-Form-fieldContainer--stretchInputs'
 ,p_attribute_01=>'25'

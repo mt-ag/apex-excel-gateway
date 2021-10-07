@@ -86,7 +86,7 @@ wwv_flow_api.create_list_item(
 wwv_flow_api.create_list_item(
  p_id=>wwv_flow_api.id(78676098562646618)
 ,p_list_item_display_sequence=>1020
-,p_list_item_link_text=>'Manage Database'
+,p_list_item_link_text=>'Manage Data'
 ,p_list_item_icon=>'fa-database-edit'
 ,p_parent_list_item_id=>wwv_flow_api.id(87037691710472932)
 ,p_list_item_current_type=>'TARGET_PAGE'

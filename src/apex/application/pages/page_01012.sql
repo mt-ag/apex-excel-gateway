@@ -21,7 +21,7 @@ wwv_flow_api.create_page(
 ,p_page_template_options=>'#DEFAULT#'
 ,p_required_role=>wwv_flow_api.id(87142082697596239)
 ,p_last_updated_by=>'THERWIX'
-,p_last_upd_yyyymmddhh24miss=>'20210819113215'
+,p_last_upd_yyyymmddhh24miss=>'20211006165559'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(73385653911158643)
@@ -205,8 +205,6 @@ wwv_flow_api.create_region_column(
 ,p_attribute_06=>'NONE'
 ,p_attribute_09=>'N'
 ,p_attribute_11=>'Y'
-,p_attribute_12=>'MONTH-PICKER:YEAR-PICKER'
-,p_attribute_13=>'VISIBLE'
 ,p_is_required=>false
 ,p_enable_filter=>true
 ,p_filter_is_required=>false
@@ -220,6 +218,8 @@ wwv_flow_api.create_region_column(
 ,p_is_primary_key=>false
 ,p_duplicate_value=>true
 ,p_include_in_export=>true
+,p_readonly_condition_type=>'ALWAYS'
+,p_readonly_for_each_row=>false
 );
 wwv_flow_api.create_region_column(
  p_id=>wwv_flow_api.id(73376940778158578)
@@ -251,6 +251,8 @@ wwv_flow_api.create_region_column(
 ,p_is_primary_key=>false
 ,p_duplicate_value=>true
 ,p_include_in_export=>true
+,p_readonly_condition_type=>'ALWAYS'
+,p_readonly_for_each_row=>false
 );
 wwv_flow_api.create_region_column(
  p_id=>wwv_flow_api.id(73375926330158577)
@@ -270,8 +272,6 @@ wwv_flow_api.create_region_column(
 ,p_attribute_06=>'NONE'
 ,p_attribute_09=>'N'
 ,p_attribute_11=>'Y'
-,p_attribute_12=>'MONTH-PICKER:YEAR-PICKER'
-,p_attribute_13=>'VISIBLE'
 ,p_is_required=>false
 ,p_enable_filter=>true
 ,p_filter_is_required=>false
@@ -285,6 +285,8 @@ wwv_flow_api.create_region_column(
 ,p_is_primary_key=>false
 ,p_duplicate_value=>true
 ,p_include_in_export=>true
+,p_readonly_condition_type=>'ALWAYS'
+,p_readonly_for_each_row=>false
 );
 wwv_flow_api.create_region_column(
  p_id=>wwv_flow_api.id(73374869174158577)
@@ -316,6 +318,8 @@ wwv_flow_api.create_region_column(
 ,p_is_primary_key=>false
 ,p_duplicate_value=>true
 ,p_include_in_export=>true
+,p_readonly_condition_type=>'ALWAYS'
+,p_readonly_for_each_row=>false
 );
 wwv_flow_api.create_interactive_grid(
  p_id=>wwv_flow_api.id(73385064183158639)
