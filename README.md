@@ -2,7 +2,7 @@
 
 No possibility to let your users access your APEX app? Consider using our Tool to handle that in a good and modern way.
 
-Create your own Excel template(s) in APEX, email them to your recipient(s) and then upload the finished file.
+Create your own Excel template(s) in APEX, email them to your recipient(s) and then upload the finished file.  
 Now you can check and correct the data. If everything is well, publish the data for further analysis, reports etc.
 
 
