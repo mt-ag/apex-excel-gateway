@@ -26,4 +26,4 @@ Easiest way to achieve this is to use the provided development install script me
 
 ## Getting in touch
 
-Send a DM on Twitter to Timo Herwix (@therwix) to get involved.
+Send a DM on Twitter to [Timo Herwix (@therwix)](https://twitter.com/THerwix/) to get involved.
