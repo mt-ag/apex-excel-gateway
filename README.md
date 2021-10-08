@@ -4,13 +4,10 @@ No possibility to let your users access your APEX app? Consider using our Tool t
 
 Create your own Excel template(s) in APEX, email them to your recipient(s) and then upload the finished file.  
 Now you can check and correct the data. If everything is well, publish the data for further analysis, reports etc.
-
-
+  
 ![prozess](https://i.ibb.co/XDkJ8hy/prozess.jpg)
-
-
-
-**This github repository is for developers willing to contribute to the upcoming version of Excel Gateway for Oracle APEX**
+  
+**This github repository is for developers willing to contribute to the upcoming version of Excel Gateway for Oracle APEX**  
 
 ## How to contribute as a developer to this project
 
