@@ -7,9 +7,31 @@ Now you can check and correct the data. If everything is well, publish the data 
   
 ![prozess](https://i.ibb.co/XDkJ8hy/prozess.jpg)
   
-**This github repository is for developers willing to contribute to the upcoming version of Excel Gateway for Oracle APEX**  
-  
+## Demo
+https://apex.mt-ag.com/ords/mt_excel_gateway/r/mt_excel_gateway
+
+
+## Compability
+- Oracle Application Express 20.2
+- Oracle Database Express Edition 12c
+- The use of the web browser Firefox and Chrome is recommended
+
+## Installation
+Run /src/install_all_scratch.sql.  
+When prompted enter the parameters.    
+
+This will install all DB-Objects and the application
+
+
+## Deinstallation
+Run /src/deinstall_objects.sql
+
+## Documentation
+coming soon
+
 ## How to contribute as a developer to this project
+
+**This github repository is for developers willing to contribute to the upcoming version of Excel Gateway for Oracle APEX**
 
 1. Clone/fork the repository apex-excel-gateway to get your own copy.
 2. Create a workspace with the ID 33850085021086653. For this you will
