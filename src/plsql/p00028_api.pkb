@@ -18,7 +18,7 @@ as
     logger.log('START', l_scope, null, l_params);
 
     insert into template_header_group (thg_text, thg_xlsx_background_color, thg_xlsx_font_color)
-    values (pi_thg_text, pi_thg_xlsx_background_color, pi_thg_xlsx_font_color);
+    values (pi_thg_text, replace(pi_thg_xlsx_background_color,'#','ff'), replace(pi_thg_xlsx_font_color,'#','ff'));
 
     logger.log('END', l_scope);
   exception
