@@ -160,10 +160,9 @@ Alternatively, interactive reporting can be done here.
 1. Clone/fork the repository apex-excel-gateway to get your own copy.
 2. Create a workspace with the ID 33850085021086653. For this you will
     need your own APEX environment.
-3. Run /src/install_all_scratch.sql.    
+3. Run /src/install_all_scratch_dev.sql.    
     When prompted enter the parameters.    
-    This will install all DB-Objects and the application with fixed ID
-    445.    
+    This will install all DB-Objects and the application with fixed ID 445.    
     Make sure you have Application ID 445 free for this.
 4. Make your changes in the app and/or db objects.
 5. Commit your changes in your own branch.
