@@ -11,7 +11,7 @@ Now you can check and correct the data. If everything is well, publish the data 
 https://apex.mt-ag.com/ords/mt_excel_gateway/r/mt_excel_gateway_demo
 
 ## Compability
-- Oracle Application Express 20.2
+- Oracle Application Express 21.1
 - Oracle Database Express Edition 12c
 
 ## Installation

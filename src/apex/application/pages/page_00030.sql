@@ -20,7 +20,7 @@ wwv_flow_api.create_page(
 ,p_autocomplete_on_off=>'OFF'
 ,p_page_template_options=>'#DEFAULT#'
 ,p_last_updated_by=>'THERWIX'
-,p_last_upd_yyyymmddhh24miss=>'20211007130247'
+,p_last_upd_yyyymmddhh24miss=>'20211019091816'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(87130659253592920)
@@ -758,6 +758,12 @@ wwv_flow_api.create_page_item(
 ,p_item_template_options=>'#DEFAULT#'
 ,p_warn_on_unsaved_changes=>'I'
 ,p_lov_display_extra=>'YES'
+,p_help_text=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'<ul>',
+'	<li>Initial Mail: all templates that have not yet been sent and processed</li>',
+'	<li>Correction Mail: all templates where corrections must be made</li>',
+'	<li>Reminder Mail: all templates where the deadline has passed</li>	',
+'</ul>'))
 ,p_attribute_01=>'NONE'
 ,p_attribute_02=>'N'
 );

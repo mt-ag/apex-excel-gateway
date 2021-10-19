@@ -6,9 +6,6 @@ prompt --install
 @@application/shared_components/navigation/lists/desktop_navigation_bar.sql
 @@application/shared_components/navigation/lists/feedback.sql
 @@application/shared_components/navigation/lists/create_new_template.sql
-@@application/shared_components/files/main_css.sql
-@@application/shared_components/files/main_min_css.sql
-@@application/shared_components/files/main_css_map.sql
 @@application/shared_components/files/main_js.sql
 @@application/shared_components/files/main_min_js.sql
 @@application/shared_components/files/main_js_map.sql
@@ -173,4 +170,7 @@ prompt --install
 @@application/pages/page_10013.sql
 @@application/pages/page_10014.sql
 @@application/pages/page_10020.sql
+@@application/deployment/definition.sql
+@@application/deployment/checks.sql
+@@application/deployment/buildoptions.sql
 @@application/end_environment.sql

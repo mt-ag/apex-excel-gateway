@@ -27,9 +27,7 @@ wwv_flow_api.create_user_interface(
 ,p_navigation_list_position=>'SIDE'
 ,p_navigation_list_template_id=>wwv_flow_api.id(87177572965596322)
 ,p_nav_list_template_options=>'js-navCollapsed--default:t-TreeNav--styleB'
-,p_css_file_urls=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'#APP_IMAGES#app-icon.css?version=#APP_VERSION#',
-'#APP_IMAGES#main.min.css'))
+,p_css_file_urls=>'#APP_IMAGES#app-icon.css?version=#APP_VERSION#'
 ,p_javascript_file_urls=>'#APP_IMAGES#main.min.js'
 ,p_nav_bar_type=>'LIST'
 ,p_nav_bar_list_id=>wwv_flow_api.id(87145027811596264)

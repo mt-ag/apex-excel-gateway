@@ -21,7 +21,7 @@ wwv_flow_api.create_page(
 ,p_page_template_options=>'#DEFAULT#'
 ,p_required_role=>wwv_flow_api.id(87142082697596239)
 ,p_last_updated_by=>'THERWIX'
-,p_last_upd_yyyymmddhh24miss=>'20211006165415'
+,p_last_upd_yyyymmddhh24miss=>'20211019091301'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(87085758519488662)

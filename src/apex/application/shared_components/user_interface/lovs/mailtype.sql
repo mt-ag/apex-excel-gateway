@@ -20,19 +20,19 @@ wwv_flow_api.create_list_of_values(
 wwv_flow_api.create_static_lov_data(
  p_id=>wwv_flow_api.id(86987029859006031)
 ,p_lov_disp_sequence=>1
-,p_lov_disp_value=>'New'
+,p_lov_disp_value=>'Initial Mail'
 ,p_lov_return_value=>'1'
 );
 wwv_flow_api.create_static_lov_data(
  p_id=>wwv_flow_api.id(86986632698006030)
 ,p_lov_disp_sequence=>2
-,p_lov_disp_value=>'Correction'
+,p_lov_disp_value=>'Correction Mail'
 ,p_lov_return_value=>'2'
 );
 wwv_flow_api.create_static_lov_data(
  p_id=>wwv_flow_api.id(86986174238006030)
 ,p_lov_disp_sequence=>3
-,p_lov_disp_value=>'Reminder'
+,p_lov_disp_value=>'Reminder Mail'
 ,p_lov_return_value=>'3'
 );
 wwv_flow_api.component_end;

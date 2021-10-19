@@ -845,8 +845,8 @@ end val_biu_trg;
 
 
 REM INSERTING into R_SHIPPINGSTATUS
-Insert into R_SHIPPINGSTATUS (SPS_NAME) values ('Survey not sent');
-Insert into R_SHIPPINGSTATUS (SPS_NAME) values ('Survey sent');
+Insert into R_SHIPPINGSTATUS (SPS_NAME) values ('Template not sent');
+Insert into R_SHIPPINGSTATUS (SPS_NAME) values ('Template sent');
 Insert into R_SHIPPINGSTATUS (SPS_NAME) values ('Correction sent');
 Insert into R_SHIPPINGSTATUS (SPS_NAME) values ('Reminder sent');
 commit;
