@@ -5,7 +5,7 @@ as
 
   procedure add_person(
     pi_tpl_id in r_templates.tpl_id%type
-  , pi_per_id in r_person.per_id%type
+  , pi_per_id in varchar2
   )
   as
     l_scope  logger_logs.scope%type := gc_scope_prefix || 'add_person';
@@ -15,10 +15,16 @@ as
     logger.append_param(l_params, 'pi_per_id', pi_per_id);
     logger.log('START', l_scope, null, l_params);
 
-    insert into template_import_status
+    for rec in (
+      select COLUMN_VALUE as per_id
+        from apex_string.split(pi_per_id,':')
+    )
+    loop
+      insert into template_import_status
       (tis_tpl_id, tis_per_id, tis_sts_id, tis_shipping_status)
-    values
-      (pi_tpl_id, pi_per_id, 1, 1);
+      values
+      (pi_tpl_id, rec.per_id, 1, 1);
+    end loop;    
 
     logger.log('END', l_scope);
   exception
