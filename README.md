@@ -1,6 +1,6 @@
 # Excel Gateway for Oracle APEX
 
-No possibility to let your users access your APEX app? Consider using our Tool to handle that in a good and modern way.
+No possibility to let your users access your APEX app? Consider using our tool to handle that in a good and modern way.
 
 Create your own Excel template(s) in APEX, email them to your recipient(s) and then upload the finished file.  
 Now you can check and correct the data. If everything is well, publish the data for further analysis, reports etc.
@@ -20,7 +20,7 @@ When prompted enter the parameters.
 
 This will install all DB-Objects and the application
 
-## Deinstallation
+## Uninstall
 Run /src/deinstall_objects.sql
 
 ## Getting Started
@@ -28,44 +28,44 @@ Run /src/deinstall_objects.sql
 ![1](https://user-images.githubusercontent.com/61868531/137754438-47ebd4b8-836f-4b8b-b20f-655c82aab4bf.JPG)
 
 ### 1. Create Template
-#### First Step is to create a new Excel template.
+#### First step is to create a new Excel template
 
 ![1 1](https://user-images.githubusercontent.com/61868531/137742216-778090fb-6712-4431-8664-6dab604a1c15.JPG)
 
-1) Click "Create Template" and follow the wizard.
-2) Give your Template an unique Name.
-3) Optional you can enter a deadline which is needed to calculate when the application will send reminders.  
-4) And optional too, you can enter a maximum number of rows which indicates how many rows are available to the editor.  
+1) Click "Create Template" and follow the wizard
+2) Give your template a unique name
+3) Optional you can enter a deadline which is needed to calculate when the application will send reminders
+4) And optional too, you can enter a maximum number of rows which indicates how many rows are available to the editor
 
-#### Second step is to add column headings to the template.  
+#### Second step is to add column headings to the template  
 
 ![1 21](https://user-images.githubusercontent.com/61868531/137754872-922cdb40-70dd-48ef-b15a-c3e920a66c3b.jpg)
 
-1) Drag and drop the titles from the left area (1) to the right (2).  
-Use the up or down arrows to change the order.  
+1) Drag and drop the titles from the left area (1) to the right (2)  
+Use the up or down arrows to change the order  
 The title can be deleted with the recycle bin
 3) If you need new titles, click "Add Header" (3) 
 
 ![1 3](https://user-images.githubusercontent.com/61868531/137885822-9b911807-cc3a-4e7e-8842-51c744129d07.JPG)
 
-1) Enter the Name of the Title  
+1) Enter the name of the title  
 2) Enter the width for the column in your Excel Spreadsheet  
 3) If the column in your table needs validation, choose one here (for example number, date, email...)  
 4) If you want the column shows a dropdown list, enter the values here  
 
-#### Next step is to add header-groups to the template (optional). 
+#### Next step is to add header-groups to the template (optional) 
 
 ![1 4](https://user-images.githubusercontent.com/61868531/137750291-d3f11533-a68d-4312-ace8-2ad34250e883.JPG)
 
-Choose a heading group for each column that needs merge cells.  
-If you need new header-groups, click on "Add Header-Group" and create a new one.  
-For this you have to enter the name, background and font color.
+Choose a heading group for each column that needs merge cells  
+If you need new header-groups, click on "Add Header-Group" and create a new one  
+For this you have to enter the name, background and font color
 
-#### The next step is to set the background and font color for the columns.  
+#### The next step is to set the background and font color for the columns  
 
 ![1 5](https://user-images.githubusercontent.com/61868531/137751600-ed97bf9c-509f-43c6-8b07-b3482b80ec86.JPG)
 
-You can use the Color Picker for this.
+You can use the Color Picker for this
 
 #### In the last step, formulas or min/max values can be set for the validations
 
@@ -139,7 +139,7 @@ For example, an incorrect email address was detected here.
 
 Now there are two options.
 1. The incorrect data can be corrected directly in the application or 
-2. a new excel file will be created in which all incorrect rows are listed. To create this, click "Provide Correction" and then sent it as a "Correction Mail" (Navigate to "Send Mail" and select the mailtype "Correction Mail").  
+2. a new excel file will be created in which all incorrect rows are listed. To create this, click "Provide Correction" and then sent it as a "Correction Mail" (navigate to "Send Mail" and select the mailtype "Correction Mail").  
 
 If everything is fine, the status can be set to "Completed".  
 All the data that are "Completed" are available for export.
