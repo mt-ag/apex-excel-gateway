@@ -201,7 +201,8 @@ as
             on tis_id = tid_tis_id
           join template_header
             on tid_tph_id = tph_id
-         where tis_tpl_id =  ' || pi_tis_tpl_id || '
+         where tis_sts_id = 3
+           and tis_tpl_id =  ' || pi_tis_tpl_id || '
       ) pivot (
         max(tid_text)
         for tph_hea_id in ( ' || l_pivot_columns || ' )
