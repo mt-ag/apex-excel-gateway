@@ -7,21 +7,14 @@ Now you can check and correct the data. If everything is well, publish the data 
   
 ![Excel Gateway for Oracle APEX 3](https://user-images.githubusercontent.com/61868531/137738511-b92f2638-3f71-413f-a8d6-e4014375e0bc.jpg)
   
-## Demo
-
-
 ## Requirement
 - Oracle Application Express 21.1 (or higher)
 - Oracle Database 12.2 (or higher)
 
 ## Installation
-Run /src/install_all_scratch.sql.  
-When prompted enter the parameters.    
+Go into the APEX workspace, where you like to install the "Excel Gateway for Oracle APEX" app and import the file "/src/apex/excel_gateway_for_oracle_apex.sql" as a database application.   
 
 This will install all DB-Objects and the application
-
-## Uninstall
-Run /src/deinstall_objects.sql
 
 ## Getting Started
 
