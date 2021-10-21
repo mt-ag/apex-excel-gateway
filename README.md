@@ -8,11 +8,11 @@ Now you can check and correct the data. If everything is well, publish the data 
 ![Excel Gateway for Oracle APEX 3](https://user-images.githubusercontent.com/61868531/137738511-b92f2638-3f71-413f-a8d6-e4014375e0bc.jpg)
   
 ## Demo
-https://apex.mt-ag.com/ords/mt_excel_gateway/r/mt_excel_gateway_demo
 
-## Compability
-- Oracle Application Express 21.1
-- Oracle Database Express Edition 12c
+
+## Requirement
+- Oracle Application Express 21.1 (or higher)
+- Oracle Database 12.2 (or higher)
 
 ## Installation
 Run /src/install_all_scratch.sql.  
