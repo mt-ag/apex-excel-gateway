@@ -19,9 +19,8 @@ wwv_flow_api.create_page(
 ,p_step_title=>'Template-Import-Status'
 ,p_autocomplete_on_off=>'OFF'
 ,p_page_template_options=>'#DEFAULT#'
-,p_required_role=>wwv_flow_api.id(87142082697596239)
 ,p_last_updated_by=>'THERWIX'
-,p_last_upd_yyyymmddhh24miss=>'20211007112312'
+,p_last_upd_yyyymmddhh24miss=>'20211021154834'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(87097016743491960)

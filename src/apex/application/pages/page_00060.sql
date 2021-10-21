@@ -18,9 +18,17 @@ wwv_flow_api.create_page(
 ,p_alias=>'EXPORT-TEMPLATE'
 ,p_step_title=>'Export Template'
 ,p_autocomplete_on_off=>'OFF'
+,p_inline_css=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'.grid .a-GV-headerLabel {',
+'    white-space: pre-line;',
+'}',
+'',
+'.grid .a-GV-w-hdr{',
+'    overflow-x: auto !important;',
+'}'))
 ,p_page_template_options=>'#DEFAULT#'
 ,p_last_updated_by=>'THERWIX'
-,p_last_upd_yyyymmddhh24miss=>'20210819143951'
+,p_last_upd_yyyymmddhh24miss=>'20211021132225'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(76269038630210267)

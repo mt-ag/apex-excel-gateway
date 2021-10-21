@@ -16,7 +16,6 @@ prompt --install
 @@application/shared_components/files/logo_png.sql
 @@application/plugin_settings.sql
 @@application/shared_components/security/authorizations/administration_rights.sql
-@@application/shared_components/security/app_access_control/administrator.sql
 @@application/shared_components/navigation/navigation_bar.sql
 @@application/shared_components/logic/application_processes/download_blob.sql
 @@application/shared_components/logic/application_items/fil_id.sql
@@ -171,6 +170,10 @@ prompt --install
 @@application/pages/page_10014.sql
 @@application/pages/page_10020.sql
 @@application/deployment/definition.sql
+@@application/deployment/install/install_database_objects.sql
+@@application/deployment/install/install_logger.sql
+@@application/deployment/install/install_views.sql
+@@application/deployment/install/install_packages.sql
 @@application/deployment/checks.sql
 @@application/deployment/buildoptions.sql
 @@application/end_environment.sql

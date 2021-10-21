@@ -20,7 +20,7 @@ wwv_flow_api.create_page(
 ,p_page_template_options=>'#DEFAULT#'
 ,p_protection_level=>'D'
 ,p_last_updated_by=>'THERWIX'
-,p_last_upd_yyyymmddhh24miss=>'20210819140725'
+,p_last_upd_yyyymmddhh24miss=>'20211021131655'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(87131389636592927)
@@ -42,17 +42,20 @@ wwv_flow_api.create_page_item(
 ,p_item_sequence=>10
 ,p_item_plug_id=>wwv_flow_api.id(87131389636592927)
 ,p_prompt=>'Template'
-,p_display_as=>'NATIVE_SELECT_LIST'
+,p_display_as=>'NATIVE_POPUP_LOV'
 ,p_named_lov=>'R_TEMPLATES'
 ,p_lov_display_null=>'YES'
 ,p_lov_null_text=>'- Please select -'
-,p_cHeight=>1
+,p_cSize=>30
 ,p_field_template=>wwv_flow_api.id(87168459935596315)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_warn_on_unsaved_changes=>'I'
 ,p_lov_display_extra=>'YES'
-,p_attribute_01=>'NONE'
-,p_attribute_02=>'N'
+,p_attribute_01=>'POPUP'
+,p_attribute_02=>'FIRST_ROWSET'
+,p_attribute_03=>'N'
+,p_attribute_04=>'N'
+,p_attribute_05=>'N'
 );
 wwv_flow_api.create_page_da_event(
  p_id=>wwv_flow_api.id(87131637450592929)

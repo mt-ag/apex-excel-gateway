@@ -18,9 +18,17 @@ wwv_flow_api.create_page(
 ,p_alias=>'CHECK-DATA-DETAILS'
 ,p_step_title=>'Check Data Details'
 ,p_autocomplete_on_off=>'OFF'
+,p_inline_css=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'.grid .a-GV-headerLabel {',
+'    white-space: pre-line;',
+'}',
+'',
+'.grid .a-GV-w-hdr{',
+'    overflow-x: auto !important;',
+'}'))
 ,p_page_template_options=>'#DEFAULT#'
 ,p_last_updated_by=>'THERWIX'
-,p_last_upd_yyyymmddhh24miss=>'20210819145416'
+,p_last_upd_yyyymmddhh24miss=>'20211021132208'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(86559851329885920)

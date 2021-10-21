@@ -70,7 +70,6 @@ wwv_flow_api.create_list_item(
 ,p_list_item_display_sequence=>1000
 ,p_list_item_link_text=>'Administration'
 ,p_list_item_icon=>'fa-database-edit'
-,p_security_scheme=>wwv_flow_api.id(87142082697596239)
 ,p_list_item_current_type=>'TARGET_PAGE'
 );
 wwv_flow_api.create_list_item(

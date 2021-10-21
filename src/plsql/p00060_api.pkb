@@ -40,7 +40,7 @@ as
 
     for i in pi_count..45
     loop
-      l_fill_columns := l_fill_columns || 'null as ' || format_colnr(i) || ', ';
+      l_fill_columns := l_fill_columns || ''''' as ' || format_colnr(i) || ', ';
     end loop;   
 
     logger.log('END', l_scope);

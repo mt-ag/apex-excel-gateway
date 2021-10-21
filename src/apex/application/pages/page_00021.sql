@@ -18,9 +18,32 @@ wwv_flow_api.create_page(
 ,p_alias=>'CREATE-TEMPLATE-HEADER'
 ,p_step_title=>'Create Template - Header'
 ,p_autocomplete_on_off=>'OFF'
+,p_inline_css=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'.draglist{',
+'    list-style-type: none;',
+'}',
+'',
+'.droplist{',
+'    list-style-type: decimal-leading-zero;',
+'}',
+'',
+'.draglist-el {',
+'    padding-top: 5px;',
+'    padding-bottom: 5px;',
+'}',
+'',
+'.droplist-el {',
+'    padding-top: 5px;',
+'    padding-bottom: 5px;',
+'}',
+'',
+'hr {  ',
+'    margin-top: 5px; ',
+'    margin-bottom: 0px; ',
+'}'))
 ,p_page_template_options=>'#DEFAULT#'
 ,p_last_updated_by=>'THERWIX'
-,p_last_upd_yyyymmddhh24miss=>'20210819144738'
+,p_last_upd_yyyymmddhh24miss=>'20211021131429'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(84790963693150224)

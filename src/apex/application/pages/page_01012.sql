@@ -19,9 +19,8 @@ wwv_flow_api.create_page(
 ,p_step_title=>'Template-Header-Group'
 ,p_autocomplete_on_off=>'OFF'
 ,p_page_template_options=>'#DEFAULT#'
-,p_required_role=>wwv_flow_api.id(87142082697596239)
 ,p_last_updated_by=>'THERWIX'
-,p_last_upd_yyyymmddhh24miss=>'20211006165559'
+,p_last_upd_yyyymmddhh24miss=>'20211021155004'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(73385653911158643)

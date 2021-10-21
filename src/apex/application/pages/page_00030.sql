@@ -18,9 +18,14 @@ wwv_flow_api.create_page(
 ,p_alias=>'SEND-TEMPLATE'
 ,p_step_title=>'Send Template'
 ,p_autocomplete_on_off=>'OFF'
+,p_inline_css=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'#mail {',
+'    height: 48px;',
+'    text-align: left;',
+'}'))
 ,p_page_template_options=>'#DEFAULT#'
 ,p_last_updated_by=>'THERWIX'
-,p_last_upd_yyyymmddhh24miss=>'20211019091816'
+,p_last_upd_yyyymmddhh24miss=>'20211021132109'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(87130659253592920)
