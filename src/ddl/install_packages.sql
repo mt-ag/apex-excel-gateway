@@ -48,6 +48,828 @@ create or replace package email_pkg as
 end email_pkg;
 /
 
+create or replace package excel_gen
+as
+
+  gc_headergroup_row constant pls_integer := 4;
+  gc_header_row      constant pls_integer := 5;
+
+  gc_ids_col1 constant pls_integer := 299;
+  gc_ids_col2 constant pls_integer := 300;
+
+  procedure regenerate_invalid_rows (
+    pi_tis_id in template_import_status.tis_id%type
+  );
+ 
+  procedure generate_single_file (
+    pi_tis_id        in template_import_status.tis_id%type
+  , pi_tpl_id        in r_templates.tpl_id%type
+  , pi_tpl_name      in r_templates.tpl_name%type
+  , pi_per_id        in r_person.per_id%type
+  , pi_per_firstname in r_person.per_firstname%type
+  , pi_per_lastname  in r_person.per_lastname%type
+  , pi_invalid       in boolean default false 
+  );
+
+  function getExcelColumnName(
+    p_column_count pls_integer
+  ) return varchar2;
+
+end excel_gen;
+/
+
+create or replace package file_import
+as
+
+  function remove_empty_spaces(
+    pi_string in varchar2
+  ) return varchar2
+  ;
+
+  procedure upload_file (
+    pi_collection_name in  apex_collections.collection_name%type default 'DROPZONE_UPLOAD'
+  , pi_tpl_id          in  r_templates.tpl_id%type
+  , po_error_occurred  out nocopy number
+  );
+
+end file_import;
+/
+
+create or replace package master_api as  
+  
+  function get_faulty_id
+    return r_header.hea_id%type deterministic result_cache
+  ;
+
+  function get_annotation_id
+    return r_header.hea_id%type deterministic result_cache
+  ;
+
+  function get_feedback_id
+    return r_header.hea_id%type deterministic result_cache
+  ;
+
+  function get_validation_id
+    return r_header.hea_id%type deterministic result_cache
+  ;
+
+end master_api;
+/
+
+create or replace package p00025_api as 
+
+  procedure create_new_template(
+    pi_collection_name in  apex_collections.collection_name%type default 'CREATE_TEMPLATE'  
+  );
+
+end p00025_api;
+/
+
+create or replace package p00027_api as 
+
+  procedure save_header(
+    pi_hea_text         in r_header.hea_text%type
+  , pi_hea_xlsx_width   in r_header.hea_xlsx_width%type
+  , pi_hea_val_id       in r_header.hea_val_id%type
+  , pi_dropdown_values  in varchar2 
+  );
+
+end p00027_api;
+/
+
+create or replace package p00028_api as 
+
+  procedure save_header_group(
+    pi_thg_text                   in template_header_group.thg_text%type
+  , pi_thg_xlsx_background_color  in template_header_group.thg_xlsx_background_color%type
+  , pi_thg_xlsx_font_color        in template_header_group.thg_xlsx_font_color%type
+  );
+
+end p00028_api;
+/
+
+create or replace package p00030_api
+as
+
+  procedure generate_excel_file ( 
+    pi_tpl_id in r_templates.tpl_id%type,
+    pi_per_id in r_person.per_id%type    
+);
+
+  procedure send_mail(
+    pi_choice       in pls_integer,
+    pi_app_id       in pls_integer,
+    pi_app_page_id  in pls_integer,
+    pi_static_id    in varchar2
+  ); 
+
+end p00030_api;
+/
+
+create or replace package p00031_api
+as
+
+  procedure add_person(
+    pi_tpl_id in r_templates.tpl_id%type
+  , pi_per_id in varchar2
+  );
+
+end p00031_api;
+/
+
+create or replace package p00032_api
+as
+
+  procedure save_automation(
+    pi_tpa_tpl_id  in template_automations.tpa_tpl_id%type,
+    pi_tpa_enabled in template_automations.tpa_enabled%type,
+    pi_tpa_days    in template_automations.tpa_days%type
+  );
+
+end p00032_api;
+/
+
+create or replace package p00041_api
+as
+
+  procedure upload_file (
+    pi_collection_name in  apex_collections.collection_name%type default 'DROPZONE_UPLOAD'
+  , pi_tpl_id          in  r_templates.tpl_id%type   
+  , po_error_occurred  out nocopy number
+  );
+
+end p00041_api;
+/
+
+create or replace package p00051_api
+as
+
+ type t_grid_row is record (
+    tid_row_id template_import_data.tid_row_id%type
+  , col01      template_import_data.tid_text%type
+  , col02      template_import_data.tid_text%type
+  , col03      template_import_data.tid_text%type
+  , col04      template_import_data.tid_text%type
+  , col05      template_import_data.tid_text%type
+  , col06      template_import_data.tid_text%type
+  , col07      template_import_data.tid_text%type
+  , col08      template_import_data.tid_text%type
+  , col09      template_import_data.tid_text%type
+  , col10      template_import_data.tid_text%type
+  , col11      template_import_data.tid_text%type
+  , col12      template_import_data.tid_text%type
+  , col13      template_import_data.tid_text%type
+  , col14      template_import_data.tid_text%type
+  , col15      template_import_data.tid_text%type
+  , col16      template_import_data.tid_text%type
+  , col17      template_import_data.tid_text%type
+  , col18      template_import_data.tid_text%type
+  , col19      template_import_data.tid_text%type
+  , col20      template_import_data.tid_text%type
+  , col21      template_import_data.tid_text%type
+  , col22      template_import_data.tid_text%type
+  , col23      template_import_data.tid_text%type
+  , col24      template_import_data.tid_text%type
+  , col25      template_import_data.tid_text%type
+  , col26      template_import_data.tid_text%type
+  , col27      template_import_data.tid_text%type
+  , col28      template_import_data.tid_text%type
+  , col29      template_import_data.tid_text%type
+  , col30      template_import_data.tid_text%type
+  , col31      template_import_data.tid_text%type
+  , col32      template_import_data.tid_text%type
+  , col33      template_import_data.tid_text%type
+  , col34      template_import_data.tid_text%type
+  , col35      template_import_data.tid_text%type
+  , col36      template_import_data.tid_text%type
+  , col37      template_import_data.tid_text%type
+  , col38      template_import_data.tid_text%type
+  , col39      template_import_data.tid_text%type
+  , col40      template_import_data.tid_text%type
+  , col41      template_import_data.tid_text%type
+  , col42      template_import_data.tid_text%type
+  , col43      template_import_data.tid_text%type
+  , col44      template_import_data.tid_text%type
+  , col45      template_import_data.tid_text%type
+  , faulty     template_import_data.tid_text%type   
+  , annotation template_import_data.tid_text%type
+  , validation template_import_data.tid_text%type
+  );
+
+  type t_grid_tab is table of t_grid_row;
+
+  type t_tid_text_array is varray(45) of template_import_data.tid_text%type;
+
+  type t_hea_text_array is varray(45) of r_header.hea_text%type;
+
+  function get_grid_query (
+    pi_tis_id in template_import_status.tis_id%type
+  )
+    return varchar2
+  ;
+
+  function get_grid_data (
+    pi_tis_id in template_import_status.tis_id%type
+  ) return t_grid_tab pipelined
+  ;
+
+  procedure update_answer_status(
+    pi_tis_id       in template_import_status.tis_id%type
+  , pi_tid_row_id   in template_import_data.tid_row_id%type
+  , pi_annotation   in template_import_data.tid_text%type
+  , pi_faulty       in template_import_data.tid_text%type   
+  );
+
+  procedure update_answer(
+    pi_tid_text_array in t_tid_text_array
+  , pi_tid_row_id     in template_import_data.tid_row_id%type
+  , pi_tis_id         in template_import_data.tid_tis_id%type
+  );
+
+  procedure insert_answer(
+    pi_tid_text_array in t_tid_text_array
+  , pi_annotation     in template_import_data.tid_text%type
+  , pi_faulty         in template_import_data.tid_text%type --number  
+  , pi_tis_id         in template_import_data.tid_tis_id%type
+  );
+
+  procedure delete_answer (
+    pi_tis_id     in template_import_status.tis_id%type
+  , pi_tid_row_id in template_import_data.tid_row_id%type
+
+  );
+  function get_column_count (
+    pi_tis_id in template_import_status.tis_id%type
+  )
+    return varchar2
+  ;
+end p00051_api;
+/
+
+create or replace package p00060_api
+as
+
+ type t_grid_row is record (
+    tid_row_id template_import_data.tid_row_id%type
+  , col01      template_import_data.tid_text%type
+  , col02      template_import_data.tid_text%type
+  , col03      template_import_data.tid_text%type
+  , col04      template_import_data.tid_text%type
+  , col05      template_import_data.tid_text%type
+  , col06      template_import_data.tid_text%type
+  , col07      template_import_data.tid_text%type
+  , col08      template_import_data.tid_text%type
+  , col09      template_import_data.tid_text%type
+  , col10      template_import_data.tid_text%type
+  , col11      template_import_data.tid_text%type
+  , col12      template_import_data.tid_text%type
+  , col13      template_import_data.tid_text%type
+  , col14      template_import_data.tid_text%type
+  , col15      template_import_data.tid_text%type
+  , col16      template_import_data.tid_text%type
+  , col17      template_import_data.tid_text%type
+  , col18      template_import_data.tid_text%type
+  , col19      template_import_data.tid_text%type
+  , col20      template_import_data.tid_text%type
+  , col21      template_import_data.tid_text%type
+  , col22      template_import_data.tid_text%type
+  , col23      template_import_data.tid_text%type
+  , col24      template_import_data.tid_text%type
+  , col25      template_import_data.tid_text%type
+  , col26      template_import_data.tid_text%type
+  , col27      template_import_data.tid_text%type
+  , col28      template_import_data.tid_text%type
+  , col29      template_import_data.tid_text%type
+  , col30      template_import_data.tid_text%type
+  , col31      template_import_data.tid_text%type
+  , col32      template_import_data.tid_text%type
+  , col33      template_import_data.tid_text%type
+  , col34      template_import_data.tid_text%type
+  , col35      template_import_data.tid_text%type
+  , col36      template_import_data.tid_text%type
+  , col37      template_import_data.tid_text%type
+  , col38      template_import_data.tid_text%type
+  , col39      template_import_data.tid_text%type
+  , col40      template_import_data.tid_text%type
+  , col41      template_import_data.tid_text%type
+  , col42      template_import_data.tid_text%type
+  , col43      template_import_data.tid_text%type
+  , col44      template_import_data.tid_text%type
+  , col45      template_import_data.tid_text%type
+  );
+
+  type t_grid_tab is table of t_grid_row;
+
+  type t_tid_text_array is varray(45) of template_import_data.tid_text%type;
+
+  type t_hea_text_array is varray(45) of r_header.hea_text%type;
+
+  function get_grid_query (
+    pi_tis_tpl_id in template_import_status.tis_tpl_id%type
+  )
+    return varchar2
+  ;
+
+  function get_grid_data (
+    pi_tis_tpl_id in template_import_status.tis_tpl_id%type
+  ) return t_grid_tab pipelined
+  ;
+
+  function get_column_count (
+    pi_tis_tpl_id in template_import_status.tis_tpl_id%type
+  )
+    return varchar2
+  ;
+
+end p00060_api;
+/
+
+create or replace package validation_api as 
+
+  function validate_data(
+    p_tid_text      template_import_data.tid_text%type
+  , p_val_text      r_validation.val_text%type
+  ) return boolean;
+  
+  procedure validation (
+    p_tis_id in template_import_status.tis_id%type
+  );
+
+end validation_api;
+/
+
+create or replace PACKAGE xlsx_builder_pkg
+   AUTHID CURRENT_USER
+IS
+   /**********************************************
+   **
+   ** Author: Anton Scheffer
+   ** Date: 19-02-2011
+   ** Website: http://technology.amis.nl/blog
+   ** See also: http://technology.amis.nl/blog/?p=10995
+   **
+   ** Changelog:
+   **   Date: 21-02-2011
+   **     Added Aligment, horizontal, vertical, wrapText
+   **   Date: 06-03-2011
+   **     Added Comments, MergeCells, fixed bug for dependency on NLS-settings
+   **   Date: 16-03-2011
+   **     Added bold and italic fonts
+   **   Date: 22-03-2011
+   **     Fixed issue with timezone's set to a region(name) instead of a offset
+   **   Date: 08-04-2011
+   **     Fixed issue with XML-escaping from text
+   **   Date: 27-05-2011
+   **     Added MIT-license
+   **   Date: 11-08-2011
+   **     Fixed NLS-issue with column width
+   **   Date: 29-09-2011
+   **     Added font color
+   **   Date: 16-10-2011
+   **     fixed bug in add_string
+   **   Date: 26-04-2012
+   **     Fixed set_autofilter (only one autofilter per sheet, added _xlnm._FilterDatabase)
+   **     Added list_validation = drop-down
+   **   Date: 27-08-2013
+   **     Added freeze_pane
+   **   Date: 01-03-2014 (MK)
+   **     Changed new_sheet to function returning sheet id
+   **   Date: 22-03-2014 (MK)
+   **     Added function to convert Oracle Number Format to Excel Format
+   **   Date: 07-04-2014 (MK)
+   **     Removed references to UTL_FILE
+   **     query2sheet is now function returning BLOB
+   **     changed date handling to be based on 01-01-1900
+   **   Date: 08-04-2014 (MK)
+   **     internal function for date to excel serial conversion added
+   **   Date: 01-12-2014 (AMEI)
+   **     Some Naming-conventions (and renaming of elements accordingly), new FUNCTION get_sheet_id
+   **     Triggered by: @SEE AMEI, 20141129 Bugfix:
+   **     For concatenation operations (in particular where record fields are involved) added a lot of TO_CHAR (...)
+   **     to make sure correct explicit conversion (mayby not all caught where necessary)
+   **     To make this easier to recognize, inducted some naming conventions and renamed some elements.
+   **   Date: 26-04-2017 (MP)
+   **     Added new function "query2sheet2" which is faster.
+   **     For dates used following logic:
+   **       - if trunc([column])=[column], then outputed cell value is formatted to format YYYYMMDD;
+   **       - otherwise, outputted cell value is formatted to format YYYYMMDDTHH24MISS;
+   **   Date: 24-09-2019 (PH)
+   **     Added parameter "p_hidden" to function "new_sheet" to create a hidden sheet 
+   **   Date: 24-05-2021 (TH)
+   **     Added parameter "p_formula" to function "cell" to add a formual into a cell 
+   ******************************************************************************
+   ******************************************************************************
+   Copyright (C) 2011, 2012 by Anton Scheffer
+
+   Permission is hereby granted, free of charge, to any person obtaining a copy
+   of this software and associated documentation files (the "Software"), to deal
+   in the Software without restriction, including without limitation the rights
+   to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+   copies of the Software, and to permit persons to whom the Software is
+   furnished to do so, subject to the following conditions:
+
+   The above copyright notice and this permission notice shall be included in
+   all copies or substantial portions of the Software.
+
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+   AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+   THE SOFTWARE.
+
+   ******************************************************************************
+   ******************************************************************************
+   * @headcom
+   */
+
+   /**
+   * Record with data about column alignment.
+   * @param vertical   Vertical alignment.
+   * @param horizontal Horizontal alignment.
+   * @param wrapText   Switch to allow or disallow word wrap.
+   */
+   TYPE t_alignment_rec IS RECORD
+   (
+      vc_vertical     VARCHAR2 (11),
+      vc_horizontal   VARCHAR2 (16),
+      bo_wraptext     BOOLEAN
+   );
+
+   type t_bind_tab is table of varchar2(32767) index by varchar2(32767);
+
+   type t_header_tab is table of varchar2(32767) index by pls_integer;
+
+   /**
+   * Clears the whole workbook to start fresh.
+   */
+   PROCEDURE clear_workbook;
+
+   /**
+   * Create a new sheet in the workbook.
+   * @param p_sheetname Name Excel should display for the new worksheet.
+   * @return ID of newly created worksheet.
+   */
+   FUNCTION new_sheet (p_sheetname VARCHAR2 := NULL, p_hidden BOOLEAN := FALSE)
+      RETURN PLS_INTEGER;
+
+   /**
+   * Converts an Oracle date format to the corresponding Excel date format.
+   * @param p_format The Oracle date format to convert.
+   * @return Corresponding Excel date format.
+   */
+   FUNCTION orafmt2excel (p_format VARCHAR2 := NULL)
+      RETURN VARCHAR2;
+
+   /**
+   * Converts an Oracle number format to the corresponding Excel number format.
+   * @param The Oracle number format to convert.
+   * @return Corresponding Excel number format.
+   */
+   FUNCTION oranumfmt2excel (p_format VARCHAR2)
+      RETURN VARCHAR2;
+
+   /**
+   * Get ID for given number format.
+   * @param p_format Wanted number formatting using Excle number format.
+   *                 Use OraNumFmt2Excel to convert from Oracle to Excel.
+   * @return ID for given number format.
+   */
+   FUNCTION get_numfmt (p_format VARCHAR2 := NULL)
+      RETURN PLS_INTEGER;
+
+   /**
+   * Get ID for given font settings.
+   * @param p_name
+   * @param p_family
+   * @param p_fontsize
+   * @param p_theme
+   * @param p_underline
+   * @param p_italic
+   * @param p_bold
+   * @param p_rgb
+   * @return ID for given font definition
+   */
+   FUNCTION get_font (p_name         VARCHAR2,
+                      p_family       PLS_INTEGER := 2,
+                      p_fontsize     NUMBER := 8,
+                      p_theme        PLS_INTEGER := 1,
+                      p_underline    BOOLEAN := FALSE,
+                      p_italic       BOOLEAN := FALSE,
+                      p_bold         BOOLEAN := FALSE,
+                      p_rgb          VARCHAR2 := NULL                        -- this is a hex ALPHA Red Green Blue value, but RGB works also
+                                                     )
+      RETURN PLS_INTEGER;
+
+   /**
+   * Get ID for given cell fill
+   * @param p_patternType Pattern for the fill.
+   * @param p_fgRGB       Color using an ARGB or RGB hex value
+   * @return ID for given cell fill.
+   */
+   FUNCTION get_fill (p_patterntype VARCHAR2, p_fgrgb VARCHAR2 := NULL)
+      RETURN PLS_INTEGER;
+
+   /**
+   * Get ID for given border definition.
+   * Possible values for all parameters:
+   * none, thin, medium, dashed, dotted, thick, double, hair, mediumDashed,
+   * dashDot, mediumDashDot, dashDotDot, mediumDashDotDot, slantDashDot
+   * @param p_top    Style for top border
+   * @param p_bottom Style for bottom border
+   * @param p_left   Style for left border
+   * @param p_right  Style for right border
+   * @return ID for given border definition
+   */
+   FUNCTION get_border (p_top       VARCHAR2 := 'thin',
+                        p_bottom    VARCHAR2 := 'thin',
+                        p_left      VARCHAR2 := 'thin',
+                        p_right     VARCHAR2 := 'thin')
+      RETURN PLS_INTEGER;
+
+   /**
+   * Function to get a record holding alignment data.
+   * @param p_vertical   Vertical alignment.
+   *                     (bottom, center, distributed, justify, top)
+   * @param p_horizontal Horizontal alignment.
+   *                     (center, centerContinuous, distributed, fill, general, justify, left, right)
+   * @param p_wraptext   Switch to allow or disallow text wrapping.
+   * @return Record with alignment data.
+   */
+   FUNCTION get_alignment (p_vertical VARCHAR2 := NULL, p_horizontal VARCHAR2 := NULL, p_wraptext BOOLEAN := NULL)
+      RETURN t_alignment_rec;
+
+   /**
+   * Puts a number value into a cell of the spreadsheet.
+   * @param p_col       Column number where the cell is located
+   * @param p_row       Row number where the cell is located
+   * @param p_value     The value to put into the cell
+   * @param p_numFmtId  ID of number format
+   * @param p_fontId    ID of font defintion
+   * @param p_fillId    ID of fill definition
+   * @param p_borderId  ID of border definition
+   * @param p_alignment The wanted alignment
+   * @param p_sheet     Worksheet the cell is located, if omitted last worksheet is used
+   */
+   PROCEDURE cell (p_col          PLS_INTEGER,
+                   p_row          PLS_INTEGER,
+                   p_value        NUMBER,
+                   p_numfmtid     PLS_INTEGER := NULL,
+                   p_fontid       PLS_INTEGER := NULL,
+                   p_fillid       PLS_INTEGER := NULL,
+                   p_borderid     PLS_INTEGER := NULL,
+                   p_alignment    t_alignment_rec := NULL,
+                   p_sheet        PLS_INTEGER := NULL);
+
+   /**
+   * Puts a character value into a cell of the spreadsheet.
+   * @param p_col       Column number where the cell is located
+   * @param p_row       Row number where the cell is located
+   * @param p_value     The value to put into the cell
+   * @param p_numFmtId  ID of formatting definition
+   * @param p_fontId    ID of font defintion
+   * @param p_fillId    ID of fill definition
+   * @param p_borderId  ID of border definition
+   * @param p_alignment The wanted alignment
+   * @param p_sheet     Worksheet the cell is located, if omitted last worksheet is used
+   * @param p_formula   The formula to put into the cell
+   */
+   PROCEDURE cell (p_col          PLS_INTEGER,
+                   p_row          PLS_INTEGER,
+                   p_value        VARCHAR2,
+                   p_numfmtid     PLS_INTEGER := NULL,
+                   p_fontid       PLS_INTEGER := NULL,
+                   p_fillid       PLS_INTEGER := NULL,
+                   p_borderid     PLS_INTEGER := NULL,
+                   p_alignment    t_alignment_rec := NULL,
+                   p_sheet        PLS_INTEGER := NULL,
+                   p_formula      VARCHAR2 := NULL);
+
+   /**
+   * Puts a date value into a cell of the spreadsheet.
+   * @param p_col       Column number where the cell is located
+   * @param p_row       Row number where the cell is located
+   * @param p_value     The value to put into the cell
+   * @param p_numFmtId  ID of format definition
+   * @param p_fontId    ID of font defintion
+   * @param p_fillId    ID of fill definition
+   * @param p_borderId  ID of border definition
+   * @param p_alignment The wanted alignment
+   * @param p_sheet     Worksheet the cell is located, if omitted last worksheet is used
+   */
+   PROCEDURE cell (p_col          PLS_INTEGER,
+                   p_row          PLS_INTEGER,
+                   p_value        DATE,
+                   p_numfmtid     PLS_INTEGER := NULL,
+                   p_fontid       PLS_INTEGER := NULL,
+                   p_fillid       PLS_INTEGER := NULL,
+                   p_borderid     PLS_INTEGER := NULL,
+                   p_alignment    t_alignment_rec := NULL,
+                   p_sheet        PLS_INTEGER := NULL);
+
+   PROCEDURE hyperlink (p_col      PLS_INTEGER,
+                        p_row      PLS_INTEGER,
+                        p_url      VARCHAR2,
+                        p_value    VARCHAR2 := NULL,
+                        p_sheet    PLS_INTEGER := NULL);
+
+   PROCEDURE comment (p_col       PLS_INTEGER,
+                      p_row       PLS_INTEGER,
+                      p_text      VARCHAR2,
+                      p_author    VARCHAR2 := NULL,
+                      p_width     PLS_INTEGER := 150                                                                               -- pixels
+                                                    ,
+                      p_height    PLS_INTEGER := 100                                                                               -- pixels
+                                                    ,
+                      p_sheet     PLS_INTEGER := NULL);
+
+   PROCEDURE mergecells (p_tl_col    PLS_INTEGER                                                                                 -- top left
+                                                ,
+                         p_tl_row    PLS_INTEGER,
+                         p_br_col    PLS_INTEGER                                                                             -- bottom right
+                                                ,
+                         p_br_row    PLS_INTEGER,
+                         p_sheet     PLS_INTEGER := NULL);
+
+  PROCEDURE add_validation (p_type           VARCHAR2,
+                             p_sqref          VARCHAR2,
+                             p_style          VARCHAR2 := 'stop'                                               -- stop, warning, information
+                                                                ,
+                             p_formula1       VARCHAR2 := NULL,
+                             p_formula2       VARCHAR2 := NULL,
+                             p_title          VARCHAR2 := NULL,
+                             p_prompt         VARCHAR2 := NULL,
+                             p_show_error     BOOLEAN := FALSE,
+                             p_error_title    VARCHAR2 := NULL,
+                             p_error_txt      VARCHAR2 := NULL,
+                             p_sheet          PLS_INTEGER := NULL) ;
+
+   PROCEDURE list_validation (p_sqref_col        PLS_INTEGER,
+                              p_sqref_row        PLS_INTEGER,
+                              p_tl_col           PLS_INTEGER                                                                       -- top left
+                                                            ,
+                              p_tl_row           PLS_INTEGER,
+                              p_br_col           PLS_INTEGER                                                                   -- bottom right
+                                                            ,
+                              p_br_row           PLS_INTEGER,
+                              p_style            VARCHAR2 := 'stop'                                              -- stop, warning, information
+                                                                   ,
+                              p_title            VARCHAR2 := NULL,
+                              p_prompt           VARCHAR2 := NULL,
+                              p_show_error       BOOLEAN := FALSE,
+                              p_error_title      VARCHAR2 := NULL,
+                              p_error_txt        VARCHAR2 := NULL,
+                              p_sheet            PLS_INTEGER := NULL,
+                              p_sheet_datasource PLS_INTEGER := NULL);
+
+   PROCEDURE list_validation (p_sqref_col       PLS_INTEGER,
+                              p_sqref_row       PLS_INTEGER,
+                              p_defined_name    VARCHAR2,
+                              p_style           VARCHAR2 := 'stop'                                             -- stop, warning, information
+                                                                  ,
+                              p_title           VARCHAR2 := NULL,
+                              p_prompt          VARCHAR2 := NULL,
+                              p_show_error      BOOLEAN := FALSE,
+                              p_error_title     VARCHAR2 := NULL,
+                              p_error_txt       VARCHAR2 := NULL,
+                              p_sheet           PLS_INTEGER := NULL);
+
+   PROCEDURE defined_name (p_tl_col        PLS_INTEGER                                                                           -- top left
+                                                      ,
+                           p_tl_row        PLS_INTEGER,
+                           p_br_col        PLS_INTEGER                                                                       -- bottom right
+                                                      ,
+                           p_br_row        PLS_INTEGER,
+                           p_name          VARCHAR2,
+                           p_sheet         PLS_INTEGER := NULL,
+                           p_localsheet    PLS_INTEGER := NULL);
+
+   PROCEDURE set_column_width (p_col PLS_INTEGER, p_width NUMBER, p_sheet PLS_INTEGER := NULL);
+
+   PROCEDURE set_column (p_col          PLS_INTEGER,
+                         p_numfmtid     PLS_INTEGER := NULL,
+                         p_fontid       PLS_INTEGER := NULL,
+                         p_fillid       PLS_INTEGER := NULL,
+                         p_borderid     PLS_INTEGER := NULL,
+                         p_alignment    t_alignment_rec := NULL,
+                         p_sheet        PLS_INTEGER := NULL);
+
+   PROCEDURE set_row (p_row          PLS_INTEGER,
+                      p_numfmtid     PLS_INTEGER := NULL,
+                      p_fontid       PLS_INTEGER := NULL,
+                      p_fillid       PLS_INTEGER := NULL,
+                      p_borderid     PLS_INTEGER := NULL,
+                      p_alignment    t_alignment_rec := NULL,
+                      p_sheet        PLS_INTEGER := NULL);
+
+   PROCEDURE freeze_rows (p_nr_rows PLS_INTEGER := 1, p_sheet PLS_INTEGER := NULL);
+
+   PROCEDURE freeze_cols (p_nr_cols PLS_INTEGER := 1, p_sheet PLS_INTEGER := NULL);
+
+   PROCEDURE freeze_pane (p_col PLS_INTEGER, p_row PLS_INTEGER, p_sheet PLS_INTEGER := NULL);
+
+   PROCEDURE set_autofilter (p_column_start    PLS_INTEGER := NULL,
+                             p_column_end      PLS_INTEGER := NULL,
+                             p_row_start       PLS_INTEGER := NULL,
+                             p_row_end         PLS_INTEGER := NULL,
+                             p_sheet           PLS_INTEGER := NULL);
+
+   FUNCTION finish
+      RETURN BLOB;
+
+   FUNCTION query2sheet (p_sql VARCHAR2, p_column_headers BOOLEAN := TRUE, p_sheet PLS_INTEGER := NULL, p_skip_header boolean := FALSE)
+      RETURN BLOB;
+
+   FUNCTION finish2 (p_clob                 IN OUT NOCOPY CLOB,
+                     p_columns              PLS_INTEGER,
+                     p_rows                 PLS_INTEGER,
+                     p_XLSX_date_format     VARCHAR2,
+                     p_XLSX_datetime_format VARCHAR2)
+      RETURN BLOB;
+
+   FUNCTION query2sheet2(p_sql                  VARCHAR2,
+                         p_XLSX_date_format     VARCHAR2 := 'dd/mm/yyyy',
+                         p_XLSX_datetime_format VARCHAR2 := 'dd/mm/yyyy hh24:mi:ss')
+      RETURN BLOB;
+
+   function query2sheet3
+   (
+     p_sql     in varchar2
+   , p_binds   in t_bind_tab
+   , p_headers in t_header_tab
+   , p_XLSX_date_format     VARCHAR2 := 'dd/mm/yyyy'
+   , p_XLSX_datetime_format VARCHAR2 := 'dd/mm/yyyy hh24:mi:ss'
+   )
+      return blob;
+
+END;
+/
+
+create or replace PACKAGE zip_util_pkg
+  AUTHID CURRENT_USER
+AS
+
+/**
+* Purpose:      Package handles zipping and unzipping of files
+*
+* Remarks:      by Anton Scheffer, see http://forums.oracle.com/forums/thread.jspa?messageID=9289744#9289744
+*
+*               for unzipping, see http://technology.amis.nl/blog/8090/parsing-a-microsoft-word-docx-and-unzip-zipfiles-with-plsql
+*               for zipping, see http://forums.oracle.com/forums/thread.jspa?threadID=1115748&tstart=0
+*
+* Who     Date        Description
+* ------  ----------  --------------------------------
+* MBR     09.01.2011  Created
+* MK      16.04.2014  Removed UTL_FILE dependencies and file operations
+* MK      01.07.2014  Added get_file_clob to immediately retrieve file content as a CLOB
+*
+* @headcom
+**/
+
+  /** List of all files within zipped file */
+  TYPE t_file_list IS TABLE OF CLOB;
+
+
+  FUNCTION little_endian( p_big IN NUMBER
+                        , p_bytes IN pls_integer := 4
+                        )
+    RETURN RAW;
+
+  FUNCTION get_file_list( p_zipped_blob IN BLOB
+                        , p_encoding IN VARCHAR2 := NULL /* Use CP850 for zip files created with a German Winzip to see umlauts, etc */
+                        )
+    RETURN t_file_list;
+
+  FUNCTION get_file( p_zipped_blob IN BLOB
+                   , p_file_name IN VARCHAR2
+                   , p_encoding IN VARCHAR2 := NULL
+                   )
+    RETURN BLOB;
+
+  FUNCTION get_file_clob( p_zipped_blob IN BLOB
+                        , p_file_name IN VARCHAR2
+                        , p_encoding IN VARCHAR2 := NULL
+                        )
+    RETURN CLOB;
+
+  PROCEDURE add_file( p_zipped_blob IN OUT NOCOPY BLOB
+                    , p_name IN VARCHAR2
+                    , p_content IN BLOB
+                    )
+  ;
+
+  PROCEDURE add_file( p_zipped_blob IN OUT NOCOPY BLOB
+                    , p_name IN VARCHAR2
+                    , p_content CLOB
+                    )
+  ;
+
+  PROCEDURE finish_zip( p_zipped_blob IN OUT NOCOPY BLOB);
+
+END zip_util_pkg;
+/
+
 create or replace package body email_pkg
 as
 
@@ -827,36 +1649,6 @@ procedure reminder(
   end reminder_automation;
 
 end email_pkg;
-/
-
-create or replace package excel_gen
-as
-
-  gc_headergroup_row constant pls_integer := 4;
-  gc_header_row      constant pls_integer := 5;
-
-  gc_ids_col1 constant pls_integer := 299;
-  gc_ids_col2 constant pls_integer := 300;
-
-  procedure regenerate_invalid_rows (
-    pi_tis_id in template_import_status.tis_id%type
-  );
- 
-  procedure generate_single_file (
-    pi_tis_id        in template_import_status.tis_id%type
-  , pi_tpl_id        in r_templates.tpl_id%type
-  , pi_tpl_name      in r_templates.tpl_name%type
-  , pi_per_id        in r_person.per_id%type
-  , pi_per_firstname in r_person.per_firstname%type
-  , pi_per_lastname  in r_person.per_lastname%type
-  , pi_invalid       in boolean default false 
-  );
-
-  function getExcelColumnName(
-    p_column_count pls_integer
-  ) return varchar2;
-
-end excel_gen;
 /
 
 create or replace package body excel_gen
@@ -1785,23 +2577,6 @@ as
 end excel_gen;
 /
 
-create or replace package file_import
-as
-
-  function remove_empty_spaces(
-    pi_string in varchar2
-  ) return varchar2
-  ;
-
-  procedure upload_file (
-    pi_collection_name in  apex_collections.collection_name%type default 'DROPZONE_UPLOAD'
-  , pi_tpl_id          in  r_templates.tpl_id%type
-  , po_error_occurred  out nocopy number
-  );
-
-end file_import;
-/
-
 create or replace package body file_import 
 as 
  
@@ -2461,27 +3236,6 @@ as
 end file_import;
 /
 
-create or replace package master_api as  
-  
-  function get_faulty_id
-    return r_header.hea_id%type deterministic result_cache
-  ;
-
-  function get_annotation_id
-    return r_header.hea_id%type deterministic result_cache
-  ;
-
-  function get_feedback_id
-    return r_header.hea_id%type deterministic result_cache
-  ;
-
-  function get_validation_id
-    return r_header.hea_id%type deterministic result_cache
-  ;
-
-end master_api;
-/
-
 create or replace package body master_api as
 
   gc_scope_prefix constant varchar2(31) := lower($$plsql_unit) || '.';
@@ -2573,15 +3327,6 @@ create or replace package body master_api as
 end master_api;
 /  
 
-create or replace package p00025_api as 
-
-  procedure create_new_template(
-    pi_collection_name in  apex_collections.collection_name%type default 'CREATE_TEMPLATE'  
-  );
-
-end p00025_api;
-/
-
 create or replace package body p00025_api
 as
 
@@ -2643,18 +3388,6 @@ as
 end p00025_api;
 /
 
-create or replace package p00027_api as 
-
-  procedure save_header(
-    pi_hea_text         in r_header.hea_text%type
-  , pi_hea_xlsx_width   in r_header.hea_xlsx_width%type
-  , pi_hea_val_id       in r_header.hea_val_id%type
-  , pi_dropdown_values  in varchar2 
-  );
-
-end p00027_api;
-/
-
 create or replace package body p00027_api
 as
 
@@ -2694,17 +3427,6 @@ as
 end p00027_api;
 /
 
-create or replace package p00028_api as 
-
-  procedure save_header_group(
-    pi_thg_text                   in template_header_group.thg_text%type
-  , pi_thg_xlsx_background_color  in template_header_group.thg_xlsx_background_color%type
-  , pi_thg_xlsx_font_color        in template_header_group.thg_xlsx_font_color%type
-  );
-
-end p00028_api;
-/
-
 create or replace package body p00028_api
 as
 
@@ -2735,24 +3457,6 @@ as
   end save_header_group;
   
 end p00028_api;
-/
-
-create or replace package p00030_api
-as
-
-  procedure generate_excel_file ( 
-    pi_tpl_id in r_templates.tpl_id%type,
-    pi_per_id in r_person.per_id%type    
-);
-
-  procedure send_mail(
-    pi_choice       in pls_integer,
-    pi_app_id       in pls_integer,
-    pi_app_page_id  in pls_integer,
-    pi_static_id    in varchar2
-  ); 
-
-end p00030_api;
 /
 
 create or replace package body p00030_api
@@ -2875,17 +3579,6 @@ as
 end p00030_api;
 /
 
-create or replace package p00031_api
-as
-
-  procedure add_person(
-    pi_tpl_id in r_templates.tpl_id%type
-  , pi_per_id in varchar2
-  );
-
-end p00031_api;
-/
-
 create or replace package body p00031_api
 as
 
@@ -2924,18 +3617,6 @@ as
 end p00031_api;
 /
 
-create or replace package p00032_api
-as
-
-  procedure save_automation(
-    pi_tpa_tpl_id  in template_automations.tpa_tpl_id%type,
-    pi_tpa_enabled in template_automations.tpa_enabled%type,
-    pi_tpa_days    in template_automations.tpa_days%type
-  );
-
-end p00032_api;
-/
-
 create or replace package body p00032_api
 as
 
@@ -2968,18 +3649,6 @@ as
   end save_automation;
 
 end p00032_api;
-/
-
-create or replace package p00041_api
-as
-
-  procedure upload_file (
-    pi_collection_name in  apex_collections.collection_name%type default 'DROPZONE_UPLOAD'
-  , pi_tpl_id          in  r_templates.tpl_id%type   
-  , po_error_occurred  out nocopy number
-  );
-
-end p00041_api;
 /
 
 create or replace package body p00041_api
@@ -3015,111 +3684,6 @@ as
   end;
 
 end p00041_api;
-/
-
-create or replace package p00051_api
-as
-
- type t_grid_row is record (
-    tid_row_id template_import_data.tid_row_id%type
-  , col01      template_import_data.tid_text%type
-  , col02      template_import_data.tid_text%type
-  , col03      template_import_data.tid_text%type
-  , col04      template_import_data.tid_text%type
-  , col05      template_import_data.tid_text%type
-  , col06      template_import_data.tid_text%type
-  , col07      template_import_data.tid_text%type
-  , col08      template_import_data.tid_text%type
-  , col09      template_import_data.tid_text%type
-  , col10      template_import_data.tid_text%type
-  , col11      template_import_data.tid_text%type
-  , col12      template_import_data.tid_text%type
-  , col13      template_import_data.tid_text%type
-  , col14      template_import_data.tid_text%type
-  , col15      template_import_data.tid_text%type
-  , col16      template_import_data.tid_text%type
-  , col17      template_import_data.tid_text%type
-  , col18      template_import_data.tid_text%type
-  , col19      template_import_data.tid_text%type
-  , col20      template_import_data.tid_text%type
-  , col21      template_import_data.tid_text%type
-  , col22      template_import_data.tid_text%type
-  , col23      template_import_data.tid_text%type
-  , col24      template_import_data.tid_text%type
-  , col25      template_import_data.tid_text%type
-  , col26      template_import_data.tid_text%type
-  , col27      template_import_data.tid_text%type
-  , col28      template_import_data.tid_text%type
-  , col29      template_import_data.tid_text%type
-  , col30      template_import_data.tid_text%type
-  , col31      template_import_data.tid_text%type
-  , col32      template_import_data.tid_text%type
-  , col33      template_import_data.tid_text%type
-  , col34      template_import_data.tid_text%type
-  , col35      template_import_data.tid_text%type
-  , col36      template_import_data.tid_text%type
-  , col37      template_import_data.tid_text%type
-  , col38      template_import_data.tid_text%type
-  , col39      template_import_data.tid_text%type
-  , col40      template_import_data.tid_text%type
-  , col41      template_import_data.tid_text%type
-  , col42      template_import_data.tid_text%type
-  , col43      template_import_data.tid_text%type
-  , col44      template_import_data.tid_text%type
-  , col45      template_import_data.tid_text%type
-  , faulty     template_import_data.tid_text%type   
-  , annotation template_import_data.tid_text%type
-  , validation template_import_data.tid_text%type
-  );
-
-  type t_grid_tab is table of t_grid_row;
-
-  type t_tid_text_array is varray(45) of template_import_data.tid_text%type;
-
-  type t_hea_text_array is varray(45) of r_header.hea_text%type;
-
-  function get_grid_query (
-    pi_tis_id in template_import_status.tis_id%type
-  )
-    return varchar2
-  ;
-
-  function get_grid_data (
-    pi_tis_id in template_import_status.tis_id%type
-  ) return t_grid_tab pipelined
-  ;
-
-  procedure update_answer_status(
-    pi_tis_id       in template_import_status.tis_id%type
-  , pi_tid_row_id   in template_import_data.tid_row_id%type
-  , pi_annotation   in template_import_data.tid_text%type
-  , pi_faulty       in template_import_data.tid_text%type   
-  );
-
-  procedure update_answer(
-    pi_tid_text_array in t_tid_text_array
-  , pi_tid_row_id     in template_import_data.tid_row_id%type
-  , pi_tis_id         in template_import_data.tid_tis_id%type
-  );
-
-  procedure insert_answer(
-    pi_tid_text_array in t_tid_text_array
-  , pi_annotation     in template_import_data.tid_text%type
-  , pi_faulty         in template_import_data.tid_text%type --number  
-  , pi_tis_id         in template_import_data.tid_tis_id%type
-  );
-
-  procedure delete_answer (
-    pi_tis_id     in template_import_status.tis_id%type
-  , pi_tid_row_id in template_import_data.tid_row_id%type
-
-  );
-  function get_column_count (
-    pi_tis_id in template_import_status.tis_id%type
-  )
-    return varchar2
-  ;
-end p00051_api;
 /
 
 create or replace package body p00051_api
@@ -3805,84 +4369,6 @@ as
 end p00051_api;
 /
 
-create or replace package p00060_api
-as
-
- type t_grid_row is record (
-    tid_row_id template_import_data.tid_row_id%type
-  , col01      template_import_data.tid_text%type
-  , col02      template_import_data.tid_text%type
-  , col03      template_import_data.tid_text%type
-  , col04      template_import_data.tid_text%type
-  , col05      template_import_data.tid_text%type
-  , col06      template_import_data.tid_text%type
-  , col07      template_import_data.tid_text%type
-  , col08      template_import_data.tid_text%type
-  , col09      template_import_data.tid_text%type
-  , col10      template_import_data.tid_text%type
-  , col11      template_import_data.tid_text%type
-  , col12      template_import_data.tid_text%type
-  , col13      template_import_data.tid_text%type
-  , col14      template_import_data.tid_text%type
-  , col15      template_import_data.tid_text%type
-  , col16      template_import_data.tid_text%type
-  , col17      template_import_data.tid_text%type
-  , col18      template_import_data.tid_text%type
-  , col19      template_import_data.tid_text%type
-  , col20      template_import_data.tid_text%type
-  , col21      template_import_data.tid_text%type
-  , col22      template_import_data.tid_text%type
-  , col23      template_import_data.tid_text%type
-  , col24      template_import_data.tid_text%type
-  , col25      template_import_data.tid_text%type
-  , col26      template_import_data.tid_text%type
-  , col27      template_import_data.tid_text%type
-  , col28      template_import_data.tid_text%type
-  , col29      template_import_data.tid_text%type
-  , col30      template_import_data.tid_text%type
-  , col31      template_import_data.tid_text%type
-  , col32      template_import_data.tid_text%type
-  , col33      template_import_data.tid_text%type
-  , col34      template_import_data.tid_text%type
-  , col35      template_import_data.tid_text%type
-  , col36      template_import_data.tid_text%type
-  , col37      template_import_data.tid_text%type
-  , col38      template_import_data.tid_text%type
-  , col39      template_import_data.tid_text%type
-  , col40      template_import_data.tid_text%type
-  , col41      template_import_data.tid_text%type
-  , col42      template_import_data.tid_text%type
-  , col43      template_import_data.tid_text%type
-  , col44      template_import_data.tid_text%type
-  , col45      template_import_data.tid_text%type
-  );
-
-  type t_grid_tab is table of t_grid_row;
-
-  type t_tid_text_array is varray(45) of template_import_data.tid_text%type;
-
-  type t_hea_text_array is varray(45) of r_header.hea_text%type;
-
-  function get_grid_query (
-    pi_tis_tpl_id in template_import_status.tis_tpl_id%type
-  )
-    return varchar2
-  ;
-
-  function get_grid_data (
-    pi_tis_tpl_id in template_import_status.tis_tpl_id%type
-  ) return t_grid_tab pipelined
-  ;
-
-  function get_column_count (
-    pi_tis_tpl_id in template_import_status.tis_tpl_id%type
-  )
-    return varchar2
-  ;
-
-end p00060_api;
-/
-
 create or replace package body p00060_api
 as
   gc_scope_prefix constant varchar2(31) := lower($$plsql_unit) || '.';
@@ -4169,20 +4655,6 @@ as
   end get_column_count;
 
 end p00060_api;
-/
-
-create or replace package validation_api as 
-
-  function validate_data(
-    p_tid_text      template_import_data.tid_text%type
-  , p_val_text      r_validation.val_text%type
-  ) return boolean;
-  
-  procedure validation (
-    p_tis_id in template_import_status.tis_id%type
-  );
-
-end validation_api;
 /
 
 create or replace package body validation_api
@@ -4522,414 +4994,6 @@ as
     end validation;
 
 end validation_api;
-/
-
-create or replace PACKAGE xlsx_builder_pkg
-   AUTHID CURRENT_USER
-IS
-   /**********************************************
-   **
-   ** Author: Anton Scheffer
-   ** Date: 19-02-2011
-   ** Website: http://technology.amis.nl/blog
-   ** See also: http://technology.amis.nl/blog/?p=10995
-   **
-   ** Changelog:
-   **   Date: 21-02-2011
-   **     Added Aligment, horizontal, vertical, wrapText
-   **   Date: 06-03-2011
-   **     Added Comments, MergeCells, fixed bug for dependency on NLS-settings
-   **   Date: 16-03-2011
-   **     Added bold and italic fonts
-   **   Date: 22-03-2011
-   **     Fixed issue with timezone's set to a region(name) instead of a offset
-   **   Date: 08-04-2011
-   **     Fixed issue with XML-escaping from text
-   **   Date: 27-05-2011
-   **     Added MIT-license
-   **   Date: 11-08-2011
-   **     Fixed NLS-issue with column width
-   **   Date: 29-09-2011
-   **     Added font color
-   **   Date: 16-10-2011
-   **     fixed bug in add_string
-   **   Date: 26-04-2012
-   **     Fixed set_autofilter (only one autofilter per sheet, added _xlnm._FilterDatabase)
-   **     Added list_validation = drop-down
-   **   Date: 27-08-2013
-   **     Added freeze_pane
-   **   Date: 01-03-2014 (MK)
-   **     Changed new_sheet to function returning sheet id
-   **   Date: 22-03-2014 (MK)
-   **     Added function to convert Oracle Number Format to Excel Format
-   **   Date: 07-04-2014 (MK)
-   **     Removed references to UTL_FILE
-   **     query2sheet is now function returning BLOB
-   **     changed date handling to be based on 01-01-1900
-   **   Date: 08-04-2014 (MK)
-   **     internal function for date to excel serial conversion added
-   **   Date: 01-12-2014 (AMEI)
-   **     Some Naming-conventions (and renaming of elements accordingly), new FUNCTION get_sheet_id
-   **     Triggered by: @SEE AMEI, 20141129 Bugfix:
-   **     For concatenation operations (in particular where record fields are involved) added a lot of TO_CHAR (...)
-   **     to make sure correct explicit conversion (mayby not all caught where necessary)
-   **     To make this easier to recognize, inducted some naming conventions and renamed some elements.
-   **   Date: 26-04-2017 (MP)
-   **     Added new function "query2sheet2" which is faster.
-   **     For dates used following logic:
-   **       - if trunc([column])=[column], then outputed cell value is formatted to format YYYYMMDD;
-   **       - otherwise, outputted cell value is formatted to format YYYYMMDDTHH24MISS;
-   **   Date: 24-09-2019 (PH)
-   **     Added parameter "p_hidden" to function "new_sheet" to create a hidden sheet 
-   **   Date: 24-05-2021 (TH)
-   **     Added parameter "p_formula" to function "cell" to add a formual into a cell 
-   ******************************************************************************
-   ******************************************************************************
-   Copyright (C) 2011, 2012 by Anton Scheffer
-
-   Permission is hereby granted, free of charge, to any person obtaining a copy
-   of this software and associated documentation files (the "Software"), to deal
-   in the Software without restriction, including without limitation the rights
-   to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-   copies of the Software, and to permit persons to whom the Software is
-   furnished to do so, subject to the following conditions:
-
-   The above copyright notice and this permission notice shall be included in
-   all copies or substantial portions of the Software.
-
-   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-   AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-   THE SOFTWARE.
-
-   ******************************************************************************
-   ******************************************************************************
-   * @headcom
-   */
-
-   /**
-   * Record with data about column alignment.
-   * @param vertical   Vertical alignment.
-   * @param horizontal Horizontal alignment.
-   * @param wrapText   Switch to allow or disallow word wrap.
-   */
-   TYPE t_alignment_rec IS RECORD
-   (
-      vc_vertical     VARCHAR2 (11),
-      vc_horizontal   VARCHAR2 (16),
-      bo_wraptext     BOOLEAN
-   );
-
-   type t_bind_tab is table of varchar2(32767) index by varchar2(32767);
-
-   type t_header_tab is table of varchar2(32767) index by pls_integer;
-
-   /**
-   * Clears the whole workbook to start fresh.
-   */
-   PROCEDURE clear_workbook;
-
-   /**
-   * Create a new sheet in the workbook.
-   * @param p_sheetname Name Excel should display for the new worksheet.
-   * @return ID of newly created worksheet.
-   */
-   FUNCTION new_sheet (p_sheetname VARCHAR2 := NULL, p_hidden BOOLEAN := FALSE)
-      RETURN PLS_INTEGER;
-
-   /**
-   * Converts an Oracle date format to the corresponding Excel date format.
-   * @param p_format The Oracle date format to convert.
-   * @return Corresponding Excel date format.
-   */
-   FUNCTION orafmt2excel (p_format VARCHAR2 := NULL)
-      RETURN VARCHAR2;
-
-   /**
-   * Converts an Oracle number format to the corresponding Excel number format.
-   * @param The Oracle number format to convert.
-   * @return Corresponding Excel number format.
-   */
-   FUNCTION oranumfmt2excel (p_format VARCHAR2)
-      RETURN VARCHAR2;
-
-   /**
-   * Get ID for given number format.
-   * @param p_format Wanted number formatting using Excle number format.
-   *                 Use OraNumFmt2Excel to convert from Oracle to Excel.
-   * @return ID for given number format.
-   */
-   FUNCTION get_numfmt (p_format VARCHAR2 := NULL)
-      RETURN PLS_INTEGER;
-
-   /**
-   * Get ID for given font settings.
-   * @param p_name
-   * @param p_family
-   * @param p_fontsize
-   * @param p_theme
-   * @param p_underline
-   * @param p_italic
-   * @param p_bold
-   * @param p_rgb
-   * @return ID for given font definition
-   */
-   FUNCTION get_font (p_name         VARCHAR2,
-                      p_family       PLS_INTEGER := 2,
-                      p_fontsize     NUMBER := 8,
-                      p_theme        PLS_INTEGER := 1,
-                      p_underline    BOOLEAN := FALSE,
-                      p_italic       BOOLEAN := FALSE,
-                      p_bold         BOOLEAN := FALSE,
-                      p_rgb          VARCHAR2 := NULL                        -- this is a hex ALPHA Red Green Blue value, but RGB works also
-                                                     )
-      RETURN PLS_INTEGER;
-
-   /**
-   * Get ID for given cell fill
-   * @param p_patternType Pattern for the fill.
-   * @param p_fgRGB       Color using an ARGB or RGB hex value
-   * @return ID for given cell fill.
-   */
-   FUNCTION get_fill (p_patterntype VARCHAR2, p_fgrgb VARCHAR2 := NULL)
-      RETURN PLS_INTEGER;
-
-   /**
-   * Get ID for given border definition.
-   * Possible values for all parameters:
-   * none, thin, medium, dashed, dotted, thick, double, hair, mediumDashed,
-   * dashDot, mediumDashDot, dashDotDot, mediumDashDotDot, slantDashDot
-   * @param p_top    Style for top border
-   * @param p_bottom Style for bottom border
-   * @param p_left   Style for left border
-   * @param p_right  Style for right border
-   * @return ID for given border definition
-   */
-   FUNCTION get_border (p_top       VARCHAR2 := 'thin',
-                        p_bottom    VARCHAR2 := 'thin',
-                        p_left      VARCHAR2 := 'thin',
-                        p_right     VARCHAR2 := 'thin')
-      RETURN PLS_INTEGER;
-
-   /**
-   * Function to get a record holding alignment data.
-   * @param p_vertical   Vertical alignment.
-   *                     (bottom, center, distributed, justify, top)
-   * @param p_horizontal Horizontal alignment.
-   *                     (center, centerContinuous, distributed, fill, general, justify, left, right)
-   * @param p_wraptext   Switch to allow or disallow text wrapping.
-   * @return Record with alignment data.
-   */
-   FUNCTION get_alignment (p_vertical VARCHAR2 := NULL, p_horizontal VARCHAR2 := NULL, p_wraptext BOOLEAN := NULL)
-      RETURN t_alignment_rec;
-
-   /**
-   * Puts a number value into a cell of the spreadsheet.
-   * @param p_col       Column number where the cell is located
-   * @param p_row       Row number where the cell is located
-   * @param p_value     The value to put into the cell
-   * @param p_numFmtId  ID of number format
-   * @param p_fontId    ID of font defintion
-   * @param p_fillId    ID of fill definition
-   * @param p_borderId  ID of border definition
-   * @param p_alignment The wanted alignment
-   * @param p_sheet     Worksheet the cell is located, if omitted last worksheet is used
-   */
-   PROCEDURE cell (p_col          PLS_INTEGER,
-                   p_row          PLS_INTEGER,
-                   p_value        NUMBER,
-                   p_numfmtid     PLS_INTEGER := NULL,
-                   p_fontid       PLS_INTEGER := NULL,
-                   p_fillid       PLS_INTEGER := NULL,
-                   p_borderid     PLS_INTEGER := NULL,
-                   p_alignment    t_alignment_rec := NULL,
-                   p_sheet        PLS_INTEGER := NULL);
-
-   /**
-   * Puts a character value into a cell of the spreadsheet.
-   * @param p_col       Column number where the cell is located
-   * @param p_row       Row number where the cell is located
-   * @param p_value     The value to put into the cell
-   * @param p_numFmtId  ID of formatting definition
-   * @param p_fontId    ID of font defintion
-   * @param p_fillId    ID of fill definition
-   * @param p_borderId  ID of border definition
-   * @param p_alignment The wanted alignment
-   * @param p_sheet     Worksheet the cell is located, if omitted last worksheet is used
-   * @param p_formula   The formula to put into the cell
-   */
-   PROCEDURE cell (p_col          PLS_INTEGER,
-                   p_row          PLS_INTEGER,
-                   p_value        VARCHAR2,
-                   p_numfmtid     PLS_INTEGER := NULL,
-                   p_fontid       PLS_INTEGER := NULL,
-                   p_fillid       PLS_INTEGER := NULL,
-                   p_borderid     PLS_INTEGER := NULL,
-                   p_alignment    t_alignment_rec := NULL,
-                   p_sheet        PLS_INTEGER := NULL,
-                   p_formula      VARCHAR2 := NULL);
-
-   /**
-   * Puts a date value into a cell of the spreadsheet.
-   * @param p_col       Column number where the cell is located
-   * @param p_row       Row number where the cell is located
-   * @param p_value     The value to put into the cell
-   * @param p_numFmtId  ID of format definition
-   * @param p_fontId    ID of font defintion
-   * @param p_fillId    ID of fill definition
-   * @param p_borderId  ID of border definition
-   * @param p_alignment The wanted alignment
-   * @param p_sheet     Worksheet the cell is located, if omitted last worksheet is used
-   */
-   PROCEDURE cell (p_col          PLS_INTEGER,
-                   p_row          PLS_INTEGER,
-                   p_value        DATE,
-                   p_numfmtid     PLS_INTEGER := NULL,
-                   p_fontid       PLS_INTEGER := NULL,
-                   p_fillid       PLS_INTEGER := NULL,
-                   p_borderid     PLS_INTEGER := NULL,
-                   p_alignment    t_alignment_rec := NULL,
-                   p_sheet        PLS_INTEGER := NULL);
-
-   PROCEDURE hyperlink (p_col      PLS_INTEGER,
-                        p_row      PLS_INTEGER,
-                        p_url      VARCHAR2,
-                        p_value    VARCHAR2 := NULL,
-                        p_sheet    PLS_INTEGER := NULL);
-
-   PROCEDURE comment (p_col       PLS_INTEGER,
-                      p_row       PLS_INTEGER,
-                      p_text      VARCHAR2,
-                      p_author    VARCHAR2 := NULL,
-                      p_width     PLS_INTEGER := 150                                                                               -- pixels
-                                                    ,
-                      p_height    PLS_INTEGER := 100                                                                               -- pixels
-                                                    ,
-                      p_sheet     PLS_INTEGER := NULL);
-
-   PROCEDURE mergecells (p_tl_col    PLS_INTEGER                                                                                 -- top left
-                                                ,
-                         p_tl_row    PLS_INTEGER,
-                         p_br_col    PLS_INTEGER                                                                             -- bottom right
-                                                ,
-                         p_br_row    PLS_INTEGER,
-                         p_sheet     PLS_INTEGER := NULL);
-
-  PROCEDURE add_validation (p_type           VARCHAR2,
-                             p_sqref          VARCHAR2,
-                             p_style          VARCHAR2 := 'stop'                                               -- stop, warning, information
-                                                                ,
-                             p_formula1       VARCHAR2 := NULL,
-                             p_formula2       VARCHAR2 := NULL,
-                             p_title          VARCHAR2 := NULL,
-                             p_prompt         VARCHAR2 := NULL,
-                             p_show_error     BOOLEAN := FALSE,
-                             p_error_title    VARCHAR2 := NULL,
-                             p_error_txt      VARCHAR2 := NULL,
-                             p_sheet          PLS_INTEGER := NULL) ;
-
-   PROCEDURE list_validation (p_sqref_col        PLS_INTEGER,
-                              p_sqref_row        PLS_INTEGER,
-                              p_tl_col           PLS_INTEGER                                                                       -- top left
-                                                            ,
-                              p_tl_row           PLS_INTEGER,
-                              p_br_col           PLS_INTEGER                                                                   -- bottom right
-                                                            ,
-                              p_br_row           PLS_INTEGER,
-                              p_style            VARCHAR2 := 'stop'                                              -- stop, warning, information
-                                                                   ,
-                              p_title            VARCHAR2 := NULL,
-                              p_prompt           VARCHAR2 := NULL,
-                              p_show_error       BOOLEAN := FALSE,
-                              p_error_title      VARCHAR2 := NULL,
-                              p_error_txt        VARCHAR2 := NULL,
-                              p_sheet            PLS_INTEGER := NULL,
-                              p_sheet_datasource PLS_INTEGER := NULL);
-
-   PROCEDURE list_validation (p_sqref_col       PLS_INTEGER,
-                              p_sqref_row       PLS_INTEGER,
-                              p_defined_name    VARCHAR2,
-                              p_style           VARCHAR2 := 'stop'                                             -- stop, warning, information
-                                                                  ,
-                              p_title           VARCHAR2 := NULL,
-                              p_prompt          VARCHAR2 := NULL,
-                              p_show_error      BOOLEAN := FALSE,
-                              p_error_title     VARCHAR2 := NULL,
-                              p_error_txt       VARCHAR2 := NULL,
-                              p_sheet           PLS_INTEGER := NULL);
-
-   PROCEDURE defined_name (p_tl_col        PLS_INTEGER                                                                           -- top left
-                                                      ,
-                           p_tl_row        PLS_INTEGER,
-                           p_br_col        PLS_INTEGER                                                                       -- bottom right
-                                                      ,
-                           p_br_row        PLS_INTEGER,
-                           p_name          VARCHAR2,
-                           p_sheet         PLS_INTEGER := NULL,
-                           p_localsheet    PLS_INTEGER := NULL);
-
-   PROCEDURE set_column_width (p_col PLS_INTEGER, p_width NUMBER, p_sheet PLS_INTEGER := NULL);
-
-   PROCEDURE set_column (p_col          PLS_INTEGER,
-                         p_numfmtid     PLS_INTEGER := NULL,
-                         p_fontid       PLS_INTEGER := NULL,
-                         p_fillid       PLS_INTEGER := NULL,
-                         p_borderid     PLS_INTEGER := NULL,
-                         p_alignment    t_alignment_rec := NULL,
-                         p_sheet        PLS_INTEGER := NULL);
-
-   PROCEDURE set_row (p_row          PLS_INTEGER,
-                      p_numfmtid     PLS_INTEGER := NULL,
-                      p_fontid       PLS_INTEGER := NULL,
-                      p_fillid       PLS_INTEGER := NULL,
-                      p_borderid     PLS_INTEGER := NULL,
-                      p_alignment    t_alignment_rec := NULL,
-                      p_sheet        PLS_INTEGER := NULL);
-
-   PROCEDURE freeze_rows (p_nr_rows PLS_INTEGER := 1, p_sheet PLS_INTEGER := NULL);
-
-   PROCEDURE freeze_cols (p_nr_cols PLS_INTEGER := 1, p_sheet PLS_INTEGER := NULL);
-
-   PROCEDURE freeze_pane (p_col PLS_INTEGER, p_row PLS_INTEGER, p_sheet PLS_INTEGER := NULL);
-
-   PROCEDURE set_autofilter (p_column_start    PLS_INTEGER := NULL,
-                             p_column_end      PLS_INTEGER := NULL,
-                             p_row_start       PLS_INTEGER := NULL,
-                             p_row_end         PLS_INTEGER := NULL,
-                             p_sheet           PLS_INTEGER := NULL);
-
-   FUNCTION finish
-      RETURN BLOB;
-
-   FUNCTION query2sheet (p_sql VARCHAR2, p_column_headers BOOLEAN := TRUE, p_sheet PLS_INTEGER := NULL, p_skip_header boolean := FALSE)
-      RETURN BLOB;
-
-   FUNCTION finish2 (p_clob                 IN OUT NOCOPY CLOB,
-                     p_columns              PLS_INTEGER,
-                     p_rows                 PLS_INTEGER,
-                     p_XLSX_date_format     VARCHAR2,
-                     p_XLSX_datetime_format VARCHAR2)
-      RETURN BLOB;
-
-   FUNCTION query2sheet2(p_sql                  VARCHAR2,
-                         p_XLSX_date_format     VARCHAR2 := 'dd/mm/yyyy',
-                         p_XLSX_datetime_format VARCHAR2 := 'dd/mm/yyyy hh24:mi:ss')
-      RETURN BLOB;
-
-   function query2sheet3
-   (
-     p_sql     in varchar2
-   , p_binds   in t_bind_tab
-   , p_headers in t_header_tab
-   , p_XLSX_date_format     VARCHAR2 := 'dd/mm/yyyy'
-   , p_XLSX_datetime_format VARCHAR2 := 'dd/mm/yyyy hh24:mi:ss'
-   )
-      return blob;
-
-END;
 /
 
 create or replace PACKAGE BODY xlsx_builder_pkg
@@ -8001,70 +8065,6 @@ IS
    END query2sheet3;
 
 END;
-/
-
-create or replace PACKAGE zip_util_pkg
-  AUTHID CURRENT_USER
-AS
-
-/**
-* Purpose:      Package handles zipping and unzipping of files
-*
-* Remarks:      by Anton Scheffer, see http://forums.oracle.com/forums/thread.jspa?messageID=9289744#9289744
-*
-*               for unzipping, see http://technology.amis.nl/blog/8090/parsing-a-microsoft-word-docx-and-unzip-zipfiles-with-plsql
-*               for zipping, see http://forums.oracle.com/forums/thread.jspa?threadID=1115748&tstart=0
-*
-* Who     Date        Description
-* ------  ----------  --------------------------------
-* MBR     09.01.2011  Created
-* MK      16.04.2014  Removed UTL_FILE dependencies and file operations
-* MK      01.07.2014  Added get_file_clob to immediately retrieve file content as a CLOB
-*
-* @headcom
-**/
-
-  /** List of all files within zipped file */
-  TYPE t_file_list IS TABLE OF CLOB;
-
-
-  FUNCTION little_endian( p_big IN NUMBER
-                        , p_bytes IN pls_integer := 4
-                        )
-    RETURN RAW;
-
-  FUNCTION get_file_list( p_zipped_blob IN BLOB
-                        , p_encoding IN VARCHAR2 := NULL /* Use CP850 for zip files created with a German Winzip to see umlauts, etc */
-                        )
-    RETURN t_file_list;
-
-  FUNCTION get_file( p_zipped_blob IN BLOB
-                   , p_file_name IN VARCHAR2
-                   , p_encoding IN VARCHAR2 := NULL
-                   )
-    RETURN BLOB;
-
-  FUNCTION get_file_clob( p_zipped_blob IN BLOB
-                        , p_file_name IN VARCHAR2
-                        , p_encoding IN VARCHAR2 := NULL
-                        )
-    RETURN CLOB;
-
-  PROCEDURE add_file( p_zipped_blob IN OUT NOCOPY BLOB
-                    , p_name IN VARCHAR2
-                    , p_content IN BLOB
-                    )
-  ;
-
-  PROCEDURE add_file( p_zipped_blob IN OUT NOCOPY BLOB
-                    , p_name IN VARCHAR2
-                    , p_content CLOB
-                    )
-  ;
-
-  PROCEDURE finish_zip( p_zipped_blob IN OUT NOCOPY BLOB);
-
-END zip_util_pkg;
 /
 
 create or replace package body zip_util_pkg
