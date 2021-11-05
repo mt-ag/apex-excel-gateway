@@ -17,7 +17,7 @@ wwv_flow_api.create_automation(
 ,p_static_id=>'send-new-reminder'
 ,p_trigger_type=>'POLLING'
 ,p_polling_interval=>'FREQ=DAILY;INTERVAL=1;BYHOUR=0;BYMINUTE=0'
-,p_polling_status=>'DISABLED'
+,p_polling_status=>'ACTIVE'
 ,p_result_type=>'ROWS'
 ,p_location=>'LOCAL'
 ,p_use_local_sync_table=>false

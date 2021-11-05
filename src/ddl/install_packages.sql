@@ -984,26 +984,6 @@ as
 
           end loop;
 
-          -- Logo hinzufügen
-          FOR img IN(
-              SELECT
-                  filename
-                  ,blob_content
-                  ,mime_type
-              FROM
-                  apex_application_files
-              WHERE
-                  filename = 'Logo.png'
-                  AND flow_id = p_App_ID
-          )LOOP
-              apex_mail.add_attachment(
-                  p_mail_id      => l_id
-                  ,p_attachment   => img.blob_content
-                  ,p_filename     => img.filename
-                  ,p_mime_type    => img.mime_type
-              );
-          END LOOP;  
-
         -- Mail senden
         apex_mail.push_queue;     
 
@@ -1105,26 +1085,6 @@ as
       set fil.fil_file = empty_blob();
 
       end loop;
-
-      -- Logo hinzufügen
-      FOR img IN(
-          SELECT
-              filename
-              ,blob_content
-              ,mime_type
-          FROM
-              apex_application_files
-          WHERE
-              filename = 'Logo.png'
-              AND flow_id = v('APP_ID')
-      )LOOP
-          apex_mail.add_attachment(
-              p_mail_id      => l_id
-              ,p_attachment   => img.blob_content
-              ,p_filename     => img.filename
-              ,p_mime_type    => img.mime_type
-          );
-      END LOOP;  
 
       -- Mail senden
       apex_mail.push_queue;    
@@ -1242,26 +1202,6 @@ as
 
           end loop;
           
-          -- Logo hinzufügen
-          FOR img IN(
-              SELECT
-                  filename
-                  ,blob_content
-                  ,mime_type
-              FROM
-                  apex_application_files
-              WHERE
-                  filename = 'Logo.png'
-                  AND flow_id = p_App_ID
-          )LOOP
-              apex_mail.add_attachment(
-                  p_mail_id      => l_id
-                  ,p_attachment   => img.blob_content
-                  ,p_filename     => img.filename
-                  ,p_mime_type    => img.mime_type
-              );
-          END LOOP; 
-
         -- Mail senden
         apex_mail.push_queue;        
 
@@ -1356,26 +1296,6 @@ as
       set fil.fil_file = empty_blob();
 
       end loop;
-
-      -- Logo hinzufügen
-      FOR img IN(
-          SELECT
-              filename
-              ,blob_content
-              ,mime_type
-          FROM
-              apex_application_files
-          WHERE
-              filename = 'Logo.png'
-              AND flow_id = v('APP_ID')
-      )LOOP
-          apex_mail.add_attachment(
-              p_mail_id      => l_id
-              ,p_attachment   => img.blob_content
-              ,p_filename     => img.filename
-              ,p_mime_type    => img.mime_type
-          );
-      END LOOP;  
 
       -- Mail senden
       apex_mail.push_queue;    
@@ -1498,26 +1418,6 @@ procedure reminder(
 
           end loop;
           
-          -- Logo hinzufügen
-          FOR img IN(
-              SELECT
-                  filename
-                  ,blob_content
-                  ,mime_type
-              FROM
-                  apex_application_files
-              WHERE
-                  filename = 'Logo.png'
-                  AND flow_id = v('APP_ID')
-          )LOOP
-              apex_mail.add_attachment(
-                  p_mail_id      => l_id
-                  ,p_attachment   => img.blob_content
-                  ,p_filename     => img.filename
-                  ,p_mime_type    => img.mime_type
-              );
-          END LOOP;
-
         -- Mail senden
         apex_mail.push_queue;        
 
@@ -1618,26 +1518,6 @@ procedure reminder(
       set fil.fil_file = empty_blob();
 
       end loop;
-
-      -- Logo hinzufügen
-      FOR img IN(
-          SELECT
-              filename
-              ,blob_content
-              ,mime_type
-          FROM
-              apex_application_files
-          WHERE
-              filename = 'Logo.png'
-              AND flow_id = v('APP_ID')
-      )LOOP
-          apex_mail.add_attachment(
-              p_mail_id      => l_id
-              ,p_attachment   => img.blob_content
-              ,p_filename     => img.filename
-              ,p_mime_type    => img.mime_type
-          );
-      END LOOP;  
 
       -- Mail senden
       apex_mail.push_queue;    

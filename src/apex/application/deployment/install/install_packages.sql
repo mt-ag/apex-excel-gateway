@@ -1021,26 +1021,6 @@ unistr('          -- Anhang hinzuf\00FCgen, Versandstatus setzen, Datei in DB le
 '',
 '          end loop;',
 '',
-unistr('          -- Logo hinzuf\00FCgen'),
-'          FOR img IN(',
-'              SELECT',
-'                  filename',
-'                  ,blob_content',
-'                  ,mime_type',
-'              FROM',
-'                  apex_application_files',
-'              WHERE',
-'                  filename = ''Logo.png''',
-'                  AND flow_id = p_App_ID',
-'          )LOOP',
-'              apex_mail.add_attachment(',
-'                  p_mail_id      => l_id',
-'                  ,p_attachment   => img.blob_content',
-'                  ,p_filename     => img.filename',
-'                  ,p_mime_type    => img.mime_type',
-'              );',
-'          END LOOP;  ',
-'',
 '        -- Mail senden',
 '        apex_mail.push_queue;     ',
 '',
@@ -1142,26 +1122,6 @@ unistr('      -- Anhang hinzuf\00FCgen, Versandstatus setzen, Datei in DB leeren
 '      set fil.fil_file = empty_blob();',
 '',
 '      end loop;',
-'',
-unistr('      -- Logo hinzuf\00FCgen'),
-'      FOR img IN(',
-'          SELECT',
-'              filename',
-'              ,blob_content',
-'              ,mime_type',
-'          FROM',
-'              apex_application_files',
-'          WHERE',
-'              filename = ''Logo.png''',
-'              AND flow_id = v(''APP_ID'')',
-'      )LOOP',
-'          apex_mail.add_attachment(',
-'              p_mail_id      => l_id',
-'              ,p_attachment   => img.blob_content',
-'              ,p_filename     => img.filename',
-'              ,p_mime_type    => img.mime_type',
-'          );',
-'      END LOOP;  ',
 '',
 '      -- Mail senden',
 '      apex_mail.push_queue;    ',
@@ -1279,26 +1239,6 @@ unistr('          -- Anhang hinzuf\00FCgen, Versandstatus setzen, Datei in DB le
 '',
 '          end loop;',
 '          ',
-unistr('          -- Logo hinzuf\00FCgen'),
-'          FOR img IN(',
-'              SELECT',
-'                  filename',
-'                  ,blob_content',
-'                  ,mime_type',
-'              FROM',
-'                  apex_application_files',
-'              WHERE',
-'                  filename = ''Logo.png''',
-'                  AND flow_id = p_App_ID',
-'          )LOOP',
-'              apex_mail.add_attachment(',
-'                  p_mail_id      => l_id',
-'                  ,p_attachment   => img.blob_content',
-'                  ,p_filename     => img.filename',
-'                  ,p_mime_type    => img.mime_type',
-'              );',
-'          END LOOP; ',
-'',
 '        -- Mail senden',
 '        apex_mail.push_queue;        ',
 '',
@@ -1393,26 +1333,6 @@ unistr('      -- Anhang hinzuf\00FCgen, Versandstatus setzen, Datei in DB leeren
 '      set fil.fil_file = empty_blob();',
 '',
 '      end loop;',
-'',
-unistr('      -- Logo hinzuf\00FCgen'),
-'      FOR img IN(',
-'          SELECT',
-'              filename',
-'              ,blob_content',
-'              ,mime_type',
-'          FROM',
-'              apex_application_files',
-'          WHERE',
-'              filename = ''Logo.png''',
-'              AND flow_id = v(''APP_ID'')',
-'      )LOOP',
-'          apex_mail.add_attachment(',
-'              p_mail_id      => l_id',
-'              ,p_attachment   => img.blob_content',
-'              ,p_filename     => img.filename',
-'              ,p_mime_type    => img.mime_type',
-'          );',
-'      END LOOP;  ',
 '',
 '      -- Mail senden',
 '      apex_mail.push_queue;    ',
@@ -1535,26 +1455,6 @@ unistr('          -- Anhang hinzuf\00FCgen, Versandstatus setzen, Datei in DB le
 '',
 '          end loop;',
 '          ',
-unistr('          -- Logo hinzuf\00FCgen'),
-'          FOR img IN(',
-'              SELECT',
-'                  filename',
-'                  ,blob_content',
-'                  ,mime_type',
-'              FROM',
-'                  apex_application_files',
-'              WHERE',
-'                  filename = ''Logo.png''',
-'                  AND flow_id = v(''APP_ID'')',
-'          )LOOP',
-'              apex_mail.add_attachment(',
-'                  p_mail_id      => l_id',
-'                  ,p_attachment   => img.blob_content',
-'                  ,p_filename     => img.filename',
-'                  ,p_mime_type    => img.mime_type',
-'              );',
-'          END LOOP;',
-'',
 '        -- Mail senden',
 '        apex_mail.push_queue;        ',
 '',
@@ -1583,25 +1483,7 @@ unistr('        -- Anzahl Empf\00E4nger z\00E4hlen'),
 '    p_tis_id            template_import_status.tis_id%type,',
 '    p_tis_annotation    template_import_status.tis_annotation%type,',
 '    p_per_id            r_person.per_id%type,',
-'    p_per_na'))
-);
-null;
-wwv_flow_api.component_end;
-end;
-/
-begin
-wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.0'
-,p_default_workspace_id=>9510583246779566
-,p_default_application_id=>111
-,p_default_id_offset=>205442218172938197
-,p_default_owner=>'SURVEY_TOOL'
-);
-wwv_flow_api.append_to_install_script(
- p_id=>wwv_flow_api.id(132024613257778877)
-,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'me          varchar2,',
+'    p_per_name          varchar2,',
 '    p_per_email         r_person.per_email%type,',
 '    p_tpl_id            r_templates.tpl_id%type   ',
 '  )',
@@ -1674,26 +1556,6 @@ unistr('      -- Anhang hinzuf\00FCgen, Versandstatus setzen, Datei in DB leeren
 '',
 '      end loop;',
 '',
-unistr('      -- Logo hinzuf\00FCgen'),
-'      FOR img IN(',
-'          SELECT',
-'              filename',
-'              ,blob_content',
-'              ,mime_type',
-'          FROM',
-'              apex_application_files',
-'          WHERE',
-'              filename = ''Logo.png''',
-'              AND flow_id = v(''APP_ID'')',
-'      )LOOP',
-'          apex_mail.add_attachment(',
-'              p_mail_id      => l_id',
-'              ,p_attachment   => img.blob_content',
-'              ,p_filename     => img.filename',
-'              ,p_mime_type    => img.mime_type',
-'          );',
-'      END LOOP;  ',
-'',
 '      -- Mail senden',
 '      apex_mail.push_queue;    ',
 '',
@@ -1709,7 +1571,25 @@ unistr('      -- Logo hinzuf\00FCgen'),
 'create or replace package body excel_gen',
 'as',
 '',
-'  gc_scope_prefix constant varchar2(31) := lower($$plsql_unit) || ''.'';',
+'  gc_scope_prefix constant varchar2(31) := low'))
+);
+null;
+wwv_flow_api.component_end;
+end;
+/
+begin
+wwv_flow_api.component_begin (
+ p_version_yyyy_mm_dd=>'2021.04.15'
+,p_release=>'21.1.0'
+,p_default_workspace_id=>9510583246779566
+,p_default_application_id=>111
+,p_default_id_offset=>205442218172938197
+,p_default_owner=>'SURVEY_TOOL'
+);
+wwv_flow_api.append_to_install_script(
+ p_id=>wwv_flow_api.id(132024613257778877)
+,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'er($$plsql_unit) || ''.'';',
 '  ',
 '  -- get index of last excel column depending on number of ''abfragen''-columns',
 '  function getExcelColumnName(',
@@ -2474,25 +2354,7 @@ unistr('      -- Logo hinzuf\00FCgen'),
 '    l_sheetname := pi_tpl_name;',
 '    l_sheetname := replace(l_sheetname, '' '', ''_'');',
 '',
-'    -- initially c'))
-);
-null;
-wwv_flow_api.component_end;
-end;
-/
-begin
-wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.0'
-,p_default_workspace_id=>9510583246779566
-,p_default_application_id=>111
-,p_default_id_offset=>205442218172938197
-,p_default_owner=>'SURVEY_TOOL'
-);
-wwv_flow_api.append_to_install_script(
- p_id=>wwv_flow_api.id(132024613257778877)
-,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'lear workbook',
+'    -- initially clear workbook',
 '    xlsx_builder_pkg.clear_workbook;',
 '',
 '    l_sheet_num_main   := xlsx_builder_pkg.new_sheet(l_sheetname);',
@@ -2618,7 +2480,25 @@ wwv_flow_api.append_to_install_script(
 '         , per_firstname',
 '         , per_lastname',
 '      into l_tpl_id',
-'         , l_tpl_name',
+'         , l_tp'))
+);
+null;
+wwv_flow_api.component_end;
+end;
+/
+begin
+wwv_flow_api.component_begin (
+ p_version_yyyy_mm_dd=>'2021.04.15'
+,p_release=>'21.1.0'
+,p_default_workspace_id=>9510583246779566
+,p_default_application_id=>111
+,p_default_id_offset=>205442218172938197
+,p_default_owner=>'SURVEY_TOOL'
+);
+wwv_flow_api.append_to_install_script(
+ p_id=>wwv_flow_api.id(132024613257778877)
+,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'l_name',
 '         , l_per_id',
 '         , l_per_firstname',
 '         , l_per_lastname',
@@ -3323,25 +3203,7 @@ unistr('      -- Status zur\00FCcksetzen '),
 '  begin',
 '    select hea_id',
 '      into l_faulty_id',
-'      f'))
-);
-null;
-wwv_flow_api.component_end;
-end;
-/
-begin
-wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.0'
-,p_default_workspace_id=>9510583246779566
-,p_default_application_id=>111
-,p_default_id_offset=>205442218172938197
-,p_default_owner=>'SURVEY_TOOL'
-);
-wwv_flow_api.append_to_install_script(
- p_id=>wwv_flow_api.id(132024613257778877)
-,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'rom r_header',
+'      from r_header',
 '     where hea_text = ''Faulty''',
 '    ;',
 '',
@@ -3458,7 +3320,25 @@ wwv_flow_api.append_to_install_script(
 '',
 '    insert into template_header ',
 '    (tph_tpl_id, tph_hea_id, tph_xlsx_background_color, tph_xlsx_font_color, tph_sort_order, tph_thg_id)',
-'    VALUES (l_tpl_id, rec.tph_hea_id, rec.tph_xlsx_background_color, rec.tph_xlsx_font_color, rec.tph_sort_order, rec.tph_thg_id)',
+'    VALUES (l_tpl_id, rec.tph_hea_id, rec.tph_xlsx_background'))
+);
+null;
+wwv_flow_api.component_end;
+end;
+/
+begin
+wwv_flow_api.component_begin (
+ p_version_yyyy_mm_dd=>'2021.04.15'
+,p_release=>'21.1.0'
+,p_default_workspace_id=>9510583246779566
+,p_default_application_id=>111
+,p_default_id_offset=>205442218172938197
+,p_default_owner=>'SURVEY_TOOL'
+);
+wwv_flow_api.append_to_install_script(
+ p_id=>wwv_flow_api.id(132024613257778877)
+,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'_color, rec.tph_xlsx_font_color, rec.tph_sort_order, rec.tph_thg_id)',
 '    RETURNING tph_id into l_tph_id;',
 '    ',
 '    if rec.thv_formula1 is not null or rec.thv_formula2 is not null then',
@@ -4347,25 +4227,7 @@ wwv_flow_api.append_to_install_script(
 '      then',
 '        -- get umfrage_abfrage',
 '        select tph_id',
-'  '))
-);
-null;
-wwv_flow_api.component_end;
-end;
-/
-begin
-wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.0'
-,p_default_workspace_id=>9510583246779566
-,p_default_application_id=>111
-,p_default_id_offset=>205442218172938197
-,p_default_owner=>'SURVEY_TOOL'
-);
-wwv_flow_api.append_to_install_script(
- p_id=>wwv_flow_api.id(132024613257778877)
-,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'      into l_tph_id',
+'        into l_tph_id',
 '        from template_header',
 '        where tph_tpl_id = l_tpl_id',
 '        and tph_hea_id = l_hea_id',
@@ -4473,7 +4335,25 @@ wwv_flow_api.append_to_install_script(
 '    when others then',
 '      logger.log_error(''Unhandled Exception'', l_scope, null, l_params);',
 '      raise;',
-'  end get_column_count;',
+'  end get_column_count;'))
+);
+null;
+wwv_flow_api.component_end;
+end;
+/
+begin
+wwv_flow_api.component_begin (
+ p_version_yyyy_mm_dd=>'2021.04.15'
+,p_release=>'21.1.0'
+,p_default_workspace_id=>9510583246779566
+,p_default_application_id=>111
+,p_default_id_offset=>205442218172938197
+,p_default_owner=>'SURVEY_TOOL'
+);
+wwv_flow_api.append_to_install_script(
+ p_id=>wwv_flow_api.id(132024613257778877)
+,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'',
 '',
 'end p00051_api;',
 '/',
@@ -5317,25 +5197,7 @@ wwv_flow_api.append_to_install_script(
 '',
 '   TYPE t_book_rec IS RECORD',
 '   (',
-'      s'))
-);
-null;
-wwv_flow_api.component_end;
-end;
-/
-begin
-wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.0'
-,p_default_workspace_id=>9510583246779566
-,p_default_application_id=>111
-,p_default_id_offset=>205442218172938197
-,p_default_owner=>'SURVEY_TOOL'
-);
-wwv_flow_api.append_to_install_script(
- p_id=>wwv_flow_api.id(132024613257778877)
-,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'heets_tab          t_sheets_tab,',
+'      sheets_tab          t_sheets_tab,',
 '      strings_tab         t_strings_tab,',
 '      str_ind_tab         t_str_ind_tab,',
 '      pi_str_cnt          PLS_INTEGER:= 0,',
@@ -5440,7 +5302,25 @@ wwv_flow_api.append_to_install_script(
 '   END col_alfan;',
 '',
 '   -- EMORKLE (2014/02/24): Moved to top, allowing usage in new_sheet',
-'   FUNCTION add_string (p_string VARCHAR2)',
+'   FUNCTION add_string (p_string VARCHAR2)'))
+);
+null;
+wwv_flow_api.component_end;
+end;
+/
+begin
+wwv_flow_api.component_begin (
+ p_version_yyyy_mm_dd=>'2021.04.15'
+,p_release=>'21.1.0'
+,p_default_workspace_id=>9510583246779566
+,p_default_application_id=>111
+,p_default_id_offset=>205442218172938197
+,p_default_owner=>'SURVEY_TOOL'
+);
+wwv_flow_api.append_to_install_script(
+ p_id=>wwv_flow_api.id(132024613257778877)
+,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'',
 '      RETURN PLS_INTEGER',
 '   AS',
 '      t_cnt   PLS_INTEGER;',
@@ -6094,25 +5974,7 @@ wwv_flow_api.append_to_install_script(
 '            p_error_txt     => p_error_txt,',
 '            p_sheet         => p_sheet);',
 '      ELSE',
-'         add_validat'))
-);
-null;
-wwv_flow_api.component_end;
-end;
-/
-begin
-wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.0'
-,p_default_workspace_id=>9510583246779566
-,p_default_application_id=>111
-,p_default_id_offset=>205442218172938197
-,p_default_owner=>'SURVEY_TOOL'
-);
-wwv_flow_api.append_to_install_script(
- p_id=>wwv_flow_api.id(132024613257778877)
-,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'ion (',
+'         add_validation (',
 '            ''list'',',
 '            alfan_col (p_sqref_col) || TO_CHAR (p_sqref_row),',
 '            p_style         => LOWER (p_style),',
@@ -6185,7 +6047,25 @@ wwv_flow_api.append_to_install_script(
 '         || ''$''',
 '         || TO_CHAR (p_tl_row)',
 '         || '':$''',
-'         || alfan_col (p_br_col)',
+'         ||'))
+);
+null;
+wwv_flow_api.component_end;
+end;
+/
+begin
+wwv_flow_api.component_begin (
+ p_version_yyyy_mm_dd=>'2021.04.15'
+,p_release=>'21.1.0'
+,p_default_workspace_id=>9510583246779566
+,p_default_application_id=>111
+,p_default_id_offset=>205442218172938197
+,p_default_owner=>'SURVEY_TOOL'
+);
+wwv_flow_api.append_to_install_script(
+ p_id=>wwv_flow_api.id(132024613257778877)
+,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+' alfan_col (p_br_col)',
 '         || ''$''',
 '         || TO_CHAR (p_br_row);',
 '      workbook.defined_names_tab (t_ind).pi_sheet := p_localsheet;',
@@ -6802,25 +6682,7 @@ wwv_flow_api.append_to_install_script(
 '<a:font script="Khmr" typeface="DaunPenh"/>',
 '<a:font script="Knda" typeface="Tunga"/>',
 '<a:font script="Guru" typeface="Raavi"/>',
-'<a:font script="Cans" '))
-);
-null;
-wwv_flow_api.component_end;
-end;
-/
-begin
-wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.0'
-,p_default_workspace_id=>9510583246779566
-,p_default_application_id=>111
-,p_default_id_offset=>205442218172938197
-,p_default_owner=>'SURVEY_TOOL'
-);
-wwv_flow_api.append_to_install_script(
- p_id=>wwv_flow_api.id(132024613257778877)
-,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'typeface="Euphemia"/>',
+'<a:font script="Cans" typeface="Euphemia"/>',
 '<a:font script="Cher" typeface="Plantagenet Cherokee"/>',
 '<a:font script="Yiii" typeface="Microsoft Yi Baiti"/>',
 '<a:font script="Tibt" typeface="Microsoft Himalaya"/>',
@@ -6963,7 +6825,25 @@ wwv_flow_api.append_to_install_script(
 '<a:gs pos="0">',
 '<a:schemeClr val="phClr">',
 '<a:tint val="40000"/>',
-'<a:satMod val="350000"/>',
+'<a:satMod val="'))
+);
+null;
+wwv_flow_api.component_end;
+end;
+/
+begin
+wwv_flow_api.component_begin (
+ p_version_yyyy_mm_dd=>'2021.04.15'
+,p_release=>'21.1.0'
+,p_default_workspace_id=>9510583246779566
+,p_default_application_id=>111
+,p_default_id_offset=>205442218172938197
+,p_default_owner=>'SURVEY_TOOL'
+);
+wwv_flow_api.append_to_install_script(
+ p_id=>wwv_flow_api.id(132024613257778877)
+,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'350000"/>',
 '</a:schemeClr>',
 '</a:gs>',
 '<a:gs pos="40000">',
@@ -7541,25 +7421,7 @@ wwv_flow_api.append_to_install_script(
 '               t_h := workbook.sheets_tab (s).comments_tab (c).pi_height;',
 '               clob_vc_concat(',
 '                  p_clob        => t_xxx,',
-'                  p_vc_buff'))
-);
-null;
-wwv_flow_api.component_end;
-end;
-/
-begin
-wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.0'
-,p_default_workspace_id=>9510583246779566
-,p_default_application_id=>111
-,p_default_id_offset=>205442218172938197
-,p_default_owner=>'SURVEY_TOOL'
-);
-wwv_flow_api.append_to_install_script(
- p_id=>wwv_flow_api.id(132024613257778877)
-,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'er   => t_tmp,',
+'                  p_vc_buffer   => t_tmp,',
 '                  p_vc_addition => ''<x:Anchor>''',
 '                                || TO_CHAR (workbook.sheets_tab (s).comments_tab (c).pi_column_nr)',
 '                                || '',15,''',
@@ -7627,7 +7489,12 @@ wwv_flow_api.append_to_install_script(
 '         p_vc_buffer   => t_tmp,',
 '         p_vc_addition => ''<?xml version="1.0" encoding="UTF-8" standalone="yes"?><sst xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" count="''',
 '                       || workbook.pi_str_cnt',
-'                       || ''" uniqueCount="''',
+'                       || ''" uniqueCount'))
+);
+wwv_flow_api.append_to_install_script(
+ p_id=>wwv_flow_api.id(132024613257778877)
+,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'="''',
 '                       || TO_CHAR (workbook.strings_tab.COUNT)',
 '                       || ''">'');',
 '',
@@ -8289,25 +8156,7 @@ unistr('      -- column headers werden vom Lieferantenabfragetool gesetzt, daher
 '                                                             , utl_raw.little_endian',
 '                                                           )',
 '                         , 1',
-'                         , '))
-);
-null;
-wwv_flow_api.component_end;
-end;
-/
-begin
-wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.0'
-,p_default_workspace_id=>9510583246779566
-,p_default_application_id=>111
-,p_default_id_offset=>205442218172938197
-,p_default_owner=>'SURVEY_TOOL'
-);
-wwv_flow_api.append_to_install_script(
- p_id=>wwv_flow_api.id(132024613257778877)
-,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'p_bytes',
+'                         , p_bytes',
 '                         );',
 '  END little_endian;',
 '',
@@ -8415,7 +8264,24 @@ wwv_flow_api.append_to_install_script(
 '',
 '    l_header_index := raw2num( p_zipped_blob, 4, l_index + 16 ) + 1;',
 '    l_file_list := t_file_list( );',
-'    l_file_list.EXTEND( raw2num( p_zipped_blob, 2, l_index + 10 ) );',
+'    l_file_list.EXTEND('))
+);
+wwv_flow_api.component_end;
+end;
+/
+begin
+wwv_flow_api.component_begin (
+ p_version_yyyy_mm_dd=>'2021.04.15'
+,p_release=>'21.1.0'
+,p_default_workspace_id=>9510583246779566
+,p_default_application_id=>111
+,p_default_id_offset=>205442218172938197
+,p_default_owner=>'SURVEY_TOOL'
+);
+wwv_flow_api.append_to_install_script(
+ p_id=>wwv_flow_api.id(132024613257778877)
+,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+' raw2num( p_zipped_blob, 2, l_index + 10 ) );',
 '',
 '    FOR i IN 1 .. raw2num( p_zipped_blob, 2, l_index + 8 )',
 '    LOOP',

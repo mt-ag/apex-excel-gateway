@@ -24,7 +24,7 @@ wwv_flow_api.create_page(
 ,p_required_patch=>wwv_flow_api.id(78666468415251960)
 ,p_help_text=>'All application help text can be accessed from this page. The links in the "Documentation" region give a much more in-depth explanation of the application''s features and functionality.'
 ,p_last_updated_by=>'THERWIX'
-,p_last_upd_yyyymmddhh24miss=>'20210819113107'
+,p_last_upd_yyyymmddhh24miss=>'20211105123144'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(78665827042251959)
@@ -38,6 +38,7 @@ wwv_flow_api.create_page_plug(
 '    <b>Excel Gateway for Oracle APEX</b><br />',
 '	<i style="color:gray;">Version 1.0</i></p>',
 '    <img src="#APP_IMAGES#Logo.png" alt="Excel Gateway for Oracle APEX" style="width:150px;height:150px;"></p>  ',
+'    <b>Manual: <a href="#APP_IMAGES#Excel for Oracle APEX - Manual.pdf" target="_blank">click here</a><p/>',
 '</center>'))
 ,p_plug_query_num_rows=>15
 ,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'

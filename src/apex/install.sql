@@ -9,6 +9,7 @@ prompt --install
 @@application/shared_components/files/main_js.sql
 @@application/shared_components/files/main_min_js.sql
 @@application/shared_components/files/main_js_map.sql
+@@application/shared_components/files/excel_for_oracle_apex_manual_pdf.sql
 @@application/shared_components/files/app_icon_svg.sql
 @@application/shared_components/files/app_icon_css.sql
 @@application/shared_components/files/prozess_png.sql
@@ -174,6 +175,7 @@ prompt --install
 @@application/deployment/install/install_logger.sql
 @@application/deployment/install/install_views.sql
 @@application/deployment/install/install_packages.sql
+@@application/deployment/install/install_demo_data.sql
 @@application/deployment/checks.sql
 @@application/deployment/buildoptions.sql
 @@application/end_environment.sql

@@ -17,7 +17,6 @@ wwv_flow_api.create_email_template(
 ,p_static_id=>'NEWTEMPLATE'
 ,p_subject=>'New Template'
 ,p_html_body=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'<img src="cid:Logo.png" alt="logo" width="140" height="150"/><br>',
 '<b>Dear #CONTACT_PERSON#,</b><br>',
 '<br>',
 'This is a template to collect data.<br> ',

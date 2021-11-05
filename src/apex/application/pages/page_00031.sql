@@ -23,7 +23,7 @@ wwv_flow_api.create_page(
 ,p_dialog_height=>'600'
 ,p_dialog_width=>'800'
 ,p_last_updated_by=>'THERWIX'
-,p_last_upd_yyyymmddhh24miss=>'20211019095624'
+,p_last_upd_yyyymmddhh24miss=>'20211105122757'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(86075938758595128)
@@ -57,7 +57,9 @@ wwv_flow_api.create_page_plug(
 ,p_plug_display_sequence=>10
 ,p_include_in_reg_disp_sel_yn=>'Y'
 ,p_plug_display_point=>'BODY'
-,p_plug_source=>'Select the person(s) who should receive the template'
+,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'Select the person(s) who should receive the template </p>',
+'(Note: Go to "Administration/Manage Data/Person" to add or edit recipients)'))
 ,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'HTML'
