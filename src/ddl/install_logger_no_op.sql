@@ -192,12 +192,14 @@ declare
   strval varchar2(500);
   partyp binary_integer;
 begin
-  partyp := dbms_utility.get_parameter_value('plsql_ccflags',intval, strval);
+  null;
+  
+  --partyp := dbms_utility.get_parameter_value('plsql_ccflags',intval, strval);
 
-  if strval is not null then
-    strval := ',' || strval;
-  end if;
-  :cur_plsql_ccflags := strval;
+  --if strval is not null then
+  --  strval := ',' || strval;
+  --end if;
+  --:cur_plsql_ccflags := strval;
 end;
 /
 
@@ -206,7 +208,7 @@ end;
 column cur_plsql_ccflags new_value cur_plsql_ccflags
 select :cur_plsql_ccflags cur_plsql_ccflags from dual;
 
-alter session set plsql_ccflags='currently_installing:true&cur_plsql_ccflags'
+--alter session set plsql_ccflags='currently_installing:true&cur_plsql_ccflags'
 /
 
 create or replace trigger biu_logger_prefs
@@ -278,37 +280,7 @@ alter trigger biu_logger_prefs disable;
 
 declare
 begin
-  $if $$logger_no_op_install $then
-    null;
-  $else
-    -- Configure Data
-    merge into logger_prefs p
-    using (
-      select 'PURGE_AFTER_DAYS' pref_name, '7' pref_value from dual union
-      select 'PURGE_MIN_LEVEL' pref_name, 'DEBUG' pref_value from dual union
-      select 'LOGGER_VERSION' pref_name, 'x.x.x' pref_value from dual union -- x.x.x will be replaced when running the build script
-      select 'LEVEL' pref_name, 'DEBUG' pref_value from dual union
-      select 'PROTECT_ADMIN_PROCS' pref_name, 'TRUE' pref_value from dual union
-      select 'INCLUDE_CALL_STACK' pref_name, 'TRUE' pref_value from dual union
-      select 'PREF_BY_CLIENT_ID_EXPIRE_HOURS' pref_name, '12' pref_value from dual union
-      select 'INSTALL_SCHEMA' pref_name, sys_context('USERENV','CURRENT_SCHEMA') pref_value from dual union
-      -- #46
-      select 'PLUGIN_FN_ERROR' pref_name, 'NONE' pref_value from dual union
-      -- #64
-      select 'LOGGER_DEBUG' pref_name, 'FALSE' pref_value from dual
-      ) d
-      on (p.pref_name = d.pref_name)
-    when matched then
-      update set p.pref_value =
-        case
-          -- Only LOGGER_VERSION should be updated during an update
-          when p.pref_name = 'LOGGER_VERSION' then d.pref_value
-          else p.pref_value
-        end
-    when not matched then
-      insert (p.pref_name,p.pref_value)
-      values (d.pref_name,d.pref_value);
-  $end
+    null;  
 end;
 /
 
@@ -587,7 +559,8 @@ set termout off
 -- setting termout off as this view will install with an error as it depends on logger.date_text_format
 create or replace force view logger_logs_terse as
  select id, logger_level, 
-        substr(logger.date_text_format(time_stamp),1,20) time_ago,
+        --substr(logger.date_text_format(time_stamp),1,20) time_ago,
+        time_stamp time_ago,
         substr(text,1,200) text
    from logger_logs
   where time_stamp > systimestamp - (5/1440)
