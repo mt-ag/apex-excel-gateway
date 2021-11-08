@@ -103,7 +103,9 @@ CREATE OR REPLACE FORCE VIEW "P01003_VW" ("HEA_ID", "HEA_TEXT", "HEA_XLSX_WIDTH"
     hea_modified_on,
     hea_modified_by
 FROM
-    r_header;
+    r_header
+WHERE 
+    hea_id not between 9996 and 9999;
 /
 
 CREATE OR REPLACE FORCE VIEW "P01004_VW" ("TIS_ID", "TIS_TPL_ID", "TIS_PER_ID", "TIS_STS_ID", "TIS_FIL_ID", "TIS_ANNOTATION", "TIS_DEADLINE", "TIS_SHIPPING_STATUS", "TIS_INTERNAL_NOTE", "TIS_CREATED_ON", "TIS_CREATED_BY", "TIS_MODIFIED_ON", "TIS_MODIFIED_BY") AS 
@@ -248,4 +250,18 @@ CREATE OR REPLACE FORCE VIEW "P01013_VW" ("THV_ID", "THV_TPH_ID", "THV_FORMULA1"
     thv_modified_by
 FROM
     template_header_validations;
+/
+
+CREATE OR REPLACE FORCE VIEW "P01014_VW" ("TPA_ID","TPA_TPL_ID","TPA_DAYS","TPA_ENABLED","TPA_CREATED_ON","TPA_CREATED_BY","TPA_MODIFIED_ON","TPA_MODIFIED_BY") AS 
+SELECT 
+    tpa_id,
+    tpa_tpl_id,
+    tpa_days,
+    tpa_enabled,
+    tpa_created_on,
+    tpa_created_by,
+    tpa_modified_on,
+    tpa_modified_by
+FROM 
+    template_automations;
 /

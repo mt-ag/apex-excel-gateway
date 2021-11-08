@@ -212,12 +212,14 @@ wwv_flow_api.create_install_script(
 '  strval varchar2(500);',
 '  partyp binary_integer;',
 'begin',
-'  partyp := dbms_utility.get_parameter_value(''plsql_ccflags'',intval, strval);',
+'  null;',
+'  ',
+'  --partyp := dbms_utility.get_parameter_value(''plsql_ccflags'',intval, strval);',
 '',
-'  if strval is not null then',
-'    strval := '','' || strval;',
-'  end if;',
-'  :cur_plsql_ccflags := strval;',
+'  --if strval is not null then',
+'  --  strval := '','' || strval;',
+'  --end if;',
+'  --:cur_plsql_ccflags := strval;',
 'end;',
 '/',
 '',
@@ -226,7 +228,7 @@ wwv_flow_api.create_install_script(
 'column cur_plsql_ccflags new_value cur_plsql_ccflags',
 'select :cur_plsql_ccflags cur_plsql_ccflags from dual;',
 '',
-'alter session set plsql_ccflags=''currently_installing:true&cur_plsql_ccflags''',
+'--alter session set plsql_ccflags=''currently_installing:true&cur_plsql_ccflags''',
 '/',
 '',
 'create or replace trigger biu_logger_prefs',
@@ -299,37 +301,7 @@ wwv_flow_api.create_install_script(
 '',
 'declare',
 'begin',
-'  $if $$logger_no_op_install $then',
-'    null;',
-'  $else',
-'    -- Configure Data',
-'    merge into logger_prefs p',
-'    using (',
-'      select ''PURGE_AFTER_DAYS'' pref_name, ''7'' pref_value from dual union',
-'      select ''PURGE_MIN_LEVEL'' pref_name, ''DEBUG'' pref_value from dual union',
-'      select ''LOGGER_VERSION'' pref_name, ''x.x.x'' pref_value from dual union -- x.x.x will be replaced when running the build script',
-'      select ''LEVEL'' pref_name, ''DEBUG'' pref_value from dual union',
-'      select ''PROTECT_ADMIN_PROCS'' pref_name, ''TRUE'' pref_value from dual union',
-'      select ''INCLUDE_CALL_STACK'' pref_name, ''TRUE'' pref_value from dual union',
-'      select ''PREF_BY_CLIENT_ID_EXPIRE_HOURS'' pref_name, ''12'' pref_value from dual union',
-'      select ''INSTALL_SCHEMA'' pref_name, sys_context(''USERENV'',''CURRENT_SCHEMA'') pref_value from dual union',
-'      -- #46',
-'      select ''PLUGIN_FN_ERROR'' pref_name, ''NONE'' pref_value from dual union',
-'      -- #64',
-'      select ''LOGGER_DEBUG'' pref_name, ''FALSE'' pref_value from dual',
-'      ) d',
-'      on (p.pref_name = d.pref_name)',
-'    when matched then',
-'      update set p.pref_value =',
-'        case',
-'          -- Only LOGGER_VERSION should be updated during an update',
-'          when p.pref_name = ''LOGGER_VERSION'' then d.pref_value',
-'          else p.pref_value',
-'        end',
-'    when not matched then',
-'      insert (p.pref_name,p.pref_value)',
-'      values (d.pref_name,d.pref_value);',
-'  $end',
+'    null;  ',
 'end;',
 '/',
 '',
@@ -609,7 +581,8 @@ wwv_flow_api.create_install_script(
 '-- setting termout off as this view will install with an error as it depends on logger.date_text_format',
 'create or replace force view logger_logs_terse as',
 ' select id, logger_level, ',
-'        substr(logger.date_text_format(time_stamp),1,20) time_ago,',
+'        --substr(logger.date_text_format(time_stamp),1,20) time_ago,',
+'        time_stamp time_ago,',
 '        substr(text,1,200) text',
 '   from logger_logs',
 '  where time_stamp > systimestamp - (5/1440)',
@@ -1014,7 +987,11 @@ wwv_flow_api.create_install_script(
 'prompt *** logger.pkb *** ',
 '',
 'create or replace',
-'package body logger                                                                                                                                                                     '))
+'package body logger                                                                                                                                                                                     ',
+'as                                                                                                                                                                                                      ',
+'-- Note: The license is defined in the package specification of the logger package                                                                                                                      ',
+'--                                                                                                                                                                                                      ',
+'-- Conditional Compilation variables:                                                                                    '))
 );
 wwv_flow_api.component_end;
 end;
@@ -1031,11 +1008,7 @@ wwv_flow_api.component_begin (
 wwv_flow_api.append_to_install_script(
  p_id=>wwv_flow_api.id(132024978474826265)
 ,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'                ',
-'as                                                                                                                                                                                                      ',
-'-- Note: The license is defined in the package specification of the logger package                                                                                                                      ',
-'--                                                                                                                                                                                                      ',
-'-- Conditional Compilation variables:                                                                                                                                                                   ',
+'                                                                               ',
 '-- $$NO_OP                                                                                                                                                                                              ',
 '--  When true, completely disables all logger DML.Also used to generate the logger_no_op.sql file                                                                                                       ',
 '--                                                                                                                                                                                                      ',
@@ -1181,15 +1154,15 @@ wwv_flow_api.append_to_install_script(
 '* @param p_client_id Optional client_id. If specified will only set the attribute/value for specific client_id (not global)                                                                             ',
 '*/                                                                                                                                                                                                      ',
 'procedure save_global_context(                                                                                                                                                                          ',
-'p_attribute in varchar2,          '))
+'p_attribute in varchar2,                                                                                                                                                                                ',
+'p_value in varchar2,                                                                                                                                                                                    ',
+'p_client_id in varchar2 default null)                                                                                                                                                                   ',
+'is                     '))
 );
 wwv_flow_api.append_to_install_script(
  p_id=>wwv_flow_api.id(132024978474826265)
 ,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'                                                                                                                                                                      ',
-'p_value in varchar2,                                                                                                                                                                                    ',
-'p_client_id in varchar2 default null)                                                                                                                                                                   ',
-'is                                                                                                                                                                                                      ',
+'                                                                                                                                                                                 ',
 'pragma autonomous_transaction;                                                                                                                                                                          ',
 'begin                                                                                                                                                                                                   ',
 'null;                                                                                                                                                                                                   ',
@@ -1335,7 +1308,9 @@ wwv_flow_api.append_to_install_script(
 '* Notes:                                                                                                                                                                                                ',
 '*  - Private                                                                                                                                                                                            ',
 '*                                                                                                                                                                                                       ',
-'* Related Tickets:                                                                   '))
+'* Related Tickets:                                                                                                                                                                                      ',
+'*  -                                                                                                                                                                                                    ',
+'*                                                                                                                              '))
 );
 wwv_flow_api.component_end;
 end;
@@ -1352,9 +1327,7 @@ wwv_flow_api.component_begin (
 wwv_flow_api.append_to_install_script(
  p_id=>wwv_flow_api.id(132024978474826265)
 ,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'                                                                                                                   ',
-'*  -                                                                                                                                                                                                    ',
-'*                                                                                                                                                                                                       ',
+'                                                                         ',
 '* @author Tyler Muth                                                                                                                                                                                    ',
 '* @created ???                                                                                                                                                                                          ',
 '* @param p_date_start                                                                                                                                                                                   ',
@@ -1501,14 +1474,14 @@ wwv_flow_api.append_to_install_script(
 'else                                                                                                                                                                                                    ',
 '-- Should never reach this point since plugin_ctx should have a value                                                                                                                                   ',
 'logger.log_error(''Error l_plugin_ctx does not have value'');                                                                                                                                             ',
-'end if; -- l_plugin_ctx is not null                                                                                                     '))
+'end if; -- l_plugin_ctx is not null                                                                                                                                                                     ',
+'start_stop_plugin(p_in_plugin => false);                                                                                                                                                                ',
+'exception                    '))
 );
 wwv_flow_api.append_to_install_script(
  p_id=>wwv_flow_api.id(132024978474826265)
 ,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'                                                                ',
-'start_stop_plugin(p_in_plugin => false);                                                                                                                                                                ',
-'exception                                                                                                                                                                                               ',
+'                                                                                                                                                                           ',
 'when others then                                                                                                                                                                                        ',
 'logger.append_param(l_params, ''Logger.id'', p_logger_log.id);                                                                                                                                            ',
 'logger.append_param(l_params, ''Logger.logger_level'', p_logger_log.logger_level);                                                                                                                        ',
@@ -1655,7 +1628,8 @@ wwv_flow_api.append_to_install_script(
 'l_return  varchar2(32767);                                                                                                                                                                              ',
 'begin                                                                                                                                                                                                   ',
 '-- replace tabs with ^                                                                                                                                                                                  ',
-'l_string := replace(p_string,chr(9),''^'');                                                                                                                                                  '))
+'l_string := replace(p_string,chr(9),''^'');                                                                                                                                                               ',
+'-- replace all other control characters such as carriage return / line feeds with ~                                                  '))
 );
 wwv_flow_api.component_end;
 end;
@@ -1672,8 +1646,7 @@ wwv_flow_api.component_begin (
 wwv_flow_api.append_to_install_script(
  p_id=>wwv_flow_api.id(132024978474826265)
 ,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'             ',
-'-- replace all other control characters such as carriage return / line feeds with ~                                                                                                                     ',
+'                                                                   ',
 'l_string := regexp_replace(l_string,''[[:cntrl:]]'',''~'',1,0,''m'');                                                                                                                                         ',
 'select dump(p_string) into l_dump from dual;                                                                                                                                                            ',
 'l_dump  := regexp_replace(l_dump,''(^.+?:)(.*)'',''\2'',1,0); -- get everything after the :                                                                                                                 ',
@@ -1822,12 +1795,12 @@ wwv_flow_api.append_to_install_script(
 'p_text in varchar2,                                                                                                                                                                                     ',
 'p_scope in varchar2 default null,                                                                                                                                                                       ',
 'p_extra in clob default null,                                                                                                                                                                           ',
-'p_params in tab_param default logger.'))
+'p_params in tab_param default logge'))
 );
 wwv_flow_api.append_to_install_script(
  p_id=>wwv_flow_api.id(132024978474826265)
 ,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'gc_empty_tab_param)                                                                                                                                                ',
+'r.gc_empty_tab_param)                                                                                                                                                ',
 'is                                                                                                                                                                                                      ',
 'begin                                                                                                                                                                                                   ',
 'logger.log_warning(                                                                                                                                                                                     ',
@@ -1975,8 +1948,7 @@ wwv_flow_api.append_to_install_script(
 '* Related Tickets:                                                                                                                                                                                      ',
 '*  -                                                                                                                                                                                                    ',
 '*                                                                                                                                                                                                       ',
-'* @author Tyler Muth                                                                                                                                                                                    ',
-'* @created ???                                                                          '))
+'* @author Tyler Muth                                                                                                                       '))
 );
 wwv_flow_api.component_end;
 end;
@@ -1993,7 +1965,8 @@ wwv_flow_api.component_begin (
 wwv_flow_api.append_to_install_script(
  p_id=>wwv_flow_api.id(132024978474826265)
 ,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'                                                                                                                ',
+'                                                             ',
+'* @created ???                                                                                                                                                                                          ',
 '* @param p_show_null                                                                                                                                                                                    ',
 '* @param p_scope                                                                                                                                                                                        ',
 '* @param p_level Highest level to run at (default logger.g_debug). Example. If you set to logger.g_error it will work when both in DEBUG and ERROR modes. However if set to logger.g_debug(default) will',
@@ -2141,13 +2114,13 @@ wwv_flow_api.append_to_install_script(
 'is                                                                                                                                                                                                      ',
 'l_time_string varchar2(50);                                                                                                                                                                             ',
 'begin                                                                                                                                                                                                   ',
-'null;                                                                                                                                                                                                   ',
-'end time_stop;                                                                                                                             '))
+'null;                                    '))
 );
 wwv_flow_api.append_to_install_script(
  p_id=>wwv_flow_api.id(132024978474826265)
 ,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'                                                             ',
+'                                                                                                                                                               ',
+'end time_stop;                                                                                                                                                                                          ',
 '/**                                                                                                                                                                                                     ',
 '*                                                                                                                                                                                                       ',
 '*                                                                                                                                                                                                       ',
@@ -2294,9 +2267,7 @@ wwv_flow_api.append_to_install_script(
 '* @author Martin D''Souza                                                                                                                                                                                ',
 '* @created 14-Jun-2014                                                                                                                                                                                  ',
 '* @param p_purge_after_days                                                                                                                                                                             ',
-'* @param p_purge_min_level                                                                                                                                                                              ',
-'*/                                                                                                                                                                                                      ',
-'procedure purge(                                                                                                                                                                              '))
+'* @param p_purge_min_level                                                                                                                       '))
 );
 wwv_flow_api.component_end;
 end;
@@ -2313,7 +2284,9 @@ wwv_flow_api.component_begin (
 wwv_flow_api.append_to_install_script(
  p_id=>wwv_flow_api.id(132024978474826265)
 ,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'          ',
+'                                                       ',
+'*/                                                                                                                                                                                                      ',
+'procedure purge(                                                                                                                                                                                        ',
 'p_purge_after_days in number default null,                                                                                                                                                              ',
 'p_purge_min_level in number)                                                                                                                                                                            ',
 'is                                                                                                                                                                                                      ',
@@ -2460,15 +2433,15 @@ wwv_flow_api.append_to_install_script(
 'end set_level;                                                                                                                                                                                          ',
 '/**                                                                                                                                                                                                     ',
 '* Unsets a logger level for a given client_id                                                                                                                                                           ',
-'* This will only unset for client specific logger levels                                                                                                                                                ',
-'* Note: An explicit commit will occur in this procedure                                                                                                                                                 ',
-'*                                                                                                                                                                                                       ',
-'* @author Martin D''Souza                '))
+'* This will only unset for client specific logg'))
 );
 wwv_flow_api.append_to_install_script(
  p_id=>wwv_flow_api.id(132024978474826265)
 ,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'                                                                                                                                                                ',
+'er levels                                                                                                                                                ',
+'* Note: An explicit commit will occur in this procedure                                                                                                                                                 ',
+'*                                                                                                                                                                                                       ',
+'* @author Martin D''Souza                                                                                                                                                                                ',
 '* @created 6-Apr-2013                                                                                                                                                                                   ',
 '*                                                                                                                                                                                                       ',
 '* @param p_client_id Client identifier (case sensitive) to unset logger level in.                                                                                                                       ',
@@ -2613,11 +2586,7 @@ wwv_flow_api.append_to_install_script(
 'begin                                                                                                                                                                                                   ',
 'null;                                                                                                                                                                                                   ',
 'end append_param;                                                                                                                                                                                       ',
-'procedure append_param(                                                                                                                                                                                 ',
-'p_params in out nocopy logger.tab_param,                                                                                                                                                                ',
-'p_name in varchar2,                                                                                                                                                                                     ',
-'p_val in number)                                                                                                                                                                                        ',
-'as                                                                                         '))
+'procedure append_param(                                                                                                                                '))
 );
 wwv_flow_api.component_end;
 end;
@@ -2634,7 +2603,11 @@ wwv_flow_api.component_begin (
 wwv_flow_api.append_to_install_script(
  p_id=>wwv_flow_api.id(132024978474826265)
 ,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'                                                                                                             ',
+'                                                 ',
+'p_params in out nocopy logger.tab_param,                                                                                                                                                                ',
+'p_name in varchar2,                                                                                                                                                                                     ',
+'p_val in number)                                                                                                                                                                                        ',
+'as                                                                                                                                                                                                      ',
 'l_param logger.rec_param;                                                                                                                                                                               ',
 'begin                                                                                                                                                                                                   ',
 'null;                                                                                                                                                                                                   ',
@@ -2779,16 +2752,16 @@ wwv_flow_api.append_to_install_script(
 'l_return := p_str;                                                                                                                                                                                      ',
 '-- Replace %s<n> with p_s<n>``                                                                                                                                                                          ',
 'for i in 1..10 loop                                                                                                                                                                                     ',
-'l_return := regexp_replace(l_return, c_substring_regexp || i,                                                                                                                                           ',
-'case                                                                                                                                                                                                    ',
-'when i = 1 then p_s1                                                                                                                                                                                    ',
-'when i = 2 then p_s2                                                                                                                                                                                    ',
-'when i = 3 then p_s3                                                                                                                          '))
+'l_return := regexp_replace(l_return, c_substring_rege'))
 );
 wwv_flow_api.append_to_install_script(
  p_id=>wwv_flow_api.id(132024978474826265)
 ,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'                                                          ',
+'xp || i,                                                                                                                                           ',
+'case                                                                                                                                                                                                    ',
+'when i = 1 then p_s1                                                                                                                                                                                    ',
+'when i = 2 then p_s2                                                                                                                                                                                    ',
+'when i = 3 then p_s3                                                                                                                                                                                    ',
 'when i = 4 then p_s4                                                                                                                                                                                    ',
 'when i = 5 then p_s5                                                                                                                                                                                    ',
 'when i = 6 then p_s6                                                                                                                                                                                    ',

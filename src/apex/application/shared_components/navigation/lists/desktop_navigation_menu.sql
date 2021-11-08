@@ -147,6 +147,15 @@ wwv_flow_api.create_list_item(
 ,p_list_item_current_type=>'TARGET_PAGE'
 );
 wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(125079202717758347)
+,p_list_item_display_sequence=>1095
+,p_list_item_link_text=>'Template-Automations'
+,p_list_item_link_target=>'f?p=&APP_ID.:1014:&SESSION.::&DEBUG.::::'
+,p_parent_list_item_id=>wwv_flow_api.id(78676098562646618)
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'1014'
+);
+wwv_flow_api.create_list_item(
  p_id=>wwv_flow_api.id(87033533742451140)
 ,p_list_item_display_sequence=>1100
 ,p_list_item_link_text=>'Template-Header'

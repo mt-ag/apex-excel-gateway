@@ -9,5 +9,7 @@ CREATE OR REPLACE FORCE VIEW "P01003_VW" ("HEA_ID", "HEA_TEXT", "HEA_XLSX_WIDTH"
     hea_modified_on,
     hea_modified_by
 FROM
-    r_header;
+    r_header
+WHERE 
+    hea_id not between 9996 and 9999;
 /

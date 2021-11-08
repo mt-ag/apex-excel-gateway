@@ -163,6 +163,7 @@ prompt --install
 @@application/pages/page_01011.sql
 @@application/pages/page_01012.sql
 @@application/pages/page_01013.sql
+@@application/pages/page_01014.sql
 @@application/pages/page_09999.sql
 @@application/pages/page_10000.sql
 @@application/pages/page_10010.sql
