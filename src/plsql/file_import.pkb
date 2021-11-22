@@ -274,13 +274,14 @@ as
     logger.append_param(l_params, 'pi_column_nr', pi_column_nr); 
     logger.log('START', l_scope, null, l_params); 
 
-    if pi_column_nr = -1 then
-        l_column_nr := 281;
-    elsif pi_column_nr = 0 then     
+    if pi_header = 'Validation' then
+        l_column_nr := 282;
+    elsif pi_header = 'Annotation' then     
         l_column_nr := 280;
     else 
         l_column_nr := pi_column_nr;
     end if;    
+
 
     select count(*) 
       into l_count 
@@ -356,6 +357,7 @@ as
     l_update_count          pls_integer := 1; 
     l_column_count          pls_integer := 1; 
     l_check_korrektur       varchar2(100);
+    l_column                pls_integer; 
 
     l_insert_tab t_survey_answers_tab; 
     l_update_tab t_survey_answers_tab; 
@@ -392,10 +394,23 @@ as
         ) 
       )
       where not (line_number > excel_gen.gc_header_row and
-  col001 || col002 || col003 || col004 || col005 || col006 || col007 || col008 || col009 || col010 || col011 || col012 || col013 || col014 || col015 || 
-  col016 || col017 || col018 || col019 || col020 || col021 || col022 || col023 || col024 || col025 || col026 || col027 || col028 || col029 || col030 || 
-  col031 || col032 || col033 || col034 || col035 || col036 || col037 || col038 || col039 || col040 || col041 || col042 || col043 || col044 || col045 is null); 
+    col001 || col002 || col003 || col004 || col005 || col006 || col007 || col008 || col009 || col010 || col011 || col012 || col013 || col014 || col015 || 
+    col016 || col017 || col018 || col019 || col020 || col021 || col022 || col023 || col024 || col025 || col026 || col027 || col028 || col029 || col030 || 
+    col031 || col032 || col033 || col034 || col035 || col036 || col037 || col038 || col039 || col040 || col041 || col042 || col043 || col044 || col045 is null); 
 
+    select tph_sort_order 
+      into l_column   
+      from template_header
+      join r_header 
+        on hea_id = tph_hea_id
+      join r_validation
+        on hea_val_id = val_id
+      left join template_header_validations
+             on thv_tph_id = tph_id  
+     where tph_tpl_id = pi_tpl_id 
+       and val_id = 4       
+    order by tph_sort_order;
+  
  for rec in ( 
    select * 
    from table ( 
@@ -408,18 +423,60 @@ as
   ) 
    )  
    where not (line_number > excel_gen.gc_header_row and
-  col001 || col002 || col003 || col004 || col005 || col006 || col007 || col008 || col009 || col010 || col011 || col012 || col013 || col014 || col015 || 
-  col016 || col017 || col018 || col019 || col020 || col021 || col022 || col023 || col024 || col025 || col026 || col027 || col028 || col029 || col030 || 
-  col031 || col032 || col033 || col034 || col035 || col036 || col037 || col038 || col039 || col040 || col041 || col042 || col043 || col044 || col045 is null)     
+  case when l_column = 1 then null else col001 end ||
+  case when l_column = 2 then null else col002 end ||
+  case when l_column = 3 then null else col003 end ||
+  case when l_column = 4 then null else col004 end ||
+  case when l_column = 5 then null else col005 end ||
+  case when l_column = 6 then null else col006 end ||
+  case when l_column = 7 then null else col007 end ||
+  case when l_column = 8 then null else col008 end ||
+  case when l_column = 9 then null else col009 end ||
+  case when l_column = 10 then null else col010 end ||
+  case when l_column = 11 then null else col011 end ||
+  case when l_column = 12 then null else col012 end ||
+  case when l_column = 13 then null else col013 end ||
+  case when l_column = 14 then null else col014 end ||
+  case when l_column = 15 then null else col015 end ||
+  case when l_column = 16 then null else col016 end ||
+  case when l_column = 17 then null else col017 end ||
+  case when l_column = 18 then null else col018 end ||
+  case when l_column = 19 then null else col019 end ||
+  case when l_column = 20 then null else col020 end ||
+  case when l_column = 21 then null else col021 end ||
+  case when l_column = 22 then null else col022 end ||
+  case when l_column = 23 then null else col023 end ||
+  case when l_column = 24 then null else col024 end ||
+  case when l_column = 25 then null else col025 end ||
+  case when l_column = 26 then null else col026 end ||
+  case when l_column = 27 then null else col027 end ||
+  case when l_column = 28 then null else col028 end ||
+  case when l_column = 29 then null else col029 end ||
+  case when l_column = 30 then null else col030 end ||
+  case when l_column = 31 then null else col031 end ||
+  case when l_column = 32 then null else col032 end ||
+  case when l_column = 33 then null else col033 end ||
+  case when l_column = 34 then null else col034 end ||
+  case when l_column = 35 then null else col035 end ||
+  case when l_column = 36 then null else col036 end ||
+  case when l_column = 37 then null else col037 end ||
+  case when l_column = 38 then null else col038 end ||
+  case when l_column = 39 then null else col039 end ||
+  case when l_column = 40 then null else col040 end ||
+  case when l_column = 41 then null else col041 end ||
+  case when l_column = 42 then null else col042 end ||
+  case when l_column = 43 then null else col043 end ||
+  case when l_column = 44 then null else col044 end ||
+  case when l_column = 45 then null else col045 end is null)     
  ) 
  loop 
       -- Falls es eine korrekturdatei ist muss der Column Counter um 1 verringert werden damit die Spalten richtig gematcht werden können
-      if l_check_korrektur = 'Validation' then
+      /*if l_check_korrektur = 'Validation' then
          l_column_count := -1;
       else
          l_column_count := 1;   
-      end if; 
-
+      end if; */
+      l_column_count := 1;   
    case  
   when rec.line_number = 1 then 
     l_current_row := get_varray(rec); 

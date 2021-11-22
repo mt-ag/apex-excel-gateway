@@ -1603,7 +1603,41 @@ as
     logger.append_param(l_params, 'pi_sheet_num', pi_sheet_num);
     logger.log('START', l_scope, null, l_params);
 
-    l_max_sort_order := 0;
+    l_max_sort_order := 0;    
+
+    for rec in (
+      select tph_sort_order
+           , hea_text
+           , tph_xlsx_font_color
+           , tph_xlsx_background_color
+           , hea_xlsx_width
+        from template_header
+        join r_header 
+          on hea_id = tph_hea_id
+       where tph_tpl_id = pi_tpl_id
+         and tph_hea_id not in (l_annotation_id, l_error_id, l_validation_id)         
+       order by tph_sort_order
+    )
+    loop
+      xlsx_builder_pkg.cell(
+        p_col => rec.tph_sort_order  
+      , p_row => gc_header_row
+      , p_value => rec.hea_text
+      , p_fontid => xlsx_builder_pkg.get_font(p_name => 'Arial', p_rgb => rec.tph_xlsx_font_color)
+      , p_fillid => xlsx_builder_pkg.get_fill('solid', rec.tph_xlsx_background_color)
+      , p_borderid => xlsx_builder_pkg.get_border(p_top => 'thin', p_bottom => 'thin', p_left => 'thin', p_right => 'thin')
+      , p_alignment => xlsx_builder_pkg.get_alignment( p_wraptext => true, p_vertical => 'top', p_horizontal => 'center')
+      , p_sheet => pi_sheet_num
+      );
+
+      xlsx_builder_pkg.set_column_width(     
+        p_col   => rec.tph_sort_order          
+      , p_width => rec.hea_xlsx_width
+      , p_sheet => pi_sheet_num
+      );
+
+      l_max_sort_order := l_max_sort_order + 1;
+    end loop;
 
     if pi_invalid then
       for rec in (
@@ -1620,7 +1654,7 @@ as
       )
       loop
         xlsx_builder_pkg.cell(
-          p_col       => 1  
+          p_col       => l_max_sort_order + 1  
         , p_row       => gc_header_row
         , p_value     => rec.hea_text
         , p_fontid    => xlsx_builder_pkg.get_font(p_name => 'Arial', p_rgb => rec.tph_xlsx_font_color)
@@ -1631,7 +1665,7 @@ as
         );
 
         xlsx_builder_pkg.set_column_width(
-          p_col   => 1 
+          p_col   => l_max_sort_order + 1 
         , p_width => rec.hea_xlsx_width
         , p_sheet => pi_sheet_num
         );
@@ -1651,7 +1685,7 @@ as
       )
       loop
         xlsx_builder_pkg.cell(
-          p_col       => 2  
+          p_col       => l_max_sort_order + 2  
         , p_row       => gc_header_row
         , p_value     => rec.hea_text
         , p_fontid    => xlsx_builder_pkg.get_font(p_name => 'Arial', p_rgb => rec.tph_xlsx_font_color)
@@ -1662,45 +1696,12 @@ as
         );
 
         xlsx_builder_pkg.set_column_width(
-          p_col   => 2 
+          p_col   => l_max_sort_order + 2 
         , p_width => rec.hea_xlsx_width
         , p_sheet => pi_sheet_num
         );     
       end loop;
-      l_max_sort_order := 2;  
     end if;
-
-    for rec in (
-      select tph_sort_order
-           , hea_text
-           , tph_xlsx_font_color
-           , tph_xlsx_background_color
-           , hea_xlsx_width
-        from template_header
-        join r_header 
-          on hea_id = tph_hea_id
-       where tph_tpl_id = pi_tpl_id
-         and tph_hea_id not in (l_annotation_id, l_error_id, l_validation_id)         
-       order by tph_sort_order
-    )
-    loop
-      xlsx_builder_pkg.cell(
-        p_col => l_max_sort_order + rec.tph_sort_order  
-      , p_row => gc_header_row
-      , p_value => rec.hea_text
-      , p_fontid => xlsx_builder_pkg.get_font(p_name => 'Arial', p_rgb => rec.tph_xlsx_font_color)
-      , p_fillid => xlsx_builder_pkg.get_fill('solid', rec.tph_xlsx_background_color)
-      , p_borderid => xlsx_builder_pkg.get_border(p_top => 'thin', p_bottom => 'thin', p_left => 'thin', p_right => 'thin')
-      , p_alignment => xlsx_builder_pkg.get_alignment( p_wraptext => true, p_vertical => 'top', p_horizontal => 'center')
-      , p_sheet => pi_sheet_num
-      );
-
-      xlsx_builder_pkg.set_column_width(     
-        p_col   => l_max_sort_order + rec.tph_sort_order          
-      , p_width => rec.hea_xlsx_width
-      , p_sheet => pi_sheet_num
-      );
-    end loop;
 
     logger.log('END', l_scope);
   exception
@@ -1750,12 +1751,7 @@ as
     )
     loop
       l_count := l_count + 1;
-
-      if pi_invalid then
-          l_tph_sort_order := rec.tph_sort_order + 2;
-      else
-          l_tph_sort_order := rec.tph_sort_order;
-      end if;
+      l_tph_sort_order := rec.tph_sort_order;
 
       -- set Rahmen
       xlsx_builder_pkg.cell (
@@ -1778,11 +1774,6 @@ as
          and tph_tpl_id = pi_tpl_id
          and thg_id = rec.thg_id
       ; 
-
-      if pi_invalid then
-          l_first_colnr_group := l_first_colnr_group +2;
-          l_max_sort_order := l_max_sort_order +2;
-      end if;
 
       -- if first group
       if l_tph_sort_order != l_max_sort_order then
@@ -1822,7 +1813,6 @@ as
 
       end if;
     end loop;
-
 
     logger.log('END', l_scope);
   exception
@@ -1900,7 +1890,7 @@ as
         loop
 
         xlsx_builder_pkg.cell (
-          p_col       => 1  
+          p_col       => l_max_sort_order + 1  
         , p_row       => l_rownum + gc_header_row
         , p_value     => i.tid_text
         , p_sheet     => pi_sheet_num
@@ -1922,7 +1912,7 @@ as
         loop
 
         xlsx_builder_pkg.cell (
-          p_col       => 2  
+          p_col       => l_max_sort_order + 2  
         , p_row       => l_rownum + gc_header_row
         , p_value     => i.tid_text
         , p_sheet     => pi_sheet_num
@@ -1935,7 +1925,7 @@ as
 
       -- generate each answer cell
       xlsx_builder_pkg.cell (
-        p_col       => 2+ rec.tph_sort_order  
+        p_col       => rec.tph_sort_order  
       , p_row       => l_rownum + gc_header_row
       , p_value     => rec.tid_text
       , p_sheet     => pi_sheet_num
@@ -2024,6 +2014,7 @@ as
 
  procedure generate_validations (
     pi_tpl_id    in r_templates.tpl_id%type
+  , pi_tis_id    in template_import_status.tis_id%type
   , pi_sheet_num in pls_integer
   , pi_invalid   in boolean
   , pi_number_of_rows in r_templates.tpl_number_of_rows%type 
@@ -2036,22 +2027,17 @@ as
     l_error_id          r_header.hea_id%type := master_api.get_faulty_id;
     l_validation_id     r_header.hea_id%type := master_api.get_validation_id;
 
-    l_max_sort_order pls_integer;
-    l_columnName varchar2(5 char);
-    l_formula_row number;
-    l_formula varchar2(2000 char);
+    l_columnName   varchar2(5 char);
+    l_formula_row  number;
+    l_formula      varchar2(2000 char);
+    l_invalid_rows pls_integer;
+    l_columnNumber pls_integer;
   begin
     logger.append_param(l_params, 'pi_tpl_id', pi_tpl_id);
     logger.append_param(l_params, 'pi_sheet_num', pi_sheet_num);
     logger.append_param(l_params, 'pi_number_of_rows', pi_number_of_rows);
     logger.log('START', l_scope, null, l_params);    
-    
-    if pi_invalid then
-        l_max_sort_order := 2;
-    else
-        l_max_sort_order := 0;
-    end if;    
-    
+      
     for rec in (
       select tph_sort_order
            , hea_text
@@ -2080,7 +2066,7 @@ as
       if rec.val_text = 'date' then
 
         -- get excel column name
-        l_columnName := getExcelColumnName(l_max_sort_order + rec.tph_sort_order);
+        l_columnName := getExcelColumnName(rec.tph_sort_order);
 
         -- add validation 
         for i in 1..pi_number_of_rows
@@ -2103,7 +2089,7 @@ as
       if rec.val_text = 'number' then
 
         -- get excel column name
-        l_columnName := getExcelColumnName(l_max_sort_order + rec.tph_sort_order);
+        l_columnName := getExcelColumnName(rec.tph_sort_order);
 
         -- add validation 
         for i in 1..pi_number_of_rows
@@ -2126,7 +2112,7 @@ as
       if rec.val_text = 'email' then
 
         -- get excel column name
-        l_columnName := getExcelColumnName(l_max_sort_order + rec.tph_sort_order);
+        l_columnName := getExcelColumnName(rec.tph_sort_order);
 
         -- add validation for first 100 rows (same as dropdowns)
         for i in 1..pi_number_of_rows
@@ -2148,22 +2134,61 @@ as
       if rec.val_text = 'formula' then
 
         -- get excel column name
-        l_columnName := getExcelColumnName(l_max_sort_order + rec.tph_sort_order);
+        l_columnName := getExcelColumnName(rec.tph_sort_order);
 
         -- add validation for first 100 rows (same as dropdowns)
-        for i in 1..pi_number_of_rows
-        loop
-            l_formula_row := to_char(gc_header_row + i);
-            l_formula := replace(rec.thv_formula1,'#',l_formula_row);
-            
-            xlsx_builder_pkg.cell (
-              p_col => rec.tph_sort_order  
-            , p_row => gc_header_row + i
-            , p_sheet => pi_sheet_num
-            , p_formula => l_formula
-            , p_value => 'n/a'
-            );
-        end loop;
+        if not pi_invalid then
+          for i in 1..pi_number_of_rows
+          loop
+              l_formula_row := to_char(gc_header_row + i);
+              
+              l_columnNumber := rec.tph_sort_order;
+              l_formula := replace(rec.thv_formula1,'#',l_formula_row);
+
+              xlsx_builder_pkg.cell (
+                p_col => l_columnNumber
+              , p_row => gc_header_row + i
+              , p_sheet => pi_sheet_num
+              , p_formula => l_formula
+              , p_value => 'n/a'
+              );
+          end loop;
+        else
+          select count(distinct tid_row_id)
+            into l_invalid_rows
+            from template_import_data
+            join template_header
+              on tid_tph_id = tph_id
+            join r_header
+              on tph_hea_id = hea_id
+           where tid_tis_id = pi_tis_id
+             and tph_hea_id not in (l_annotation_id, l_error_id, l_validation_id)
+             and tid_row_id in (
+                 select tid_row_id
+                   from template_import_data
+                   join template_header
+                     on tid_tph_id = tph_id
+                   where tid_tis_id = pi_tis_id
+                     and tph_hea_id = l_error_id
+                     and tid_text   = '1'
+            );         
+         
+          for i in 1..l_invalid_rows
+          loop
+              l_formula_row := to_char(gc_header_row + i);
+              
+              l_columnNumber := rec.tph_sort_order;
+              l_formula := replace(rec.thv_formula1,'#',l_formula_row);
+
+              xlsx_builder_pkg.cell (
+                p_col => l_columnNumber
+              , p_row => gc_header_row + i
+              , p_sheet => pi_sheet_num
+              , p_formula => l_formula
+              , p_value => 'n/a'
+              );
+          end loop;
+        end if;    
       end if; 
      
     end loop;
@@ -2185,7 +2210,6 @@ as
   as
     l_scope  logger_logs.scope%type := gc_scope_prefix || 'generate_dropdowns';
     l_params logger.tab_param;
-    l_cell   number default 0;
   begin
     logger.append_param(l_params, 'pi_tpl_id', pi_tpl_id);
     logger.append_param(l_params, 'pi_sheet_num_main', pi_sheet_num_main);
@@ -2193,15 +2217,11 @@ as
     logger.append_param(l_params, 'pi_number_of_rows', pi_number_of_rows);
     logger.log('START', l_scope, null, l_params);
 
-    if pi_invalid then 
-        l_cell := 2;
-    end if;    
-
     -- iterate dropdowns for the current template
     for dds_group in (
       select hea_id, tph_sort_order, rownum, count
         from (
-          select hea_id, tph_sort_order + l_cell
+          select hea_id, tph_sort_order
             as tph_sort_order, count(*) as count
             from r_dropdowns
             join r_header
@@ -2290,10 +2310,11 @@ as
     logger.log('START', l_scope, null, l_params);
 
     if pi_invalid then    
-    l_filename := pi_tpl_name || '_' || pi_per_firstname  || '_' || pi_per_lastname || '_correction';
+      l_filename := pi_tpl_name || '_' || pi_per_firstname  || '_' || pi_per_lastname || '_correction';
     else
-    l_filename := pi_tpl_name || '_' || pi_per_firstname  || '_' || pi_per_lastname;
+      l_filename := pi_tpl_name || '_' || pi_per_firstname  || '_' || pi_per_lastname;
     end if;
+    
     l_filename := replace(l_filename, ' ', '_') || '.xlsx';
 
     l_sheetname := pi_tpl_name;
@@ -2338,6 +2359,7 @@ as
     
     generate_validations (
       pi_tpl_id    => pi_tpl_id
+    , pi_tis_id    => pi_tis_id  
     , pi_sheet_num => l_sheet_num_main
     , pi_invalid   => pi_invalid
     , pi_number_of_rows => l_number_of_rows
@@ -2733,13 +2755,14 @@ as
     logger.append_param(l_params, 'pi_column_nr', pi_column_nr); 
     logger.log('START', l_scope, null, l_params); 
 
-    if pi_column_nr = -1 then
-        l_column_nr := 281;
-    elsif pi_column_nr = 0 then     
+    if pi_header = 'Validation' then
+        l_column_nr := 282;
+    elsif pi_header = 'Annotation' then     
         l_column_nr := 280;
     else 
         l_column_nr := pi_column_nr;
     end if;    
+
 
     select count(*) 
       into l_count 
@@ -2815,6 +2838,7 @@ as
     l_update_count          pls_integer := 1; 
     l_column_count          pls_integer := 1; 
     l_check_korrektur       varchar2(100);
+    l_column                pls_integer; 
 
     l_insert_tab t_survey_answers_tab; 
     l_update_tab t_survey_answers_tab; 
@@ -2851,10 +2875,23 @@ as
         ) 
       )
       where not (line_number > excel_gen.gc_header_row and
-  col001 || col002 || col003 || col004 || col005 || col006 || col007 || col008 || col009 || col010 || col011 || col012 || col013 || col014 || col015 || 
-  col016 || col017 || col018 || col019 || col020 || col021 || col022 || col023 || col024 || col025 || col026 || col027 || col028 || col029 || col030 || 
-  col031 || col032 || col033 || col034 || col035 || col036 || col037 || col038 || col039 || col040 || col041 || col042 || col043 || col044 || col045 is null); 
+    col001 || col002 || col003 || col004 || col005 || col006 || col007 || col008 || col009 || col010 || col011 || col012 || col013 || col014 || col015 || 
+    col016 || col017 || col018 || col019 || col020 || col021 || col022 || col023 || col024 || col025 || col026 || col027 || col028 || col029 || col030 || 
+    col031 || col032 || col033 || col034 || col035 || col036 || col037 || col038 || col039 || col040 || col041 || col042 || col043 || col044 || col045 is null); 
 
+    select tph_sort_order 
+      into l_column   
+      from template_header
+      join r_header 
+        on hea_id = tph_hea_id
+      join r_validation
+        on hea_val_id = val_id
+      left join template_header_validations
+             on thv_tph_id = tph_id  
+     where tph_tpl_id = pi_tpl_id 
+       and val_id = 4       
+    order by tph_sort_order;
+  
  for rec in ( 
    select * 
    from table ( 
@@ -2867,18 +2904,60 @@ as
   ) 
    )  
    where not (line_number > excel_gen.gc_header_row and
-  col001 || col002 || col003 || col004 || col005 || col006 || col007 || col008 || col009 || col010 || col011 || col012 || col013 || col014 || col015 || 
-  col016 || col017 || col018 || col019 || col020 || col021 || col022 || col023 || col024 || col025 || col026 || col027 || col028 || col029 || col030 || 
-  col031 || col032 || col033 || col034 || col035 || col036 || col037 || col038 || col039 || col040 || col041 || col042 || col043 || col044 || col045 is null)     
+  case when l_column = 1 then null else col001 end ||
+  case when l_column = 2 then null else col002 end ||
+  case when l_column = 3 then null else col003 end ||
+  case when l_column = 4 then null else col004 end ||
+  case when l_column = 5 then null else col005 end ||
+  case when l_column = 6 then null else col006 end ||
+  case when l_column = 7 then null else col007 end ||
+  case when l_column = 8 then null else col008 end ||
+  case when l_column = 9 then null else col009 end ||
+  case when l_column = 10 then null else col010 end ||
+  case when l_column = 11 then null else col011 end ||
+  case when l_column = 12 then null else col012 end ||
+  case when l_column = 13 then null else col013 end ||
+  case when l_column = 14 then null else col014 end ||
+  case when l_column = 15 then null else col015 end ||
+  case when l_column = 16 then null else col016 end ||
+  case when l_column = 17 then null else col017 end ||
+  case when l_column = 18 then null else col018 end ||
+  case when l_column = 19 then null else col019 end ||
+  case when l_column = 20 then null else col020 end ||
+  case when l_column = 21 then null else col021 end ||
+  case when l_column = 22 then null else col022 end ||
+  case when l_column = 23 then null else col023 end ||
+  case when l_column = 24 then null else col024 end ||
+  case when l_column = 25 then null else col025 end ||
+  case when l_column = 26 then null else col026 end ||
+  case when l_column = 27 then null else col027 end ||
+  case when l_column = 28 then null else col028 end ||
+  case when l_column = 29 then null else col029 end ||
+  case when l_column = 30 then null else col030 end ||
+  case when l_column = 31 then null else col031 end ||
+  case when l_column = 32 then null else col032 end ||
+  case when l_column = 33 then null else col033 end ||
+  case when l_column = 34 then null else col034 end ||
+  case when l_column = 35 then null else col035 end ||
+  case when l_column = 36 then null else col036 end ||
+  case when l_column = 37 then null else col037 end ||
+  case when l_column = 38 then null else col038 end ||
+  case when l_column = 39 then null else col039 end ||
+  case when l_column = 40 then null else col040 end ||
+  case when l_column = 41 then null else col041 end ||
+  case when l_column = 42 then null else col042 end ||
+  case when l_column = 43 then null else col043 end ||
+  case when l_column = 44 then null else col044 end ||
+  case when l_column = 45 then null else col045 end is null)     
  ) 
  loop 
       -- Falls es eine korrekturdatei ist muss der Column Counter um 1 verringert werden damit die Spalten richtig gematcht werden können
-      if l_check_korrektur = 'Validation' then
+      /*if l_check_korrektur = 'Validation' then
          l_column_count := -1;
       else
          l_column_count := 1;   
-      end if; 
-
+      end if; */
+      l_column_count := 1;   
    case  
   when rec.line_number = 1 then 
     l_current_row := get_varray(rec); 
