@@ -357,7 +357,7 @@ as
     l_update_count          pls_integer := 1; 
     l_column_count          pls_integer := 1; 
     l_check_korrektur       varchar2(100);
-    l_column                pls_integer; 
+    l_column                varchar2(100); 
 
     l_insert_tab t_survey_answers_tab; 
     l_update_tab t_survey_answers_tab; 
@@ -398,7 +398,7 @@ as
     col016 || col017 || col018 || col019 || col020 || col021 || col022 || col023 || col024 || col025 || col026 || col027 || col028 || col029 || col030 || 
     col031 || col032 || col033 || col034 || col035 || col036 || col037 || col038 || col039 || col040 || col041 || col042 || col043 || col044 || col045 is null); 
 
-    select tph_sort_order 
+    select listagg(tph_sort_order, ':') within group (order by tph_sort_order)  
       into l_column   
       from template_header
       join r_header 
@@ -423,59 +423,53 @@ as
   ) 
    )  
    where not (line_number > excel_gen.gc_header_row and
-  case when l_column = 1 then null else col001 end ||
-  case when l_column = 2 then null else col002 end ||
-  case when l_column = 3 then null else col003 end ||
-  case when l_column = 4 then null else col004 end ||
-  case when l_column = 5 then null else col005 end ||
-  case when l_column = 6 then null else col006 end ||
-  case when l_column = 7 then null else col007 end ||
-  case when l_column = 8 then null else col008 end ||
-  case when l_column = 9 then null else col009 end ||
-  case when l_column = 10 then null else col010 end ||
-  case when l_column = 11 then null else col011 end ||
-  case when l_column = 12 then null else col012 end ||
-  case when l_column = 13 then null else col013 end ||
-  case when l_column = 14 then null else col014 end ||
-  case when l_column = 15 then null else col015 end ||
-  case when l_column = 16 then null else col016 end ||
-  case when l_column = 17 then null else col017 end ||
-  case when l_column = 18 then null else col018 end ||
-  case when l_column = 19 then null else col019 end ||
-  case when l_column = 20 then null else col020 end ||
-  case when l_column = 21 then null else col021 end ||
-  case when l_column = 22 then null else col022 end ||
-  case when l_column = 23 then null else col023 end ||
-  case when l_column = 24 then null else col024 end ||
-  case when l_column = 25 then null else col025 end ||
-  case when l_column = 26 then null else col026 end ||
-  case when l_column = 27 then null else col027 end ||
-  case when l_column = 28 then null else col028 end ||
-  case when l_column = 29 then null else col029 end ||
-  case when l_column = 30 then null else col030 end ||
-  case when l_column = 31 then null else col031 end ||
-  case when l_column = 32 then null else col032 end ||
-  case when l_column = 33 then null else col033 end ||
-  case when l_column = 34 then null else col034 end ||
-  case when l_column = 35 then null else col035 end ||
-  case when l_column = 36 then null else col036 end ||
-  case when l_column = 37 then null else col037 end ||
-  case when l_column = 38 then null else col038 end ||
-  case when l_column = 39 then null else col039 end ||
-  case when l_column = 40 then null else col040 end ||
-  case when l_column = 41 then null else col041 end ||
-  case when l_column = 42 then null else col042 end ||
-  case when l_column = 43 then null else col043 end ||
-  case when l_column = 44 then null else col044 end ||
-  case when l_column = 45 then null else col045 end is null)     
+  case when 1  in (select column_value from apex_string.split(l_column,':')) then null else col001 end ||
+  case when 2  in (select column_value from apex_string.split(l_column,':')) then null else col002 end ||
+  case when 3  in (select column_value from apex_string.split(l_column,':')) then null else col003 end ||
+  case when 4  in (select column_value from apex_string.split(l_column,':')) then null else col004 end ||
+  case when 5  in (select column_value from apex_string.split(l_column,':')) then null else col005 end ||
+  case when 6  in (select column_value from apex_string.split(l_column,':')) then null else col006 end ||
+  case when 7  in (select column_value from apex_string.split(l_column,':')) then null else col007 end ||
+  case when 8  in (select column_value from apex_string.split(l_column,':')) then null else col008 end ||
+  case when 9  in (select column_value from apex_string.split(l_column,':')) then null else col009 end ||
+  case when 10 in (select column_value from apex_string.split(l_column,':')) then null else col010 end ||
+  case when 11 in (select column_value from apex_string.split(l_column,':')) then null else col011 end ||
+  case when 12 in (select column_value from apex_string.split(l_column,':')) then null else col012 end ||
+  case when 13 in (select column_value from apex_string.split(l_column,':')) then null else col013 end ||
+  case when 14 in (select column_value from apex_string.split(l_column,':')) then null else col014 end ||
+  case when 15 in (select column_value from apex_string.split(l_column,':')) then null else col015 end ||
+  case when 16 in (select column_value from apex_string.split(l_column,':')) then null else col016 end ||
+  case when 17 in (select column_value from apex_string.split(l_column,':')) then null else col017 end ||
+  case when 18 in (select column_value from apex_string.split(l_column,':')) then null else col018 end ||
+  case when 19 in (select column_value from apex_string.split(l_column,':')) then null else col019 end ||
+  case when 20 in (select column_value from apex_string.split(l_column,':')) then null else col020 end ||
+  case when 21 in (select column_value from apex_string.split(l_column,':')) then null else col021 end ||
+  case when 22 in (select column_value from apex_string.split(l_column,':')) then null else col022 end ||
+  case when 23 in (select column_value from apex_string.split(l_column,':')) then null else col023 end ||
+  case when 24 in (select column_value from apex_string.split(l_column,':')) then null else col024 end ||
+  case when 25 in (select column_value from apex_string.split(l_column,':')) then null else col025 end ||
+  case when 26 in (select column_value from apex_string.split(l_column,':')) then null else col026 end ||
+  case when 27 in (select column_value from apex_string.split(l_column,':')) then null else col027 end ||
+  case when 28 in (select column_value from apex_string.split(l_column,':')) then null else col028 end ||
+  case when 29 in (select column_value from apex_string.split(l_column,':')) then null else col029 end ||
+  case when 30 in (select column_value from apex_string.split(l_column,':')) then null else col030 end ||
+  case when 31 in (select column_value from apex_string.split(l_column,':')) then null else col031 end ||
+  case when 32 in (select column_value from apex_string.split(l_column,':')) then null else col032 end ||
+  case when 33 in (select column_value from apex_string.split(l_column,':')) then null else col033 end ||
+  case when 34 in (select column_value from apex_string.split(l_column,':')) then null else col034 end ||
+  case when 35 in (select column_value from apex_string.split(l_column,':')) then null else col035 end ||
+  case when 36 in (select column_value from apex_string.split(l_column,':')) then null else col036 end ||
+  case when 37 in (select column_value from apex_string.split(l_column,':')) then null else col037 end ||
+  case when 38 in (select column_value from apex_string.split(l_column,':')) then null else col038 end ||
+  case when 39 in (select column_value from apex_string.split(l_column,':')) then null else col039 end ||
+  case when 40 in (select column_value from apex_string.split(l_column,':')) then null else col040 end ||
+  case when 41 in (select column_value from apex_string.split(l_column,':')) then null else col041 end ||
+  case when 42 in (select column_value from apex_string.split(l_column,':')) then null else col042 end ||
+  case when 43 in (select column_value from apex_string.split(l_column,':')) then null else col043 end ||
+  case when 44 in (select column_value from apex_string.split(l_column,':')) then null else col044 end ||
+  case when 45 in (select column_value from apex_string.split(l_column,':')) then null else col045 end is null)     
  ) 
  loop 
-      -- Falls es eine korrekturdatei ist muss der Column Counter um 1 verringert werden damit die Spalten richtig gematcht werden können
-      /*if l_check_korrektur = 'Validation' then
-         l_column_count := -1;
-      else
-         l_column_count := 1;   
-      end if; */
       l_column_count := 1;   
    case  
   when rec.line_number = 1 then 
