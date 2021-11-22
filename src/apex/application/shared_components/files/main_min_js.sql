@@ -8,7 +8,7 @@ wwv_flow_api.component_begin (
 ,p_release=>'21.1.0'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>205442218172938197
+,p_default_id_offset=>288269999118260128
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.g_varchar2_table := wwv_flow_api.empty_varchar2_table;
@@ -23,7 +23,7 @@ wwv_flow_api.g_varchar2_table(8) := '6869732E7374796C652E6261636B67726F756E64436
 wwv_flow_api.g_varchar2_table(9) := '2E636F6C6F723D227768697465227D29297D66756E6374696F6E20726567656E65726174655F627574746F6E28297B313D3D247628225035315F4641554C545922293F24282223726567656E657261746522292E61747472282264697361626C6564222C';
 wwv_flow_api.g_varchar2_table(10) := '2131293A24282223726567656E657261746522292E61747472282264697361626C6564222C2130297D0A2F2F2320736F757263654D617070696E6755524C3D6D61696E2E6A732E6D6170';
 wwv_flow_api.create_app_static_file(
- p_id=>wwv_flow_api.id(167477120803047737)
+ p_id=>wwv_flow_api.id(37965097369890460)
 ,p_file_name=>'main.min.js'
 ,p_mime_type=>'application/javascript'
 ,p_file_charset=>'utf-8'

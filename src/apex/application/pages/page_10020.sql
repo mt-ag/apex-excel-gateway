@@ -8,12 +8,12 @@ wwv_flow_api.component_begin (
 ,p_release=>'21.1.0'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>205442218172938197
+,p_default_id_offset=>288269999118260128
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_page(
  p_id=>10020
-,p_user_interface_id=>wwv_flow_api.id(87144684090596262)
+,p_user_interface_id=>wwv_flow_api.id(118297534082341935)
 ,p_name=>'About this Application'
 ,p_alias=>'HELP'
 ,p_page_mode=>'MODAL'
@@ -21,16 +21,16 @@ wwv_flow_api.create_page(
 ,p_first_item=>'AUTO_FIRST_ITEM'
 ,p_autocomplete_on_off=>'OFF'
 ,p_page_template_options=>'#DEFAULT#'
-,p_required_patch=>wwv_flow_api.id(78666468415251960)
+,p_required_patch=>wwv_flow_api.id(126775749757686237)
 ,p_help_text=>'All application help text can be accessed from this page. The links in the "Documentation" region give a much more in-depth explanation of the application''s features and functionality.'
 ,p_last_updated_by=>'THERWIX'
 ,p_last_upd_yyyymmddhh24miss=>'20211105123144'
 );
 wwv_flow_api.create_page_plug(
- p_id=>wwv_flow_api.id(78665827042251959)
+ p_id=>wwv_flow_api.id(126776391130686238)
 ,p_plug_name=>'About Page'
 ,p_region_template_options=>'#DEFAULT#:t-Region--removeHeader js-removeLandmark:t-Region--scrollBody'
-,p_plug_template=>wwv_flow_api.id(87229303239596359)
+,p_plug_template=>wwv_flow_api.id(118212914933341838)
 ,p_plug_display_sequence=>20
 ,p_plug_display_point=>'BODY'
 ,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(

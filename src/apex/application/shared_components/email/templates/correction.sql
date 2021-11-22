@@ -8,11 +8,11 @@ wwv_flow_api.component_begin (
 ,p_release=>'21.1.0'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>205442218172938197
+,p_default_id_offset=>288269999118260128
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_email_template(
- p_id=>wwv_flow_api.id(86933202105257240)
+ p_id=>wwv_flow_api.id(118509016067680957)
 ,p_name=>'CORRECTION'
 ,p_static_id=>'CORRECTION'
 ,p_subject=>'Correction Template'

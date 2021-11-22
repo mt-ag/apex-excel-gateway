@@ -8,11 +8,11 @@ wwv_flow_api.component_begin (
 ,p_release=>'21.1.0'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>205442218172938197
+,p_default_id_offset=>288269999118260128
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_list_of_values(
- p_id=>wwv_flow_api.id(72235234226593615)
+ p_id=>wwv_flow_api.id(133206983946344582)
 ,p_lov_name=>'TEMPLATE_HEADER_VALIDATIONS'
 ,p_lov_query=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'select tpl_name || '' - '' || hea_text as display,',

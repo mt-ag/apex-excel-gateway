@@ -8,12 +8,12 @@ wwv_flow_api.component_begin (
 ,p_release=>'21.1.0'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>205442218172938197
+,p_default_id_offset=>288269999118260128
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_page(
  p_id=>1
-,p_user_interface_id=>wwv_flow_api.id(87144684090596262)
+,p_user_interface_id=>wwv_flow_api.id(118297534082341935)
 ,p_name=>'Home'
 ,p_alias=>'HOME'
 ,p_step_title=>'Excel Gateway for Oracle APEX'
@@ -23,10 +23,10 @@ wwv_flow_api.create_page(
 ,p_last_upd_yyyymmddhh24miss=>'20210819142246'
 );
 wwv_flow_api.create_page_plug(
- p_id=>wwv_flow_api.id(87131029095592923)
+ p_id=>wwv_flow_api.id(118311189077345274)
 ,p_plug_name=>'Home'
 ,p_region_template_options=>'#DEFAULT#'
-,p_plug_template=>wwv_flow_api.id(87256721244596377)
+,p_plug_template=>wwv_flow_api.id(118185496928341820)
 ,p_plug_display_sequence=>10
 ,p_include_in_reg_disp_sel_yn=>'Y'
 ,p_plug_display_point=>'BODY'

@@ -8,12 +8,12 @@ wwv_flow_api.component_begin (
 ,p_release=>'21.1.0'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>205442218172938197
+,p_default_id_offset=>288269999118260128
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_install_script(
- p_id=>wwv_flow_api.id(132024613257778877)
-,p_install_id=>wwv_flow_api.id(132587475904314597)
+ p_id=>wwv_flow_api.id(73417604915159320)
+,p_install_id=>wwv_flow_api.id(72854742268623600)
 ,p_name=>'Packages'
 ,p_sequence=>40
 ,p_script_type=>'INSTALL'
@@ -783,11 +783,11 @@ wwv_flow_api.component_begin (
 ,p_release=>'21.1.0'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>205442218172938197
+,p_default_id_offset=>288269999118260128
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.append_to_install_script(
- p_id=>wwv_flow_api.id(132024613257778877)
+ p_id=>wwv_flow_api.id(73417604915159320)
 ,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '  p_alignment    t_alignment_rec := NULL,',
 '                         p_sheet        PLS_INTEGER := NULL);',
@@ -1583,11 +1583,11 @@ wwv_flow_api.component_begin (
 ,p_release=>'21.1.0'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>205442218172938197
+,p_default_id_offset=>288269999118260128
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.append_to_install_script(
- p_id=>wwv_flow_api.id(132024613257778877)
+ p_id=>wwv_flow_api.id(73417604915159320)
 ,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'er($$plsql_unit) || ''.'';',
 '  ',
@@ -1658,7 +1658,41 @@ wwv_flow_api.append_to_install_script(
 '    logger.append_param(l_params, ''pi_sheet_num'', pi_sheet_num);',
 '    logger.log(''START'', l_scope, null, l_params);',
 '',
-'    l_max_sort_order := 0;',
+'    l_max_sort_order := 0;    ',
+'',
+'    for rec in (',
+'      select tph_sort_order',
+'           , hea_text',
+'           , tph_xlsx_font_color',
+'           , tph_xlsx_background_color',
+'           , hea_xlsx_width',
+'        from template_header',
+'        join r_header ',
+'          on hea_id = tph_hea_id',
+'       where tph_tpl_id = pi_tpl_id',
+'         and tph_hea_id not in (l_annotation_id, l_error_id, l_validation_id)         ',
+'       order by tph_sort_order',
+'    )',
+'    loop',
+'      xlsx_builder_pkg.cell(',
+'        p_col => rec.tph_sort_order  ',
+'      , p_row => gc_header_row',
+'      , p_value => rec.hea_text',
+'      , p_fontid => xlsx_builder_pkg.get_font(p_name => ''Arial'', p_rgb => rec.tph_xlsx_font_color)',
+'      , p_fillid => xlsx_builder_pkg.get_fill(''solid'', rec.tph_xlsx_background_color)',
+'      , p_borderid => xlsx_builder_pkg.get_border(p_top => ''thin'', p_bottom => ''thin'', p_left => ''thin'', p_right => ''thin'')',
+'      , p_alignment => xlsx_builder_pkg.get_alignment( p_wraptext => true, p_vertical => ''top'', p_horizontal => ''center'')',
+'      , p_sheet => pi_sheet_num',
+'      );',
+'',
+'      xlsx_builder_pkg.set_column_width(     ',
+'        p_col   => rec.tph_sort_order          ',
+'      , p_width => rec.hea_xlsx_width',
+'      , p_sheet => pi_sheet_num',
+'      );',
+'',
+'      l_max_sort_order := l_max_sort_order + 1;',
+'    end loop;',
 '',
 '    if pi_invalid then',
 '      for rec in (',
@@ -1675,7 +1709,7 @@ wwv_flow_api.append_to_install_script(
 '      )',
 '      loop',
 '        xlsx_builder_pkg.cell(',
-'          p_col       => 1  ',
+'          p_col       => l_max_sort_order + 1  ',
 '        , p_row       => gc_header_row',
 '        , p_value     => rec.hea_text',
 '        , p_fontid    => xlsx_builder_pkg.get_font(p_name => ''Arial'', p_rgb => rec.tph_xlsx_font_color)',
@@ -1686,7 +1720,7 @@ wwv_flow_api.append_to_install_script(
 '        );',
 '',
 '        xlsx_builder_pkg.set_column_width(',
-'          p_col   => 1 ',
+'          p_col   => l_max_sort_order + 1 ',
 '        , p_width => rec.hea_xlsx_width',
 '        , p_sheet => pi_sheet_num',
 '        );',
@@ -1706,7 +1740,7 @@ wwv_flow_api.append_to_install_script(
 '      )',
 '      loop',
 '        xlsx_builder_pkg.cell(',
-'          p_col       => 2  ',
+'          p_col       => l_max_sort_order + 2  ',
 '        , p_row       => gc_header_row',
 '        , p_value     => rec.hea_text',
 '        , p_fontid    => xlsx_builder_pkg.get_font(p_name => ''Arial'', p_rgb => rec.tph_xlsx_font_color)',
@@ -1717,45 +1751,12 @@ wwv_flow_api.append_to_install_script(
 '        );',
 '',
 '        xlsx_builder_pkg.set_column_width(',
-'          p_col   => 2 ',
+'          p_col   => l_max_sort_order + 2 ',
 '        , p_width => rec.hea_xlsx_width',
 '        , p_sheet => pi_sheet_num',
 '        );     ',
 '      end loop;',
-'      l_max_sort_order := 2;  ',
 '    end if;',
-'',
-'    for rec in (',
-'      select tph_sort_order',
-'           , hea_text',
-'           , tph_xlsx_font_color',
-'           , tph_xlsx_background_color',
-'           , hea_xlsx_width',
-'        from template_header',
-'        join r_header ',
-'          on hea_id = tph_hea_id',
-'       where tph_tpl_id = pi_tpl_id',
-'         and tph_hea_id not in (l_annotation_id, l_error_id, l_validation_id)         ',
-'       order by tph_sort_order',
-'    )',
-'    loop',
-'      xlsx_builder_pkg.cell(',
-'        p_col => l_max_sort_order + rec.tph_sort_order  ',
-'      , p_row => gc_header_row',
-'      , p_value => rec.hea_text',
-'      , p_fontid => xlsx_builder_pkg.get_font(p_name => ''Arial'', p_rgb => rec.tph_xlsx_font_color)',
-'      , p_fillid => xlsx_builder_pkg.get_fill(''solid'', rec.tph_xlsx_background_color)',
-'      , p_borderid => xlsx_builder_pkg.get_border(p_top => ''thin'', p_bottom => ''thin'', p_left => ''thin'', p_right => ''thin'')',
-'      , p_alignment => xlsx_builder_pkg.get_alignment( p_wraptext => true, p_vertical => ''top'', p_horizontal => ''center'')',
-'      , p_sheet => pi_sheet_num',
-'      );',
-'',
-'      xlsx_builder_pkg.set_column_width(     ',
-'        p_col   => l_max_sort_order + rec.tph_sort_order          ',
-'      , p_width => rec.hea_xlsx_width',
-'      , p_sheet => pi_sheet_num',
-'      );',
-'    end loop;',
 '',
 '    logger.log(''END'', l_scope);',
 '  exception',
@@ -1805,12 +1806,7 @@ wwv_flow_api.append_to_install_script(
 '    )',
 '    loop',
 '      l_count := l_count + 1;',
-'',
-'      if pi_invalid then',
-'          l_tph_sort_order := rec.tph_sort_order + 2;',
-'      else',
-'          l_tph_sort_order := rec.tph_sort_order;',
-'      end if;',
+'      l_tph_sort_order := rec.tph_sort_order;',
 '',
 '      -- set Rahmen',
 '      xlsx_builder_pkg.cell (',
@@ -1833,11 +1829,6 @@ wwv_flow_api.append_to_install_script(
 '         and tph_tpl_id = pi_tpl_id',
 '         and thg_id = rec.thg_id',
 '      ; ',
-'',
-'      if pi_invalid then',
-'          l_first_colnr_group := l_first_colnr_group +2;',
-'          l_max_sort_order := l_max_sort_order +2;',
-'      end if;',
 '',
 '      -- if first group',
 '      if l_tph_sort_order != l_max_sort_order then',
@@ -1877,7 +1868,6 @@ wwv_flow_api.append_to_install_script(
 '',
 '      end if;',
 '    end loop;',
-'',
 '',
 '    logger.log(''END'', l_scope);',
 '  exception',
@@ -1955,7 +1945,7 @@ wwv_flow_api.append_to_install_script(
 '        loop',
 '',
 '        xlsx_builder_pkg.cell (',
-'          p_col       => 1  ',
+'          p_col       => l_max_sort_order + 1  ',
 '        , p_row       => l_rownum + gc_header_row',
 '        , p_value     => i.tid_text',
 '        , p_sheet     => pi_sheet_num',
@@ -1977,7 +1967,7 @@ wwv_flow_api.append_to_install_script(
 '        loop',
 '',
 '        xlsx_builder_pkg.cell (',
-'          p_col       => 2  ',
+'          p_col       => l_max_sort_order + 2  ',
 '        , p_row       => l_rownum + gc_header_row',
 '        , p_value     => i.tid_text',
 '        , p_sheet     => pi_sheet_num',
@@ -1990,7 +1980,7 @@ wwv_flow_api.append_to_install_script(
 '',
 '      -- generate each answer cell',
 '      xlsx_builder_pkg.cell (',
-'        p_col       => 2+ rec.tph_sort_order  ',
+'        p_col       => rec.tph_sort_order  ',
 '      , p_row       => l_rownum + gc_header_row',
 '      , p_value     => rec.tid_text',
 '      , p_sheet     => pi_sheet_num',
@@ -2079,6 +2069,7 @@ wwv_flow_api.append_to_install_script(
 '',
 ' procedure generate_validations (',
 '    pi_tpl_id    in r_templates.tpl_id%type',
+'  , pi_tis_id    in template_import_status.tis_id%type',
 '  , pi_sheet_num in pls_integer',
 '  , pi_invalid   in boolean',
 '  , pi_number_of_rows in r_templates.tpl_number_of_rows%type ',
@@ -2091,22 +2082,17 @@ wwv_flow_api.append_to_install_script(
 '    l_error_id          r_header.hea_id%type := master_api.get_faulty_id;',
 '    l_validation_id     r_header.hea_id%type := master_api.get_validation_id;',
 '',
-'    l_max_sort_order pls_integer;',
-'    l_columnName varchar2(5 char);',
-'    l_formula_row number;',
-'    l_formula varchar2(2000 char);',
+'    l_columnName   varchar2(5 char);',
+'    l_formula_row  number;',
+'    l_formula      varchar2(2000 char);',
+'    l_invalid_rows pls_integer;',
+'    l_columnNumber pls_integer;',
 '  begin',
 '    logger.append_param(l_params, ''pi_tpl_id'', pi_tpl_id);',
 '    logger.append_param(l_params, ''pi_sheet_num'', pi_sheet_num);',
 '    logger.append_param(l_params, ''pi_number_of_rows'', pi_number_of_rows);',
 '    logger.log(''START'', l_scope, null, l_params);    ',
-'    ',
-'    if pi_invalid then',
-'        l_max_sort_order := 2;',
-'    else',
-'        l_max_sort_order := 0;',
-'    end if;    ',
-'    ',
+'      ',
 '    for rec in (',
 '      select tph_sort_order',
 '           , hea_text',
@@ -2135,7 +2121,7 @@ wwv_flow_api.append_to_install_script(
 '      if rec.val_text = ''date'' then',
 '',
 '        -- get excel column name',
-'        l_columnName := getExcelColumnName(l_max_sort_order + rec.tph_sort_order);',
+'        l_columnName := getExcelColumnName(rec.tph_sort_order);',
 '',
 '        -- add validation ',
 '        for i in 1..pi_number_of_rows',
@@ -2158,7 +2144,7 @@ wwv_flow_api.append_to_install_script(
 '      if rec.val_text = ''number'' then',
 '',
 '        -- get excel column name',
-'        l_columnName := getExcelColumnName(l_max_sort_order + rec.tph_sort_order);',
+'        l_columnName := getExcelColumnName(rec.tph_sort_order);',
 '',
 '        -- add validation ',
 '        for i in 1..pi_number_of_rows',
@@ -2181,7 +2167,7 @@ wwv_flow_api.append_to_install_script(
 '      if rec.val_text = ''email'' then',
 '',
 '        -- get excel column name',
-'        l_columnName := getExcelColumnName(l_max_sort_order + rec.tph_sort_order);',
+'        l_columnName := getExcelColumnName(rec.tph_sort_order);',
 '',
 '        -- add validation for first 100 rows (same as dropdowns)',
 '        for i in 1..pi_number_of_rows',
@@ -2203,22 +2189,61 @@ wwv_flow_api.append_to_install_script(
 '      if rec.val_text = ''formula'' then',
 '',
 '        -- get excel column name',
-'        l_columnName := getExcelColumnName(l_max_sort_order + rec.tph_sort_order);',
+'        l_columnName := getExcelColumnName(rec.tph_sort_order);',
 '',
 '        -- add validation for first 100 rows (same as dropdowns)',
-'        for i in 1..pi_number_of_rows',
-'        loop',
-'            l_formula_row := to_char(gc_header_row + i);',
-'            l_formula := replace(rec.thv_formula1,''#'',l_formula_row);',
-'            ',
-'            xlsx_builder_pkg.cell (',
-'              p_col => rec.tph_sort_order  ',
-'            , p_row => gc_header_row + i',
-'            , p_sheet => pi_sheet_num',
-'            , p_formula => l_formula',
-'            , p_value => ''n/a''',
-'            );',
-'        end loop;',
+'        if not pi_invalid then',
+'          for i in 1..pi_number_of_rows',
+'          loop',
+'              l_formula_row := to_char(gc_header_row + i);',
+'              ',
+'              l_columnNumber := rec.tph_sort_order;',
+'              l_formula := replace(rec.thv_formula1,''#'',l_formula_row);',
+'',
+'              xlsx_builder_pkg.cell (',
+'                p_col => l_columnNumber',
+'              , p_row => gc_header_row + i',
+'              , p_sheet => pi_sheet_num',
+'              , p_formula => l_formula',
+'              , p_value => ''n/a''',
+'              );',
+'          end loop;',
+'        else',
+'          select count(distinct tid_row_id)',
+'            into l_invalid_rows',
+'            from template_import_data',
+'            join template_header',
+'              on tid_tph_id = tph_id',
+'            join r_header',
+'              on tph_hea_id = hea_id',
+'           where tid_tis_id = pi_tis_id',
+'             and tph_hea_id not in (l_annotation_id, l_error_id, l_validation_id)',
+'             and tid_row_id in (',
+'                 select tid_row_id',
+'                   from template_import_data',
+'                   join template_header',
+'                     on tid_tph_id = tph_id',
+'                   where tid_tis_id = pi_tis_id',
+'                     and tph_hea_id = l_error_id',
+'                     and tid_text   = ''1''',
+'            );         ',
+'         ',
+'          for i in 1..l_invalid_rows',
+'          loop',
+'              l_formula_row := to_char(gc_header_row + i);',
+'              ',
+'              l_columnNumber := rec.tph_sort_order;',
+'              l_formula := replace(rec.thv_formula1,''#'',l_formula_row);',
+'',
+'              xlsx_builder_pkg.cell (',
+'                p_col => l_columnNumber',
+'              , p_row => gc_header_row + i',
+'              , p_sheet => pi_sheet_num',
+'              , p_formula => l_formula',
+'              , p_value => ''n/a''',
+'              );',
+'          end loop;',
+'        end if;    ',
 '      end if; ',
 '     ',
 '    end loop;',
@@ -2240,7 +2265,6 @@ wwv_flow_api.append_to_install_script(
 '  as',
 '    l_scope  logger_logs.scope%type := gc_scope_prefix || ''generate_dropdowns'';',
 '    l_params logger.tab_param;',
-'    l_cell   number default 0;',
 '  begin',
 '    logger.append_param(l_params, ''pi_tpl_id'', pi_tpl_id);',
 '    logger.append_param(l_params, ''pi_sheet_num_main'', pi_sheet_num_main);',
@@ -2248,15 +2272,11 @@ wwv_flow_api.append_to_install_script(
 '    logger.append_param(l_params, ''pi_number_of_rows'', pi_number_of_rows);',
 '    logger.log(''START'', l_scope, null, l_params);',
 '',
-'    if pi_invalid then ',
-'        l_cell := 2;',
-'    end if;    ',
-'',
 '    -- iterate dropdowns for the current template',
 '    for dds_group in (',
 '      select hea_id, tph_sort_order, rownum, count',
 '        from (',
-'          select hea_id, tph_sort_order + l_cell',
+'          select hea_id, tph_sort_order',
 '            as tph_sort_order, count(*) as count',
 '            from r_dropdowns',
 '            join r_header',
@@ -2345,10 +2365,11 @@ wwv_flow_api.append_to_install_script(
 '    logger.log(''START'', l_scope, null, l_params);',
 '',
 '    if pi_invalid then    ',
-'    l_filename := pi_tpl_name || ''_'' || pi_per_firstname  || ''_'' || pi_per_lastname || ''_correction'';',
+'      l_filename := pi_tpl_name || ''_'' || pi_per_firstname  || ''_'' || pi_per_lastname || ''_correction'';',
 '    else',
-'    l_filename := pi_tpl_name || ''_'' || pi_per_firstname  || ''_'' || pi_per_lastname;',
+'      l_filename := pi_tpl_name || ''_'' || pi_per_firstname  || ''_'' || pi_per_lastname;',
 '    end if;',
+'    ',
 '    l_filename := replace(l_filename, '' '', ''_'') || ''.xlsx'';',
 '',
 '    l_sheetname := pi_tpl_name;',
@@ -2393,6 +2414,7 @@ wwv_flow_api.append_to_install_script(
 '    ',
 '    generate_validations (',
 '      pi_tpl_id    => pi_tpl_id',
+'    , pi_tis_id    => pi_tis_id  ',
 '    , pi_sheet_num => l_sheet_num_main',
 '    , pi_invalid   => pi_invalid',
 '    , pi_number_of_rows => l_number_of_rows',
@@ -2443,7 +2465,25 @@ wwv_flow_api.append_to_install_script(
 '        ;',
 '    end if;',
 '',
-'    if pi_invalid then',
+'    '))
+);
+null;
+wwv_flow_api.component_end;
+end;
+/
+begin
+wwv_flow_api.component_begin (
+ p_version_yyyy_mm_dd=>'2021.04.15'
+,p_release=>'21.1.0'
+,p_default_workspace_id=>9510583246779566
+,p_default_application_id=>111
+,p_default_id_offset=>288269999118260128
+,p_default_owner=>'SURVEY_TOOL'
+);
+wwv_flow_api.append_to_install_script(
+ p_id=>wwv_flow_api.id(73417604915159320)
+,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'if pi_invalid then',
 '        update template_import_status',
 '           set tis_shipping_status = 2',
 '         where tis_id = pi_tis_id',
@@ -2480,25 +2520,7 @@ wwv_flow_api.append_to_install_script(
 '         , per_firstname',
 '         , per_lastname',
 '      into l_tpl_id',
-'         , l_tp'))
-);
-null;
-wwv_flow_api.component_end;
-end;
-/
-begin
-wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.0'
-,p_default_workspace_id=>9510583246779566
-,p_default_application_id=>111
-,p_default_id_offset=>205442218172938197
-,p_default_owner=>'SURVEY_TOOL'
-);
-wwv_flow_api.append_to_install_script(
- p_id=>wwv_flow_api.id(132024613257778877)
-,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'l_name',
+'         , l_tpl_name',
 '         , l_per_id',
 '         , l_per_firstname',
 '         , l_per_lastname',
@@ -2806,13 +2828,14 @@ wwv_flow_api.append_to_install_script(
 '    logger.append_param(l_params, ''pi_column_nr'', pi_column_nr); ',
 '    logger.log(''START'', l_scope, null, l_params); ',
 '',
-'    if pi_column_nr = -1 then',
-'        l_column_nr := 281;',
-'    elsif pi_column_nr = 0 then     ',
+'    if pi_header = ''Validation'' then',
+'        l_column_nr := 282;',
+'    elsif pi_header = ''Annotation'' then     ',
 '        l_column_nr := 280;',
 '    else ',
 '        l_column_nr := pi_column_nr;',
 '    end if;    ',
+'',
 '',
 '    select count(*) ',
 '      into l_count ',
@@ -2888,6 +2911,7 @@ wwv_flow_api.append_to_install_script(
 '    l_update_count          pls_integer := 1; ',
 '    l_column_count          pls_integer := 1; ',
 '    l_check_korrektur       varchar2(100);',
+'    l_column                varchar2(100); ',
 '',
 '    l_insert_tab t_survey_answers_tab; ',
 '    l_update_tab t_survey_answers_tab; ',
@@ -2924,10 +2948,23 @@ unistr('    -- Zelleninhalt A8 auslesen um pr\00FCfen zu k\00F6nnen ob es eine K
 '        ) ',
 '      )',
 '      where not (line_number > excel_gen.gc_header_row and',
-'  col001 || col002 || col003 || col004 || col005 || col006 || col007 || col008 || col009 || col010 || col011 || col012 || col013 || col014 || col015 || ',
-'  col016 || col017 || col018 || col019 || col020 || col021 || col022 || col023 || col024 || col025 || col026 || col027 || col028 || col029 || col030 || ',
-'  col031 || col032 || col033 || col034 || col035 || col036 || col037 || col038 || col039 || col040 || col041 || col042 || col043 || col044 || col045 is null); ',
+'    col001 || col002 || col003 || col004 || col005 || col006 || col007 || col008 || col009 || col010 || col011 || col012 || col013 || col014 || col015 || ',
+'    col016 || col017 || col018 || col019 || col020 || col021 || col022 || col023 || col024 || col025 || col026 || col027 || col028 || col029 || col030 || ',
+'    col031 || col032 || col033 || col034 || col035 || col036 || col037 || col038 || col039 || col040 || col041 || col042 || col043 || col044 || col045 is null); ',
 '',
+'    select listagg(tph_sort_order, '':'') within group (order by tph_sort_order)  ',
+'      into l_column   ',
+'      from template_header',
+'      join r_header ',
+'        on hea_id = tph_hea_id',
+'      join r_validation',
+'        on hea_val_id = val_id',
+'      left join template_header_validations',
+'             on thv_tph_id = tph_id  ',
+'     where tph_tpl_id = pi_tpl_id ',
+'       and val_id = 4       ',
+'    order by tph_sort_order;',
+'  ',
 ' for rec in ( ',
 '   select * ',
 '   from table ( ',
@@ -2940,18 +2977,54 @@ unistr('    -- Zelleninhalt A8 auslesen um pr\00FCfen zu k\00F6nnen ob es eine K
 '  ) ',
 '   )  ',
 '   where not (line_number > excel_gen.gc_header_row and',
-'  col001 || col002 || col003 || col004 || col005 || col006 || col007 || col008 || col009 || col010 || col011 || col012 || col013 || col014 || col015 || ',
-'  col016 || col017 || col018 || col019 || col020 || col021 || col022 || col023 || col024 || col025 || col026 || col027 || col028 || col029 || col030 || ',
-'  col031 || col032 || col033 || col034 || col035 || col036 || col037 || col038 || col039 || col040 || col041 || col042 || col043 || col044 || col045 is null)     ',
+'  case when 1  in (select column_value from apex_string.split(l_column,'':'')) then null else col001 end ||',
+'  case when 2  in (select column_value from apex_string.split(l_column,'':'')) then null else col002 end ||',
+'  case when 3  in (select column_value from apex_string.split(l_column,'':'')) then null else col003 end ||',
+'  case when 4  in (select column_value from apex_string.split(l_column,'':'')) then null else col004 end ||',
+'  case when 5  in (select column_value from apex_string.split(l_column,'':'')) then null else col005 end ||',
+'  case when 6  in (select column_value from apex_string.split(l_column,'':'')) then null else col006 end ||',
+'  case when 7  in (select column_value from apex_string.split(l_column,'':'')) then null else col007 end ||',
+'  case when 8  in (select column_value from apex_string.split(l_column,'':'')) then null else col008 end ||',
+'  case when 9  in (select column_value from apex_string.split(l_column,'':'')) then null else col009 end ||',
+'  case when 10 in (select column_value from apex_string.split(l_column,'':'')) then null else col010 end ||',
+'  case when 11 in (select column_value from apex_string.split(l_column,'':'')) then null else col011 end ||',
+'  case when 12 in (select column_value from apex_string.split(l_column,'':'')) then null else col012 end ||',
+'  case when 13 in (select column_value from apex_string.split(l_column,'':'')) then null else col013 end ||',
+'  case when 14 in (select column_value from apex_string.split(l_column,'':'')) then null else col014 end ||',
+'  case when 15 in (select column_value from apex_string.split(l_column,'':'')) then null else col015 end ||',
+'  case when 16 in (select column_value from apex_string.split(l_column,'':'')) then null else col016 end ||',
+'  case when 17 in (select column_value from apex_string.split(l_column,'':'')) then null else col017 end ||',
+'  case when 18 in (select column_value from apex_string.split(l_column,'':'')) then null else col018 end ||',
+'  case when 19 in (select column_value from apex_string.split(l_column,'':'')) then null else col019 end ||',
+'  case when 20 in (select column_value from apex_string.split(l_column,'':'')) then null else col020 end ||',
+'  case when 21 in (select column_value from apex_string.split(l_column,'':'')) then null else col021 end ||',
+'  case when 22 in (select column_value from apex_string.split(l_column,'':'')) then null else col022 end ||',
+'  case when 23 in (select column_value from apex_string.split(l_column,'':'')) then null else col023 end ||',
+'  case when 24 in (select column_value from apex_string.split(l_column,'':'')) then null else col024 end ||',
+'  case when 25 in (select column_value from apex_string.split(l_column,'':'')) then null else col025 end ||',
+'  case when 26 in (select column_value from apex_string.split(l_column,'':'')) then null else col026 end ||',
+'  case when 27 in (select column_value from apex_string.split(l_column,'':'')) then null else col027 end ||',
+'  case when 28 in (select column_value from apex_string.split(l_column,'':'')) then null else col028 end ||',
+'  case when 29 in (select column_value from apex_string.split(l_column,'':'')) then null else col029 end ||',
+'  case when 30 in (select column_value from apex_string.split(l_column,'':'')) then null else col030 end ||',
+'  case when 31 in (select column_value from apex_string.split(l_column,'':'')) then null else col031 end ||',
+'  case when 32 in (select column_value from apex_string.split(l_column,'':'')) then null else col032 end ||',
+'  case when 33 in (select column_value from apex_string.split(l_column,'':'')) then null else col033 end ||',
+'  case when 34 in (select column_value from apex_string.split(l_column,'':'')) then null else col034 end ||',
+'  case when 35 in (select column_value from apex_string.split(l_column,'':'')) then null else col035 end ||',
+'  case when 36 in (select column_value from apex_string.split(l_column,'':'')) then null else col036 end ||',
+'  case when 37 in (select column_value from apex_string.split(l_column,'':'')) then null else col037 end ||',
+'  case when 38 in (select column_value from apex_string.split(l_column,'':'')) then null else col038 end ||',
+'  case when 39 in (select column_value from apex_string.split(l_column,'':'')) then null else col039 end ||',
+'  case when 40 in (select column_value from apex_string.split(l_column,'':'')) then null else col040 end ||',
+'  case when 41 in (select column_value from apex_string.split(l_column,'':'')) then null else col041 end ||',
+'  case when 42 in (select column_value from apex_string.split(l_column,'':'')) then null else col042 end ||',
+'  case when 43 in (select column_value from apex_string.split(l_column,'':'')) then null else col043 end ||',
+'  case when 44 in (select column_value from apex_string.split(l_column,'':'')) then null else col044 end ||',
+'  case when 45 in (select column_value from apex_string.split(l_column,'':'')) then null else col045 end is null)     ',
 ' ) ',
 ' loop ',
-unistr('      -- Falls es eine korrekturdatei ist muss der Column Counter um 1 verringert werden damit die Spalten richtig gematcht werden k\00F6nnen'),
-'      if l_check_korrektur = ''Validation'' then',
-'         l_column_count := -1;',
-'      else',
-'         l_column_count := 1;   ',
-'      end if; ',
-'',
+'      l_column_count := 1;   ',
 '   case  ',
 '  when rec.line_number = 1 then ',
 '    l_current_row := get_varray(rec); ',
@@ -3124,7 +3197,25 @@ unistr('      -- Status zur\00FCcksetzen '),
 '    for rec in ( ',
 '      select c001                        as fil_filename ',
 '           , c002                        as fil_mimetype ',
-'           , apex_application.g_instance as fil_session ',
+'           , ap'))
+);
+null;
+wwv_flow_api.component_end;
+end;
+/
+begin
+wwv_flow_api.component_begin (
+ p_version_yyyy_mm_dd=>'2021.04.15'
+,p_release=>'21.1.0'
+,p_default_workspace_id=>9510583246779566
+,p_default_application_id=>111
+,p_default_id_offset=>288269999118260128
+,p_default_owner=>'SURVEY_TOOL'
+);
+wwv_flow_api.append_to_install_script(
+ p_id=>wwv_flow_api.id(73417604915159320)
+,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'ex_application.g_instance as fil_session ',
 '           , blob001                     as fil_file ',
 '           , 0                           as fil_import_export ',
 '        from apex_collections ',
@@ -3320,25 +3411,7 @@ unistr('      -- Status zur\00FCcksetzen '),
 '',
 '    insert into template_header ',
 '    (tph_tpl_id, tph_hea_id, tph_xlsx_background_color, tph_xlsx_font_color, tph_sort_order, tph_thg_id)',
-'    VALUES (l_tpl_id, rec.tph_hea_id, rec.tph_xlsx_background'))
-);
-null;
-wwv_flow_api.component_end;
-end;
-/
-begin
-wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.0'
-,p_default_workspace_id=>9510583246779566
-,p_default_application_id=>111
-,p_default_id_offset=>205442218172938197
-,p_default_owner=>'SURVEY_TOOL'
-);
-wwv_flow_api.append_to_install_script(
- p_id=>wwv_flow_api.id(132024613257778877)
-,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'_color, rec.tph_xlsx_font_color, rec.tph_sort_order, rec.tph_thg_id)',
+'    VALUES (l_tpl_id, rec.tph_hea_id, rec.tph_xlsx_background_color, rec.tph_xlsx_font_color, rec.tph_sort_order, rec.tph_thg_id)',
 '    RETURNING tph_id into l_tph_id;',
 '    ',
 '    if rec.thv_formula1 is not null or rec.thv_formula2 is not null then',
@@ -4147,7 +4220,25 @@ wwv_flow_api.append_to_install_script(
 '      select hea_id  ',
 '      into l_hea_id',
 '      from r_header',
-'      where hea_text = l_hea_text_array(counter);',
+'      where hea_text = l_hea_text_array(coun'))
+);
+null;
+wwv_flow_api.component_end;
+end;
+/
+begin
+wwv_flow_api.component_begin (
+ p_version_yyyy_mm_dd=>'2021.04.15'
+,p_release=>'21.1.0'
+,p_default_workspace_id=>9510583246779566
+,p_default_application_id=>111
+,p_default_id_offset=>288269999118260128
+,p_default_owner=>'SURVEY_TOOL'
+);
+wwv_flow_api.append_to_install_script(
+ p_id=>wwv_flow_api.id(73417604915159320)
+,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'ter);',
 '',
 '      if l_hea_id not in (master_api.get_faulty_id, master_api.get_annotation_id, master_api.get_validation_id)',
 '      then',
@@ -4335,25 +4426,7 @@ wwv_flow_api.append_to_install_script(
 '    when others then',
 '      logger.log_error(''Unhandled Exception'', l_scope, null, l_params);',
 '      raise;',
-'  end get_column_count;'))
-);
-null;
-wwv_flow_api.component_end;
-end;
-/
-begin
-wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.0'
-,p_default_workspace_id=>9510583246779566
-,p_default_application_id=>111
-,p_default_id_offset=>205442218172938197
-,p_default_owner=>'SURVEY_TOOL'
-);
-wwv_flow_api.append_to_install_script(
- p_id=>wwv_flow_api.id(132024613257778877)
-,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'',
+'  end get_column_count;',
 '',
 'end p00051_api;',
 '/',
@@ -5116,7 +5189,25 @@ wwv_flow_api.append_to_install_script(
 '      vc_sheet_name     VARCHAR2 (31 CHAR),',
 '      pi_freeze_rows    PLS_INTEGER,',
 '      pi_freeze_cols    PLS_INTEGER,',
-'      autofilters_tab   t_autofilters_tab,',
+'      autofilters_tab   t'))
+);
+null;
+wwv_flow_api.component_end;
+end;
+/
+begin
+wwv_flow_api.component_begin (
+ p_version_yyyy_mm_dd=>'2021.04.15'
+,p_release=>'21.1.0'
+,p_default_workspace_id=>9510583246779566
+,p_default_application_id=>111
+,p_default_id_offset=>288269999118260128
+,p_default_owner=>'SURVEY_TOOL'
+);
+wwv_flow_api.append_to_install_script(
+ p_id=>wwv_flow_api.id(73417604915159320)
+,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'_autofilters_tab,',
 '      hyperlinks_tab    t_hyperlinks_tab,',
 '      col_fmts_tab      t_col_fmts_tab,',
 '      row_fmts_tab      t_row_fmts_tab,',
@@ -5302,25 +5393,7 @@ wwv_flow_api.append_to_install_script(
 '   END col_alfan;',
 '',
 '   -- EMORKLE (2014/02/24): Moved to top, allowing usage in new_sheet',
-'   FUNCTION add_string (p_string VARCHAR2)'))
-);
-null;
-wwv_flow_api.component_end;
-end;
-/
-begin
-wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.0'
-,p_default_workspace_id=>9510583246779566
-,p_default_application_id=>111
-,p_default_id_offset=>205442218172938197
-,p_default_owner=>'SURVEY_TOOL'
-);
-wwv_flow_api.append_to_install_script(
- p_id=>wwv_flow_api.id(132024613257778877)
-,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'',
+'   FUNCTION add_string (p_string VARCHAR2)',
 '      RETURN PLS_INTEGER',
 '   AS',
 '      t_cnt   PLS_INTEGER;',
@@ -5935,7 +6008,25 @@ wwv_flow_api.append_to_install_script(
 '',
 '   PROCEDURE list_validation (p_sqref_col      PLS_INTEGER,',
 '                              p_sqref_row      PLS_INTEGER,',
-'                              p_tl_col         PLS_INTEGER                                                                       -- top left',
+'                              p_tl_col         PLS_INTEGER                                                          '))
+);
+null;
+wwv_flow_api.component_end;
+end;
+/
+begin
+wwv_flow_api.component_begin (
+ p_version_yyyy_mm_dd=>'2021.04.15'
+,p_release=>'21.1.0'
+,p_default_workspace_id=>9510583246779566
+,p_default_application_id=>111
+,p_default_id_offset=>288269999118260128
+,p_default_owner=>'SURVEY_TOOL'
+);
+wwv_flow_api.append_to_install_script(
+ p_id=>wwv_flow_api.id(73417604915159320)
+,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'             -- top left',
 '                                                          ,',
 '                              p_tl_row         PLS_INTEGER,',
 '                              p_br_col         PLS_INTEGER                                                                   -- bottom right',
@@ -6047,25 +6138,7 @@ wwv_flow_api.append_to_install_script(
 '         || ''$''',
 '         || TO_CHAR (p_tl_row)',
 '         || '':$''',
-'         ||'))
-);
-null;
-wwv_flow_api.component_end;
-end;
-/
-begin
-wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.0'
-,p_default_workspace_id=>9510583246779566
-,p_default_application_id=>111
-,p_default_id_offset=>205442218172938197
-,p_default_owner=>'SURVEY_TOOL'
-);
-wwv_flow_api.append_to_install_script(
- p_id=>wwv_flow_api.id(132024613257778877)
-,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
-' alfan_col (p_br_col)',
+'         || alfan_col (p_br_col)',
 '         || ''$''',
 '         || TO_CHAR (p_br_row);',
 '      workbook.defined_names_tab (t_ind).pi_sheet := p_localsheet;',
@@ -6631,7 +6704,25 @@ wwv_flow_api.append_to_install_script(
 '</a:clrScheme>',
 '<a:fontScheme name="Office">',
 '<a:majorFont>',
-'<a:latin typeface="Cambria"/>',
+'<a:latin typeface="Cambr'))
+);
+null;
+wwv_flow_api.component_end;
+end;
+/
+begin
+wwv_flow_api.component_begin (
+ p_version_yyyy_mm_dd=>'2021.04.15'
+,p_release=>'21.1.0'
+,p_default_workspace_id=>9510583246779566
+,p_default_application_id=>111
+,p_default_id_offset=>288269999118260128
+,p_default_owner=>'SURVEY_TOOL'
+);
+wwv_flow_api.append_to_install_script(
+ p_id=>wwv_flow_api.id(73417604915159320)
+,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'ia"/>',
 '<a:ea typeface=""/>',
 '<a:cs typeface=""/>',
 '<a:font script="Jpan" typeface="MS P????"/>',
@@ -6825,25 +6916,7 @@ wwv_flow_api.append_to_install_script(
 '<a:gs pos="0">',
 '<a:schemeClr val="phClr">',
 '<a:tint val="40000"/>',
-'<a:satMod val="'))
-);
-null;
-wwv_flow_api.component_end;
-end;
-/
-begin
-wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.0'
-,p_default_workspace_id=>9510583246779566
-,p_default_application_id=>111
-,p_default_id_offset=>205442218172938197
-,p_default_owner=>'SURVEY_TOOL'
-);
-wwv_flow_api.append_to_install_script(
- p_id=>wwv_flow_api.id(132024613257778877)
-,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'350000"/>',
+'<a:satMod val="350000"/>',
 '</a:schemeClr>',
 '</a:gs>',
 '<a:gs pos="40000">',
@@ -7384,7 +7457,25 @@ wwv_flow_api.append_to_install_script(
 '            clob_vc_concat(',
 '               p_clob        => t_xxx,',
 '               p_vc_buffer   => t_tmp,',
-'               p_vc_addition => ''<xml xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel">',
+'               p_vc_addition => ''<xml xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-micro'))
+);
+null;
+wwv_flow_api.component_end;
+end;
+/
+begin
+wwv_flow_api.component_begin (
+ p_version_yyyy_mm_dd=>'2021.04.15'
+,p_release=>'21.1.0'
+,p_default_workspace_id=>9510583246779566
+,p_default_application_id=>111
+,p_default_id_offset=>288269999118260128
+,p_default_owner=>'SURVEY_TOOL'
+);
+wwv_flow_api.append_to_install_script(
+ p_id=>wwv_flow_api.id(73417604915159320)
+,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'soft-com:office:excel">',
 '<o:shapelayout v:ext="edit"><o:idmap v:ext="edit" data="2"/></o:shapelayout>',
 '<v:shapetype id="_x0000_t202" coordsize="21600,21600" o:spt="202" path="m,l,21600r21600,l21600,xe"><v:stroke joinstyle="miter"/><v:path gradientshapeok="t" o:connecttype="rect"/></v:shapetype>'');',
 '',
@@ -7489,12 +7580,7 @@ wwv_flow_api.append_to_install_script(
 '         p_vc_buffer   => t_tmp,',
 '         p_vc_addition => ''<?xml version="1.0" encoding="UTF-8" standalone="yes"?><sst xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" count="''',
 '                       || workbook.pi_str_cnt',
-'                       || ''" uniqueCount'))
-);
-wwv_flow_api.append_to_install_script(
- p_id=>wwv_flow_api.id(132024613257778877)
-,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'="''',
+'                       || ''" uniqueCount="''',
 '                       || TO_CHAR (workbook.strings_tab.COUNT)',
 '                       || ''">'');',
 '',
@@ -8087,7 +8173,25 @@ unistr('      -- column headers werden vom Lieferantenabfragetool gesetzt, daher
 '                        THEN',
 '                           cell (c,',
 '                                 t_cur_row + i,',
-'                                 v_tab (i + v_tab.FIRST),',
+'                                 v_tab (i + v_tab.F'))
+);
+null;
+wwv_flow_api.component_end;
+end;
+/
+begin
+wwv_flow_api.component_begin (
+ p_version_yyyy_mm_dd=>'2021.04.15'
+,p_release=>'21.1.0'
+,p_default_workspace_id=>9510583246779566
+,p_default_application_id=>111
+,p_default_id_offset=>288269999118260128
+,p_default_owner=>'SURVEY_TOOL'
+);
+wwv_flow_api.append_to_install_script(
+ p_id=>wwv_flow_api.id(73417604915159320)
+,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'IRST),',
 '                                 p_sheet   => t_sheet);',
 '                        END IF;',
 '                     END LOOP;',
@@ -8264,24 +8368,7 @@ unistr('      -- column headers werden vom Lieferantenabfragetool gesetzt, daher
 '',
 '    l_header_index := raw2num( p_zipped_blob, 4, l_index + 16 ) + 1;',
 '    l_file_list := t_file_list( );',
-'    l_file_list.EXTEND('))
-);
-wwv_flow_api.component_end;
-end;
-/
-begin
-wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.0'
-,p_default_workspace_id=>9510583246779566
-,p_default_application_id=>111
-,p_default_id_offset=>205442218172938197
-,p_default_owner=>'SURVEY_TOOL'
-);
-wwv_flow_api.append_to_install_script(
- p_id=>wwv_flow_api.id(132024613257778877)
-,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
-' raw2num( p_zipped_blob, 2, l_index + 10 ) );',
+'    l_file_list.EXTEND( raw2num( p_zipped_blob, 2, l_index + 10 ) );',
 '',
 '    FOR i IN 1 .. raw2num( p_zipped_blob, 2, l_index + 8 )',
 '    LOOP',
