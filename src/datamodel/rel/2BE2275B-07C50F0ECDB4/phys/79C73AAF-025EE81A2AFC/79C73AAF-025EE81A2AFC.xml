@@ -1,0 +1,6 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<StorageDesignOraclev12cR2 class="oracle.dbtools.crest.model.design.storage.oracle.v12cr2.StorageDesignOraclev12cR2" name="Oracle Database 12cR2" id="1E7A66FF-3BFB-9857-D542-A0D712CC9763" siteID="79C73AAF-E1A7-E669-7DF0-025EE81A2AFC" siteName="Oracle Database 12cR2" siteType="14">
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:06 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+</StorageDesignOraclev12cR2>

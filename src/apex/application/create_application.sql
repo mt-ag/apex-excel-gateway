@@ -5,10 +5,10 @@ begin
 --   Manifest End
 wwv_flow_api.component_begin (
  p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.0'
+,p_release=>'21.1.6'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>288269999118260128
+,p_default_id_offset=>349023258543091759
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_flow(
@@ -32,7 +32,7 @@ wwv_flow_api.create_flow(
 ,p_flow_image_prefix => nvl(wwv_flow_application_install.get_image_prefix,'')
 ,p_documentation_banner=>'Application created from create application wizard 2020.08.05.'
 ,p_authentication=>'PLUGIN'
-,p_authentication_id=>wwv_flow_api.id(118158619630341779)
+,p_authentication_id=>wwv_flow_api.id(170111379487918349)
 ,p_application_tab_set=>0
 ,p_logo_type=>'T'
 ,p_logo_text=>'Excel Gateway for Oracle APEX'
@@ -40,7 +40,7 @@ wwv_flow_api.create_flow(
 ,p_public_user=>'APEX_PUBLIC_USER'
 ,p_proxy_server=>nvl(wwv_flow_application_install.get_proxy,'')
 ,p_no_proxy_domains=>nvl(wwv_flow_application_install.get_no_proxy_domains,'')
-,p_flow_version=>'Release 1.0'
+,p_flow_version=>'Release 1.1'
 ,p_flow_status=>'AVAILABLE_W_EDIT_LINK'
 ,p_flow_unavailable_text=>'This application is currently unavailable at this time.'
 ,p_exact_substitutions_only=>'Y'
@@ -53,7 +53,7 @@ wwv_flow_api.create_flow(
 ,p_substitution_string_01=>'APP_NAME'
 ,p_substitution_value_01=>'Excel Gateway for Oracle APEX'
 ,p_last_updated_by=>'THERWIX'
-,p_last_upd_yyyymmddhh24miss=>'20211122160034'
+,p_last_upd_yyyymmddhh24miss=>'20211220105948'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>39
 ,p_ui_type_name => null

@@ -1,0 +1,209 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C58BCB83-3C88-8096-FA1F-C0933E4E3372" schemaObject="C638272D-8D60-5239-3AE2-9FC75CF68502" name="FILES">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>MT_EXCEL_GATEWAY</sourceObjSchema>
+<sourceObjName>FILES</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:08 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="FIL_ID" id="6D72FEE7-573B-D475-B130-AF036DE3D6F5">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>FILES</sourceObjSchema>
+<sourceObjName>FIL_ID</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:16 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<defaultValue>&quot;MT_EXCEL_GATEWAY&quot;.&quot;FIL_SEQ&quot;.&quot;NEXTVAL&quot;</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<defaultOntNull>true</defaultOntNull>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>SYS_C00310202</notNullConstraintName>
+</Column>
+<Column name="FIL_FILE" id="3E68E39E-2FEE-D428-E7FE-424D4A2F9C46">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>FILES</sourceObjSchema>
+<sourceObjName>FIL_FILE</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:16 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT029</logicalDatatype>
+<dataTypeSize>4000</dataTypeSize>
+<ownDataTypeParameters>4000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>SYS_C00310203</notNullConstraintName>
+</Column>
+<Column name="FIL_FILENAME" id="7F051FF0-9A83-247C-9EE8-8684DF66DD0F">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>FILES</sourceObjSchema>
+<sourceObjName>FIL_FILENAME</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:16 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 CHAR</dataTypeSize>
+<ownDataTypeParameters>200 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>SYS_C00310204</notNullConstraintName>
+</Column>
+<Column name="FIL_MIMETYPE" id="77F6FACD-BE1D-F17B-1256-A04538A5F4A6">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>FILES</sourceObjSchema>
+<sourceObjName>FIL_MIMETYPE</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:17 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 CHAR</dataTypeSize>
+<ownDataTypeParameters>200 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>SYS_C00310205</notNullConstraintName>
+</Column>
+<Column name="FIL_SESSION" id="974582E3-3885-BC5C-2D74-491819A664B1">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>FILES</sourceObjSchema>
+<sourceObjName>FIL_SESSION</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:17 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>SYS_C00310206</notNullConstraintName>
+</Column>
+<Column name="FIL_IMPORT_EXPORT" id="7A51C0E7-9850-791D-FCD1-5B699BCD997D">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>FILES</sourceObjSchema>
+<sourceObjName>FIL_IMPORT_EXPORT</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:17 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<defaultValue>1</defaultValue>
+<ownDataTypeParameters>,1,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>SYS_C00310207</notNullConstraintName>
+</Column>
+<Column name="FIL_IMPORT_COMPLETED" id="653BD085-6E44-814A-D445-1B29798E6BD9">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>FILES</sourceObjSchema>
+<sourceObjName>FIL_IMPORT_COMPLETED</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:17 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FIL_CREATED_ON" id="7A5D71F4-815F-09A9-7878-6C86911F2361">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>FILES</sourceObjSchema>
+<sourceObjName>FIL_CREATED_ON</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:17 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FIL_CREATED_BY" id="702CDF38-F4B3-5C26-DCE5-16802A8E4267">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>FILES</sourceObjSchema>
+<sourceObjName>FIL_CREATED_BY</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:17 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 CHAR</dataTypeSize>
+<ownDataTypeParameters>200 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FIL_MODIFIED_ON" id="8533B6EC-1015-1BE9-F55D-7E9DC8600516">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>FILES</sourceObjSchema>
+<sourceObjName>FIL_MODIFIED_ON</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:17 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FIL_MODIFIED_BY" id="790CE605-11A8-CF44-C2EF-142F6376BBEE">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>FILES</sourceObjSchema>
+<sourceObjName>FIL_MODIFIED_BY</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:17 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 CHAR</dataTypeSize>
+<ownDataTypeParameters>200 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="8B1AAB8B-E7D8-B691-6828-E8028FE5E274" name="FIL_PK">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>MT_EXCEL_GATEWAY</sourceObjSchema>
+<sourceObjName>FIL_PK</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:40 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6D72FEE7-573B-D475-B130-AF036DE3D6F5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="612E48A7-9481-5A57-F8DB-95718F429A30" schemaObject="C638272D-8D60-5239-3AE2-9FC75CF68502" name="FIL_PK">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>MT_EXCEL_GATEWAY</sourceObjSchema>
+<sourceObjName>FIL_PK</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:34 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6D72FEE7-573B-D475-B130-AF036DE3D6F5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

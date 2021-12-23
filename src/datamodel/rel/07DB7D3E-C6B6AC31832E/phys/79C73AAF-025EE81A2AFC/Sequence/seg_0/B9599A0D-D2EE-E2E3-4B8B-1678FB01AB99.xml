@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SequenceOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.SequenceOraclev10g" name="LOGGER_LOGS_SEQ" directorySegmentName="seg_0" id="B9599A0D-D2EE-E2E3-4B8B-1678FB01AB99">
+<sourceConnName>ATP - SURVEY TOOL</sourceConnName>
+<sourceObjSchema>SURVEY_TOOL</sourceObjSchema>
+<sourceObjName>LOGGER_LOGS_SEQ</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 15:08:52 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<cache>20</cache>
+<incrementBy>1</incrementBy>
+<maxValue>999999999999999999999999999</maxValue>
+<minValue>1</minValue>
+<user>6D96194D-184B-30BE-74BF-59D97801C65F</user>
+</SequenceOraclev10g>

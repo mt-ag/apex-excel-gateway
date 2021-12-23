@@ -1,0 +1,102 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="R_TEMPLATES" directorySegmentName="seg_0" id="B18F6830-6A00-C8B6-9A55-7F4785B69424">
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:12 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<schemaObject>C638272D-8D60-5239-3AE2-9FC75CF68502</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>65BC1641-EC1B-1C1F-3E58-13008E190804</segment>
+<tableSpace>9D9FFED1-C56C-F92D-4C11-D363E4608295</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="TPL_CREATED_ON" id="04B9CC92-7370-2430-E874-523A8868404F">
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:23 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="TPL_ID" id="14525494-256B-F563-E9DD-01D153D8885B">
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:23 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<defaultValue>&quot;MT_EXCEL_GATEWAY&quot;.&quot;TPL_SEQ&quot;.&quot;NEXTVAL&quot;</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="TPL_DEADLINE" id="6AF97AC5-6E29-D783-30E4-673F28455E49">
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:23 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="TPL_CREATED_BY" id="7C8D4BAD-6608-6378-861C-94E869D52250">
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:23 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="TPL_MODIFIED_ON" id="83057DC3-B777-84E4-3FCB-52EB50378917">
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:23 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="TPL_MODIFIED_BY" id="8C90E644-EDCF-640D-29A1-70E279407181">
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:23 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="TPL_NUMBER_OF_ROWS" id="A2E4D8EA-EAF1-8D00-C8AB-D6171ABD2EA3">
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:23 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="TPL_NAME" id="F0A03763-2EB0-3E6B-261E-CCDB3219FF67">
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:23 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="TPL_UK" id="A2D39249-2F65-585D-657F-3A1377EB3E9A">
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:36 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<schemaObject>C638272D-8D60-5239-3AE2-9FC75CF68502</schemaObject>
+<segment>D7881BD5-48A5-B417-CF2A-BAB45F22ADEA</segment>
+<tableSpace>9D9FFED1-C56C-F92D-4C11-D363E4608295</tableSpace>
+</IndexProxy>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="TPL_PK" id="F5871F18-73A5-F181-ECBD-C23616BB6FFF">
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:36 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<schemaObject>C638272D-8D60-5239-3AE2-9FC75CF68502</schemaObject>
+<segment>D7881BD5-48A5-B417-CF2A-BAB45F22ADEA</segment>
+<tableSpace>9D9FFED1-C56C-F92D-4C11-D363E4608295</tableSpace>
+</IndexProxy>
+</indexProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="TPL_PK" id="67FF2A3F-A9F0-A326-7B4D-52248B6BE028">
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:43 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<segment>D7881BD5-48A5-B417-CF2A-BAB45F22ADEA</segment>
+<tableSpace>9D9FFED1-C56C-F92D-4C11-D363E4608295</tableSpace>
+<existingIndex>F5871F18-73A5-F181-ECBD-C23616BB6FFF</existingIndex>
+<indexSegment>D7881BD5-48A5-B417-CF2A-BAB45F22ADEA</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+<uniqueKeys>
+<UniqueKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UniqueOraclev10g" name="TPL_UK" id="BADC45D4-92E9-BED4-32FD-85AFC623DB65">
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:43 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<segment>D7881BD5-48A5-B417-CF2A-BAB45F22ADEA</segment>
+<tableSpace>9D9FFED1-C56C-F92D-4C11-D363E4608295</tableSpace>
+<existingIndex>A2D39249-2F65-585D-657F-3A1377EB3E9A</existingIndex>
+<indexSegment>D7881BD5-48A5-B417-CF2A-BAB45F22ADEA</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</UniqueKey>
+</uniqueKeys>
+</TableProxyOraclev12c>

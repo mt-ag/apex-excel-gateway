@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="52601EEE-BA4A-F91E-9ABA-6B7755EC8A08" containerWithKeyObject="552711C2-5776-814E-39CD-F98F7F00546E" localFKIndex="383EDAFF-8D76-BB5C-EEC0-5003EB3549DA" name="TIS_PER_FK">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>MT_EXCEL_GATEWAY</sourceObjSchema>
+<sourceObjName>TIS_PER_FK</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:51 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<referredTableLongName>MT_EXCEL_GATEWAY.R_PERSON</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>5C518D4B-ADD7-DF19-C5C7-A5F9A63F56D6</referredTableID>
+<keyObject>8051669E-9965-3B74-E488-61A1CFD038D2</keyObject>
+<referredKeyID>8051669E-9965-3B74-E488-61A1CFD038D2</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>PER_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

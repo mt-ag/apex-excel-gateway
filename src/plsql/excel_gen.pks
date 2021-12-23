@@ -3,6 +3,7 @@ as
 
   gc_headergroup_row constant pls_integer := 4;
   gc_header_row      constant pls_integer := 5;
+  gc_data_row        constant pls_integer := 6;
 
   gc_ids_col1 constant pls_integer := 299;
   gc_ids_col2 constant pls_integer := 300;

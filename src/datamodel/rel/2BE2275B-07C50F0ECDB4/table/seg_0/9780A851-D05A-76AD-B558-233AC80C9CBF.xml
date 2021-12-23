@@ -1,0 +1,160 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="9780A851-D05A-76AD-B558-233AC80C9CBF" schemaObject="C638272D-8D60-5239-3AE2-9FC75CF68502" name="R_SHIPPINGSTATUS">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>MT_EXCEL_GATEWAY</sourceObjSchema>
+<sourceObjName>R_SHIPPINGSTATUS</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:11 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="SPS_ID" id="45322DF8-99F1-E504-33C5-EF147711C864">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>R_SHIPPINGSTATUS</sourceObjSchema>
+<sourceObjName>SPS_ID</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:22 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<defaultValue>&quot;MT_EXCEL_GATEWAY&quot;.&quot;SPS_SEQ&quot;.&quot;NEXTVAL&quot;</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<defaultOntNull>true</defaultOntNull>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>SYS_C00310227</notNullConstraintName>
+</Column>
+<Column name="SPS_NAME" id="E8F3B578-DB70-AB66-3DAB-CEE6E5031F1E">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>R_SHIPPINGSTATUS</sourceObjSchema>
+<sourceObjName>SPS_NAME</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:22 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 CHAR</dataTypeSize>
+<ownDataTypeParameters>200 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>SYS_C00310228</notNullConstraintName>
+</Column>
+<Column name="SPS_CREATED_ON" id="45C95886-52DA-3C22-A925-B24919A9B624">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>R_SHIPPINGSTATUS</sourceObjSchema>
+<sourceObjName>SPS_CREATED_ON</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:22 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SPS_CREATED_BY" id="C3458F18-06CC-A237-8613-8711D9DAD22F">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>R_SHIPPINGSTATUS</sourceObjSchema>
+<sourceObjName>SPS_CREATED_BY</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:22 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 CHAR</dataTypeSize>
+<ownDataTypeParameters>200 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SPS_MODIFIED_ON" id="21B20201-794D-4B69-B380-CB4234814ABA">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>R_SHIPPINGSTATUS</sourceObjSchema>
+<sourceObjName>SPS_MODIFIED_ON</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:22 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SPS_MODIFIED_BY" id="D44B3046-5E5F-7026-9E93-994D93D49E2B">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>R_SHIPPINGSTATUS</sourceObjSchema>
+<sourceObjName>SPS_MODIFIED_BY</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:22 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 CHAR</dataTypeSize>
+<ownDataTypeParameters>200 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="D1572657-D22A-EDCB-2950-3FEE792050F7" name="SPS_PK">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>MT_EXCEL_GATEWAY</sourceObjSchema>
+<sourceObjName>SPS_PK</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:42 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="45322DF8-99F1-E504-33C5-EF147711C864"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3B0AF44F-E733-B4E7-8196-45BCE3BC0A19" name="SPS_UK">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>MT_EXCEL_GATEWAY</sourceObjSchema>
+<sourceObjName>SPS_UK</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:42 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E8F3B578-DB70-AB66-3DAB-CEE6E5031F1E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="07D00D78-1593-2E4F-367F-C8A653B7E170" schemaObject="C638272D-8D60-5239-3AE2-9FC75CF68502" name="SPS_PK">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>MT_EXCEL_GATEWAY</sourceObjSchema>
+<sourceObjName>SPS_PK</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:36 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="45322DF8-99F1-E504-33C5-EF147711C864"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9C0055B8-3916-2D62-9F05-B013BCCE0534" schemaObject="C638272D-8D60-5239-3AE2-9FC75CF68502" name="SPS_UK">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>MT_EXCEL_GATEWAY</sourceObjSchema>
+<sourceObjName>SPS_UK</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:36 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E8F3B578-DB70-AB66-3DAB-CEE6E5031F1E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

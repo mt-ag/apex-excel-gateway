@@ -5,7 +5,7 @@
 <sourceObjName>THV_TPH_FK</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:42 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <referredTableLongName>SURVEY_TOOL.TEMPLATE_HEADER</referredTableLongName>
 <deleteRule>NO ACTION</deleteRule>
 <referredTableID>3E383D27-E7DE-D441-C683-72DCFF3C468D</referredTableID>

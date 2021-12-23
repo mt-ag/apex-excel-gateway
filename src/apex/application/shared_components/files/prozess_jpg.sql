@@ -5,10 +5,10 @@ begin
 --   Manifest End
 wwv_flow_api.component_begin (
  p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.0'
+,p_release=>'21.1.6'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>288269999118260128
+,p_default_id_offset=>349023258543091759
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.g_varchar2_table := wwv_flow_api.empty_varchar2_table;
@@ -887,14 +887,14 @@ end;
 begin
 wwv_flow_api.component_begin (
  p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.0'
+,p_release=>'21.1.6'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>288269999118260128
+,p_default_id_offset=>349023258543091759
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_app_static_file(
- p_id=>wwv_flow_api.id(118446966874859112)
+ p_id=>wwv_flow_api.id(169823032243401016)
 ,p_file_name=>'prozess.jpg'
 ,p_mime_type=>'image/jpeg'
 ,p_file_charset=>'utf-8'

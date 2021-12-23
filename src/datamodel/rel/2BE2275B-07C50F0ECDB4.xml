@@ -1,0 +1,15 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<relationalModel class="oracle.dbtools.crest.model.design.relational.RelationalDesign" name="mt_excel_gateway" id="2BE2275B-103C-65C0-526F-07C50F0ECDB4" mainViewID="5FB6D49B-D657-D872-C085-FDFB0D55F3CA">
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:06 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+<selectedRDBMSSite>79C73AAF-E1A7-E669-7DF0-025EE81A2AFC</selectedRDBMSSite>
+<importConnectionStamps>
+<importConnectionStamp class="oracle.dbtools.crest.imports.DBConnectionStamp">
+<connName>mt_excel_gateway</connName>
+<connUser>mt_excel_gateway</connUser>
+<connType>1</connType>
+</importConnectionStamp>
+</importConnectionStamps>
+</relationalModel>

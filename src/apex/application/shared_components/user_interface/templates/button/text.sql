@@ -5,14 +5,14 @@ begin
 --   Manifest End
 wwv_flow_api.component_begin (
  p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.0'
+,p_release=>'21.1.6'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>288269999118260128
+,p_default_id_offset=>349023258543091759
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_button_templates(
- p_id=>wwv_flow_api.id(118275035866341885)
+ p_id=>wwv_flow_api.id(169994963251918243)
 ,p_template_name=>'Text'
 ,p_internal_name=>'TEXT'
 ,p_template=>'<button onclick="#JAVASCRIPT#" class="t-Button #BUTTON_CSS_CLASSES#" type="button" #BUTTON_ATTRIBUTES# id="#BUTTON_ID#"><span class="t-Button-label">#LABEL#</span></button>'

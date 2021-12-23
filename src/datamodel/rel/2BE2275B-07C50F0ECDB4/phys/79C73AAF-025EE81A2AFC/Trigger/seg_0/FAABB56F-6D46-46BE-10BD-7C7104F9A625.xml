@@ -1,0 +1,27 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TriggerOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TriggerOraclev10g" name="DDS_BIU_TRG" directorySegmentName="seg_0" id="FAABB56F-6D46-46BE-10BD-7C7104F9A625">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>MT_EXCEL_GATEWAY</sourceObjSchema>
+<sourceObjName>DDS_BIU_TRG</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:47 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<actions>INSERT, UPDATE</actions>
+<body><![CDATA[begin
+  if :new.dds_id is null
+  then
+    :new.dds_id := dds_seq.nextval;
+  end if;
+  if inserting
+  then
+    :new.dds_created_on  := sysdate;
+    :new.dds_created_by := coalesce(sys_context('APEX$SESSION','APP_USER'), user);
+  end if;
+  :new.dds_modified_on  := sysdate;
+  :new.dds_modified_by := coalesce(sys_context('APEX$SESSION','APP_USER'), user);
+end dds_biu_trg; 
+]]></body>
+<triggerTime>BEFORE</triggerTime>
+<owner>6474FE67-4AC6-8ED9-4E9B-F13E709333EB</owner>
+<table>52FED8D8-67A5-3FD2-3E12-C7BE412BDE21</table>
+</TriggerOraclev10g>

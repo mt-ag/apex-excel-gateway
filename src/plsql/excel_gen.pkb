@@ -3,7 +3,7 @@ as
 
   gc_scope_prefix constant varchar2(31) := lower($$plsql_unit) || '.';
   
-  -- get index of last excel column depending on number of 'abfragen'-columns
+  -- get index of last excel column depending on number of columns
   function getExcelColumnName(
     p_column_count pls_integer
   ) return varchar2
@@ -581,7 +581,7 @@ as
         -- get excel column name
         l_columnName := getExcelColumnName(rec.tph_sort_order);
 
-        -- add validation for first 100 rows (same as dropdowns)
+        -- add validation
         for i in 1..pi_number_of_rows
         loop
             xlsx_builder_pkg.add_validation (
@@ -603,7 +603,7 @@ as
         -- get excel column name
         l_columnName := getExcelColumnName(rec.tph_sort_order);
 
-        -- add validation for first 100 rows (same as dropdowns)
+        -- add validation
         if not pi_invalid then
           for i in 1..pi_number_of_rows
           loop
@@ -759,12 +759,14 @@ as
     l_sheetname             varchar2(200 char);
     l_filename              files.fil_filename%type;
     l_fil_id                files.fil_id%type;
+    l_tpl_ssp_id            r_templates.tpl_ssp_id%type;
+    l_ssp_hash_value        r_spreadsheet_protection.ssp_hash_value%type; 
+    l_ssp_salt_value        r_spreadsheet_protection.ssp_salt_value%type;
 
     l_sheet_num_main   pls_integer;
     l_sheet_num_hidden pls_integer;
 
     l_column_count pls_integer;
-    l_value varchar2(200);
     l_number_of_rows pls_integer;
   begin
     logger.append_param(l_params, 'pi_tis_id', pi_tis_id);
@@ -776,6 +778,9 @@ as
     logger.append_param(l_params, 'pi_invalid', pi_invalid);
     logger.log('START', l_scope, null, l_params);
 
+    -- get number of rows
+    l_number_of_rows := get_number_of_rows(pi_tpl_id);
+    
     if pi_invalid then    
       l_filename := pi_tpl_name || '_' || pi_per_firstname  || '_' || pi_per_lastname || '_correction';
     else
@@ -790,8 +795,39 @@ as
     -- initially clear workbook
     xlsx_builder_pkg.clear_workbook;
 
+    -- add sheets to workbook
     l_sheet_num_main   := xlsx_builder_pkg.new_sheet(l_sheetname);
     l_sheet_num_hidden := xlsx_builder_pkg.new_sheet('Dropdown Data', true);
+
+    -- add sheetprotction to workbook
+    select tpl_ssp_id 
+      into l_tpl_ssp_id
+      from r_templates
+     where tpl_id = pi_tpl_id; 
+
+    if l_tpl_ssp_id is not null then
+      select ssp_hash_value, ssp_salt_value
+        into l_ssp_hash_value, l_ssp_salt_value
+        from r_spreadsheet_protection
+       where ssp_id = l_tpl_ssp_id;
+
+      --determine number of editable columns
+      select count(distinct tph_sort_order)
+        into l_column_count
+        from template_header
+       where tph_tpl_id = pi_tpl_id; 
+
+      xlsx_builder_pkg.sheet_protection(p_ssp_hash_value => l_ssp_hash_value, 
+                                        p_ssp_salt_value => l_ssp_salt_value,
+                                        p_sheet          => l_sheet_num_main);
+
+      xlsx_builder_pkg.protected_range(p_name     => 'range1', 
+                                       p_tl_col   => 1,
+                                       p_tl_row   => gc_data_row, 
+                                       p_br_col   => l_column_count,
+                                       p_br_row   => gc_data_row+l_number_of_rows, 
+                                       p_sheet    => l_sheet_num_main);                                                             
+    end if;
 
     xlsx_builder_pkg.cell(
       p_col => 1
@@ -809,9 +845,6 @@ as
     , p_sheet => l_sheet_num_main
     );
 
-    -- get number of rows
-    l_number_of_rows := get_number_of_rows(pi_tpl_id);
-    
     generate_abfragen (
       pi_tpl_id    => pi_tpl_id
     , pi_sheet_num => l_sheet_num_main
@@ -853,8 +886,7 @@ as
     , pi_number_of_rows => l_number_of_rows
     );
 
-    -- generate blob file
-    l_blob := xlsx_builder_pkg.finish;
+    l_blob := xlsx_builder_pkg.finish();
 
     insert into files (
       fil_file

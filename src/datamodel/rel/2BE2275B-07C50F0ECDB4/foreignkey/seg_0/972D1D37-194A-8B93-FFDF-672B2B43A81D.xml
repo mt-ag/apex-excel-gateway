@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="972D1D37-194A-8B93-FFDF-672B2B43A81D" containerWithKeyObject="52FED8D8-67A5-3FD2-3E12-C7BE412BDE21" localFKIndex="CE78D9B5-B8B8-C668-617F-D193EA16553F" name="DDS_HEA_FK">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>MT_EXCEL_GATEWAY</sourceObjSchema>
+<sourceObjName>DDS_HEA_FK</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:51 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<referredTableLongName>MT_EXCEL_GATEWAY.R_HEADER</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>CFF4F9B5-99C1-518F-3252-9EA7FDF88BB5</referredTableID>
+<keyObject>EC9AB5B6-28CC-01D2-F0E4-3AB03E2C768B</keyObject>
+<referredKeyID>EC9AB5B6-28CC-01D2-F0E4-3AB03E2C768B</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>HEA_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

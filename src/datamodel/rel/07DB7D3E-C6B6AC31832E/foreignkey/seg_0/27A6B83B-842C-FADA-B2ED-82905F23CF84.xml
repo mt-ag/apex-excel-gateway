@@ -5,7 +5,7 @@
 <sourceObjName>TPH_UFE_FK</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:42 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <referredTableLongName>SURVEY_TOOL.R_TEMPLATES</referredTableLongName>
 <deleteRule>NO ACTION</deleteRule>
 <referredTableID>782288FD-B52D-7ED3-0A67-339F2B46FBDF</referredTableID>

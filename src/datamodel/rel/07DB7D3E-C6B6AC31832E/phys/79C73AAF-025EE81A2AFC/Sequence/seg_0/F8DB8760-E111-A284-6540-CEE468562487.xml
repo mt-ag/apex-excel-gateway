@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SequenceOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.SequenceOraclev10g" name="TID_ROW_SEQ" directorySegmentName="seg_0" id="F8DB8760-E111-A284-6540-CEE468562487">
+<sourceConnName>ATP - SURVEY TOOL</sourceConnName>
+<sourceObjSchema>SURVEY_TOOL</sourceObjSchema>
+<sourceObjName>TID_ROW_SEQ</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-08-09 15:08:52 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<incrementBy>1</incrementBy>
+<maxValue>9999999999999999999999999999</maxValue>
+<minValue>1</minValue>
+<noCache>YES</noCache>
+<user>6D96194D-184B-30BE-74BF-59D97801C65F</user>
+</SequenceOraclev10g>

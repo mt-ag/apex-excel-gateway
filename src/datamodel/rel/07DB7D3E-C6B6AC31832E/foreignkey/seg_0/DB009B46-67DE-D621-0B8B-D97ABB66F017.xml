@@ -5,7 +5,7 @@
 <sourceObjName>TIS_PER_FK</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:42 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <referredTableLongName>SURVEY_TOOL.R_PERSON</referredTableLongName>
 <deleteRule>NO ACTION</deleteRule>
 <referredTableID>2A4DB935-DE4B-4AC9-7A40-A590D61DE154</referredTableID>

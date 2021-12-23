@@ -1,0 +1,148 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="18DB2522-D549-F5CB-9986-EAB9AE268FB9" schemaObject="C638272D-8D60-5239-3AE2-9FC75CF68502" name="IMPORT_ERRORS">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>MT_EXCEL_GATEWAY</sourceObjSchema>
+<sourceObjName>IMPORT_ERRORS</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:11 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IER_ID" id="2FFD60C7-6443-D715-43BD-1D82BABE6DD8">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>IMPORT_ERRORS</sourceObjSchema>
+<sourceObjName>IER_ID</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:20 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<defaultValue>&quot;MT_EXCEL_GATEWAY&quot;.&quot;IER_SEQ&quot;.&quot;NEXTVAL&quot;</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<defaultOntNull>true</defaultOntNull>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>SYS_C00310209</notNullConstraintName>
+</Column>
+<Column name="IER_SESSION" id="B86DC9D2-B199-2C3F-B8DC-A51315A62877">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>IMPORT_ERRORS</sourceObjSchema>
+<sourceObjName>IER_SESSION</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:20 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>SYS_C00310210</notNullConstraintName>
+</Column>
+<Column name="IER_MESSAGE" id="88F7466E-0BD5-4EA6-113F-B078C3B6E346">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>IMPORT_ERRORS</sourceObjSchema>
+<sourceObjName>IER_MESSAGE</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:20 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1000 CHAR</dataTypeSize>
+<ownDataTypeParameters>1000 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>SYS_C00310211</notNullConstraintName>
+</Column>
+<Column name="IER_FILENAME" id="28681653-D1F9-D8A8-F2A3-DC4B0507ABFB">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>IMPORT_ERRORS</sourceObjSchema>
+<sourceObjName>IER_FILENAME</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:20 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 CHAR</dataTypeSize>
+<ownDataTypeParameters>200 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>SYS_C00310212</notNullConstraintName>
+</Column>
+<Column name="IER_ROW_ID" id="376E55AE-0032-A578-AEB2-8B4446950471">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>IMPORT_ERRORS</sourceObjSchema>
+<sourceObjName>IER_ROW_ID</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:20 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IER_HEADER" id="F4B5191E-2204-E1CF-5098-E6B8055B91CD">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>IMPORT_ERRORS</sourceObjSchema>
+<sourceObjName>IER_HEADER</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:20 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2000 CHAR</dataTypeSize>
+<ownDataTypeParameters>2000 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IER_TIMESTAMP" id="EB8B4007-BC30-8FA9-A535-8C7F7E69597E">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>IMPORT_ERRORS</sourceObjSchema>
+<sourceObjName>IER_TIMESTAMP</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:20 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<defaultValue>systimestamp</defaultValue>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="84B1552F-0C5C-B940-4F1C-D1755862E378" name="IER_PK">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>MT_EXCEL_GATEWAY</sourceObjSchema>
+<sourceObjName>IER_PK</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:41 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2FFD60C7-6443-D715-43BD-1D82BABE6DD8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5F9663BA-B7E6-3943-8099-9AE595BDB2EA" schemaObject="C638272D-8D60-5239-3AE2-9FC75CF68502" name="IER_PK">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>MT_EXCEL_GATEWAY</sourceObjSchema>
+<sourceObjName>IER_PK</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:36 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2FFD60C7-6443-D715-43BD-1D82BABE6DD8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

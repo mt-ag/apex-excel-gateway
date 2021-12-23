@@ -5,19 +5,20 @@ begin
 --   Manifest End
 wwv_flow_api.component_begin (
  p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.0'
+,p_release=>'21.1.6'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>288269999118260128
+,p_default_id_offset=>349023258543091759
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_install(
- p_id=>wwv_flow_api.id(72854742268623600)
+ p_id=>wwv_flow_api.id(215415256849636528)
 ,p_deinstall_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'PROMPT >> Packages',
 'drop package email_pkg;',
 'drop package excel_gen;',
 'drop package file_import;',
+'drop package master_api;',
 'drop package p00025_api;',
 'drop package p00027_api;',
 'drop package p00028_api;',
@@ -27,6 +28,8 @@ wwv_flow_api.create_install(
 'drop package p00041_api;',
 'drop package p00051_api;',
 'drop package p00060_api;',
+'drop package p00085_api;',
+'drop package p00090_api;',
 'drop package validation_api;',
 'drop package xlsx_builder_pkg;',
 'drop package zip_util_pkg;',
@@ -49,6 +52,8 @@ wwv_flow_api.create_install(
 'drop view p01011_vw;',
 'drop view p01012_vw;',
 'drop view p01013_vw;',
+'drop view p01014_vw;',
+'drop view p01015_vw;',
 '',
 'PROMPT >> Tables',
 'drop table template_import_data;',
@@ -64,6 +69,7 @@ wwv_flow_api.create_install(
 'drop table r_shippingstatus;',
 'drop table r_status;',
 'drop table r_validation;',
+'drop table r_spreadsheet_protection;',
 'drop table files;',
 'drop table import_errors;',
 '',
@@ -74,6 +80,7 @@ wwv_flow_api.create_install(
 'DROP SEQUENCE ier_seq;',
 'DROP SEQUENCE per_seq;',
 'DROP SEQUENCE sps_seq;',
+'DROP SEQUENCE ssp_seq;',
 'DROP SEQUENCE sts_seq;',
 'DROP SEQUENCE thg_seq;',
 'DROP SEQUENCE thv_seq;',

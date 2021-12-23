@@ -122,6 +122,18 @@ IS
    TYPE t_validations_tab IS TABLE OF t_validation_rec
       INDEX BY PLS_INTEGER;
 
+   TYPE t_protection_rec IS RECORD
+   (
+      vc_name               VARCHAR2 (200 CHAR),
+      vc_tl_col             VARCHAR2 (20 CHAR),
+      vc_tl_row             VARCHAR2 (20 CHAR), 
+      vc_br_col             VARCHAR2 (20 CHAR),
+      vc_br_row             VARCHAR2 (20 CHAR) 
+   );
+
+   TYPE t_protection_tab IS TABLE OF t_protection_rec
+      INDEX BY PLS_INTEGER;   
+
    TYPE t_sheet_rec IS RECORD
    (
       sheet_rows_tab    t_rows_tab,
@@ -136,7 +148,10 @@ IS
       comments_tab      t_comments_tab,
       mergecells_tab    t_mergecells_tab,
       validations_tab   t_validations_tab,
-      hidden            boolean
+      protection_tab    t_protection_tab,
+      hidden            boolean,
+      hash_value        VARCHAR2(200 CHAR),
+      salt_value        VARCHAR2(200 CHAR)
    );
 
    TYPE t_sheets_tab IS TABLE OF t_sheet_rec
@@ -363,6 +378,7 @@ IS
          workbook.sheets_tab (s).comments_tab.delete;
          workbook.sheets_tab (s).mergecells_tab.delete;
          workbook.sheets_tab (s).validations_tab.delete;
+         workbook.sheets_tab (s).protection_tab.delete;
       END LOOP;
 
       workbook.strings_tab.delete;
@@ -421,6 +437,36 @@ IS
 
       RETURN t_nr;
    END new_sheet;
+
+   PROCEDURE sheet_protection (p_ssp_hash_value VARCHAR2, 
+                               p_ssp_salt_value VARCHAR2,
+                               p_sheet          PLS_INTEGER)
+   AS
+      t_sheet   PLS_INTEGER;
+   BEGIN
+      t_sheet := get_sheet_id (p_sheet);
+      workbook.sheets_tab (t_sheet).hash_value := p_ssp_hash_value;
+      workbook.sheets_tab (t_sheet).salt_value := p_ssp_salt_value;
+   END sheet_protection;  
+
+   PROCEDURE protected_range (p_name      VARCHAR2,
+                              p_tl_col    PLS_INTEGER, -- top left
+                              p_tl_row    PLS_INTEGER, 
+                              p_br_col    PLS_INTEGER, -- bottom right
+                              p_br_row    PLS_INTEGER, 
+                              p_sheet     PLS_INTEGER)
+   AS                            
+      t_ind     PLS_INTEGER;
+      t_sheet   PLS_INTEGER;
+   BEGIN
+      t_sheet := get_sheet_id (p_sheet); 
+      t_ind := workbook.sheets_tab (t_sheet).protection_tab.COUNT + 1;
+      workbook.sheets_tab (t_sheet).protection_tab (t_ind).vc_name   := p_name;
+      workbook.sheets_tab (t_sheet).protection_tab (t_ind).vc_tl_col := alfan_col(p_tl_col);
+      workbook.sheets_tab (t_sheet).protection_tab (t_ind).vc_tl_row := to_char(p_tl_row);
+      workbook.sheets_tab (t_sheet).protection_tab (t_ind).vc_br_col := alfan_col(p_br_col);
+      workbook.sheets_tab (t_sheet).protection_tab (t_ind).vc_br_row := to_char(p_br_row); 
+   END protected_range;
 
    PROCEDURE set_col_width (p_sheet PLS_INTEGER, p_col PLS_INTEGER, p_format VARCHAR2)
    AS
@@ -1144,7 +1190,7 @@ IS
                     t_sheet - 1);
    END set_autofilter;
 
-   FUNCTION finish
+   FUNCTION finish 
       RETURN BLOB
    AS
       t_excel                      BLOB;
@@ -2007,6 +2053,47 @@ IS
             p_clob        => t_xxx,
             p_vc_buffer   => t_tmp,
             p_vc_addition => '</sheetData>');
+
+         IF workbook.sheets_tab (s).hash_value is not null and workbook.sheets_tab (s).salt_value is not null 
+         THEN     
+            clob_vc_concat(
+               p_clob        => t_xxx,
+               p_vc_buffer   => t_tmp,
+               p_vc_addition => '<sheetProtection sheet="1" algorithmName="SHA-512" hashValue="' 
+                              || workbook.sheets_tab (s).hash_value 
+                              || '" saltValue="' 
+                              || workbook.sheets_tab (s).salt_value 
+                              || '" spinCount="100000" objects="1" scenarios="1" />');
+         END IF;                                   
+
+         IF workbook.sheets_tab (s).protection_tab.COUNT > 0  
+         THEN    
+            clob_vc_concat(
+                  p_clob        => t_xxx,
+                  p_vc_buffer   => t_tmp,
+                  p_vc_addition => '<protectedRanges>');
+
+            FOR p in 1 .. workbook.sheets_tab (s).protection_tab.COUNT
+            LOOP
+               clob_vc_concat(
+                  p_clob        => t_xxx,
+                  p_vc_buffer   => t_tmp,
+                  p_vc_addition => '   <protectedRange sqref="' 
+                                 || workbook.sheets_tab (s).protection_tab (p).vc_tl_col
+                                 || workbook.sheets_tab (s).protection_tab (p).vc_tl_row 
+                                 || ':' 
+                                 || workbook.sheets_tab (s).protection_tab (p).vc_br_col 
+                                 || workbook.sheets_tab (s).protection_tab (p).vc_br_row 
+                                 || '" name="'
+                                 || workbook.sheets_tab (s).protection_tab (p).vc_name
+                                 || '" />');
+            END LOOP;  
+
+            clob_vc_concat(
+                  p_clob        => t_xxx,
+                  p_vc_buffer   => t_tmp,
+                  p_vc_addition => '</protectedRanges>');                   
+         END IF;   
 
          FOR a IN 1 .. workbook.sheets_tab (s).autofilters_tab.COUNT
          LOOP

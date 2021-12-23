@@ -5,7 +5,7 @@
 <sourceObjName>HEA_VAL_FK</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:42 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <referredTableLongName>SURVEY_TOOL.R_VALIDATION</referredTableLongName>
 <deleteRule>NO ACTION</deleteRule>
 <referredTableID>E020A69D-5DA8-5BAE-D3DE-C8156F3E7D12</referredTableID>

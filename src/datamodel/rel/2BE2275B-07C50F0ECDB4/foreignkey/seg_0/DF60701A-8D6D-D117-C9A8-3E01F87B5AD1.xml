@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="DF60701A-8D6D-D117-C9A8-3E01F87B5AD1" containerWithKeyObject="812E73CE-A58C-E4A4-F6CE-304E66B4191C" localFKIndex="C988731B-C200-ABCE-1C66-8003940575AB" name="TPH_THG_FK">
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:14:22 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<referredTableLongName>MT_EXCEL_GATEWAY.TEMPLATE_HEADER_GROUP</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>6875AC58-259C-EC64-A9A4-291C16C744BF</referredTableID>
+<keyObject>64A52FF6-7B04-6E3C-6E5B-DE026591F2D2</keyObject>
+<referredKeyID>64A52FF6-7B04-6E3C-6E5B-DE026591F2D2</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>THG_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

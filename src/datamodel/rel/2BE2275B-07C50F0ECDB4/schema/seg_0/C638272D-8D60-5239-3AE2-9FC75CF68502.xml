@@ -1,0 +1,6 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SchemaObject class="oracle.dbtools.crest.model.design.relational.SchemaObject" name="MT_EXCEL_GATEWAY" directorySegmentName="seg_0" id="C638272D-8D60-5239-3AE2-9FC75CF68502">
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:08 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+</SchemaObject>

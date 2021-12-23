@@ -22,6 +22,8 @@ PROMPT >> Installing Package Specifications
 @plsql/p00041_api.pks
 @plsql/p00051_api.pks
 @plsql/p00060_api.pks
+@plsql/p00085_api.pks
+@plsql/p00090_api.pks
 @plsql/validation_api.pks
 @plsql/xlsx_builder_pkg.pks
 @plsql/zip_util_pkg.pks
@@ -44,6 +46,8 @@ PROMPT >> Installing Views
 @views/p01011_vw.sql
 @views/p01012_vw.sql
 @views/p01013_vw.sql
+@views/p01014_vw.sql
+@views/p01015_vw.sql
 
 PROMPT >> Installing Package Bodies
 @plsql/email_pkg.pkb
@@ -59,6 +63,8 @@ PROMPT >> Installing Package Bodies
 @plsql/p00041_api.pkb
 @plsql/p00051_api.pkb
 @plsql/p00060_api.pkb
+@plsql/p00085_api.pkb
+@plsql/p00090_api.pkb
 @plsql/validation_api.pkb
 @plsql/xlsx_builder_pkg.pkb
 @plsql/zip_util_pkg.pkb

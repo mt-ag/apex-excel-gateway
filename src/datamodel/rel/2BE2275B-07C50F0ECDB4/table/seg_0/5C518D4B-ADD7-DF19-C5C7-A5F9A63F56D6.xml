@@ -1,0 +1,164 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5C518D4B-ADD7-DF19-C5C7-A5F9A63F56D6" schemaObject="C638272D-8D60-5239-3AE2-9FC75CF68502" name="R_PERSON">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>MT_EXCEL_GATEWAY</sourceObjSchema>
+<sourceObjName>R_PERSON</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:11 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="PER_ID" id="C4F4BB45-8E09-FA8A-6FC5-BFF222EBD4D2">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>R_PERSON</sourceObjSchema>
+<sourceObjName>PER_ID</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:21 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<defaultValue>&quot;MT_EXCEL_GATEWAY&quot;.&quot;PER_SEQ&quot;.&quot;NEXTVAL&quot;</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<defaultOntNull>true</defaultOntNull>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>SYS_C00310224</notNullConstraintName>
+</Column>
+<Column name="PER_EMAIL" id="391D8684-9780-AD93-93FD-404EA1A36853">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>R_PERSON</sourceObjSchema>
+<sourceObjName>PER_EMAIL</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:21 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 CHAR</dataTypeSize>
+<ownDataTypeParameters>200 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>SYS_C00310225</notNullConstraintName>
+</Column>
+<Column name="PER_FIRSTNAME" id="E1013A73-C8B6-C6D2-1A8D-DCED32577B13">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>R_PERSON</sourceObjSchema>
+<sourceObjName>PER_FIRSTNAME</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:22 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 CHAR</dataTypeSize>
+<ownDataTypeParameters>200 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PER_LASTNAME" id="9E2F5524-23A8-1E12-402B-FF05E85E89AD">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>R_PERSON</sourceObjSchema>
+<sourceObjName>PER_LASTNAME</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:22 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 CHAR</dataTypeSize>
+<ownDataTypeParameters>200 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PER_CREATED_ON" id="7DA6A932-8CC7-C617-E930-450FE89E3F2E">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>R_PERSON</sourceObjSchema>
+<sourceObjName>PER_CREATED_ON</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:22 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PER_CREATED_BY" id="3D44740E-CB94-9A85-2D01-AA0D7C783576">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>R_PERSON</sourceObjSchema>
+<sourceObjName>PER_CREATED_BY</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:22 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 CHAR</dataTypeSize>
+<ownDataTypeParameters>200 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PER_MODIFIED_ON" id="704378F1-D5FB-7A35-33A8-A800E4690734">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>R_PERSON</sourceObjSchema>
+<sourceObjName>PER_MODIFIED_ON</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:22 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PER_MODIFIED_BY" id="F0878F92-0543-FC91-67CE-99628F75D830">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>R_PERSON</sourceObjSchema>
+<sourceObjName>PER_MODIFIED_BY</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:22 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 CHAR</dataTypeSize>
+<ownDataTypeParameters>200 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="8051669E-9965-3B74-E488-61A1CFD038D2" name="PER_PK">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>MT_EXCEL_GATEWAY</sourceObjSchema>
+<sourceObjName>PER_PK</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:42 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C4F4BB45-8E09-FA8A-6FC5-BFF222EBD4D2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8E34B5DB-C724-F80A-E78D-09989428616C" schemaObject="C638272D-8D60-5239-3AE2-9FC75CF68502" name="PER_PK">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>MT_EXCEL_GATEWAY</sourceObjSchema>
+<sourceObjName>PER_PK</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:36 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C4F4BB45-8E09-FA8A-6FC5-BFF222EBD4D2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

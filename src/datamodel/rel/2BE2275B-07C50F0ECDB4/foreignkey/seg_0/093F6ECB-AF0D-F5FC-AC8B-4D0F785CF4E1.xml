@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="093F6ECB-AF0D-F5FC-AC8B-4D0F785CF4E1" containerWithKeyObject="552711C2-5776-814E-39CD-F98F7F00546E" localFKIndex="DCB11A6C-AAD2-A5E8-3839-2581C61AABD9" name="TIS_SPS_FK">
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:12:19 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<referredTableLongName>MT_EXCEL_GATEWAY.R_SHIPPINGSTATUS</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>9780A851-D05A-76AD-B558-233AC80C9CBF</referredTableID>
+<keyObject>D1572657-D22A-EDCB-2950-3FEE792050F7</keyObject>
+<referredKeyID>D1572657-D22A-EDCB-2950-3FEE792050F7</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>SPS_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

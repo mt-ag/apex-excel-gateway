@@ -5,7 +5,7 @@
 <sourceObjName>TEMPLATE_HEADER_VALIDATIONS</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:20 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
@@ -16,7 +16,7 @@
 <sourceObjName>THV_ID</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:25 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
@@ -31,7 +31,7 @@
 <sourceObjName>THV_TPH_ID</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:25 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
@@ -47,7 +47,7 @@
 <sourceObjName>THV_FORMULA1</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:25 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -62,7 +62,7 @@
 <sourceObjName>THV_FORMULA2</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:26 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -77,7 +77,7 @@
 <sourceObjName>THV_CREATED_ON</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:26 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -92,7 +92,7 @@
 <sourceObjName>THV_CREATED_BY</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:26 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -107,7 +107,7 @@
 <sourceObjName>THV_MODIFIED_ON</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:26 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -122,7 +122,7 @@
 <sourceObjName>THV_MODIFIED_BY</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:26 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -139,7 +139,7 @@
 <sourceObjName>THV_PK</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:38 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <pk>true</pk>
 <indexState>Primary Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
@@ -153,7 +153,7 @@
 <sourceObjName>THV_UK</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:38 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <indexState>Unique Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
@@ -166,7 +166,7 @@
 <sourceObjName>THV_PK</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:29 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <indexState>Unique Plain Index</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
@@ -179,7 +179,7 @@
 <sourceObjName>THV_UK</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:29 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <indexState>Unique Plain Index</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
@@ -189,7 +189,7 @@
 <ind_PK_UK id="B0A78F4C-B9CF-1C14-5327-084F101BAD33" name="THV_TPH_FK">
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:42 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>

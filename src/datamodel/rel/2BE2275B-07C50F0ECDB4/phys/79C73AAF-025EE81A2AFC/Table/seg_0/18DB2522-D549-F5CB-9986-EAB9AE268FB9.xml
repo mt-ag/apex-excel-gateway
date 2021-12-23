@@ -1,0 +1,77 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="IMPORT_ERRORS" directorySegmentName="seg_0" id="18DB2522-D549-F5CB-9986-EAB9AE268FB9">
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:11 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<schemaObject>C638272D-8D60-5239-3AE2-9FC75CF68502</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>65BC1641-EC1B-1C1F-3E58-13008E190804</segment>
+<tableSpace>9D9FFED1-C56C-F92D-4C11-D363E4608295</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="IER_FILENAME" id="28681653-D1F9-D8A8-F2A3-DC4B0507ABFB">
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:20 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="IER_ID" id="2FFD60C7-6443-D715-43BD-1D82BABE6DD8">
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:20 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<defaultValue>&quot;MT_EXCEL_GATEWAY&quot;.&quot;IER_SEQ&quot;.&quot;NEXTVAL&quot;</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="IER_ROW_ID" id="376E55AE-0032-A578-AEB2-8B4446950471">
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:20 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="IER_MESSAGE" id="88F7466E-0BD5-4EA6-113F-B078C3B6E346">
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:20 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="IER_SESSION" id="B86DC9D2-B199-2C3F-B8DC-A51315A62877">
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:20 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="IER_TIMESTAMP" id="EB8B4007-BC30-8FA9-A535-8C7F7E69597E">
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:20 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<defaultValue>systimestamp</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="IER_HEADER" id="F4B5191E-2204-E1CF-5098-E6B8055B91CD">
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:20 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="IER_PK" id="5F9663BA-B7E6-3943-8099-9AE595BDB2EA">
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:36 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<schemaObject>C638272D-8D60-5239-3AE2-9FC75CF68502</schemaObject>
+<segment>D7881BD5-48A5-B417-CF2A-BAB45F22ADEA</segment>
+<tableSpace>9D9FFED1-C56C-F92D-4C11-D363E4608295</tableSpace>
+</IndexProxy>
+</indexProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="IER_PK" id="84B1552F-0C5C-B940-4F1C-D1755862E378">
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:41 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<segment>D7881BD5-48A5-B417-CF2A-BAB45F22ADEA</segment>
+<tableSpace>9D9FFED1-C56C-F92D-4C11-D363E4608295</tableSpace>
+<existingIndex>5F9663BA-B7E6-3943-8099-9AE595BDB2EA</existingIndex>
+<indexSegment>D7881BD5-48A5-B417-CF2A-BAB45F22ADEA</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

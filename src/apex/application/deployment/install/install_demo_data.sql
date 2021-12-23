@@ -5,15 +5,15 @@ begin
 --   Manifest End
 wwv_flow_api.component_begin (
  p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.0'
+,p_release=>'21.1.6'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>288269999118260128
+,p_default_id_offset=>349023258543091759
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_install_script(
- p_id=>wwv_flow_api.id(73801478690756240)
-,p_install_id=>wwv_flow_api.id(72854742268623600)
+ p_id=>wwv_flow_api.id(214468520427503888)
+,p_install_id=>wwv_flow_api.id(215415256849636528)
 ,p_name=>'Demo Data'
 ,p_sequence=>50
 ,p_script_type=>'INSTALL'
@@ -52,6 +52,12 @@ wwv_flow_api.create_install_script(
 '    Insert into R_HEADER (HEA_ID,HEA_TEXT,HEA_XLSX_WIDTH) values (9997, ''Feedback'',30);',
 '    Insert into R_HEADER (HEA_ID,HEA_TEXT,HEA_XLSX_WIDTH) values (9996, ''Validation'',30);',
 '',
+'    insert into R_SPREADSHEET_PROTECTION (SSP_ID, SSP_NAME, SSP_HASH_VALUE, SSP_SALT_VALUE) values (1, ''123456789'',''8iHBgLIC97Au3CDdw/oYQX07iWVg30QWo3nmKaMOYrKh47ARgSpYjKYTsd0ErsssgwzJasEMTZh6xAMObOeeXQ=='',''C1IMfur0TN4SftZeBFaI5Q=='');',
+'    insert into R_SPREADSHEET_PROTECTION (SSP_ID, SSP_NAME, SSP_HASH_VALUE, SSP_SALT_VALUE) values (2, ''test1234'',''hL0io79fiw5oT9/0OLZk1Giyqa7bOFmrkZpRyzPJ3dmZwxWk5APFN9b6+9qbINMr7nieD8eGN2EQGhAO741JSQ=='',''JYTsRiJ8/wdybt7h2duqfw=='');',
+'    insert into R_SPREADSHEET_PROTECTION (SSP_ID, SSP_NAME, SSP_HASH_VALUE, SSP_SALT_VALUE) values (3, ''r8Lg2PFJ'',''DigB67i3B9VLWFymQwrUN/MStt5eEjjhhpvFh6QBXVE4yk4nYyU7zaGlZXBGy6+oOKdlWbXI494wQnEbO3x/0Q=='',''gyIQHGPlg9oGlasgSJMbqw=='');',
+'    insert into R_SPREADSHEET_PROTECTION (SSP_ID, SSP_NAME, SSP_HASH_VALUE, SSP_SALT_VALUE) values (4, ''wIDE54rQ'',''yqWKZUIeGhVrcT8ggiIJPjPnmm9GPsthHcZFPetUaq3/f58EegmKdq25rcNtcnYlpr5YlMowYXJJarhizEyKiw=='',''o21j6mngxk6fQ4pMAphGhg=='');',
+'    insert into R_SPREADSHEET_PROTECTION (SSP_ID, SSP_NAME, SSP_HASH_VALUE, SSP_SALT_VALUE) values (5, ''9ST3GToO'',''q+soYtftPWrdk9TrCI/MQfIrW1nE45ia/J4jvJ/REpKYJcm/6iroyunS1/1CUUe3zuq1VCMH8ceNX8Ram2XkqQ=='',''66xz2bvBgHUNyLVldlBFuQ=='');',
+'',
 '    -- Add Demo Template (Employee List)',
 '    Insert into R_HEADER (HEA_ID,HEA_TEXT,HEA_XLSX_WIDTH,HEA_VAL_ID) values (''1'',''Name'',''30'',null);',
 '    Insert into R_HEADER (HEA_ID,HEA_TEXT,HEA_XLSX_WIDTH,HEA_VAL_ID) values (''2'',''Fist name'',''30'',null);',
@@ -70,7 +76,7 @@ wwv_flow_api.create_install_script(
 '    Insert into R_DROPDOWNS (DDS_HEA_ID,DDS_TEXT) values (''5'',''President'');',
 '    Insert into R_DROPDOWNS (DDS_HEA_ID,DDS_TEXT) values (''5'',''Salesman'');',
 '',
-'    Insert into R_TEMPLATES (TPL_ID,TPL_NAME,TPL_DEADLINE,TPL_NUMBER_OF_ROWS) values (''1'',''Employee List (Demo)'',''14'',''50'');',
+'    Insert into R_TEMPLATES (TPL_ID,TPL_NAME,TPL_DEADLINE,TPL_NUMBER_OF_ROWS,TPL_SSP_ID) values (''1'',''Employee List (Demo)'',''14'',''100'',''1'');',
 '',
 '    Insert into TEMPLATE_AUTOMATIONS (TPA_TPL_ID,TPA_DAYS,TPA_ENABLED) values (''1'',null,''0'');',
 '',
@@ -97,6 +103,15 @@ wwv_flow_api.create_install_script(
 '    end if;',
 '    select sps_seq.nextval into l_num from DUAL;',
 '    execute immediate ''alter sequence sps_seq increment by 1 '';',
+'',
+'    select max(ssp_id)+1 into nextnum from R_SPREADSHEET_PROTECTION;',
+'    select ssp_seq.nextval into l_num from DUAL;   ',
+'    if (nextnum - l_num - 1) != 0',
+'     then',
+'        execute immediate ''ALTER SEQUENCE ssp_seq INCREMENT BY ''|| (nextnum - l_num - 1) ||'' minvalue 0''; ',
+'    end if;',
+'    select ssp_seq.nextval into l_num from DUAL;',
+'    execute immediate ''alter sequence ssp_seq increment by 1 '';',
 '    ',
 '    select max(sts_id)+1 into nextnum from R_STATUS;',
 '    select sts_seq.nextval into l_num from DUAL;  ',

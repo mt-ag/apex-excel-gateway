@@ -5,15 +5,15 @@ begin
 --   Manifest End
 wwv_flow_api.component_begin (
  p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.0'
+,p_release=>'21.1.6'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>288269999118260128
+,p_default_id_offset=>349023258543091759
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_install_script(
- p_id=>wwv_flow_api.id(73417439482136185)
-,p_install_id=>wwv_flow_api.id(72854742268623600)
+ p_id=>wwv_flow_api.id(214852559636123943)
+,p_install_id=>wwv_flow_api.id(215415256849636528)
 ,p_name=>'Views'
 ,p_sequence=>30
 ,p_script_type=>'INSTALL'
@@ -186,12 +186,13 @@ wwv_flow_api.create_install_script(
 '    r_status;',
 '/',
 '',
-'CREATE OR REPLACE FORCE VIEW "P01008_VW" ("TPL_ID", "TPL_NAME", "TPL_DEADLINE", "TPL_NUMBER_OF_ROWS", "TPL_CREATED_ON", "TPL_CREATED_BY", "TPL_MODIFIED_ON", "TPL_MODIFIED_BY") AS ',
+'CREATE OR REPLACE FORCE VIEW "P01008_VW" ("TPL_ID", "TPL_NAME", "TPL_DEADLINE", "TPL_NUMBER_OF_ROWS", "TPL_SSP_ID", "TPL_CREATED_ON", "TPL_CREATED_BY", "TPL_MODIFIED_ON", "TPL_MODIFIED_BY") AS ',
 '  SELECT',
 '    tpl_id,',
 '    tpl_name,',
 '    tpl_deadline,',
 '    tpl_number_of_rows,',
+'    tpl_ssp_id,',
 '    tpl_created_on,',
 '    tpl_created_by,',
 '    tpl_modified_on,',
@@ -285,6 +286,20 @@ wwv_flow_api.create_install_script(
 '    tpa_modified_by',
 'FROM ',
 '    template_automations;',
+'/',
+'',
+'CREATE OR REPLACE FORCE VIEW "P01015_VW" ("SSP_ID","SSP_NAME","SSP_HASH_VALUE","SSP_SALT_VALUE","SSP_CREATED_ON","SSP_CREATED_BY","SSP_MODIFIED_ON","SSP_MODIFIED_BY") AS ',
+'SELECT ',
+'    ssp_id,',
+'    ssp_name,',
+'    ssp_hash_value,',
+'    ssp_salt_value,',
+'    ssp_created_on,',
+'    ssp_created_by,',
+'    ssp_modified_on,',
+'    ssp_modified_by',
+'FROM',
+'    r_spreadsheet_protection;',
 '/'))
 );
 wwv_flow_api.component_end;

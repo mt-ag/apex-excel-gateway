@@ -5,14 +5,14 @@ begin
 --   Manifest End
 wwv_flow_api.component_begin (
  p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.0'
+,p_release=>'21.1.6'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>288269999118260128
+,p_default_id_offset=>349023258543091759
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_automation(
- p_id=>wwv_flow_api.id(133902626700069273)
+ p_id=>wwv_flow_api.id(154367372418190855)
 ,p_name=>'Send New Templates'
 ,p_static_id=>'send-new-templates'
 ,p_trigger_type=>'POLLING'
@@ -50,8 +50,8 @@ wwv_flow_api.create_automation(
 ,p_error_handling_type=>'IGNORE'
 );
 wwv_flow_api.create_automation_action(
- p_id=>wwv_flow_api.id(133902906039069296)
-,p_automation_id=>wwv_flow_api.id(133902626700069273)
+ p_id=>wwv_flow_api.id(154367093079190832)
+,p_automation_id=>wwv_flow_api.id(154367372418190855)
 ,p_name=>'New Action'
 ,p_execution_sequence=>10
 ,p_action_type=>'NATIVE_PLSQL'

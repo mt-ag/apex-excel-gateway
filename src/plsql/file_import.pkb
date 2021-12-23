@@ -352,7 +352,6 @@ as
 
     l_error_occurred        boolean := false; 
 
-    l_line_number_count     number; 
     l_insert_count          pls_integer := 1; 
     l_update_count          pls_integer := 1; 
     l_column_count          pls_integer := 1; 
@@ -381,22 +380,6 @@ as
         ) 
       )
       where line_number = excel_gen.gc_header_row;    
-
-    select count(line_number)
-      into l_line_number_count
-      from table ( 
-        apex_data_parser.parse ( 
-          p_content         => (select fil_file from files where fil_id = pi_fil_id) 
-        , p_add_headers_row => 'N' 
-        , p_xlsx_sheet_name => 'sheet1.xml' 
-        , p_max_rows        => 500 
-        , p_file_name       => pi_filename 
-        ) 
-      )
-      where not (line_number > excel_gen.gc_header_row and
-    col001 || col002 || col003 || col004 || col005 || col006 || col007 || col008 || col009 || col010 || col011 || col012 || col013 || col014 || col015 || 
-    col016 || col017 || col018 || col019 || col020 || col021 || col022 || col023 || col024 || col025 || col026 || col027 || col028 || col029 || col030 || 
-    col031 || col032 || col033 || col034 || col035 || col036 || col037 || col038 || col039 || col040 || col041 || col042 || col043 || col044 || col045 is null); 
 
     select listagg(tph_sort_order, ':') within group (order by tph_sort_order)  
       into l_column   

@@ -2,7 +2,7 @@
 <UserOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UserOraclev10g" name="PUBLIC" directorySegmentName="seg_0" id="PUBLIC">
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:16 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <nullInstance>true</nullInstance>
 <storableNullInstance>true</storableNullInstance>
 </UserOraclev10g>

@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="27D0EE01-6832-9D08-291F-97E8C662FA36" containerWithKeyObject="552711C2-5776-814E-39CD-F98F7F00546E" localFKIndex="31BB4410-C889-E605-3845-1686AB04AE2C" name="TIS_STS_FK">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>MT_EXCEL_GATEWAY</sourceObjSchema>
+<sourceObjName>TIS_STS_FK</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:51 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<referredTableLongName>MT_EXCEL_GATEWAY.R_STATUS</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>B0ECB33C-FBCA-9894-5D8B-02CB9BC61DCC</referredTableID>
+<keyObject>E24BE875-7073-15FA-9B71-56351FD08395</keyObject>
+<referredKeyID>E24BE875-7073-15FA-9B71-56351FD08395</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>STS_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

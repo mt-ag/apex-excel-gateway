@@ -2,7 +2,7 @@
 <StructuredType class="oracle.dbtools.crest.model.design.datatypes.StructuredType" name="SDO_GEOMETRY" directorySegmentName="seg_0" id="47E390DE-0671-C4B1-8428-0F45CBEE18F8">
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:13:16 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <visible>false</visible>
 <predefined>true</predefined>
 <final>false</final>

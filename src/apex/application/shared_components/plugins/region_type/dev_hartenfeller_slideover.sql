@@ -5,14 +5,14 @@ begin
 --   Manifest End
 wwv_flow_api.component_begin (
  p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.0'
+,p_release=>'21.1.6'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>288269999118260128
+,p_default_id_offset=>349023258543091759
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_plugin(
- p_id=>wwv_flow_api.id(6481473541612643358)
+ p_id=>wwv_flow_api.id(6193203542494383230)
 ,p_plugin_type=>'REGION TYPE'
 ,p_name=>'DEV.HARTENFELLER.SLIDEOVER'
 ,p_display_name=>'Slideover'
@@ -85,8 +85,8 @@ wwv_flow_api.create_plugin(
 ,p_files_version=>71
 );
 wwv_flow_api.create_plugin_attribute(
- p_id=>wwv_flow_api.id(6481585857719084192)
-,p_plugin_id=>wwv_flow_api.id(6481473541612643358)
+ p_id=>wwv_flow_api.id(6193315858600824064)
+,p_plugin_id=>wwv_flow_api.id(6193203542494383230)
 ,p_attribute_scope=>'COMPONENT'
 ,p_attribute_sequence=>1
 ,p_display_sequence=>10
@@ -98,8 +98,8 @@ wwv_flow_api.create_plugin_attribute(
 ,p_help_text=>'Title of the slideover next to the close button. Keep empty for none.'
 );
 wwv_flow_api.create_plugin_attribute(
- p_id=>wwv_flow_api.id(6481587489946123168)
-,p_plugin_id=>wwv_flow_api.id(6481473541612643358)
+ p_id=>wwv_flow_api.id(6193317490827863040)
+,p_plugin_id=>wwv_flow_api.id(6193203542494383230)
 ,p_attribute_scope=>'COMPONENT'
 ,p_attribute_sequence=>2
 ,p_display_sequence=>20
@@ -112,8 +112,8 @@ wwv_flow_api.create_plugin_attribute(
 ,p_help_text=>'Width of the slideover. Use css width units.'
 );
 wwv_flow_api.create_plugin_attribute(
- p_id=>wwv_flow_api.id(6481874904464567107)
-,p_plugin_id=>wwv_flow_api.id(6481473541612643358)
+ p_id=>wwv_flow_api.id(6193604905346306979)
+,p_plugin_id=>wwv_flow_api.id(6193203542494383230)
 ,p_attribute_scope=>'COMPONENT'
 ,p_attribute_sequence=>3
 ,p_display_sequence=>30
@@ -126,16 +126,16 @@ wwv_flow_api.create_plugin_attribute(
 ,p_help_text=>'Side where the slideover comes from.'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(6481875578402568303)
-,p_plugin_attribute_id=>wwv_flow_api.id(6481874904464567107)
+ p_id=>wwv_flow_api.id(6193605579284308175)
+,p_plugin_attribute_id=>wwv_flow_api.id(6193604905346306979)
 ,p_display_sequence=>10
 ,p_display_value=>'Right'
 ,p_return_value=>'right'
 ,p_is_quick_pick=>true
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(6481875925786568893)
-,p_plugin_attribute_id=>wwv_flow_api.id(6481874904464567107)
+ p_id=>wwv_flow_api.id(6193605926668308765)
+,p_plugin_attribute_id=>wwv_flow_api.id(6193604905346306979)
 ,p_display_sequence=>20
 ,p_display_value=>'Left'
 ,p_return_value=>'left'
@@ -147,10 +147,10 @@ end;
 begin
 wwv_flow_api.component_begin (
  p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.0'
+,p_release=>'21.1.6'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>288269999118260128
+,p_default_id_offset=>349023258543091759
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.g_varchar2_table := wwv_flow_api.empty_varchar2_table;
@@ -493,15 +493,15 @@ end;
 begin
 wwv_flow_api.component_begin (
  p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.0'
+,p_release=>'21.1.6'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>288269999118260128
+,p_default_id_offset=>349023258543091759
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_plugin_file(
- p_id=>wwv_flow_api.id(6481573499645669356)
-,p_plugin_id=>wwv_flow_api.id(6481473541612643358)
+ p_id=>wwv_flow_api.id(6193303500527409228)
+,p_plugin_id=>wwv_flow_api.id(6193203542494383230)
 ,p_file_name=>'js/index.min.js'
 ,p_mime_type=>'text/javascript'
 ,p_file_charset=>'utf-8'
@@ -513,10 +513,10 @@ end;
 begin
 wwv_flow_api.component_begin (
  p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.0'
+,p_release=>'21.1.6'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>288269999118260128
+,p_default_id_offset=>349023258543091759
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.g_varchar2_table := wwv_flow_api.empty_varchar2_table;
@@ -1009,15 +1009,15 @@ end;
 begin
 wwv_flow_api.component_begin (
  p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.0'
+,p_release=>'21.1.6'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>288269999118260128
+,p_default_id_offset=>349023258543091759
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_plugin_file(
- p_id=>wwv_flow_api.id(6481573860282669368)
-,p_plugin_id=>wwv_flow_api.id(6481473541612643358)
+ p_id=>wwv_flow_api.id(6193303861164409240)
+,p_plugin_id=>wwv_flow_api.id(6193203542494383230)
 ,p_file_name=>'js/index.js'
 ,p_mime_type=>'text/javascript'
 ,p_file_charset=>'utf-8'
@@ -1029,10 +1029,10 @@ end;
 begin
 wwv_flow_api.component_begin (
  p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.0'
+,p_release=>'21.1.6'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>288269999118260128
+,p_default_id_offset=>349023258543091759
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.g_varchar2_table := wwv_flow_api.empty_varchar2_table;
@@ -1045,15 +1045,15 @@ end;
 begin
 wwv_flow_api.component_begin (
  p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.0'
+,p_release=>'21.1.6'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>288269999118260128
+,p_default_id_offset=>349023258543091759
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_plugin_file(
- p_id=>wwv_flow_api.id(6481874176120545652)
-,p_plugin_id=>wwv_flow_api.id(6481473541612643358)
+ p_id=>wwv_flow_api.id(6193604177002285524)
+,p_plugin_id=>wwv_flow_api.id(6193203542494383230)
 ,p_file_name=>'js/index.min.js.LICENSE.txt'
 ,p_mime_type=>'text/plain'
 ,p_file_charset=>'utf-8'

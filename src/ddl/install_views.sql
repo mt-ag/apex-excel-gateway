@@ -165,12 +165,13 @@ FROM
     r_status;
 /
 
-CREATE OR REPLACE FORCE VIEW "P01008_VW" ("TPL_ID", "TPL_NAME", "TPL_DEADLINE", "TPL_NUMBER_OF_ROWS", "TPL_CREATED_ON", "TPL_CREATED_BY", "TPL_MODIFIED_ON", "TPL_MODIFIED_BY") AS 
+CREATE OR REPLACE FORCE VIEW "P01008_VW" ("TPL_ID", "TPL_NAME", "TPL_DEADLINE", "TPL_NUMBER_OF_ROWS", "TPL_SSP_ID", "TPL_CREATED_ON", "TPL_CREATED_BY", "TPL_MODIFIED_ON", "TPL_MODIFIED_BY") AS 
   SELECT
     tpl_id,
     tpl_name,
     tpl_deadline,
     tpl_number_of_rows,
+    tpl_ssp_id,
     tpl_created_on,
     tpl_created_by,
     tpl_modified_on,
@@ -264,4 +265,18 @@ SELECT
     tpa_modified_by
 FROM 
     template_automations;
+/
+
+CREATE OR REPLACE FORCE VIEW "P01015_VW" ("SSP_ID","SSP_NAME","SSP_HASH_VALUE","SSP_SALT_VALUE","SSP_CREATED_ON","SSP_CREATED_BY","SSP_MODIFIED_ON","SSP_MODIFIED_BY") AS 
+SELECT 
+    ssp_id,
+    ssp_name,
+    ssp_hash_value,
+    ssp_salt_value,
+    ssp_created_on,
+    ssp_created_by,
+    ssp_modified_on,
+    ssp_modified_by
+FROM
+    r_spreadsheet_protection;
 /

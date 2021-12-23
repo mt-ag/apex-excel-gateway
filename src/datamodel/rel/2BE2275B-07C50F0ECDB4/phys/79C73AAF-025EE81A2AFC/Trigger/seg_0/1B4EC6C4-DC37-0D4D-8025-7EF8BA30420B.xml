@@ -1,0 +1,27 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TriggerOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TriggerOraclev10g" name="THG_BIU_TRG" directorySegmentName="seg_0" id="1B4EC6C4-DC37-0D4D-8025-7EF8BA30420B">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>MT_EXCEL_GATEWAY</sourceObjSchema>
+<sourceObjName>THG_BIU_TRG</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:48 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<actions>INSERT, UPDATE</actions>
+<body><![CDATA[begin
+  if :new.thg_id is null
+  then
+    :new.thg_id := thg_seq.nextval;
+  end if;
+  if inserting
+  then
+    :new.thg_created_on  := sysdate;
+    :new.thg_created_by := coalesce(sys_context('APEX$SESSION','APP_USER'), user);
+  end if;
+  :new.thg_modified_on  := sysdate;
+  :new.thg_modified_by := coalesce(sys_context('APEX$SESSION','APP_USER'), user);
+end thg_biu_trg; 
+]]></body>
+<triggerTime>BEFORE</triggerTime>
+<owner>6474FE67-4AC6-8ED9-4E9B-F13E709333EB</owner>
+<table>6875AC58-259C-EC64-A9A4-291C16C744BF</table>
+</TriggerOraclev10g>

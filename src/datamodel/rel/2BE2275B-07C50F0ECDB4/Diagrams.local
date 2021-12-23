@@ -1,0 +1,4 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle.dbtools.crest.model.design.relational.RelationalDesign>
+   <object objectType="main_view" objectID="5FB6D49B-D657-D872-C085-FDFB0D55F3CA" name="mt_excel_gateway" visible="true"/>
+</oracle.dbtools.crest.model.design.relational.RelationalDesign>

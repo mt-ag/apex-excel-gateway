@@ -1,0 +1,378 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="552711C2-5776-814E-39CD-F98F7F00546E" schemaObject="C638272D-8D60-5239-3AE2-9FC75CF68502" name="TEMPLATE_IMPORT_STATUS">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>MT_EXCEL_GATEWAY</sourceObjSchema>
+<sourceObjName>TEMPLATE_IMPORT_STATUS</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:13 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="TIS_ID" id="1BE092BE-13F8-EAFA-08A8-DCF364FE85B1">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>TEMPLATE_IMPORT_STATUS</sourceObjSchema>
+<sourceObjName>TIS_ID</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:27 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<defaultValue>&quot;MT_EXCEL_GATEWAY&quot;.&quot;TIS_SEQ&quot;.&quot;NEXTVAL&quot;</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<defaultOntNull>true</defaultOntNull>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>SYS_C00310272</notNullConstraintName>
+</Column>
+<Column name="TIS_TPL_ID" id="88C93B6A-9AC0-31FE-94F5-15F32C2504D6">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>TEMPLATE_IMPORT_STATUS</sourceObjSchema>
+<sourceObjName>TIS_TPL_ID</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:27 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>SYS_C00310273</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="738810D2-F19C-3065-0FA2-A86E386ED4A0" referredColumn="14525494-256B-F563-E9DD-01D153D8885B"/>
+</associations>
+</Column>
+<Column name="TIS_PER_ID" id="302E8523-722A-2A79-8FE0-624CD8F92369">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>TEMPLATE_IMPORT_STATUS</sourceObjSchema>
+<sourceObjName>TIS_PER_ID</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:27 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>SYS_C00310274</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="52601EEE-BA4A-F91E-9ABA-6B7755EC8A08" referredColumn="C4F4BB45-8E09-FA8A-6FC5-BFF222EBD4D2"/>
+</associations>
+</Column>
+<Column name="TIS_STS_ID" id="3F103AF6-34C3-0A29-CD76-1D043CC26FC7">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>TEMPLATE_IMPORT_STATUS</sourceObjSchema>
+<sourceObjName>TIS_STS_ID</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:27 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>SYS_C00310275</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="27D0EE01-6832-9D08-291F-97E8C662FA36" referredColumn="593A8C3B-E5AF-549C-07EF-1B264022F192"/>
+</associations>
+</Column>
+<Column name="TIS_FIL_ID" id="F3A0C91A-D4BD-B37A-DBBB-CBB8961B9C4C">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>TEMPLATE_IMPORT_STATUS</sourceObjSchema>
+<sourceObjName>TIS_FIL_ID</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:27 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="386EC6D4-39C5-D3E0-AA09-FAEE9DF0C627" referredColumn="6D72FEE7-573B-D475-B130-AF036DE3D6F5"/>
+</associations>
+</Column>
+<Column name="TIS_SSP_ID" id="6A899FE6-1EA6-0059-8D4B-1132B6D0DBC0">
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:24:03 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="BBC0DADE-08E5-50B7-E528-51D4C758AEB8" referredColumn="40547E09-D514-6A46-8F31-40DB41A31651"/>
+</associations>
+</Column>
+<Column name="TIS_ANNOTATION" id="A3314696-37C8-F96D-57A7-DA4D9C68DA86">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>TEMPLATE_IMPORT_STATUS</sourceObjSchema>
+<sourceObjName>TIS_ANNOTATION</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:27 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2000 CHAR</dataTypeSize>
+<ownDataTypeParameters>2000 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TIS_DEADLINE" id="87017BF2-2AC2-B192-56A5-D5F9F4A80AA8">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>TEMPLATE_IMPORT_STATUS</sourceObjSchema>
+<sourceObjName>TIS_DEADLINE</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:27 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TIS_SHIPPING_STATUS" id="A3BF828F-1EEA-7EC6-CF41-6B6A5DEE705A">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>TEMPLATE_IMPORT_STATUS</sourceObjSchema>
+<sourceObjName>TIS_SHIPPING_STATUS</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:27 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="093F6ECB-AF0D-F5FC-AC8B-4D0F785CF4E1" referredColumn="45322DF8-99F1-E504-33C5-EF147711C864"/>
+</associations>
+</Column>
+<Column name="TIS_INTERNAL_NOTE" id="86A58880-4B8C-BCBF-882D-503581F7B9FC">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>TEMPLATE_IMPORT_STATUS</sourceObjSchema>
+<sourceObjName>TIS_INTERNAL_NOTE</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:27 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2000 CHAR</dataTypeSize>
+<ownDataTypeParameters>2000 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TIS_CREATED_ON" id="4B605527-6E78-94C2-C4F5-F5B7966837C1">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>TEMPLATE_IMPORT_STATUS</sourceObjSchema>
+<sourceObjName>TIS_CREATED_ON</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:28 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TIS_CREATED_BY" id="7A0ADB37-BD4D-B777-3F6F-F18B57145309">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>TEMPLATE_IMPORT_STATUS</sourceObjSchema>
+<sourceObjName>TIS_CREATED_BY</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:28 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 CHAR</dataTypeSize>
+<ownDataTypeParameters>200 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TIS_MODIFIED_ON" id="3173E3F7-0010-C3F6-FBFF-DED6E211D93A">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>TEMPLATE_IMPORT_STATUS</sourceObjSchema>
+<sourceObjName>TIS_MODIFIED_ON</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:28 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TIS_MODIFIED_BY" id="CAB2DCD5-1D56-0782-65E0-B4C367442EDB">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>TEMPLATE_IMPORT_STATUS</sourceObjSchema>
+<sourceObjName>TIS_MODIFIED_BY</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:28 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 CHAR</dataTypeSize>
+<ownDataTypeParameters>200 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E60A99CF-2E69-82D3-1536-E2A8DE6F93BD" name="TIS_PK">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>MT_EXCEL_GATEWAY</sourceObjSchema>
+<sourceObjName>TIS_PK</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:45 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1BE092BE-13F8-EAFA-08A8-DCF364FE85B1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="AE1E5642-E35E-0C68-5DB9-060640C18935" name="TIS_FIL_UK">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>MT_EXCEL_GATEWAY</sourceObjSchema>
+<sourceObjName>TIS_FIL_UK</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:45 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F3A0C91A-D4BD-B37A-DBBB-CBB8961B9C4C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9241F456-7767-A7E0-2549-E418F1601D54" name="TIS_UK">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>MT_EXCEL_GATEWAY</sourceObjSchema>
+<sourceObjName>TIS_UK</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:45 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="88C93B6A-9AC0-31FE-94F5-15F32C2504D6"/>
+<colUsage columnID="302E8523-722A-2A79-8FE0-624CD8F92369"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="943ED837-8DF9-117C-1B5E-667B179DB7F1" schemaObject="C638272D-8D60-5239-3AE2-9FC75CF68502" name="TIS_FIL_UK">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>MT_EXCEL_GATEWAY</sourceObjSchema>
+<sourceObjName>TIS_FIL_UK</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:37 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F3A0C91A-D4BD-B37A-DBBB-CBB8961B9C4C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3A5AB236-13C5-5327-4106-BEEE0120985A" schemaObject="C638272D-8D60-5239-3AE2-9FC75CF68502" name="TIS_PK">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>MT_EXCEL_GATEWAY</sourceObjSchema>
+<sourceObjName>TIS_PK</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:37 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1BE092BE-13F8-EAFA-08A8-DCF364FE85B1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="50B6AA57-3E4D-0785-C1A3-CE389001B311" schemaObject="C638272D-8D60-5239-3AE2-9FC75CF68502" name="TIS_UK">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>MT_EXCEL_GATEWAY</sourceObjSchema>
+<sourceObjName>TIS_UK</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:37 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="88C93B6A-9AC0-31FE-94F5-15F32C2504D6"/>
+<colUsage columnID="302E8523-722A-2A79-8FE0-624CD8F92369"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A7D64917-B5FF-D8A0-1E36-E9D2B0A5DA8B" name="TIS_FIL_FK">
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:51 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F3A0C91A-D4BD-B37A-DBBB-CBB8961B9C4C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="383EDAFF-8D76-BB5C-EEC0-5003EB3549DA" name="TIS_PER_FK">
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:51 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="302E8523-722A-2A79-8FE0-624CD8F92369"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="31BB4410-C889-E605-3845-1686AB04AE2C" name="TIS_STS_FK">
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:51 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3F103AF6-34C3-0A29-CD76-1D043CC26FC7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DA420B5F-FEC6-B698-6CFE-E04E459C858D" name="TIS_TPL_FK">
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:51 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="88C93B6A-9AC0-31FE-94F5-15F32C2504D6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DCB11A6C-AAD2-A5E8-3839-2581C61AABD9" name="TIS_SPS_FK">
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:12:19 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A3BF828F-1EEA-7EC6-CF41-6B6A5DEE705A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4713F4B6-92D7-3FC9-76CE-4BBE85A24D5A" name="TIS_SSP_FK">
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:24:23 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6A899FE6-1EA6-0059-8D4B-1132B6D0DBC0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

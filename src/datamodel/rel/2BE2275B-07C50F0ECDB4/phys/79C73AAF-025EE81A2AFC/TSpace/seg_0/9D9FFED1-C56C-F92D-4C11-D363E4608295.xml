@@ -1,0 +1,11 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableSpaceOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TableSpaceOraclev10g" name="APEX_33850129216086928" directorySegmentName="seg_0" id="9D9FFED1-C56C-F92D-4C11-D363E4608295">
+<sourceConnName>mt_excel_gateway</sourceConnName>
+<sourceObjSchema>MT_EXCEL_GATEWAY</sourceObjSchema>
+<sourceObjName>APEX_33850129216086928</sourceObjName>
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:06:08 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<emUniformSize>0</emUniformSize>
+<extentManagement>LOCAL</extentManagement>
+</TableSpaceOraclev10g>

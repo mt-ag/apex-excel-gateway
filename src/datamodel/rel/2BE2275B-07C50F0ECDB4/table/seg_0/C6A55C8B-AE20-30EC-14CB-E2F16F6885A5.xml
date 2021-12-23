@@ -1,0 +1,127 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C6A55C8B-AE20-30EC-14CB-E2F16F6885A5" schemaObject="C638272D-8D60-5239-3AE2-9FC75CF68502" name="R_SPREADSHEET_PROTECTION">
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:18:34 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<ordsAlias>table_18</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="SSP_ID" id="40547E09-D514-6A46-8F31-40DB41A31651">
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:22:14 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SSP_NAME" id="EBA29302-5117-0B46-9BD8-D1C333F854BC">
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:22:14 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SSP_HASH_VALUE" id="A6A02D34-C289-5DC3-B703-0AB8C00CD732">
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:22:14 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 CHAR</dataTypeSize>
+<ownDataTypeParameters>200 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SSP_SALT_VALUE" id="14E8C8F7-D65D-80F9-37B9-BEFF8AFB89E8">
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:22:14 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 CHAR</dataTypeSize>
+<ownDataTypeParameters>200 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SSP_CREATED_ON" id="4D141200-68A7-77CC-B351-47BEC55E6140">
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:23:19 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SSP_CREATED_BY" id="A916B465-58ED-FEF8-EDFE-B4089556A161">
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:23:19 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 CHAR</dataTypeSize>
+<ownDataTypeParameters>200 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SSP_MODIFIED_ON" id="29BE6C60-A45C-C7F1-27F5-0F1D4AB0E562">
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:23:19 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SSP_MODIFIED_BY" id="A06B5D32-9590-1CAE-28A4-42D348738A7A">
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:23:19 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 CHAR</dataTypeSize>
+<ownDataTypeParameters>200 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="91FA5B06-DB4A-8BD8-87B4-457EF3793B0D" name="SSP_PK">
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:22:14 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="40547E09-D514-6A46-8F31-40DB41A31651"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3AA15B37-186A-1F07-326F-0582EAD96550" name="SSP_UK">
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:22:14 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EBA29302-5117-0B46-9BD8-D1C333F854BC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

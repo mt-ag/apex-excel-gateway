@@ -5,7 +5,7 @@
 <sourceObjName>USR_BIU_TRG</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:39 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <actions>INSERT, UPDATE</actions>
 <body><![CDATA[begin
   if :new.usr_id is null

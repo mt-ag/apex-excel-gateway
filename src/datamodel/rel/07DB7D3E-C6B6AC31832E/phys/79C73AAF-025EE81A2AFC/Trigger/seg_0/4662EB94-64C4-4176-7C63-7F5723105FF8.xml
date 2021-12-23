@@ -5,7 +5,7 @@
 <sourceObjName>THV_BIU_TRG</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:40 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <actions>INSERT, UPDATE</actions>
 <body><![CDATA[begin
   if :new.thv_id is null

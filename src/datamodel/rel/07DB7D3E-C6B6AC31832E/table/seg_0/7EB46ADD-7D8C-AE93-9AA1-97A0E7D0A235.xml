@@ -5,7 +5,7 @@
 <sourceObjName>TEMPLATE_IMPORT_STATUS</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:21 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
@@ -16,7 +16,7 @@
 <sourceObjName>TIS_ID</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:26 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
@@ -31,7 +31,7 @@
 <sourceObjName>TIS_TPL_ID</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:26 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
@@ -47,7 +47,7 @@
 <sourceObjName>TIS_PER_ID</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:26 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
@@ -63,7 +63,7 @@
 <sourceObjName>TIS_STS_ID</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:26 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
@@ -79,7 +79,7 @@
 <sourceObjName>TIS_FIL_ID</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:26 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
@@ -95,7 +95,7 @@
 <sourceObjName>TIS_ANNOTATION</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:26 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -110,7 +110,7 @@
 <sourceObjName>TIS_DEADLINE</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:26 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -125,7 +125,7 @@
 <sourceObjName>TIS_SHIPPING_STATUS</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:26 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -140,7 +140,7 @@
 <sourceObjName>TIS_INTERNAL_NOTE</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:26 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -155,7 +155,7 @@
 <sourceObjName>TIS_CREATED_ON</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:26 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -170,7 +170,7 @@
 <sourceObjName>TIS_CREATED_BY</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:26 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -185,7 +185,7 @@
 <sourceObjName>TIS_MODIFIED_ON</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:26 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -200,7 +200,7 @@
 <sourceObjName>TIS_MODIFIED_BY</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:27 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -217,7 +217,7 @@
 <sourceObjName>TIS_PK</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:39 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <pk>true</pk>
 <indexState>Primary Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
@@ -231,7 +231,7 @@
 <sourceObjName>TIS_FIL_UK</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:39 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <indexState>Unique Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
@@ -244,7 +244,7 @@
 <sourceObjName>TIS_UK</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:39 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <indexState>Unique Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
@@ -258,7 +258,7 @@
 <sourceObjName>TIS_FIL_UK</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:29 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <indexState>Unique Plain Index</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
@@ -271,7 +271,7 @@
 <sourceObjName>TIS_PK</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:29 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <indexState>Unique Plain Index</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
@@ -284,7 +284,7 @@
 <sourceObjName>TIS_UK</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:29 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <indexState>Unique Plain Index</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
@@ -295,7 +295,7 @@
 <ind_PK_UK id="677B1A75-7C58-C8B7-1386-54AC910693DC" name="TIS_FIL_FK">
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:42 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
@@ -305,7 +305,7 @@
 <ind_PK_UK id="3610D13E-38CD-C76E-CC57-B7AD427C5D43" name="TIS_PER_FK">
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:42 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
@@ -315,7 +315,7 @@
 <ind_PK_UK id="B81B80CA-34EC-5202-672D-98442461514F" name="TIS_STS_FK">
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:42 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
@@ -325,7 +325,7 @@
 <ind_PK_UK id="A89C8486-9535-9BFC-0EF4-DBDA89E03258" name="TIS_TPL_FK">
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:41:14 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>

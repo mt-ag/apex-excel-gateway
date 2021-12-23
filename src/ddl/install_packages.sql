@@ -53,6 +53,7 @@ as
 
   gc_headergroup_row constant pls_integer := 4;
   gc_header_row      constant pls_integer := 5;
+  gc_data_row        constant pls_integer := 6;
 
   gc_ids_col1 constant pls_integer := 299;
   gc_ids_col2 constant pls_integer := 300;
@@ -119,6 +120,10 @@ end master_api;
 create or replace package p00025_api as 
 
   procedure create_new_template(
+    pi_collection_name in  apex_collections.collection_name%type default 'CREATE_TEMPLATE'  
+  );
+
+  procedure create_preview(
     pi_collection_name in  apex_collections.collection_name%type default 'CREATE_TEMPLATE'  
   );
 
@@ -384,6 +389,29 @@ as
 end p00060_api;
 /
 
+create or replace package p00085_api as 
+
+  procedure edit_template(
+    pi_tpl_id in r_templates.tpl_id%type  
+  );
+
+  procedure create_preview(
+    pi_collection_name in  apex_collections.collection_name%type default 'EDIT_TEMPLATE'  
+  );
+
+end p00085_api;
+/
+
+create or replace package p00090_api
+as
+
+  procedure delete_template (
+    pi_tpl_id          in  r_templates.tpl_id%type
+  );
+
+end p00090_api;
+/
+
 create or replace package validation_api as 
 
   function validate_data(
@@ -513,6 +541,32 @@ IS
    */
    FUNCTION new_sheet (p_sheetname VARCHAR2 := NULL, p_hidden BOOLEAN := FALSE)
       RETURN PLS_INTEGER;
+
+   /**
+   * Add a sheetprotection in the workbook.
+   * @param p_ssp_hash_value Hash Value for Sheetprotection.
+   * @param p_ssp_salt_value Salt Value for Sheetprotection.
+   * @param p_sheet Worksheet the protection will be added.
+   */
+   PROCEDURE sheet_protection (p_ssp_hash_value VARCHAR2, 
+                               p_ssp_salt_value VARCHAR2,
+                               p_sheet     PLS_INTEGER);
+
+   /**
+   * Put a protected range to a sheet.
+   * @param p_name unique name for the protected range.
+   * @param p_tl_col Protected Range Column top left.
+   * @param p_tl_row Protected Range Row top left.
+   * @param p_br_col Protected Range Column bottom right.
+   * @param p_br_row End Range Start Row bottom right.
+   * @param p_sheet Worksheet the protected-range will be added.
+   */
+   PROCEDURE protected_range (p_name      VARCHAR2,
+                              p_tl_col    PLS_INTEGER, -- top left
+                              p_tl_row    PLS_INTEGER, 
+                              p_br_col    PLS_INTEGER, -- bottom right
+                              p_br_row    PLS_INTEGER, 
+                              p_sheet     PLS_INTEGER);
 
    /**
    * Converts an Oracle date format to the corresponding Excel date format.
@@ -775,7 +829,7 @@ IS
                              p_row_end         PLS_INTEGER := NULL,
                              p_sheet           PLS_INTEGER := NULL);
 
-   FUNCTION finish
+   FUNCTION finish 
       RETURN BLOB;
 
    FUNCTION query2sheet (p_sql VARCHAR2, p_column_headers BOOLEAN := TRUE, p_sheet PLS_INTEGER := NULL, p_skip_header boolean := FALSE)
@@ -1536,7 +1590,7 @@ as
 
   gc_scope_prefix constant varchar2(31) := lower($$plsql_unit) || '.';
   
-  -- get index of last excel column depending on number of 'abfragen'-columns
+  -- get index of last excel column depending on number of columns
   function getExcelColumnName(
     p_column_count pls_integer
   ) return varchar2
@@ -2114,7 +2168,7 @@ as
         -- get excel column name
         l_columnName := getExcelColumnName(rec.tph_sort_order);
 
-        -- add validation for first 100 rows (same as dropdowns)
+        -- add validation
         for i in 1..pi_number_of_rows
         loop
             xlsx_builder_pkg.add_validation (
@@ -2136,7 +2190,7 @@ as
         -- get excel column name
         l_columnName := getExcelColumnName(rec.tph_sort_order);
 
-        -- add validation for first 100 rows (same as dropdowns)
+        -- add validation
         if not pi_invalid then
           for i in 1..pi_number_of_rows
           loop
@@ -2292,12 +2346,14 @@ as
     l_sheetname             varchar2(200 char);
     l_filename              files.fil_filename%type;
     l_fil_id                files.fil_id%type;
+    l_tpl_ssp_id            r_templates.tpl_ssp_id%type;
+    l_ssp_hash_value        r_spreadsheet_protection.ssp_hash_value%type; 
+    l_ssp_salt_value        r_spreadsheet_protection.ssp_salt_value%type;
 
     l_sheet_num_main   pls_integer;
     l_sheet_num_hidden pls_integer;
 
     l_column_count pls_integer;
-    l_value varchar2(200);
     l_number_of_rows pls_integer;
   begin
     logger.append_param(l_params, 'pi_tis_id', pi_tis_id);
@@ -2309,6 +2365,9 @@ as
     logger.append_param(l_params, 'pi_invalid', pi_invalid);
     logger.log('START', l_scope, null, l_params);
 
+    -- get number of rows
+    l_number_of_rows := get_number_of_rows(pi_tpl_id);
+    
     if pi_invalid then    
       l_filename := pi_tpl_name || '_' || pi_per_firstname  || '_' || pi_per_lastname || '_correction';
     else
@@ -2323,8 +2382,39 @@ as
     -- initially clear workbook
     xlsx_builder_pkg.clear_workbook;
 
+    -- add sheets to workbook
     l_sheet_num_main   := xlsx_builder_pkg.new_sheet(l_sheetname);
     l_sheet_num_hidden := xlsx_builder_pkg.new_sheet('Dropdown Data', true);
+
+    -- add sheetprotction to workbook
+    select tpl_ssp_id 
+      into l_tpl_ssp_id
+      from r_templates
+     where tpl_id = pi_tpl_id; 
+
+    if l_tpl_ssp_id is not null then
+      select ssp_hash_value, ssp_salt_value
+        into l_ssp_hash_value, l_ssp_salt_value
+        from r_spreadsheet_protection
+       where ssp_id = l_tpl_ssp_id;
+
+      --determine number of editable columns
+      select count(distinct tph_sort_order)
+        into l_column_count
+        from template_header
+       where tph_tpl_id = pi_tpl_id; 
+
+      xlsx_builder_pkg.sheet_protection(p_ssp_hash_value => l_ssp_hash_value, 
+                                        p_ssp_salt_value => l_ssp_salt_value,
+                                        p_sheet          => l_sheet_num_main);
+
+      xlsx_builder_pkg.protected_range(p_name     => 'range1', 
+                                       p_tl_col   => 1,
+                                       p_tl_row   => gc_data_row, 
+                                       p_br_col   => l_column_count,
+                                       p_br_row   => gc_data_row+l_number_of_rows, 
+                                       p_sheet    => l_sheet_num_main);                                                             
+    end if;
 
     xlsx_builder_pkg.cell(
       p_col => 1
@@ -2342,9 +2432,6 @@ as
     , p_sheet => l_sheet_num_main
     );
 
-    -- get number of rows
-    l_number_of_rows := get_number_of_rows(pi_tpl_id);
-    
     generate_abfragen (
       pi_tpl_id    => pi_tpl_id
     , pi_sheet_num => l_sheet_num_main
@@ -2386,8 +2473,7 @@ as
     , pi_number_of_rows => l_number_of_rows
     );
 
-    -- generate blob file
-    l_blob := xlsx_builder_pkg.finish;
+    l_blob := xlsx_builder_pkg.finish();
 
     insert into files (
       fil_file
@@ -2833,7 +2919,6 @@ as
 
     l_error_occurred        boolean := false; 
 
-    l_line_number_count     number; 
     l_insert_count          pls_integer := 1; 
     l_update_count          pls_integer := 1; 
     l_column_count          pls_integer := 1; 
@@ -2862,22 +2947,6 @@ as
         ) 
       )
       where line_number = excel_gen.gc_header_row;    
-
-    select count(line_number)
-      into l_line_number_count
-      from table ( 
-        apex_data_parser.parse ( 
-          p_content         => (select fil_file from files where fil_id = pi_fil_id) 
-        , p_add_headers_row => 'N' 
-        , p_xlsx_sheet_name => 'sheet1.xml' 
-        , p_max_rows        => 500 
-        , p_file_name       => pi_filename 
-        ) 
-      )
-      where not (line_number > excel_gen.gc_header_row and
-    col001 || col002 || col003 || col004 || col005 || col006 || col007 || col008 || col009 || col010 || col011 || col012 || col013 || col014 || col015 || 
-    col016 || col017 || col018 || col019 || col020 || col021 || col022 || col023 || col024 || col025 || col026 || col027 || col028 || col029 || col030 || 
-    col031 || col032 || col033 || col034 || col035 || col036 || col037 || col038 || col039 || col040 || col041 || col042 || col043 || col044 || col045 is null); 
 
     select listagg(tph_sort_order, ':') within group (order by tph_sort_order)  
       into l_column   
@@ -3300,7 +3369,8 @@ as
     for rec in ( 
         select seq_id as tph_sort_order, c001 as tpl_name, c002 as tph_hea_id, 
                c003 as hea_text, replace(c004,'#','ff') as tph_xlsx_font_color, replace(c005,'#','ff') as tph_xlsx_background_color,
-               c006 as tpl_deadline, c007 as tpl_number_of_rows, c008 as tph_thg_id, c009 as thv_formula1, c010 as thv_formula2
+               c006 as tpl_deadline, c007 as tpl_number_of_rows, c008 as tph_thg_id, c009 as thv_formula1, c010 as thv_formula2,
+               c011 as ssp_id
           from apex_collections 
          where collection_name = 'CREATE_TEMPLATE' 
       order by seq_id
@@ -3309,8 +3379,8 @@ as
 
     if l_tpl_id is null then
         insert into r_templates 
-        (tpl_name, tpl_deadline, tpl_number_of_rows) 
-        VALUES (rec.tpl_name, nvl(rec.tpl_deadline,7), nvl(rec.tpl_number_of_rows,100))
+        (tpl_name, tpl_deadline, tpl_number_of_rows, tpl_ssp_id) 
+        VALUES (rec.tpl_name, nvl(rec.tpl_deadline,7), nvl(rec.tpl_number_of_rows,100), rec.ssp_id)
         RETURNING tpl_id into l_tpl_id;
         
         insert into template_automations
@@ -3337,6 +3407,76 @@ as
       logger.log_error('Unhandled Exception', l_scope, null, l_params);
       raise;
   end create_new_template;
+
+  procedure create_preview (
+    pi_collection_name in  apex_collections.collection_name%type default 'CREATE_TEMPLATE'       
+  )
+  as
+    l_scope     logger_logs.scope%type := gc_scope_prefix || 'create_preview';
+    l_params    logger.tab_param;
+    l_tpl_id    r_templates.tpl_id%type;
+    l_tpl_name  r_templates.tpl_name%type;
+    l_tph_id    template_header.tph_id%type;
+  begin
+    logger.append_param(l_params, 'pi_collection_name', pi_collection_name);
+    logger.log('START', l_scope, null, l_params);
+
+    for rec in ( 
+        select seq_id as tph_sort_order, c001 as tpl_name, c002 as tph_hea_id, 
+               c003 as hea_text, replace(c004,'#','ff') as tph_xlsx_font_color, replace(c005,'#','ff') as tph_xlsx_background_color,
+               c006 as tpl_deadline, c007 as tpl_number_of_rows, c008 as tph_thg_id, c009 as thv_formula1, c010 as thv_formula2,
+               c011 as ssp_id
+          from apex_collections 
+         where collection_name = 'CREATE_TEMPLATE' 
+      order by seq_id
+    ) 
+    loop 
+
+    if l_tpl_id is null then
+        insert into r_templates 
+        (tpl_name, tpl_deadline, tpl_number_of_rows, tpl_ssp_id) 
+        VALUES (rec.tpl_name, nvl(rec.tpl_deadline,7), nvl(rec.tpl_number_of_rows,100), rec.ssp_id)
+        RETURNING tpl_id, tpl_name into l_tpl_id, l_tpl_name;
+        
+        insert into template_automations
+        (tpa_tpl_id, tpa_enabled)
+        VALUES (l_tpl_id, 0);
+    end if;
+
+    insert into template_header 
+    (tph_tpl_id, tph_hea_id, tph_xlsx_background_color, tph_xlsx_font_color, tph_sort_order, tph_thg_id)
+    VALUES (l_tpl_id, rec.tph_hea_id, rec.tph_xlsx_background_color, rec.tph_xlsx_font_color, rec.tph_sort_order, rec.tph_thg_id)
+    RETURNING tph_id into l_tph_id;
+    
+    if rec.thv_formula1 is not null or rec.thv_formula2 is not null then
+        insert into template_header_validations
+        (thv_tph_id, thv_formula1, thv_formula2)
+        VALUES (l_tph_id, rec.thv_formula1, rec.thv_formula2);
+    end if;  
+
+    end loop;
+
+    excel_gen.generate_single_file (
+      pi_tis_id         => 0
+    , pi_tpl_id         => l_tpl_id
+    , pi_tpl_name       => l_tpl_name
+    , pi_per_id         => 123456789
+    , pi_per_firstname  => 'sample'
+    , pi_per_lastname   => 'file'
+    );
+
+    -- delete preview data
+    delete template_automations where tpa_tpl_id = l_tpl_id;
+    delete template_header_validations where thv_tph_id in (select tph_id from template_header where tph_tpl_id = l_tpl_id);
+    delete template_header where tph_tpl_id = l_tpl_id;
+    delete r_templates where tpl_id = l_tpl_id;
+    
+    logger.log('END', l_scope);
+  exception
+    when others then
+      logger.log_error('Unhandled Exception', l_scope, null, l_params);
+      raise;
+  end create_preview;    
 
 end p00025_api;
 /
@@ -4610,6 +4750,191 @@ as
 end p00060_api;
 /
 
+create or replace package body p00085_api
+as
+
+  gc_scope_prefix constant varchar2(31) := lower($$plsql_unit) || '.';
+
+  procedure edit_template (
+    pi_tpl_id in r_templates.tpl_id%type       
+  )
+  as
+    l_scope  logger_logs.scope%type := gc_scope_prefix || 'edit_template';
+    l_params logger.tab_param;
+    l_tpl_id r_templates.tpl_id%type;
+    l_tph_id template_header.tph_id%type;
+  begin
+    logger.append_param(l_params, 'pi_tpl_id', pi_tpl_id);
+    logger.log('START', l_scope, null, l_params);
+
+    for rec in ( 
+        select distinct
+               c001 as tpl_id, 
+               c006 as tpl_deadline, 
+               c007 as tpl_number_of_rows, 
+               c011 as tpl_ssp_id
+          from apex_collections 
+         where collection_name = 'EDIT_TEMPLATE' 
+           and c001 is not null
+    ) 
+    loop
+        update r_templates 
+          set tpl_deadline = rec.tpl_deadline,
+              tpl_number_of_rows = rec.tpl_number_of_rows,
+              tpl_ssp_id = rec.tpl_ssp_id
+        where tpl_id = rec.tpl_id
+        returning tpl_id INTO l_tpl_id;
+        
+        if l_tpl_id is not null then
+            delete template_header
+            where tph_tpl_id = l_tpl_id;
+
+            delete template_header_validations
+            where thv_tph_id in (select tph_id from template_header where tph_tpl_id = l_tpl_id); 
+        end if;
+    end loop;
+
+    if l_tpl_id is not null then
+        for rec in ( 
+            select seq_id as tph_sort_order, c001 as tpl_id, c002 as tph_hea_id, 
+                  c003 as hea_text, replace(c004,'#','ff') as tph_xlsx_font_color, replace(c005,'#','ff') as tph_xlsx_background_color,
+                  c006 as tpl_deadline, c007 as tpl_number_of_rows, c008 as tph_thg_id, c009 as thv_formula1, c010 as thv_formula2,
+                  c011 as tpl_ssp_id
+              from apex_collections 
+            where collection_name = 'EDIT_TEMPLATE' 
+          order by seq_id
+        ) 
+        loop 
+            insert into template_header 
+            (tph_tpl_id, tph_hea_id, tph_xlsx_background_color, tph_xlsx_font_color, tph_sort_order, tph_thg_id)
+            VALUES (l_tpl_id, rec.tph_hea_id, rec.tph_xlsx_background_color, rec.tph_xlsx_font_color, rec.tph_sort_order, rec.tph_thg_id)
+            RETURNING tph_id into l_tph_id;
+            
+            if rec.thv_formula1 is not null or rec.thv_formula2 is not null then
+                insert into template_header_validations
+                (thv_tph_id, thv_formula1, thv_formula2)
+                VALUES (l_tph_id, rec.thv_formula1, rec.thv_formula2);
+            end if;
+        end loop;
+    end if;
+
+    logger.log('END', l_scope);
+  exception
+    when others then
+      logger.log_error('Unhandled Exception', l_scope, null, l_params);
+      raise;
+  end edit_template;
+
+  procedure create_preview (
+    pi_collection_name in  apex_collections.collection_name%type default 'EDIT_TEMPLATE'       
+  )
+  as
+    l_scope     logger_logs.scope%type := gc_scope_prefix || 'create_preview';
+    l_params    logger.tab_param;
+    l_tpl_id    r_templates.tpl_id%type;
+    l_tpl_name  r_templates.tpl_name%type;
+    l_tph_id    template_header.tph_id%type;
+  begin
+    logger.append_param(l_params, 'pi_collection_name', pi_collection_name);
+    logger.log('START', l_scope, null, l_params);
+    
+    select tpl_name 
+      into l_tpl_name
+      from r_templates
+     where tpl_id = (select distinct c001 as tpl_id 
+                       from apex_collections 
+                      where collection_name = 'EDIT_TEMPLATE' 
+                        and c001 is not null);    
+    
+    for rec in ( 
+        select seq_id as tph_sort_order, c001 as tpl_id, c002 as tph_hea_id, 
+               c003 as hea_text, replace(c004,'#','ff') as tph_xlsx_font_color, replace(c005,'#','ff') as tph_xlsx_background_color,
+               c006 as tpl_deadline, c007 as tpl_number_of_rows, c008 as tph_thg_id, c009 as thv_formula1, c010 as thv_formula2,
+               c011 as ssp_id
+          from apex_collections 
+         where collection_name = 'EDIT_TEMPLATE' 
+      order by seq_id
+    ) 
+    loop   
+    
+        if l_tpl_id is null then
+            insert into r_templates 
+            (tpl_id, tpl_name, tpl_deadline, tpl_number_of_rows, tpl_ssp_id) 
+            VALUES (0, 'preview', nvl(rec.tpl_deadline,7), nvl(rec.tpl_number_of_rows,100), rec.ssp_id)
+            RETURNING tpl_id into l_tpl_id;
+        end if;
+
+        insert into template_header 
+        (tph_tpl_id, tph_hea_id, tph_xlsx_background_color, tph_xlsx_font_color, tph_sort_order, tph_thg_id)
+        VALUES (l_tpl_id, rec.tph_hea_id, rec.tph_xlsx_background_color, rec.tph_xlsx_font_color, rec.tph_sort_order, rec.tph_thg_id)
+        RETURNING tph_id into l_tph_id;
+        
+        if rec.thv_formula1 is not null or rec.thv_formula2 is not null then
+            insert into template_header_validations
+            (thv_tph_id, thv_formula1, thv_formula2)
+            VALUES (l_tph_id, rec.thv_formula1, rec.thv_formula2);
+        end if;  
+
+        end loop;
+
+        excel_gen.generate_single_file (
+          pi_tis_id         => 0
+        , pi_tpl_id         => l_tpl_id
+        , pi_tpl_name       => l_tpl_name
+        , pi_per_id         => 123456789
+        , pi_per_firstname  => 'sample'
+        , pi_per_lastname   => 'file'
+        );
+
+        -- delete preview data
+        delete template_header_validations where thv_tph_id in (select tph_id from template_header where tph_tpl_id = l_tpl_id);
+        delete template_header where tph_tpl_id = l_tpl_id;
+        delete r_templates where tpl_id = l_tpl_id;
+   
+    logger.log('END', l_scope);
+  exception
+    when others then
+      logger.log_error('Unhandled Exception', l_scope, null, l_params);
+      raise;
+  end create_preview;    
+
+end p00085_api;
+/
+
+create or replace package body p00090_api
+as
+
+  gc_scope_prefix constant varchar2(31) := lower($$plsql_unit) || '.';
+
+  procedure delete_template (
+    pi_tpl_id          in  r_templates.tpl_id%type
+  )
+  as
+    l_scope  logger_logs.scope%type := gc_scope_prefix || 'delete_template';
+    l_params logger.tab_param;
+
+  begin
+    logger.append_param(l_params, 'pi_tpl_id', pi_tpl_id);
+    logger.log('START', l_scope, null, l_params);
+
+    -- delete template data
+    delete template_import_data where tid_tis_id in (select tis_id from template_import_status where tis_tpl_id = pi_tpl_id);
+    delete template_import_status where tis_tpl_id = pi_tpl_id;
+    delete template_automations where tpa_tpl_id = pi_tpl_id;
+    delete template_header_validations where thv_tph_id in (select tph_id from template_header where tph_tpl_id = pi_tpl_id);
+    delete template_header where tph_tpl_id = pi_tpl_id;
+    delete r_templates where tpl_id = pi_tpl_id;
+
+    logger.log('END', l_scope);
+  exception
+    when others then
+      logger.log_error('Unhandled Exception', l_scope, null, l_params);
+      raise;
+  end;
+
+end p00090_api;
+/
+
 create or replace package body validation_api
 as 
 
@@ -5073,6 +5398,18 @@ IS
    TYPE t_validations_tab IS TABLE OF t_validation_rec
       INDEX BY PLS_INTEGER;
 
+   TYPE t_protection_rec IS RECORD
+   (
+      vc_name               VARCHAR2 (200 CHAR),
+      vc_tl_col             VARCHAR2 (20 CHAR),
+      vc_tl_row             VARCHAR2 (20 CHAR), 
+      vc_br_col             VARCHAR2 (20 CHAR),
+      vc_br_row             VARCHAR2 (20 CHAR) 
+   );
+
+   TYPE t_protection_tab IS TABLE OF t_protection_rec
+      INDEX BY PLS_INTEGER;   
+
    TYPE t_sheet_rec IS RECORD
    (
       sheet_rows_tab    t_rows_tab,
@@ -5087,7 +5424,10 @@ IS
       comments_tab      t_comments_tab,
       mergecells_tab    t_mergecells_tab,
       validations_tab   t_validations_tab,
-      hidden            boolean
+      protection_tab    t_protection_tab,
+      hidden            boolean,
+      hash_value        VARCHAR2(200 CHAR),
+      salt_value        VARCHAR2(200 CHAR)
    );
 
    TYPE t_sheets_tab IS TABLE OF t_sheet_rec
@@ -5314,6 +5654,7 @@ IS
          workbook.sheets_tab (s).comments_tab.delete;
          workbook.sheets_tab (s).mergecells_tab.delete;
          workbook.sheets_tab (s).validations_tab.delete;
+         workbook.sheets_tab (s).protection_tab.delete;
       END LOOP;
 
       workbook.strings_tab.delete;
@@ -5372,6 +5713,36 @@ IS
 
       RETURN t_nr;
    END new_sheet;
+
+   PROCEDURE sheet_protection (p_ssp_hash_value VARCHAR2, 
+                               p_ssp_salt_value VARCHAR2,
+                               p_sheet          PLS_INTEGER)
+   AS
+      t_sheet   PLS_INTEGER;
+   BEGIN
+      t_sheet := get_sheet_id (p_sheet);
+      workbook.sheets_tab (t_sheet).hash_value := p_ssp_hash_value;
+      workbook.sheets_tab (t_sheet).salt_value := p_ssp_salt_value;
+   END sheet_protection;  
+
+   PROCEDURE protected_range (p_name      VARCHAR2,
+                              p_tl_col    PLS_INTEGER, -- top left
+                              p_tl_row    PLS_INTEGER, 
+                              p_br_col    PLS_INTEGER, -- bottom right
+                              p_br_row    PLS_INTEGER, 
+                              p_sheet     PLS_INTEGER)
+   AS                            
+      t_ind     PLS_INTEGER;
+      t_sheet   PLS_INTEGER;
+   BEGIN
+      t_sheet := get_sheet_id (p_sheet); 
+      t_ind := workbook.sheets_tab (t_sheet).protection_tab.COUNT + 1;
+      workbook.sheets_tab (t_sheet).protection_tab (t_ind).vc_name   := p_name;
+      workbook.sheets_tab (t_sheet).protection_tab (t_ind).vc_tl_col := alfan_col(p_tl_col);
+      workbook.sheets_tab (t_sheet).protection_tab (t_ind).vc_tl_row := to_char(p_tl_row);
+      workbook.sheets_tab (t_sheet).protection_tab (t_ind).vc_br_col := alfan_col(p_br_col);
+      workbook.sheets_tab (t_sheet).protection_tab (t_ind).vc_br_row := to_char(p_br_row); 
+   END protected_range;
 
    PROCEDURE set_col_width (p_sheet PLS_INTEGER, p_col PLS_INTEGER, p_format VARCHAR2)
    AS
@@ -6095,7 +6466,7 @@ IS
                     t_sheet - 1);
    END set_autofilter;
 
-   FUNCTION finish
+   FUNCTION finish 
       RETURN BLOB
    AS
       t_excel                      BLOB;
@@ -6958,6 +7329,47 @@ IS
             p_clob        => t_xxx,
             p_vc_buffer   => t_tmp,
             p_vc_addition => '</sheetData>');
+
+         IF workbook.sheets_tab (s).hash_value is not null and workbook.sheets_tab (s).salt_value is not null 
+         THEN     
+            clob_vc_concat(
+               p_clob        => t_xxx,
+               p_vc_buffer   => t_tmp,
+               p_vc_addition => '<sheetProtection sheet="1" algorithmName="SHA-512" hashValue="' 
+                              || workbook.sheets_tab (s).hash_value 
+                              || '" saltValue="' 
+                              || workbook.sheets_tab (s).salt_value 
+                              || '" spinCount="100000" objects="1" scenarios="1" />');
+         END IF;                                   
+
+         IF workbook.sheets_tab (s).protection_tab.COUNT > 0  
+         THEN    
+            clob_vc_concat(
+                  p_clob        => t_xxx,
+                  p_vc_buffer   => t_tmp,
+                  p_vc_addition => '<protectedRanges>');
+
+            FOR p in 1 .. workbook.sheets_tab (s).protection_tab.COUNT
+            LOOP
+               clob_vc_concat(
+                  p_clob        => t_xxx,
+                  p_vc_buffer   => t_tmp,
+                  p_vc_addition => '   <protectedRange sqref="' 
+                                 || workbook.sheets_tab (s).protection_tab (p).vc_tl_col
+                                 || workbook.sheets_tab (s).protection_tab (p).vc_tl_row 
+                                 || ':' 
+                                 || workbook.sheets_tab (s).protection_tab (p).vc_br_col 
+                                 || workbook.sheets_tab (s).protection_tab (p).vc_br_row 
+                                 || '" name="'
+                                 || workbook.sheets_tab (s).protection_tab (p).vc_name
+                                 || '" />');
+            END LOOP;  
+
+            clob_vc_concat(
+                  p_clob        => t_xxx,
+                  p_vc_buffer   => t_tmp,
+                  p_vc_addition => '</protectedRanges>');                   
+         END IF;   
 
          FOR a IN 1 .. workbook.sheets_tab (s).autofilters_tab.COUNT
          LOOP

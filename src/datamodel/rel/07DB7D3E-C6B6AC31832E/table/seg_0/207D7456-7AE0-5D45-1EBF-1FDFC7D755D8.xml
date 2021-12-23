@@ -5,7 +5,7 @@
 <sourceObjName>R_HEADER</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:18 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
@@ -16,7 +16,7 @@
 <sourceObjName>HEA_ID</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:23 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
@@ -31,7 +31,7 @@
 <sourceObjName>HEA_TEXT</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:23 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
@@ -45,7 +45,7 @@
 <sourceObjName>HEA_XLSX_WIDTH</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:23 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
@@ -62,7 +62,7 @@
 <sourceObjName>HEA_VAL_ID</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:23 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
@@ -78,7 +78,7 @@
 <sourceObjName>HEA_CREATED_ON</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:23 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -93,7 +93,7 @@
 <sourceObjName>HEA_CREATED_BY</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:23 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -108,7 +108,7 @@
 <sourceObjName>HEA_MODIFIED_ON</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:23 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -123,7 +123,7 @@
 <sourceObjName>HEA_MODIFIED_BY</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:23 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -140,7 +140,7 @@
 <sourceObjName>HEA_PK</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:33 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <pk>true</pk>
 <indexState>Primary Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
@@ -154,7 +154,7 @@
 <sourceObjName>HEA_UK</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:34 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <indexState>Unique Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
@@ -167,7 +167,7 @@
 <sourceObjName>HEA_PK</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:29 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <indexState>Unique Plain Index</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
@@ -180,7 +180,7 @@
 <sourceObjName>HEA_UK</sourceObjName>
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:29 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <indexState>Unique Plain Index</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
@@ -190,7 +190,7 @@
 <ind_PK_UK id="767DECA7-C31F-6C79-C72B-EEC5DFB2B803" name="HEA_VAL_FK">
 <createdBy>therwix</createdBy>
 <createdTime>2021-08-09 10:20:42 UTC</createdTime>
-<ownerDesignName>datamodel</ownerDesignName>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>

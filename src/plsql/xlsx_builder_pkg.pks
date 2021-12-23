@@ -115,6 +115,32 @@ IS
       RETURN PLS_INTEGER;
 
    /**
+   * Add a sheetprotection in the workbook.
+   * @param p_ssp_hash_value Hash Value for Sheetprotection.
+   * @param p_ssp_salt_value Salt Value for Sheetprotection.
+   * @param p_sheet Worksheet the protection will be added.
+   */
+   PROCEDURE sheet_protection (p_ssp_hash_value VARCHAR2, 
+                               p_ssp_salt_value VARCHAR2,
+                               p_sheet     PLS_INTEGER);
+
+   /**
+   * Put a protected range to a sheet.
+   * @param p_name unique name for the protected range.
+   * @param p_tl_col Protected Range Column top left.
+   * @param p_tl_row Protected Range Row top left.
+   * @param p_br_col Protected Range Column bottom right.
+   * @param p_br_row End Range Start Row bottom right.
+   * @param p_sheet Worksheet the protected-range will be added.
+   */
+   PROCEDURE protected_range (p_name      VARCHAR2,
+                              p_tl_col    PLS_INTEGER, -- top left
+                              p_tl_row    PLS_INTEGER, 
+                              p_br_col    PLS_INTEGER, -- bottom right
+                              p_br_row    PLS_INTEGER, 
+                              p_sheet     PLS_INTEGER);
+
+   /**
    * Converts an Oracle date format to the corresponding Excel date format.
    * @param p_format The Oracle date format to convert.
    * @return Corresponding Excel date format.
@@ -375,7 +401,7 @@ IS
                              p_row_end         PLS_INTEGER := NULL,
                              p_sheet           PLS_INTEGER := NULL);
 
-   FUNCTION finish
+   FUNCTION finish 
       RETURN BLOB;
 
    FUNCTION query2sheet (p_sql VARCHAR2, p_column_headers BOOLEAN := TRUE, p_sheet PLS_INTEGER := NULL, p_skip_header boolean := FALSE)
@@ -404,4 +430,3 @@ IS
       return blob;
 
 END;
-/

@@ -1,4 +1,4 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <oracle.dbtools.crest.model.design.relational.RelationalDesign>
-   <object objectType="main_view" objectID="56FAFE51-3AA0-ECF9-31A7-CC07610B7B08" name="ATP - SURVEY TOOL" visible="true"/>
+   <object objectType="main_view" objectID="56FAFE51-3AA0-ECF9-31A7-CC07610B7B08" name="ATP - SURVEY TOOL" visible="false"/>
 </oracle.dbtools.crest.model.design.relational.RelationalDesign>

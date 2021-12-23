@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="BBC0DADE-08E5-50B7-E528-51D4C758AEB8" containerWithKeyObject="552711C2-5776-814E-39CD-F98F7F00546E" localFKIndex="4713F4B6-92D7-3FC9-76CE-4BBE85A24D5A" name="TIS_SSP_FK">
+<createdBy>therwix</createdBy>
+<createdTime>2021-12-13 14:24:23 UTC</createdTime>
+<ownerDesignName>Excel_Gateway</ownerDesignName>
+<referredTableLongName>MT_EXCEL_GATEWAY.R_SPREADSHEET_PROTECTION</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>C6A55C8B-AE20-30EC-14CB-E2F16F6885A5</referredTableID>
+<keyObject>91FA5B06-DB4A-8BD8-87B4-457EF3793B0D</keyObject>
+<referredKeyID>91FA5B06-DB4A-8BD8-87B4-457EF3793B0D</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>SSP_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>
