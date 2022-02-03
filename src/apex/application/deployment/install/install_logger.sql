@@ -4,16 +4,16 @@ begin
 --     INSTALL: INSTALL-Logger
 --   Manifest End
 wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.6'
+ p_version_yyyy_mm_dd=>'2021.10.15'
+,p_release=>'21.2.1'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>349023258543091759
+,p_default_id_offset=>364658460193179534
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_install_script(
- p_id=>wwv_flow_api.id(214852759420148196)
-,p_install_id=>wwv_flow_api.id(215415256849636528)
+ p_id=>wwv_flow_api.id(134170499122943563)
+,p_install_id=>wwv_flow_api.id(133608001693455231)
 ,p_name=>'Logger'
 ,p_sequence=>20
 ,p_script_type=>'INSTALL'
@@ -1003,15 +1003,15 @@ end;
 /
 begin
 wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.6'
+ p_version_yyyy_mm_dd=>'2021.10.15'
+,p_release=>'21.2.1'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>349023258543091759
+,p_default_id_offset=>364658460193179534
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.append_to_install_script(
- p_id=>wwv_flow_api.id(214852759420148196)
+ p_id=>wwv_flow_api.id(134170499122943563)
 ,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '                                                                                                                 ',
 '--  Handles the fact that RAC doesn''t support global app contexts until 11.2                                                                                                                            ',
@@ -1165,7 +1165,7 @@ wwv_flow_api.append_to_install_script(
 'end save_global_context;                                                                                                                  '))
 );
 wwv_flow_api.append_to_install_script(
- p_id=>wwv_flow_api.id(214852759420148196)
+ p_id=>wwv_flow_api.id(134170499122943563)
 ,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '                                                              ',
 '/**                                                                                                                                                                                                     ',
@@ -1323,15 +1323,15 @@ end;
 /
 begin
 wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.6'
+ p_version_yyyy_mm_dd=>'2021.10.15'
+,p_release=>'21.2.1'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>349023258543091759
+,p_default_id_offset=>364658460193179534
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.append_to_install_script(
- p_id=>wwv_flow_api.id(214852759420148196)
+ p_id=>wwv_flow_api.id(134170499122943563)
 ,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '           ',
 'function date_text_format_base (                                                                                                                                                                        ',
@@ -1486,7 +1486,7 @@ wwv_flow_api.append_to_install_script(
 'from logger_logs_5_min                 '))
 );
 wwv_flow_api.append_to_install_script(
- p_id=>wwv_flow_api.id(214852759420148196)
+ p_id=>wwv_flow_api.id(134170499122943563)
 ,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '                                                                                                                                                                 ',
 'where 1=1                                                                                                                                                                                               ',
@@ -1644,15 +1644,15 @@ end;
 /
 begin
 wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.6'
+ p_version_yyyy_mm_dd=>'2021.10.15'
+,p_release=>'21.2.1'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>349023258543091759
+,p_default_id_offset=>364658460193179534
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.append_to_install_script(
- p_id=>wwv_flow_api.id(214852759420148196)
+ p_id=>wwv_flow_api.id(134170499122943563)
 ,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '                                                                                                              ',
 'l_dump  := lpad('' '',(5-instr(l_dump,'','')),'' '')||l_dump;                                                                                                                                                 ',
@@ -1806,7 +1806,7 @@ wwv_flow_api.append_to_install_script(
 ');                                                                                                                                           '))
 );
 wwv_flow_api.append_to_install_script(
- p_id=>wwv_flow_api.id(214852759420148196)
+ p_id=>wwv_flow_api.id(134170499122943563)
 ,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '                                                           ',
 'end log_warn;                                                                                                                                                                                           ',
@@ -1964,15 +1964,15 @@ end;
 /
 begin
 wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.6'
+ p_version_yyyy_mm_dd=>'2021.10.15'
+,p_release=>'21.2.1'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>349023258543091759
+,p_default_id_offset=>364658460193179534
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.append_to_install_script(
- p_id=>wwv_flow_api.id(214852759420148196)
+ p_id=>wwv_flow_api.id(134170499122943563)
 ,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '        ',
 'p_level in logger_logs.logger_level%type default null)                                                                                                                                                  ',
@@ -2127,7 +2127,7 @@ wwv_flow_api.append_to_install_script(
 '*                                         '))
 );
 wwv_flow_api.append_to_install_script(
- p_id=>wwv_flow_api.id(214852759420148196)
+ p_id=>wwv_flow_api.id(134170499122943563)
 ,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '                                                                                                                                                              ',
 '* @author Tyler Muth                                                                                                                                                                                    ',
@@ -2285,15 +2285,15 @@ end;
 /
 begin
 wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.6'
+ p_version_yyyy_mm_dd=>'2021.10.15'
+,p_release=>'21.2.1'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>349023258543091759
+,p_default_id_offset=>364658460193179534
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.append_to_install_script(
- p_id=>wwv_flow_api.id(214852759420148196)
+ p_id=>wwv_flow_api.id(134170499122943563)
 ,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '                                                                                                           ',
 '* Wrapper for Purge (to accept number for purge_min_level)                                                                                                                                              ',
@@ -2447,7 +2447,7 @@ wwv_flow_api.append_to_install_script(
 'begin                                                                                                                                           '))
 );
 wwv_flow_api.append_to_install_script(
- p_id=>wwv_flow_api.id(214852759420148196)
+ p_id=>wwv_flow_api.id(134170499122943563)
 ,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '                                                        ',
 'null;                                                                                                                                                                                                   ',
@@ -2605,15 +2605,15 @@ end;
 /
 begin
 wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.6'
+ p_version_yyyy_mm_dd=>'2021.10.15'
+,p_release=>'21.2.1'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>349023258543091759
+,p_default_id_offset=>364658460193179534
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.append_to_install_script(
- p_id=>wwv_flow_api.id(214852759420148196)
+ p_id=>wwv_flow_api.id(134170499122943563)
 ,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '     ',
 'as                                                                                                                                                                                                      ',
@@ -2768,7 +2768,7 @@ wwv_flow_api.append_to_install_script(
 'end,                                         '))
 );
 wwv_flow_api.append_to_install_script(
- p_id=>wwv_flow_api.id(214852759420148196)
+ p_id=>wwv_flow_api.id(134170499122943563)
 ,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '                                                                                                                                                           ',
 '1,0,''c'');                                                                                                                                                                                               ',

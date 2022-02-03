@@ -4,122 +4,83 @@ begin
 --     PAGE: 09999
 --   Manifest End
 wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.6'
+ p_version_yyyy_mm_dd=>'2021.10.15'
+,p_release=>'21.2.1'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>349023258543091759
+,p_default_id_offset=>364658460193179534
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_page(
  p_id=>9999
-,p_user_interface_id=>wwv_flow_api.id(169972465035918193)
+,p_user_interface_id=>wwv_flow_api.id(179050793507173566)
 ,p_name=>'Login Page'
 ,p_alias=>'LOGIN'
 ,p_step_title=>'Excel Gateway for Oracle APEX - Sign In'
 ,p_warn_on_unsaved_changes=>'N'
 ,p_first_item=>'AUTO_FIRST_ITEM'
 ,p_autocomplete_on_off=>'OFF'
-,p_step_template=>wwv_flow_api.id(170104372294918325)
+,p_step_template=>wwv_flow_api.id(178918886248173434)
 ,p_page_template_options=>'#DEFAULT#'
 ,p_page_is_public_y_n=>'Y'
 ,p_last_updated_by=>'THERWIX'
 ,p_last_upd_yyyymmddhh24miss=>'20210819113107'
 );
 wwv_flow_api.create_page_plug(
- p_id=>wwv_flow_api.id(169968495465918154)
+ p_id=>wwv_flow_api.id(179054763077173605)
 ,p_plug_name=>'Excel Gateway for Oracle APEX'
 ,p_icon_css_classes=>'app-icon'
 ,p_region_template_options=>'#DEFAULT#'
-,p_plug_template=>wwv_flow_api.id(170058343863918291)
+,p_plug_template=>wwv_flow_api.id(178964914679173468)
 ,p_plug_display_sequence=>10
-,p_plug_display_point=>'BODY'
 ,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'TEXT'
 ,p_attribute_03=>'Y'
 );
 wwv_flow_api.create_page_plug(
- p_id=>wwv_flow_api.id(169963818220918138)
+ p_id=>wwv_flow_api.id(179059440322173621)
 ,p_plug_name=>'Language Selector'
-,p_parent_plug_id=>wwv_flow_api.id(169968495465918154)
+,p_parent_plug_id=>wwv_flow_api.id(179054763077173605)
 ,p_region_template_options=>'#DEFAULT#'
 ,p_component_template_options=>'#DEFAULT#'
 ,p_escape_on_http_output=>'Y'
-,p_plug_template=>wwv_flow_api.id(170084502189918308)
+,p_plug_template=>wwv_flow_api.id(178938756353173451)
 ,p_plug_display_sequence=>20
-,p_plug_display_point=>'BODY'
+,p_plug_display_point=>'SUB_REGIONS'
 ,p_plug_source=>'apex_lang.emit_language_selector_list;'
 ,p_plug_source_type=>'NATIVE_PLSQL'
 ,p_plug_query_num_rows=>15
 );
 wwv_flow_api.create_page_button(
- p_id=>wwv_flow_api.id(169965642283918142)
+ p_id=>wwv_flow_api.id(179057616259173617)
 ,p_button_sequence=>40
-,p_button_plug_id=>wwv_flow_api.id(169968495465918154)
+,p_button_plug_id=>wwv_flow_api.id(179054763077173605)
 ,p_button_name=>'LOGIN'
 ,p_button_action=>'SUBMIT'
 ,p_button_template_options=>'#DEFAULT#'
-,p_button_template_id=>wwv_flow_api.id(169994963251918243)
+,p_button_template_id=>wwv_flow_api.id(179028295291173516)
 ,p_button_is_hot=>'Y'
 ,p_button_image_alt=>'Sign In'
-,p_button_position=>'REGION_TEMPLATE_NEXT'
+,p_button_position=>'NEXT'
 ,p_button_alignment=>'LEFT'
 ,p_grid_new_row=>'Y'
 ,p_grid_new_column=>'Y'
 );
 wwv_flow_api.create_page_item(
- p_id=>wwv_flow_api.id(169968108806918151)
-,p_name=>'P9999_USERNAME'
-,p_item_sequence=>10
-,p_item_plug_id=>wwv_flow_api.id(169968495465918154)
-,p_prompt=>'Username'
-,p_placeholder=>'Username'
-,p_display_as=>'NATIVE_TEXT_FIELD'
-,p_cSize=>40
-,p_cMaxlength=>100
-,p_label_alignment=>'RIGHT'
-,p_field_template=>wwv_flow_api.id(169996359508918247)
-,p_item_icon_css_classes=>'fa-user'
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_01=>'N'
-,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'TEXT'
-,p_attribute_05=>'NONE'
-);
-wwv_flow_api.create_page_item(
- p_id=>wwv_flow_api.id(169967715346918150)
-,p_name=>'P9999_PASSWORD'
-,p_item_sequence=>20
-,p_item_plug_id=>wwv_flow_api.id(169968495465918154)
-,p_prompt=>'Password'
-,p_placeholder=>'Password'
-,p_display_as=>'NATIVE_PASSWORD'
-,p_cSize=>40
-,p_cMaxlength=>100
-,p_label_alignment=>'RIGHT'
-,p_field_template=>wwv_flow_api.id(169996359508918247)
-,p_item_icon_css_classes=>'fa-key'
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
-);
-wwv_flow_api.create_page_item(
- p_id=>wwv_flow_api.id(169966611058918145)
+ p_id=>wwv_flow_api.id(179056647484173614)
 ,p_name=>'P9999_REMEMBER'
 ,p_item_sequence=>30
-,p_item_plug_id=>wwv_flow_api.id(169968495465918154)
+,p_item_plug_id=>wwv_flow_api.id(179054763077173605)
 ,p_prompt=>'Remember username'
 ,p_display_as=>'NATIVE_CHECKBOX'
 ,p_named_lov=>'LOGIN_REMEMBER_USERNAME'
-,p_lov=>'.'||wwv_flow_api.id(169967361297918150)||'.'
+,p_lov=>'.'||wwv_flow_api.id(179055897245173609)||'.'
 ,p_label_alignment=>'RIGHT'
 ,p_display_when=>'apex_authentication.persistent_cookies_enabled'
 ,p_display_when2=>'PLSQL'
 ,p_display_when_type=>'EXPRESSION'
-,p_field_template=>wwv_flow_api.id(169996359508918247)
+,p_field_template=>wwv_flow_api.id(179026899034173512)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
 ,p_lov_display_extra=>'NO'
@@ -134,10 +95,51 @@ wwv_flow_api.create_page_item(
 'the application will overwrite it with an empty value.',
 'You can also use your browser''s developer tools to completely remove the cookie.',
 '</p>'))
+,p_encrypt_session_state_yn=>'N'
 ,p_attribute_01=>'1'
 );
+wwv_flow_api.create_page_item(
+ p_id=>wwv_flow_api.id(179055543196173609)
+,p_name=>'P9999_PASSWORD'
+,p_item_sequence=>20
+,p_item_plug_id=>wwv_flow_api.id(179054763077173605)
+,p_prompt=>'Password'
+,p_placeholder=>'Password'
+,p_display_as=>'NATIVE_PASSWORD'
+,p_cSize=>40
+,p_cMaxlength=>100
+,p_label_alignment=>'RIGHT'
+,p_field_template=>wwv_flow_api.id(179026899034173512)
+,p_item_icon_css_classes=>'fa-key'
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_encrypt_session_state_yn=>'N'
+,p_attribute_01=>'Y'
+);
+wwv_flow_api.create_page_item(
+ p_id=>wwv_flow_api.id(179055149736173608)
+,p_name=>'P9999_USERNAME'
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_api.id(179054763077173605)
+,p_prompt=>'Username'
+,p_placeholder=>'Username'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>40
+,p_cMaxlength=>100
+,p_label_alignment=>'RIGHT'
+,p_field_template=>wwv_flow_api.id(179026899034173512)
+,p_item_icon_css_classes=>'fa-user'
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_encrypt_session_state_yn=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_03=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'NONE'
+);
 wwv_flow_api.create_page_process(
- p_id=>wwv_flow_api.id(169964935086918140)
+ p_id=>wwv_flow_api.id(179058323456173619)
 ,p_process_sequence=>10
 ,p_process_point=>'AFTER_SUBMIT'
 ,p_process_type=>'NATIVE_PLSQL'
@@ -150,7 +152,7 @@ wwv_flow_api.create_page_process(
 ,p_error_display_location=>'INLINE_IN_NOTIFICATION'
 );
 wwv_flow_api.create_page_process(
- p_id=>wwv_flow_api.id(169965330538918141)
+ p_id=>wwv_flow_api.id(179057928004173618)
 ,p_process_sequence=>20
 ,p_process_point=>'AFTER_SUBMIT'
 ,p_process_type=>'NATIVE_PLSQL'
@@ -163,7 +165,7 @@ wwv_flow_api.create_page_process(
 ,p_error_display_location=>'INLINE_IN_NOTIFICATION'
 );
 wwv_flow_api.create_page_process(
- p_id=>wwv_flow_api.id(169964118753918139)
+ p_id=>wwv_flow_api.id(179059139789173620)
 ,p_process_sequence=>30
 ,p_process_point=>'AFTER_SUBMIT'
 ,p_process_type=>'NATIVE_SESSION_STATE'
@@ -172,7 +174,7 @@ wwv_flow_api.create_page_process(
 ,p_error_display_location=>'INLINE_IN_NOTIFICATION'
 );
 wwv_flow_api.create_page_process(
- p_id=>wwv_flow_api.id(169964450274918140)
+ p_id=>wwv_flow_api.id(179058808268173619)
 ,p_process_sequence=>10
 ,p_process_point=>'BEFORE_HEADER'
 ,p_process_type=>'NATIVE_PLSQL'

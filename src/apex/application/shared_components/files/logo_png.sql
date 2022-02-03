@@ -4,11 +4,11 @@ begin
 --     APP STATIC FILES: 445
 --   Manifest End
 wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.6'
+ p_version_yyyy_mm_dd=>'2021.10.15'
+,p_release=>'21.2.1'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>349023258543091759
+,p_default_id_offset=>364658460193179534
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.g_varchar2_table := wwv_flow_api.empty_varchar2_table;
@@ -86,7 +86,7 @@ wwv_flow_api.g_varchar2_table(71) := 'FBE3F367462DFCB636E42E8EF7B71566F84F5A8975
 wwv_flow_api.g_varchar2_table(72) := 'B100402C0000880500620180580000100B00C40200B10000201600880500620100402C00100B00C4020080580020160088050000B100402C00100B0000620180580020160000C40200B100402C0000880500620180580000100B5019F87F93B4E470B607';
 wwv_flow_api.g_varchar2_table(73) := '91530000000049454E44AE426082';
 wwv_flow_api.create_app_static_file(
- p_id=>wwv_flow_api.id(164860112964953273)
+ p_id=>wwv_flow_api.id(184163145578138486)
 ,p_file_name=>'Logo.png'
 ,p_mime_type=>'image/png'
 ,p_file_charset=>'utf-8'

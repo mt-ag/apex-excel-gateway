@@ -4,16 +4,16 @@ begin
 --     PAGE: 00001
 --   Manifest End
 wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.6'
+ p_version_yyyy_mm_dd=>'2021.10.15'
+,p_release=>'21.2.1'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>349023258543091759
+,p_default_id_offset=>364658460193179534
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_page(
  p_id=>1
-,p_user_interface_id=>wwv_flow_api.id(169972465035918193)
+,p_user_interface_id=>wwv_flow_api.id(179050793507173566)
 ,p_name=>'Home'
 ,p_alias=>'HOME'
 ,p_step_title=>'Excel Gateway for Oracle APEX'
@@ -23,13 +23,12 @@ wwv_flow_api.create_page(
 ,p_last_upd_yyyymmddhh24miss=>'20210819142246'
 );
 wwv_flow_api.create_page_plug(
- p_id=>wwv_flow_api.id(169958810040914854)
+ p_id=>wwv_flow_api.id(179064448502176905)
 ,p_plug_name=>'Home'
 ,p_region_template_options=>'#DEFAULT#'
-,p_plug_template=>wwv_flow_api.id(170084502189918308)
+,p_plug_template=>wwv_flow_api.id(178938756353173451)
 ,p_plug_display_sequence=>10
 ,p_include_in_reg_disp_sel_yn=>'Y'
-,p_plug_display_point=>'BODY'
 ,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '<b>Please select a template above or create a new template. The selected template serves as a filter for further work with the application.</b>',
 '<br><br>',

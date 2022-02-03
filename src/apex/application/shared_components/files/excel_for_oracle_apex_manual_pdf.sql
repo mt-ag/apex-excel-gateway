@@ -4,11 +4,11 @@ begin
 --     APP STATIC FILES: 445
 --   Manifest End
 wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.6'
+ p_version_yyyy_mm_dd=>'2021.10.15'
+,p_release=>'21.2.1'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>349023258543091759
+,p_default_id_offset=>364658460193179534
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.g_varchar2_table := wwv_flow_api.empty_varchar2_table;
@@ -1518,11 +1518,11 @@ end;
 /
 begin
 wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.6'
+ p_version_yyyy_mm_dd=>'2021.10.15'
+,p_release=>'21.2.1'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>349023258543091759
+,p_default_id_offset=>364658460193179534
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.g_varchar2_table(1501) := '6776D38FBF8EF8A8A3F18797756D37D833E4E91FD9B8F3BEF70C37FDDE3EF7DDFD6B96A295905CEC74FF001F4D610585BA5AC8B15BD94967298AE4C6EE19B706570B946071FDEEF583ADEAEFABDD47219F52911170A2FEF3ED2CA73CE1B6AE074E31F8D6';
@@ -3031,11 +3031,11 @@ end;
 /
 begin
 wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.6'
+ p_version_yyyy_mm_dd=>'2021.10.15'
+,p_release=>'21.2.1'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>349023258543091759
+,p_default_id_offset=>364658460193179534
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.g_varchar2_table(3001) := '96BA0950ABBD99CE52D6A787AD6D6F75A8E1BD4692DFCA95DD51B6B1DB1B30C1EC72A2B56E3C3105ADA5CDE091A4B792C5AE2D84A0C72A11222FCCBF4638232A7A8A2A6269D39F24B71C284E71E6472DDEBA7F875FF23F697FEF4BFF00A29EB98EF5D3FC';
@@ -4544,11 +4544,11 @@ end;
 /
 begin
 wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.6'
+ p_version_yyyy_mm_dd=>'2021.10.15'
+,p_release=>'21.2.1'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>349023258543091759
+,p_default_id_offset=>364658460193179534
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.g_varchar2_table(4501) := 'FDF7FD3FC2AC5145D858AFF655FEFBFE9FE147D957FBEFFA7F8558A28BB0B15FECABFDF7FD3FC28FB2AFF7DFF4FF000AB145176162BFD957FBEFFA7F851F655FEFBFE9FE15628A2EC2C57FB2AFF7DFF4FF000A3ECABFDF7FD3FC2AC5145D858AFF00655F';
@@ -6057,11 +6057,11 @@ end;
 /
 begin
 wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.6'
+ p_version_yyyy_mm_dd=>'2021.10.15'
+,p_release=>'21.2.1'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>349023258543091759
+,p_default_id_offset=>364658460193179534
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.g_varchar2_table(6001) := '800A28A2800A28A2800A28A2800A28A2800A28A2800A28A2800A28A2800A28A2800A28A2800A28A2800A28A2800A28A2800A28A2800A28A2800A28A2800A28A2800A28A2800A28A2800A28A2800A28A280229FFD50FF007D7FF4214DA74FFEA87FBEBFFA';
@@ -7570,11 +7570,11 @@ end;
 /
 begin
 wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.6'
+ p_version_yyyy_mm_dd=>'2021.10.15'
+,p_release=>'21.2.1'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>349023258543091759
+,p_default_id_offset=>364658460193179534
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.g_varchar2_table(7501) := 'D13FEFA1479D1FFCF44FFBE851E4C7FF003CD3FEF9147931FF00CF34FF00BE45001E747FF3D13FEFA1479D1FFCF44FFBE851E4C7FF003CD3FEF9147931FF00CF34FF00BE45003249632A3122FDE1DFDE9FE747FF003D13FEFA147931FF00CF34FF00BE45';
@@ -9083,11 +9083,11 @@ end;
 /
 begin
 wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.6'
+ p_version_yyyy_mm_dd=>'2021.10.15'
+,p_release=>'21.2.1'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>349023258543091759
+,p_default_id_offset=>364658460193179534
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.g_varchar2_table(9001) := 'E93FF89A3FE152691FF3FD7DFF007D27FF00135E81451F5FC4FF003B0FA8E1FF00911E7FFF000A9348FF009FEBEFFBE93FF89A3FE152691FF3FD7DFF007D27FF00135E81451F5FC4FF003B0FA8E1FF00911E7FFF000A9348FF009FEBEFFBE93FF89A3FE1';
@@ -10596,11 +10596,11 @@ end;
 /
 begin
 wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.6'
+ p_version_yyyy_mm_dd=>'2021.10.15'
+,p_release=>'21.2.1'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>349023258543091759
+,p_default_id_offset=>364658460193179534
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.g_varchar2_table(10501) := 'FF00851BEF3FBB0FE67FC2AC514015F7DE7F761FCCFF00851BEF3FBB0FE67FC2AC514015F7DE7F761FCCFF00851BEF3FBB0FE67FC2AC514015F7DE7F761FCCFF00851BEF3FBB0FE67FC2AC514015F7DE7F761FCCFF00851BEF3FBB0FE67FC2AC514015F7';
@@ -12109,11 +12109,11 @@ end;
 /
 begin
 wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.6'
+ p_version_yyyy_mm_dd=>'2021.10.15'
+,p_release=>'21.2.1'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>349023258543091759
+,p_default_id_offset=>364658460193179534
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.g_varchar2_table(12001) := 'F262FF009E69FF007C8A7D145D8590CF262FF9E69FF7C8A3C98BFE79A7FDF229F4517616433C98BFE79A7FDF228F262FF9E69FF7C8A7D145D8590CF262FF009E69FF007C8A3C98BFE79A7FDF229F4517616433C98BFE79A7FDF228F262FF009E69FF007C';
@@ -13078,15 +13078,15 @@ end;
 /
 begin
 wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.6'
+ p_version_yyyy_mm_dd=>'2021.10.15'
+,p_release=>'21.2.1'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>349023258543091759
+,p_default_id_offset=>364658460193179534
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_app_static_file(
- p_id=>wwv_flow_api.id(208790931525551764)
+ p_id=>wwv_flow_api.id(140232327017539995)
 ,p_file_name=>'Excel for Oracle APEX - Manual.pdf'
 ,p_mime_type=>'application/pdf'
 ,p_file_charset=>'utf-8'

@@ -4,16 +4,16 @@ begin
 --     PAGE: 00031
 --   Manifest End
 wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.6'
+ p_version_yyyy_mm_dd=>'2021.10.15'
+,p_release=>'21.2.1'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>349023258543091759
+,p_default_id_offset=>364658460193179534
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_page(
  p_id=>31
-,p_user_interface_id=>wwv_flow_api.id(169972465035918193)
+,p_user_interface_id=>wwv_flow_api.id(179050793507173566)
 ,p_name=>'Add Person'
 ,p_alias=>'ADD-PERSON'
 ,p_page_mode=>'MODAL'
@@ -26,22 +26,24 @@ wwv_flow_api.create_page(
 ,p_last_upd_yyyymmddhh24miss=>'20211105122757'
 );
 wwv_flow_api.create_page_plug(
- p_id=>wwv_flow_api.id(168903719703917059)
-,p_plug_name=>'Person'
-,p_region_template_options=>'#DEFAULT#'
-,p_plug_template=>wwv_flow_api.id(170059005590918291)
-,p_plug_display_sequence=>20
+ p_id=>wwv_flow_api.id(206252857277758063)
+,p_plug_name=>'Info'
+,p_region_template_options=>'#DEFAULT#:t-Alert--horizontal:t-Alert--defaultIcons:t-Alert--info:t-Alert--removeHeading js-removeLandmark:margin-bottom-sm:margin-left-sm:margin-right-sm'
+,p_plug_template=>wwv_flow_api.id(178935071336173446)
+,p_plug_display_sequence=>10
 ,p_include_in_reg_disp_sel_yn=>'Y'
-,p_plug_display_point=>'BODY'
+,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'Select the person(s) who should receive the template </p>',
+'(Note: Go to "Administration/Manage Data/Person" to add or edit recipients)'))
 ,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'HTML'
 );
 wwv_flow_api.create_page_plug(
- p_id=>wwv_flow_api.id(168903260991917055)
+ p_id=>wwv_flow_api.id(180119997551174704)
 ,p_plug_name=>'Dialog Footer'
 ,p_region_template_options=>'#DEFAULT#'
-,p_plug_template=>wwv_flow_api.id(170083455647918308)
+,p_plug_template=>wwv_flow_api.id(178939802895173451)
 ,p_plug_display_sequence=>10
 ,p_include_in_reg_disp_sel_yn=>'Y'
 ,p_plug_display_point=>'REGION_POSITION_03'
@@ -50,46 +52,42 @@ wwv_flow_api.create_page_plug(
 ,p_attribute_02=>'HTML'
 );
 wwv_flow_api.create_page_plug(
- p_id=>wwv_flow_api.id(142770401265333696)
-,p_plug_name=>'Info'
-,p_region_template_options=>'#DEFAULT#:t-Alert--horizontal:t-Alert--defaultIcons:t-Alert--info:t-Alert--removeHeading js-removeLandmark:margin-bottom-sm:margin-left-sm:margin-right-sm'
-,p_plug_template=>wwv_flow_api.id(170088187206918313)
-,p_plug_display_sequence=>10
+ p_id=>wwv_flow_api.id(180119538839174700)
+,p_plug_name=>'Person'
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_api.id(178964252952173468)
+,p_plug_display_sequence=>20
 ,p_include_in_reg_disp_sel_yn=>'Y'
-,p_plug_display_point=>'BODY'
-,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'Select the person(s) who should receive the template </p>',
-'(Note: Go to "Administration/Manage Data/Person" to add or edit recipients)'))
 ,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'HTML'
 );
 wwv_flow_api.create_page_button(
- p_id=>wwv_flow_api.id(168903038917917053)
+ p_id=>wwv_flow_api.id(180120219625174706)
 ,p_button_sequence=>20
-,p_button_plug_id=>wwv_flow_api.id(168903260991917055)
+,p_button_plug_id=>wwv_flow_api.id(180119997551174704)
 ,p_button_name=>'Cancel'
 ,p_button_action=>'REDIRECT_PAGE'
 ,p_button_template_options=>'#DEFAULT#'
-,p_button_template_id=>wwv_flow_api.id(169994963251918243)
+,p_button_template_id=>wwv_flow_api.id(179028295291173516)
 ,p_button_image_alt=>'Cancel'
-,p_button_position=>'REGION_TEMPLATE_CLOSE'
+,p_button_position=>'CLOSE'
 ,p_button_redirect_url=>'f?p=&APP_ID.:30:&SESSION.::&DEBUG.:::'
 );
 wwv_flow_api.create_page_button(
- p_id=>wwv_flow_api.id(168903189327917054)
+ p_id=>wwv_flow_api.id(180120069215174705)
 ,p_button_sequence=>10
-,p_button_plug_id=>wwv_flow_api.id(168903260991917055)
+,p_button_plug_id=>wwv_flow_api.id(180119997551174704)
 ,p_button_name=>'Add_Person'
 ,p_button_action=>'SUBMIT'
 ,p_button_template_options=>'#DEFAULT#'
-,p_button_template_id=>wwv_flow_api.id(169994963251918243)
+,p_button_template_id=>wwv_flow_api.id(179028295291173516)
 ,p_button_is_hot=>'Y'
 ,p_button_image_alt=>'Add Person'
-,p_button_position=>'REGION_TEMPLATE_CREATE'
+,p_button_position=>'CREATE'
 );
 wwv_flow_api.create_page_branch(
- p_id=>wwv_flow_api.id(168902939307917052)
+ p_id=>wwv_flow_api.id(180120319235174707)
 ,p_branch_name=>'To_30'
 ,p_branch_action=>'f?p=&APP_ID.:30:&SESSION.::&DEBUG.:::&success_msg=#SUCCESS_MSG#'
 ,p_branch_point=>'AFTER_PROCESSING'
@@ -97,10 +95,10 @@ wwv_flow_api.create_page_branch(
 ,p_branch_sequence=>10
 );
 wwv_flow_api.create_page_item(
- p_id=>wwv_flow_api.id(168902702548917049)
+ p_id=>wwv_flow_api.id(180120555994174710)
 ,p_name=>'P31_PER_ID'
 ,p_item_sequence=>10
-,p_item_plug_id=>wwv_flow_api.id(168903719703917059)
+,p_item_plug_id=>wwv_flow_api.id(180119538839174700)
 ,p_prompt=>'Person'
 ,p_placeholder=>'- Please select -'
 ,p_display_as=>'NATIVE_POPUP_LOV'
@@ -112,9 +110,10 @@ wwv_flow_api.create_page_item(
 '  from  r_person'))
 ,p_lov_display_null=>'YES'
 ,p_cSize=>30
-,p_field_template=>wwv_flow_api.id(169996041664918246)
+,p_field_template=>wwv_flow_api.id(179027216878173513)
 ,p_item_template_options=>'#DEFAULT#:t-Form-fieldContainer--stretchInputs'
 ,p_lov_display_extra=>'YES'
+,p_encrypt_session_state_yn=>'N'
 ,p_attribute_01=>'POPUP'
 ,p_attribute_02=>'FIRST_ROWSET'
 ,p_attribute_03=>'Y'
@@ -124,7 +123,7 @@ wwv_flow_api.create_page_item(
 ,p_attribute_11=>':'
 );
 wwv_flow_api.create_page_process(
- p_id=>wwv_flow_api.id(168902769028917050)
+ p_id=>wwv_flow_api.id(180120489514174709)
 ,p_process_sequence=>10
 ,p_process_point=>'AFTER_SUBMIT'
 ,p_process_type=>'NATIVE_PLSQL'

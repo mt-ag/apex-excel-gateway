@@ -4786,11 +4786,11 @@ as
         returning tpl_id INTO l_tpl_id;
         
         if l_tpl_id is not null then
-            delete template_header
-            where tph_tpl_id = l_tpl_id;
-
             delete template_header_validations
-            where thv_tph_id in (select tph_id from template_header where tph_tpl_id = l_tpl_id); 
+            where thv_tph_id in (select tph_id from template_header where tph_tpl_id = l_tpl_id);
+            
+            delete template_header
+            where tph_tpl_id = l_tpl_id;             
         end if;
     end loop;
 

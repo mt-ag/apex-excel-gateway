@@ -4,16 +4,16 @@ begin
 --     INSTALL: INSTALL-Demo Data
 --   Manifest End
 wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.6'
+ p_version_yyyy_mm_dd=>'2021.10.15'
+,p_release=>'21.2.1'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>349023258543091759
+,p_default_id_offset=>364658460193179534
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_install_script(
- p_id=>wwv_flow_api.id(214468520427503888)
-,p_install_id=>wwv_flow_api.id(215415256849636528)
+ p_id=>wwv_flow_api.id(134554738115587871)
+,p_install_id=>wwv_flow_api.id(133608001693455231)
 ,p_name=>'Demo Data'
 ,p_sequence=>50
 ,p_script_type=>'INSTALL'

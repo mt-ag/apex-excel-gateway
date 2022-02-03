@@ -4,16 +4,16 @@ begin
 --     INSTALL: INSTALL-Packages
 --   Manifest End
 wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.6'
+ p_version_yyyy_mm_dd=>'2021.10.15'
+,p_release=>'21.2.1'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>349023258543091759
+,p_default_id_offset=>364658460193179534
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_install_script(
- p_id=>wwv_flow_api.id(214852394203100808)
-,p_install_id=>wwv_flow_api.id(215415256849636528)
+ p_id=>wwv_flow_api.id(134170864339990951)
+,p_install_id=>wwv_flow_api.id(133608001693455231)
 ,p_name=>'Packages'
 ,p_sequence=>40
 ,p_script_type=>'INSTALL'
@@ -805,15 +805,15 @@ end;
 /
 begin
 wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.6'
+ p_version_yyyy_mm_dd=>'2021.10.15'
+,p_release=>'21.2.1'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>349023258543091759
+,p_default_id_offset=>364658460193179534
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.append_to_install_script(
- p_id=>wwv_flow_api.id(214852394203100808)
+ p_id=>wwv_flow_api.id(134170864339990951)
 ,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '',
 '                              p_defined_name    VARCHAR2,',
@@ -1577,15 +1577,15 @@ end;
 /
 begin
 wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.6'
+ p_version_yyyy_mm_dd=>'2021.10.15'
+,p_release=>'21.2.1'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>349023258543091759
+,p_default_id_offset=>364658460193179534
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.append_to_install_script(
- p_id=>wwv_flow_api.id(214852394203100808)
+ p_id=>wwv_flow_api.id(134170864339990951)
 ,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '   => APEX_UTIL.GET_EMAIL(v(''APP_USER'')),',
 '      p_template_static_id => ''REMINDER'',',
@@ -2458,15 +2458,15 @@ end;
 /
 begin
 wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.6'
+ p_version_yyyy_mm_dd=>'2021.10.15'
+,p_release=>'21.2.1'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>349023258543091759
+,p_default_id_offset=>364658460193179534
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.append_to_install_script(
- p_id=>wwv_flow_api.id(214852394203100808)
+ p_id=>wwv_flow_api.id(134170864339990951)
 ,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'preadsheet_protection',
 '       where ssp_id = l_tpl_ssp_id;',
@@ -3203,15 +3203,15 @@ end;
 /
 begin
 wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.6'
+ p_version_yyyy_mm_dd=>'2021.10.15'
+,p_release=>'21.2.1'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>349023258543091759
+,p_default_id_offset=>364658460193179534
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.append_to_install_script(
- p_id=>wwv_flow_api.id(214852394203100808)
+ p_id=>wwv_flow_api.id(134170864339990951)
 ,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '_row_id ',
 '      ; ',
@@ -4202,15 +4202,15 @@ end;
 /
 begin
 wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.6'
+ p_version_yyyy_mm_dd=>'2021.10.15'
+,p_release=>'21.2.1'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>349023258543091759
+,p_default_id_offset=>364658460193179534
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.append_to_install_script(
- p_id=>wwv_flow_api.id(214852394203100808)
+ p_id=>wwv_flow_api.id(134170864339990951)
 ,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'ere tph_hea_id = l_annotation_id',
 '       and tph_tpl_id = l_tpl_id',
@@ -4895,11 +4895,11 @@ wwv_flow_api.append_to_install_script(
 '        returning tpl_id INTO l_tpl_id;',
 '        ',
 '        if l_tpl_id is not null then',
-'            delete template_header',
-'            where tph_tpl_id = l_tpl_id;',
-'',
 '            delete template_header_validations',
 '            where thv_tph_id in (select tph_id from template_header where tph_tpl_id = l_tpl_id); ',
+'            ',
+'            delete template_header',
+'            where tph_tpl_id = l_tpl_id;            ',
 '        end if;',
 '    end loop;',
 '',
@@ -5150,8 +5150,7 @@ wwv_flow_api.append_to_install_script(
 '        )',
 '        loop',
 '',
-'        update template_import_data',
-'       '))
+'        update templ'))
 );
 null;
 wwv_flow_api.component_end;
@@ -5159,17 +5158,18 @@ end;
 /
 begin
 wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.6'
+ p_version_yyyy_mm_dd=>'2021.10.15'
+,p_release=>'21.2.1'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>349023258543091759
+,p_default_id_offset=>364658460193179534
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.append_to_install_script(
- p_id=>wwv_flow_api.id(214852394203100808)
+ p_id=>wwv_flow_api.id(134170864339990951)
 ,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'    set tid_text = ''''',
+'ate_import_data',
+'           set tid_text = ''''',
 '         where tid_tis_id = p_tis_id',
 '           and tid_tph_id = i.tid_tph_id;',
 '',
@@ -6053,8 +6053,7 @@ wwv_flow_api.append_to_install_script(
 '   FUNCTION get_border (p_top       VARCHAR2 := ''thin'',',
 '                        p_bottom    VARCHAR2 := ''thin'',',
 '                        p_left      VARCHAR2 := ''thin'',',
-'                        p_right     VARCHAR2 := ''thin'')',
-'   '))
+'                        p_right     '))
 );
 null;
 wwv_flow_api.component_end;
@@ -6062,17 +6061,18 @@ end;
 /
 begin
 wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.6'
+ p_version_yyyy_mm_dd=>'2021.10.15'
+,p_release=>'21.2.1'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>349023258543091759
+,p_default_id_offset=>364658460193179534
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.append_to_install_script(
- p_id=>wwv_flow_api.id(214852394203100808)
+ p_id=>wwv_flow_api.id(134170864339990951)
 ,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'   RETURN PLS_INTEGER',
+'VARCHAR2 := ''thin'')',
+'      RETURN PLS_INTEGER',
 '   AS',
 '      t_ind   PLS_INTEGER;',
 '   BEGIN',
@@ -6728,14 +6728,14 @@ wwv_flow_api.append_to_install_script(
 '                       || TO_CHAR (workbook.sheets_tab.COUNT)',
 '                       || ''" baseType="lpstr">'');',
 '',
-'      FOR s IN 1 .. workbook.sheets_tab.COUNT',
-'      LOOP',
-'     '))
+'      FOR s IN 1 .. workbook.sheets_tab.'))
 );
 wwv_flow_api.append_to_install_script(
- p_id=>wwv_flow_api.id(214852394203100808)
+ p_id=>wwv_flow_api.id(134170864339990951)
 ,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'    clob_vc_concat(',
+'COUNT',
+'      LOOP',
+'         clob_vc_concat(',
 '            p_clob        => t_xxx,',
 '            p_vc_buffer   => t_tmp,',
 '            p_vc_addition => ''<vt:lpstr>'' || workbook.sheets_tab (s).vc_sheet_name || ''</vt:lpstr>'');',
@@ -7509,25 +7509,25 @@ wwv_flow_api.append_to_install_script(
 '                  p_vc_buffer   => t_tmp,',
 '                  p_vc_addition => ''   <protectedRange sqref="'' ',
 '                                 || workbook.sheets_tab (s).protection_tab (p).vc_tl_col',
-'                                 || workbook.sheets_tab (s).protection_tab (p).vc_tl_row ',
-'  '))
+'                                 || workbook.sheets_tab (s).protectio'))
 );
 wwv_flow_api.component_end;
 end;
 /
 begin
 wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.6'
+ p_version_yyyy_mm_dd=>'2021.10.15'
+,p_release=>'21.2.1'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>349023258543091759
+,p_default_id_offset=>364658460193179534
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.append_to_install_script(
- p_id=>wwv_flow_api.id(214852394203100808)
+ p_id=>wwv_flow_api.id(134170864339990951)
 ,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'                               || '':'' ',
+'n_tab (p).vc_tl_row ',
+'                                 || '':'' ',
 '                                 || workbook.sheets_tab (s).protection_tab (p).vc_br_col ',
 '                                 || workbook.sheets_tab (s).protection_tab (p).vc_br_row ',
 '                                 || ''" name="''',
@@ -8200,13 +8200,13 @@ unistr('      -- column headers werden vom Lieferantenabfragetool gesetzt, daher
 '		</sheetView>',
 '	</sheetViews><sheetData>'';',
 '      DBMS_LOB.writeappend (t_xxx, length(t_str), t_str);',
-'	  DBMS_LOB.append (t_xxx, p_clob);',
-'	  D'))
+'	  DBMS_LOB.appen'))
 );
 wwv_flow_api.append_to_install_script(
- p_id=>wwv_flow_api.id(214852394203100808)
+ p_id=>wwv_flow_api.id(134170864339990951)
 ,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'BMS_LOB.freetemporary (p_clob);',
+'d (t_xxx, p_clob);',
+'	  DBMS_LOB.freetemporary (p_clob);',
 '      t_str := ''</sheetData><autoFilter ref="A1:''',
 '                             || alfan_col (p_columns)',
 '                             || p_rows',
@@ -8931,24 +8931,24 @@ wwv_flow_api.append_to_install_script(
 '    dest_offset INTEGER := 1;',
 '    src_offset INTEGER := 1;',
 '    l_warning INTEGER;',
-'    l_lang_ctx INTEGER := dbms_lob.DEFAULT_LANG_CTX;',
-''))
+'    l_lang_ctx INTEGER := dbms'))
 );
 wwv_flow_api.component_end;
 end;
 /
 begin
 wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.6'
+ p_version_yyyy_mm_dd=>'2021.10.15'
+,p_release=>'21.2.1'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>349023258543091759
+,p_default_id_offset=>364658460193179534
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.append_to_install_script(
- p_id=>wwv_flow_api.id(214852394203100808)
+ p_id=>wwv_flow_api.id(134170864339990951)
 ,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'_lob.DEFAULT_LANG_CTX;',
 '  BEGIN',
 '    dbms_lob.createtemporary( l_tmp, true );',
 '    dbms_lob.converttoblob( l_tmp',

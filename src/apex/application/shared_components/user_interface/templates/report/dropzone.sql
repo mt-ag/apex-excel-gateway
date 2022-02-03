@@ -4,15 +4,15 @@ begin
 --     ROW TEMPLATE: DROPZONE
 --   Manifest End
 wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.6'
+ p_version_yyyy_mm_dd=>'2021.10.15'
+,p_release=>'21.2.1'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>349023258543091759
+,p_default_id_offset=>364658460193179534
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_row_template(
- p_id=>wwv_flow_api.id(168870860114448844)
+ p_id=>wwv_flow_api.id(180152398428642915)
 ,p_row_template_name=>'DropZone'
 ,p_internal_name=>'DROPZONE'
 ,p_row_template1=>wwv_flow_string.join(wwv_flow_t_varchar2(

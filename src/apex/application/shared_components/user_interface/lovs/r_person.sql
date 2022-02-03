@@ -4,15 +4,15 @@ begin
 --     R_PERSON
 --   Manifest End
 wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.6'
+ p_version_yyyy_mm_dd=>'2021.10.15'
+,p_release=>'21.2.1'
 ,p_default_workspace_id=>9510583246779566
 ,p_default_application_id=>111
-,p_default_id_offset=>349023258543091759
+,p_default_id_offset=>364658460193179534
 ,p_default_owner=>'SURVEY_TOOL'
 );
 wwv_flow_api.create_list_of_values(
- p_id=>wwv_flow_api.id(168895530447855777)
+ p_id=>wwv_flow_api.id(180127728095235982)
 ,p_lov_name=>'R_PERSON'
 ,p_lov_query=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'select  per_id,',
@@ -29,7 +29,7 @@ wwv_flow_api.create_list_of_values(
 ,p_default_sort_direction=>'ASC'
 );
 wwv_flow_api.create_list_of_values_cols(
- p_id=>wwv_flow_api.id(168895019035844771)
+ p_id=>wwv_flow_api.id(180128239507246988)
 ,p_query_column_name=>'PER_ID'
 ,p_display_sequence=>10
 ,p_data_type=>'NUMBER'
@@ -37,14 +37,14 @@ wwv_flow_api.create_list_of_values_cols(
 ,p_is_searchable=>'N'
 );
 wwv_flow_api.create_list_of_values_cols(
- p_id=>wwv_flow_api.id(168894597827844771)
+ p_id=>wwv_flow_api.id(180128660715246988)
 ,p_query_column_name=>'PER_NAME'
 ,p_heading=>'Per Name'
 ,p_display_sequence=>20
 ,p_data_type=>'VARCHAR2'
 );
 wwv_flow_api.create_list_of_values_cols(
- p_id=>wwv_flow_api.id(168894236100844770)
+ p_id=>wwv_flow_api.id(180129022442246989)
 ,p_query_column_name=>'PER_EMAIL'
 ,p_heading=>'Per Email'
 ,p_display_sequence=>30
