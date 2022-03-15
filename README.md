@@ -28,7 +28,9 @@ This will install all DB-Objects and the application
 1) Click "Create Template" and follow the wizard
 2) Give your template a unique name
 3) Optional you can enter a deadline which is needed to calculate when the application will send reminders
-4) And optional too, you can enter a maximum number of rows which indicates how many rows are available to the editor
+4) You need a sheet protection to prevent various actions. Then choose a password for your workbook here
+5) You can enter a maximum number of rows which indicates how many rows are available to the editor
+6) Adopt specifications from existing templates
 
 #### Second step is to add column headings to the template  
 
@@ -68,7 +70,9 @@ For number or date validations, use Formula 1 as the minimum and Formula 2 as th
 If the validation is "Formula", enter the formula you need in Formula 1.  
 Click "Show Columns/Info" for more details and examples.
 
-#### Finally, you get an overview. Click "Save Template" to create.
+#### Finally, you get an overview. 
+Before you create the template you can download a preview file. To do this, click the "Preview" button. 
+Everything is fine, click "Save Template" to create.
 
 ![8](https://user-images.githubusercontent.com/61868531/158390701-925b7fbd-b6f6-4e37-a443-9aeecdd27fc6.JPG)
 
