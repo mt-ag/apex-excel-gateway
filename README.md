@@ -71,7 +71,7 @@ If the validation is "Formula", enter the formula you need in Formula 1.
 Click "Show Columns/Info" for more details and examples.
 
 #### Finally, you get an overview. 
-Before you create the template you can download a preview file. To do this, click the "Preview" button. 
+Before you create the template you can download a preview file. To do this, click the "Preview" button.  
 Everything is fine, click "Save Template" to create.
 
 ![8](https://user-images.githubusercontent.com/61868531/158390701-925b7fbd-b6f6-4e37-a443-9aeecdd27fc6.JPG)
