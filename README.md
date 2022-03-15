@@ -18,12 +18,12 @@ This will install all DB-Objects and the application
 
 ## Getting Started
 
-![1](https://user-images.githubusercontent.com/61868531/137754438-47ebd4b8-836f-4b8b-b20f-655c82aab4bf.JPG)
+![1](https://user-images.githubusercontent.com/61868531/158388621-117f39f3-7013-4689-b3a1-ac3ad7291d74.JPG)
 
 ### 1. Create Template
 #### First step is to create a new Excel template
 
-![1 1](https://user-images.githubusercontent.com/61868531/137742216-778090fb-6712-4431-8664-6dab604a1c15.JPG)
+![2](https://user-images.githubusercontent.com/61868531/158390363-2ca35af0-162f-4f51-8c2b-f7ad26fdb326.JPG)
 
 1) Click "Create Template" and follow the wizard
 2) Give your template a unique name
@@ -32,14 +32,14 @@ This will install all DB-Objects and the application
 
 #### Second step is to add column headings to the template  
 
-![1 21](https://user-images.githubusercontent.com/61868531/137754872-922cdb40-70dd-48ef-b15a-c3e920a66c3b.jpg)
+![3](https://user-images.githubusercontent.com/61868531/158390432-e067f5da-b2ac-4e63-8308-62e91f22fa6a.JPG)
 
 1) Drag and drop the titles from the left area (1) to the right (2)  
 Use the up or down arrows to change the order  
 The title can be deleted with the recycle bin
 3) If you need new titles, click "Add Header" (3) 
 
-![1 3](https://user-images.githubusercontent.com/61868531/137885822-9b911807-cc3a-4e7e-8842-51c744129d07.JPG)
+![4](https://user-images.githubusercontent.com/61868531/158390486-f2491b22-e7cb-47c0-ac75-cba5c8d29ccb.JPG)
 
 1) Enter the name of the title  
 2) Enter the width for the column in your Excel Spreadsheet  
@@ -48,7 +48,7 @@ The title can be deleted with the recycle bin
 
 #### Next step is to add header-groups to the template (optional) 
 
-![1 4](https://user-images.githubusercontent.com/61868531/137750291-d3f11533-a68d-4312-ace8-2ad34250e883.JPG)
+![5](https://user-images.githubusercontent.com/61868531/158390544-bcaa8461-b0cf-45de-947b-e32290beb517.JPG)
 
 Choose a heading group for each column that needs merge cells  
 If you need new header-groups, click on "Add Header-Group" and create a new one  
@@ -56,13 +56,13 @@ For this you have to enter the name, background and font color
 
 #### The next step is to set the background and font color for the columns  
 
-![1 5](https://user-images.githubusercontent.com/61868531/137751600-ed97bf9c-509f-43c6-8b07-b3482b80ec86.JPG)
+![6](https://user-images.githubusercontent.com/61868531/158390611-1e93d288-71e6-4065-b523-abc36b8518b7.JPG)
 
 You can use the Color Picker for this
 
 #### In the last step, formulas or min/max values can be set for the validations
 
-![1 6](https://user-images.githubusercontent.com/61868531/137886852-f1f65929-d207-4c23-b37e-8c2afb97ed01.JPG)
+![7](https://user-images.githubusercontent.com/61868531/158390655-bf8e9e59-8cb4-43b4-b699-7b5ae9b4fb10.JPG)
 
 For number or date validations, use Formula 1 as the minimum and Formula 2 as the maximum value.  
 If the validation is "Formula", enter the formula you need in Formula 1.  
@@ -70,18 +70,18 @@ Click "Show Columns/Info" for more details and examples.
 
 #### Finally, you get an overview. Click "Save Template" to create.
 
-![1 7](https://user-images.githubusercontent.com/61868531/137886880-c1e7a8fc-5f26-41c4-9431-fb7d572e3378.JPG)
+![8](https://user-images.githubusercontent.com/61868531/158390701-925b7fbd-b6f6-4e37-a443-9aeecdd27fc6.JPG)
 
 ### 2. Send Template
 
-![2 1](https://user-images.githubusercontent.com/61868531/137870039-60e1ce0a-ceba-4aa7-9288-b2ea84684171.JPG)
+![9](https://user-images.githubusercontent.com/61868531/158390745-fde69f5d-b38b-47bc-9911-e13a18f08247.JPG)
 
 First of all the template has to be selected (1).  
 Next, person(s) need to be added (2). All person(s) involved in the process are listed in the grid (3).  
 
 If you want to add person(s), click on "Add Person" and select the person(s) in the modal dialog.
 
-![2 2](https://user-images.githubusercontent.com/61868531/137870944-e1181669-1175-415f-a603-53849304f99b.JPG)
+![10](https://user-images.githubusercontent.com/61868531/158390803-6162606c-6cc9-4ddb-8985-f45c8b5b9f18.JPG)
 
 Click "Add Person" to continue.  
 Now all persons involved in the process are displayed and the template can be sent by email.  
@@ -93,7 +93,7 @@ There are three different types:
 2. Correction Mail - all templates where corrections must be made
 3. Reminder Mail - all templates where the deadline has passed
 
-![2 3](https://user-images.githubusercontent.com/61868531/137873185-06dc6610-c497-4479-a865-0082cb709ab7.JPG)
+![11](https://user-images.githubusercontent.com/61868531/158390850-65450540-074e-414b-be24-b7dff26b9a22.jpg)
 
 When a selection is made, the grid is always updated and only the affected recipients are displayed.  
 For example, the initial email can be sent only once a time and a reminder can be sent only when the deadline is exceeded.  
@@ -103,14 +103,14 @@ So first select "Initial Mail" and then click "Send Mail" to send everyone the i
 All available emails can also be sent automatically.  
 To do this, click on "Automations". The dialog shows how the status of the automation is and on which days it should be sent if the function is enabled.  
 
-![2 4](https://user-images.githubusercontent.com/61868531/137875158-36d878cb-b774-405b-855d-9a3bb68e89dc.JPG)
+![12](https://user-images.githubusercontent.com/61868531/158390879-dfc952cf-e170-43f9-8a0e-152cff955d00.jpg)
 
 ### 3. Upload Template
 
 After sending e-mails, the recipient must fill them out and send them back.  
 To upload the finished template, navigate to "Upload template" in the navigation menu and click "Upload".  
 
-![3 1](https://user-images.githubusercontent.com/61868531/137878019-07297b22-2dab-48a8-83f0-1624ca343fe2.JPG)
+![13](https://user-images.githubusercontent.com/61868531/158390912-255b48fb-b7be-48d7-a5d9-3ebbe86673c5.jpg)
 
 Note: If something should fail during the upload, you can check the error log to find out what the problem is.
 
@@ -119,16 +119,16 @@ Note: If something should fail during the upload, you can check the error log to
 If the upload was successful, the data can be checked.  
 To do this, navigate to "Check data" and select the one to be checked.
 
-![4 1](https://user-images.githubusercontent.com/61868531/137879363-2ae0d1e3-d1fb-4b6e-b61f-64a7f4996591.JPG)
+![14](https://user-images.githubusercontent.com/61868531/158390954-88d66c19-9e13-4a0d-9451-175092440cf2.JPG)
 
 This example shows data without errors that were detected by the application via the previously defined validations.
 
-![4 2](https://user-images.githubusercontent.com/61868531/137881197-c5283fdb-480d-4c5e-8b9b-d3bde9cd7913.JPG)
+![15](https://user-images.githubusercontent.com/61868531/158391001-f0a64cfb-9ec6-4f32-8eff-cf7928c38154.JPG)
 
 If incorrect data were detected by the application, this is displayed in the "Validation" column.  
 For example, an incorrect email address was detected here.
 
-![4 3](https://user-images.githubusercontent.com/61868531/137881555-ac21b834-1931-4d0f-a106-22c2aaf5c39b.JPG)
+![16](https://user-images.githubusercontent.com/61868531/158391048-7c7e3bce-9fd9-4cb6-a266-4eddc6050a9b.JPG)
 
 Now there are two options.
 1. The incorrect data can be corrected directly in the application or 
@@ -137,14 +137,14 @@ Now there are two options.
 If everything is fine, the status can be set to "Completed".  
 All the data that are "Completed" are available for export.
 
-![4 4](https://user-images.githubusercontent.com/61868531/137884347-d0150415-78d0-41fb-8139-7f5a876d2495.JPG)
+![17](https://user-images.githubusercontent.com/61868531/158391097-ad97ed83-fbdc-4033-9ead-13ff17c939c1.jpg)
 
 ### 5. Publication / Export Data
 
 All data are displayed here and are available for download.
 Alternatively, interactive reporting can be done here.
 
-![5 1](https://user-images.githubusercontent.com/61868531/137884668-14c9998e-57c8-4987-9242-59fe111fa70c.JPG)
+![18](https://user-images.githubusercontent.com/61868531/158391129-d165f6ed-6606-4371-8fd5-ca6a28241a39.JPG)
 
 ## How to contribute as a developer to this project
 
